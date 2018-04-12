@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 Auth::routes();
@@ -21,8 +21,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
 
 Route::prefix('admin')->group(function() {
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+});
+
+Route::prefix('admin')->group(function() {
+    Route::get('/', function() {
+        return redirect('admin/basic');
+    });
+
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+
+    Route::get('basic','Admin\Basic\SiteController@index');
+    Route::get('user','Admin\User\UserController@index');
+    Route::get('dev','Admin\Dev\DevController@index');
+    Route::get('judicial','Admin\Judicial\JudicialController@index');
+    Route::get('community','Admin\Community\CommunityController@index');
 });

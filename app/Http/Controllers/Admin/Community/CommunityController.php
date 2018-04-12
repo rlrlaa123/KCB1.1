@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Community;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
+class CommunityController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -23,12 +25,6 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->user()->authorizeRoles('admin')) {
-            return view('admin');
-        }
-        else {
-            $request->session()->flash('status', 'Task was successful!');
-            return redirect('/');
-        }
+        return view('admin.community.free_dashboard.index');
     }
 }

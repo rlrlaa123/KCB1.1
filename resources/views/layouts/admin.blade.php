@@ -1,85 +1,51 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('style')
+    @include('layouts.partials.header_admin')
+    @include('layouts.partials.admin_style')
 </head>
 <body>
-<div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{{ route('admin.logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Admin Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
+<div id="wrapper">
+    <div class="navbar">
+        <div class="navbardiv"><a href="{{ url('admin') }}" id="appname">{{ config('app.name','Laravel') }}</a></div>
+        <div id="userdate">|  {{ \Illuminate\Support\Facades\Auth::user()->name }}님 안녕하세요 / {{ \Carbon\Carbon::now() }}</div>
+        <div class="navbardiv"><a href="{{ route('admin.logout') }}"
+                                  onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();" id="logout">
+                [ 로그아웃 ]
+            </a>
         </div>
-    </nav>
-
-    @yield('content')
+    </div>
+    <div class="navsubbar">
+        <div class="basicinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? 'active' : ''}}" onclick="location.href='/admin/basic';">기초정보</div>
+        <div class="userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}" onclick="location.href='/admin/user';">회원정보</div>
+        <div class="developmentinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/dev' ? 'active' : ''}}" onclick="location.href='/admin/dev';">개발사업정보</div>
+        <div class="judicialinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/judicial' ? 'active' : ''}}" onclick="location.href='/admin/judicial';">유권해석&판례</div>
+        <div class="communityinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/community' ? 'active' : ''}}" onclick="location.href='/admin/community';">커뮤니티</div>
+    </div>
+    <div class="navlayout">
+        @component('components.admin.basicinfo')
+        @endcomponent
+        @component('components.admin.userinfo')
+        @endcomponent
+        @component('components.admin.developmentinfo')
+        @endcomponent
+        @component('components.admin.judicialinfo')
+        @endcomponent
+        @component('components.admin.communityinfo')
+        @endcomponent
+        <div>
+            @yield('content')
+        </div>
+    </div>
 </div>
+<div class="footer">
 
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
-<script>
-    if('{{ Session::get('status') }}'){
-        alert('no author');
-    }
-</script>
+</div>
+<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+@yield('script')
 </body>
 </html>

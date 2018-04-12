@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\User;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     /**
@@ -21,10 +23,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-//        $request->user()->authorizeRoles('user');
-//        return json_encode($request->user()->hasrole('admin'));
-        return view('home');
+        return view('admin.user.user_info.index');
     }
 }
