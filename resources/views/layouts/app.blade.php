@@ -3,12 +3,12 @@
 <head>
     @yield('style')
     @include('layouts.partials.header')
-    @include('layouts.partials.navbar_style')
+    @include('layouts.navbar.navbar_style')
 </head>
 <body>
 
 <div id="app">
-    @include('layouts.partials.navbar')
+    @include('layouts.navbar.navbar')
     @yield('content')
     @include('layouts.partials.footer')
 </div>
