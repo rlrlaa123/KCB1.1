@@ -21,8 +21,14 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin');
+        if ($request->user()->authorizeRoles('admin')) {
+            return view('admin');
+        }
+        else {
+            $request->session()->flash('status', 'Task was successful!');
+            return redirect('/');
+        }
     }
 }

@@ -76,5 +76,10 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script>
+    if('{{ Session::get('status') }}'){
+        alert('no author');
+    }
+</script>
 </body>
 </html>

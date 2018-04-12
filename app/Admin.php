@@ -38,12 +38,13 @@ class Admin extends Authenticatable
      */
     public function authorizeRoles($roles)
     {
-        if (is_array($roles)) {
-            return $this->hasAnyRole($roles) ||
-                abort(401, 'This action is unauthorized.');
-        }
-        return $this->hasRole($roles) ||
-            abort(401, 'This action is unauthorized.');
+//        if (is_array($roles)) {
+//            return $this->hasAnyRole($roles) ||
+//                abort(401, $roles.'는 다음 페이지에 권한이 없습니다.');
+//        }
+        return $roles === 'admin'
+            ? $this->hasRole($roles) || abort(401, 'author는 다음 페이지에 권한이 없습니다.')
+            : $this->hasRole($roles) || abort(401, 'admin는 다음 페이지에 권한이 없습니다.');
     }
 
     /**

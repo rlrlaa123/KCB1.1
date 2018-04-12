@@ -8,6 +8,9 @@
                 <div class="panel-heading">Admins Dashboard</div>
 
                 <div class="panel-body">
+                    @if(session('status'))
+                        {{ session('status') }}
+                    @endif
                     @component('components.who')
                     @endcomponent
                 </div>

@@ -37,12 +37,13 @@ class User extends Authenticatable
      */
     public function authorizeRoles($roles)
     {
-        if (is_array($roles)) {
-            return $this->hasAnyRole($roles) ||
-                abort(401, 'This action is unauthorized.');
-        }
-        return $this->hasRole($roles) ||
-            abort(401, 'This action is unauthorized.');
+//        if (is_array($roles)) {
+//            return $this->hasAnyRole($roles) ||
+//                abort(401, $roles.'는 다음 페이지에 권한이 없습니다.');
+//        }
+        return $roles === 'user'
+            ? $this->hasRole($roles) || abort(401, 'premium는 다음 페이지에 권한이 없습니다.')
+            : $this->hasRole($roles) || abort(401, 'user는 다음 페이지에 권한이 없습니다.');
     }
 
     /**
