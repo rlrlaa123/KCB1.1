@@ -151,6 +151,7 @@
     }
 </style>
 @endsection
+
 @section('content')
     <div class="body1">
         <div class="grid-item">

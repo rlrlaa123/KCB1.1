@@ -15,20 +15,18 @@ class AdminTableSeeder extends Seeder
         $role_author  = \App\Role::where('name', 'author')->first();
 
         $admin = new \App\Admin();
-//        $admin->username = 'admin';
+        $admin->username = 'admin';
         $admin->name = 'Test Admin';
         $admin->email = 'admin@admin.com';
         $admin->password = bcrypt('secret');
-//        $admin->phone = '01011112222';
         $admin->save();
         $admin->roles()->attach($role_admin);
 
         $author = new \App\Admin();
-//        $author->username = 'author';
+        $author->username = 'author';
         $author->name = 'Test Author';
         $author->email = 'author@author.com';
         $author->password = bcrypt('secret');
-//        $author->phone = '01077778888';
         $author->save();
         $author->roles()->attach($role_author);
     }
