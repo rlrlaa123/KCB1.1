@@ -21,9 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
 
 Route::prefix('admin')->group(function() {
-});
-
-Route::prefix('admin')->group(function() {
     Route::get('/', function() {
         return redirect('admin/basic');
     });
