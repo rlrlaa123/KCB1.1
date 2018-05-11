@@ -64,4 +64,34 @@ class Admin extends Authenticatable
     {
         return null !== $this->roles()->where('name', $role)->first();
     }
+    public function articles(){
+        return $this->hasmany(Article::class);
+    }
+    public function judicial(){
+        return $this->hasmany(Judicial::class);
+    }
+    public function library(){
+        return $this->hasmany(Library::class);
+    }
+    public function relatednews(){
+        return $this->hasmany(RelatedNews::class);
+    }
+    public function hotfocus(){
+        return $this->hasmany(HotFocus::class);
+    }
+    public function policy(){
+        return $this->hasmany(Policy::class);
+    }
+    public function notice(){
+        return $this->hasmany(Notice::class);
+    }
+    public function fyi(){
+        return $this->hasmany(FYI::class);
+    }
+    public function dev(){
+        return $this->hasMany(Dev::class);
+    }
+    public function dev_location(){
+        return $this->hasMany(location::class);
+    }
 }

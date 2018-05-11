@@ -6,7 +6,8 @@
             <li><a href="{{ route('register') }}">회원가입</a></li>
         @else
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                   aria-haspopup="true" v-pre>
                     {{ \Illuminate\Support\Facades\Auth::user()->name }} <span class="caret"></span>
                 </a>
 
@@ -14,7 +15,7 @@
                     <li>
                         <a href="{{ route('user.logout') }}"
                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                           document.getElementById('logout-form').submit();">
                             Logout
                         </a>
 
@@ -25,39 +26,37 @@
                 </ul>
             </li>
         @endguest
-        <li><a href="">공지사항</a></li>
+        <li><a href="{{url('fyi')}}">공지사항</a></li>
         <li><a href="">고객센터</a></li>
         <li>
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">전체메뉴
+                <button class="dropbtn menu_btn" type="button">전체메뉴
                     <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                </ul>
+                <div class="dropdown-content">
+                    <a href="{{url('intro')}}">회사소개</a>
+                    <a href="{{url('register')}}">회원가입</a>
+                    <a href="{{url('login')}}">로그인</a>
+                    <a href="{{url('fyi')}}">공지사항</a>
+                    <a href="{{url('asking')}}">상담하기</a>
+                    <a href="{{url('dev_info')}}">개발사업정보검색</a>
+                    <a href="{{url('judicial')}}">유권해석&판례</a>
+                    <a href="{{url('notice')}}">공고/ 공시</a>
+                    <a href="{{url('hotfocus')}}">HOT 포커스</a>
+                    <a href="{{url('relatednews')}}">관련 뉴스</a>
+                    <a href="{{url('library')}}">자료실</a>
+                    <a href="{{url('articles')}}">커뮤니티</a>
+                </div>
             </div>
         </li>
     </ul>
 </div>
 <div class="navigationmenu">
     <ul>
-        <li><a href="">개발사업정보</a></li>
-        <li><a href="">자료실</a></li>
-        <li><a href="">TODAY 공고/공시</a></li>
-        <li><a href="">유권해석&판례</a></li>
-        <li><a href="">회사 소개</a></li>
+        <li><a href="{{url('intro')}}">회사 소개</a></li>
+        <li><a href="{{url('notice')}}">공고/공시</a></li>
+        <li><a href="{{url('dev_info')}}">개발사업정보</a></li>
+        <li><a href="{{url('judicial')}}">유권해석&판례</a></li>
+        <li><a href="{{url('library')}}">자료실</a></li>
+        <li><a href="{{url('articles') }}">커뮤니티</a></li>
     </ul>
-</div>
-<div class="searchbarcontainer">
-    <div>
-        <form action="/action_page.php" style="text-align: center;">
-            <input type="search" name="searchbar" style="width:30%;">
-            <button type="submit"><img src=""></button>
-        </form>
-    </div>
-    <div>
-        <a href=""><p class="navbarotherpage">TODAY 보상 공고/공시</p></a>
-        <a href=""><p class="navbarotherpage">보상/용역 대행 컨설팅</p></a>
-    </div>
 </div>

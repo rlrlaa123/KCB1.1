@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Library;
+use App\HotFocus;
+use App\FYI;
 
 class HomeController extends Controller
 {
@@ -25,6 +28,9 @@ class HomeController extends Controller
     {
 //        $request->user()->authorizeRoles('user');
 //        return json_encode($request->user()->hasrole('admin'));
-        return view('home');
+        $hotfocus = HotFocus::latest(5);
+        $fyi = FYI::latest(5);
+        $library = Library::latest(5);
+        return view('/main/home', compact('library', 'hotfocus', 'fyi'));
     }
 }

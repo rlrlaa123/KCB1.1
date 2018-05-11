@@ -1,4 +1,4 @@
 @extends('layouts.admin')
 @section('content')
-hello
+<h2>ddd</h2>
 @endsection
