@@ -58,19 +58,19 @@ Route::post('chosen', function(\Illuminate\Http\Request $request) {
     }
     // dev_district dev_type
     elseif($request->dev_district != null && $request->dev_type != null && $request->dev_charge == null) {
-        $data = \App\Dev::where('dev_district',$request->dev_district)->orWhere('dev_type',$request->dev_type)->get();
+        $data = \App\Dev::where(['dev_district'=>$request->dev_district,'dev_type'=>$request->dev_type])->get();
     }
     // dev_district dev_charge
     elseif($request->dev_district != null && $request->dev_type == null && $request->dev_charge != null) {
-        $data = \App\Dev::where('dev_district',$request->dev_district)->orWhere('dev_charge',$request->dev_charge)->get();
+        $data = \App\Dev::where(['dev_district'=>$request->dev_district,'dev_charge'=>$request->dev_charge])->get();
     }
     // dev_type dev_charge
     elseif ($request->dev_district == null && $request->dev_type != null && $request->dev_charge != null) {
-        $data = \App\Dev::where('dev_type',$request->dev_type)->orWhere('dev_charge',$request->dev_charge)->get();
+        $data = \App\Dev::where(['dev_type'=>$request->dev_type,'dev_charge'=>$request->dev_charge])->get();
     }
     // dev_district dev_type dev_charge
     elseif ($request->dev_district != null && $request->dev_type != null && $request->dev_charge != null) {
-        $data = \App\Dev::where('dev_district',$request->dev_district)->orWhere('dev_type',$request->dev_type)->orWhere('dev_charge',$request->dev_charge)->get();
+        $data = \App\Dev::where(['dev_district'=>$request->dev_district,'dev_type'=>$request->dev_type,'dev_charge'=>$request->dev_charge])->get();
     }
 
     return json_encode($data,JSON_UNESCAPED_UNICODE);
