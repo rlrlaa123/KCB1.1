@@ -13,7 +13,7 @@ class CreateDevLocationTable extends Migration
      */
     public function up()
     {
-        Schema::create('location', function (Blueprint $table) {
+        Schema::create('dev_location', function (Blueprint $table) {
           $table->string('dev_city');
           $table->string('dev_district');
         });
@@ -26,6 +26,6 @@ class CreateDevLocationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location');
+        Schema::dropIfExists('dev_location');
     }
 }

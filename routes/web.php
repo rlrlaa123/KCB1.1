@@ -43,22 +43,37 @@ Route::post('showdistrictlist', function(\Illuminate\Http\Request $request) {
     return $location;
 });
 Route::post('chosen', function(\Illuminate\Http\Request $request) {
-    $data = '';
-    if($request->has('dev_distrcit')) {
-        $data = $request->all();
+//    return $request;
+    // dev_district
+    if($request->dev_district != null && $request->dev_type == null && $request->dev_charge == null) {
+        $data = \App\Dev::where('dev_district',$request->dev_district)->get();
     }
-    else if($request->has('dev_type')) {
-        $data = $request->all();
+    // dev_type
+    elseif ($request->dev_type != null && $request->dev_district == null && $request->dev_charge == null) {
+        $data = \App\Dev::where('dev_type',$request->dev_type)->get();
+    }
+    // dev_charge
+    elseif ($request->dev_charge != null && $request->dev_district == null && $request->dev_type == null) {
+        $data = \App\Dev::where('dev_charge',$request->dev_charge)->get();
+    }
+    // dev_district dev_type
+    elseif($request->dev_district != null && $request->dev_type != null && $request->dev_charge == null) {
+        $data = \App\Dev::where('dev_district',$request->dev_district)->orWhere('dev_type',$request->dev_type)->get();
+    }
+    // dev_district dev_charge
+    elseif($request->dev_district != null && $request->dev_type == null && $request->dev_charge != null) {
+        $data = \App\Dev::where('dev_district',$request->dev_district)->orWhere('dev_charge',$request->dev_charge)->get();
+    }
+    // dev_type dev_charge
+    elseif ($request->dev_district == null && $request->dev_type != null && $request->dev_charge != null) {
+        $data = \App\Dev::where('dev_type',$request->dev_type)->orWhere('dev_charge',$request->dev_charge)->get();
+    }
+    // dev_district dev_type dev_charge
+    elseif ($request->dev_district != null && $request->dev_type != null && $request->dev_charge != null) {
+        $data = \App\Dev::where('dev_district',$request->dev_district)->orWhere('dev_type',$request->dev_type)->orWhere('dev_charge',$request->dev_charge)->get();
     }
 
-    return  view('Development.Dev',compact($data));
-    $chosen1 = \App\Location::select('num_id')->where('dev_city', $request->district)->get();
-    $chosen2 = \App\SearchType::select('search_type_id')->where('search_type', $request->type)->get();
-    $chosen3 = \App\SearchCharge::select('search_charge_id')->where('search_charge', $request->charge)->get();
-    if(isset($chosen1)||isset($chosen2)||isset($chosen3)) {
-        $result = \App\Dev::select('dev_id')->where('dev_location_num_id', $chosen1)->where('dev_search_type_id', $chosen2)->where('dev_search_charge_id', $chosen3)->get();
-        return $result;
-    }
+    return json_encode($data,JSON_UNESCAPED_UNICODE);
 });
 //---------------------------------------------------------------------------------------------------------
 //공지사항

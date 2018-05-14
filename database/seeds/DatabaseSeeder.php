@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         // Admin seeder will use the roles above created.
         $this->call(AdminTableSeeder::class);
+        // Development seeder will be genereated.
+        $this->call(DevelopmentTableSeeder::class);
     }
 }
