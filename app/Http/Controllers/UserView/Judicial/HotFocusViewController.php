@@ -17,7 +17,12 @@ class HotFocusViewController extends Controller
     public function show($id)
     {
         $data = HotFocus::where('hf_id', $id)->first();
-        return view('Judicial.detailed.hfdetailed', compact('data'));
+
+        $previous = HotFocus::where('hf_id', '<', $data->hf_id)->max('hf_id');
+
+        $next = HotFocus::where('hf_id', '>', $data->hf_id)->min('hf_id');
+
+        return view('Judicial.detailed.hfdetailed', compact('data','previous','next'));
     }
 
     public function hf_filedownload($id)

@@ -1,7 +1,13 @@
 @extends('layouts.app')
+<style>
+    .communitycreate_page{
+        margin:1vw 15vw 1vw 15vw;
+
+    }
+</style>
 @section('content')
-    <div class="container">
-        <h1>새 포럼 글 쓰기</h1>
+    <div class="communitycreate_page">
+        <h4>게시글 작성</h4>
         <hr/>
         <form action="{{route('articles.store')}}"method="POST" enctype="multipart/form-data">
             {!! csrf_field() !!}

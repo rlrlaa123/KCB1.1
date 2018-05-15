@@ -1,59 +1,56 @@
 @extends('layouts.app')
 @include('detailedpage.detailed_style')
 @section('content')
+    <style>
+        .hfdetailedtable div {
+            text-align: left;
+            padding: 0.8vw 2vw;
+            font-size: 1vw;
+        }
+
+    </style>
     <div class="content">
-    <h4>
-        HOT 포커스
-    </h4>
-
-    <div>
-        <ul class="detailed">
-            <li><a href="{{url('judicial')}}">유권 해석/판례</a></li>
-            <li><a href="{{url('hotfocus')}}">HOT 포커스</a></li>
-            <li><a href="{{url('policy')}}">규정 지침</a></li>
-            <li><a href="{{url('relatednews')}}">관련 뉴스</a></li>
-        </ul>
+        <h4>
+            HOT 포커스
+        </h4>
+        @include('layouts.partials.detailpage_list')
+        <div>
+            <div class="content_title"><strong>{{$data->hf_title}}</strong><span>작성일 : {{$data->hf_date}}</span></div>
+            <table class="hfdetailedtable">
+                <tr>
+                    <td>
+                        <div class="writer_and_filedownload">작성자 : 관리자 <span><a
+                                        href="{{url('hf_filedownload/'.$data->hf_id)}}">파일 다운로드 Date:{{$data->hf_date}}</a></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="hfdetailed_table_content">
+                            <tr>
+                                <td>
+                                    <div>
+                                        <p>{{$data->hf_content}}</p>
+                                        <p>[이미지 원본 파일을 보시려면 우측 상단의 파일 다운로드를 이용해주시기 바랍니다.]</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><img src="http://127.0.0.1:8000/{{$data->hf_fileimage}}"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="table_footer">
+                                    <span><a href="{{url('hotfocus/'.$previous)}}">이전글</a> <a href="{{url('hotfocus/'.$next)}}">다음글</a>  </span><a href="{{url('hotfocus')}}">목록</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div>
-        <h2>
-
-        </h2>
-    <table class="hfdetailedtable">
-        <tr>
-            <td>
-                <a href="{{url('hf_filedownload/'.$data->hf_id)}}">파일 다운로드</a>
-            </td>
-            <td>
-                {{$data->hf_title}}
-            </td>
-            <td>
-                {{$data->hf_date}}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table class="hfdetailed_table_content">
-                    <tr>
-                        <td>
-                            <p>{{$data->hf_title}}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>{{$data->hf_content}}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                <img src="http://127.0.0.1:8000/{{$data->hf_fileimage}}">
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    </div>
-    </div>
-    @endsection
+@endsection

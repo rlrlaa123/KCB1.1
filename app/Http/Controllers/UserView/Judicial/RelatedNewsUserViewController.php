@@ -16,7 +16,9 @@ class RelatedNewsUserViewController extends Controller
 
     public function show($id) {
         $data = RelatedNews::where('rn_id',$id)->first();
-        return view('Judicial.detailed.rndetailed',compact('data'));
+        $previous = RelatedNews::where('rn_id', '<', $data->rn_id)->max('rn_id');
+        $next = RelatedNews::where('rn_id', '>', $data->rn_id)->min('rn_id');
+        return view('Judicial.detailed.rndetailed',compact('data', 'previous','next'));
     }
     public function rn_filedownload($id){
         $data=RelatedNews::where('rn_id',$id)->first();

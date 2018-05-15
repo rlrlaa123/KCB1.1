@@ -43,7 +43,7 @@
                     </ul>
                 </div>
             @endif
-            {!! Form::open(array('id'=>'development','url' => 'admin/developmentfileupload','enctype' => 'multipart/form-data')) !!}
+            {!! Form::open(array('id'=>'development','url' => '/admin/developmentfileupload/','enctype' => 'multipart/form-data')) !!}
             <div class="row">
                 <table>
                     <tr>
@@ -109,51 +109,9 @@
                         <td class="datainput"><label for="dev_type">유형</label></td>
                         <td>
                             <select id="dev_type" name="dev_type[]" form="development" multiple>
-                                <option value="*">전체</option>
-                                <option value="공원조성사업">공원조성사업</option>
-                                <option value="공공주택지구">공공주택지구</option>
-                                <option value="뉴스테이공급촉진지구">뉴스테이공급촉진지구</option>
-                                <option value="도시개발사업">도시개발사업</option>
-                                <option value="택지개발예정지구">택지개발예정지구</option>
-                                <optgroup label="경제자유구역">
-                                    <option value="인천"> - 인천</option>
-                                    <option value="부산진해"> - 부산진해</option>
-                                    <option value="광양만"> - 광양만</option>
-                                    <option value="대구경북"> - 대구경북</option>
-                                    <option value="새만금"> - 새만금</option>
-                                    <option value="황해"> - 황해</option>
-                                    <option value="충북"> - 충북</option>
-                                    <option value="동해안"> - 동해안</option>
-                                </optgroup>
-                                <option value="산업단지(농공단지)">산업단지(농공단지)</option>
-                                <option value="물류유통단지">물류유통단지</option>
-                                <option value="관광단지(유원지)">관광단지(유원지)</option>
-                                <option value="국민임대주택단지">국민임대주택단지</option>
-                                <option value="역세권개발사업">역세권개발사업</option>
-                                <optgroup label="철도건설사업">
-                                    <option value="철도건설사업"> - 철도건설사업</option>
-                                    <option value="역사 신축 및 이전 사업"> - 역사 신축 및 이전 사업</option>
-                                </optgroup>
-                                <option value="국방·군사시설">국방·군사시설</option>
-                                <option value="법조타운 신축 및 이전사업">법조타운 신축 및 이전사업</option>
-                                <optgroup label="도로개설사업">
-                                    <option value="고속도로 및 고속화도로"> - 고속도로 및 고속화도로</option>
-                                    <option value="국도 및 대체 우회도로"> - 국도 및 대체 우회도로</option>
-                                    <option value="지방도 및 대체 우회도로"> - 지방도 및 대체 우회도로</option>
-                                    <option value="도시계획도로"> - 도시계획도로</option>
-                                </optgroup>
-                                <option value="친수구역조성사업">친수구역조성사업</option>
-                                <option value="발전소건설사업">발전소건설사업</option>
-                                <option value="댐건설사업">댐건설사업</option>
-                                <optgroup label="특수물건">
-                                    <option value="미불용지"> - 미불용지</option>
-                                    <option value="장기 미집행 도시계획시설"> - 장기 미집행 도시계획시설</option>
-                                    <option value="시가화 예정용지"> - 시가화 예정용지</option>
-                                    <option value="도시계획시설(예정지)"> - 도시계획시설(예정지)</option>
-                                    <option value="하천(제방)예정지"> - 하천(제방)예정지</option>
-                                </optgroup>
-                                <option value="행복주택지구">행복주택지구</option>
-                                <option value="기타(기타, 주거환경개선지구, 재정비 촉진지구)">기타(기타, 주거환경개선지구, 재정비 촉진지구)</option>
+                                @foreach($searchtype as $type)
+                                    <option value={{$type->search_type}}>{{$type->search_type}}</option>
+                                @endforeach
                             </select>
                         </td>
                     </tr>
@@ -161,44 +119,9 @@
                         <td class="datainput"><label for="dev_charge">주체</label></td>
                         <td>
                             <select id="dev_charge" name="dev_charge[]" form="development" multiple>
-                                <option value="*">전체</option>
-                                <option value="LH">LH</option>
-                                <option value="한국수자원공사">한국수자원공사</option>
-                                <option value="한국농어촌공사">한국농어촌공사</option>
-                                <optgroup label="지방공사">
-                                    <option value="SH공사">SH공사</option>
-                                    <option value="경기도시공사">경기도시공사</option>
-                                    <option value="인천도시공사">인천도시공사</option>
-                                    <option value="충남개발공사">충남개발공사</option>
-                                    <option value="충북개발공사">충북개발공사</option>
-                                    <option value="강원도개발공사">강원도개발공사</option>
-                                    <option value="전남개발공사">전남개발공사</option>
-                                    <option value="전북개발공사">전북개발공사</option>
-                                    <option value="경상남도개발공사">경상남도개발공사</option>
-                                    <option value="경상북도개발공사">경상북도개발공사</option>
-                                    <option value="대구도시공사">대구도시공사</option>
-                                    <option value="대전도시공사">대전도시공사</option>
-                                    <option value="부산도시공사">부산도시공사</option>
-                                    <option value="울산도시공사">울산도시공사</option>
-                                    <option value="경북관광개발공사">경북관광개발공사</option>
-                                    <option value="광주광역시도시공사">광주광역시도시공사</option>
-                                    <option value="제주특별자치도개발공사">제주특별자치도개발공사</option>
-                                </optgroup>
-                                <optgroup label="기초지자체공사">
-                                    <option value="김포도시개발공사">김포도시개발공사</option>
-                                    <option value="남양주도시공사">남양주도시공사</option>
-                                    <option value="의왕도시공사">의왕도시공사</option>
-                                    <option value="양평지방공사">양평지방공사</option>
-                                    <option value="화성도시공사">화성도시공사</option>
-                                    <option value="안산도시공사">안산도시공사</option>
-                                    <option value="평택도시공사">평택도시공사</option>
-                                    <option value="용인지방공사">용인지방공사</option>
-                                    <option value="여수도시공사">여수도시공사</option>
-                                    <option value="하남도시개발공사">하남도시개발공사</option>
-                                    <option value="춘천도시개발공사">춘천도시개발공사</option>
-                                    <option value="창녕군개발공사">창녕군개발공사</option>
-                                </optgroup>
-                                <option value="기타">기타</option>
+                                @foreach($searchcharge as $charge)
+                                    <option value={{$charge->search_charge}}>{{$charge->search_charge}}</option>
+                                @endforeach
                             </select>
                         </td>
                     </tr>
@@ -206,7 +129,7 @@
                         <td class="datainput"><label for="dev_status">보상상태</label></td>
                         <td>
                             <select id="dev_status" name="dev_status" form="development">
-                                <option value="*">전체</option>
+                                <option value="전체">전체</option>
                                 <option value="보상예정">보상예정</option>
                                 <option value="보상중">보상중</option>
                                 <option value="보상완료">보상완료</option>

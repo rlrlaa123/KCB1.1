@@ -19,7 +19,7 @@ class CreateJudicialTable extends Migration
             $table->text('j_content');
             $table->date('j_date');
             $table->integer('dash_id');
-            $table->string('j_fileimage');
+            $table->string('j_fileimage')->nullable();
             $table->timestamps();
         });
     }

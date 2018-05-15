@@ -1,4 +1,141 @@
 <style>
+    .pagination > .disabled > a, .pagination > .disabled > a:focus,
+    .pagination > .disabled > a:hover, .pagination > .disabled > span,
+    .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+        color: #777;
+        background-color: transparent;
+        border: none;
+        cursor: not-allowed;
+    }
+
+    .pagecontents_td {
+        text-align: center;
+        border: solid 1px #3b5493;
+        margin: 1vw;
+    }
+
+    .tothedetailpage {
+        cursor: pointer;
+    }
+
+    .judicialpage_list {
+        width: 100%;
+    }
+
+    .judicialpage_list div {
+        cursor: pointer;
+        display: inline-block;
+        display: -moz-inline-block;
+        display: inline;
+        padding: 0.7vw;
+        font-weight: 600;
+        justify-content: left;
+        text-align: left;
+        font-size: 1.3vw;
+    }
+
+    .judicialpage_list div:hover {
+        font-size: 1.4vw;
+        color: #e85254;
+        font-weight: 800;
+    }
+
+    .detailpage_list div {
+        cursor: pointer;
+        display: inline-block;
+        display: -moz-inline-block;
+        display: inline;
+        padding: 0.7vw;
+        font-weight: 600;
+        justify-content: left;
+        text-align: left;
+        font-size: 1vw;
+    }
+
+    .detailpage_list div:hover {
+        font-size: 1.1vw;
+        color: #e85254;
+        font-weight: 800;
+    }
+
+
+    .table_id {
+        width: 5%;
+    }
+
+    .table_dash_id {
+        width: 15%;
+    }
+
+    .table_date {
+        width: 15%;
+    }
+
+    .pagecontents {
+        width: 100%;
+        border-bottom: 1px solid;
+        border-top: 1px solid black;
+        font-size: 1.5vw;
+    }
+
+    .pagecontents th {
+        padding: 0.9vw 0;
+        font-size: 1.1vw;
+        font-weight: 400;
+        border-top: 1px solid lightgrey;
+        border-bottom: 1px solid lightgrey;
+        color: black;
+
+    }
+
+    .pagecontents td, .pagecontents a, .pagecontents a:hover {
+        padding: 0.9vw 0;
+        font-size: 1.1vw;
+        font-weight: 500;
+        color: black;
+        text-decoration: none;
+    }
+
+    .th1 {
+        background-color: #fae1da;
+
+    }
+
+    .th2 {
+        background-color: #fcefec;
+
+    }
+
+    .td1 {
+        background-color: #f6f7fb;
+    }
+
+    .td2 {
+        background-color: #ededed;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        position: relative;
+        float: left;
+        padding: 6px 12px;
+        line-height: 1.6;
+        color: black;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    tbody {
+        text-align: center;
+    }
+
+    hr {
+        margin-top: 16px;!important
+        margin-bottom: 22px;!important
+        border: 0;
+        border-top: 1px solid;!Important
+    }
+
     a:hover {
         cursor: pointer;
     }
@@ -29,6 +166,9 @@
         background-color: transparent;
         border: 1px solid grey;
         padding: 4px 6px;
+        -webkit-border-radius: 0.8vw;
+        -moz-border-radius: 0.8vw;
+        border-radius: 0.8vw;
     }
 
     /* The container <div> - needed to position the dropdown content */
@@ -42,7 +182,7 @@
         display: none;
         position: absolute;
         background-color: #f1f1f1;
-        min-width: 160px;
+        min-width: 100px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
     }
@@ -50,7 +190,7 @@
     /* Links inside the dropdown */
     .dropdown-content a {
         color: black;
-        padding: 1vh 1.5vw;
+        padding: 1vh 1vw;
         text-decoration: none;
         text-align: left;
         display: block;
@@ -74,47 +214,58 @@
 
     /*--------------------------------------------------------------------------------------*/
     .navigationheader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         color: black;
-        width: 100%;
-        margin-bottom: 1vw;
+        width: 75%;
+        margin: 1vw 15vw 1vw 15vw;
+        height: 7%;
     }
 
-    .navigationheader ul {
-        text-align: right;
-        margin: 1vw 8vw 1vw 1vw;
+    .navigationheader img{
+        width: 100%;
+        max-width: 15vw;
+
     }
 
     .navigationheader li {
         display: inline-block;
-        margin-left: 2vw;
-        margin-right: 2vw;
+        margin: 0vw 1.7vw;
+        font-size: 1vw;
+        font-weight: 600;
     }
 
     .navigationheader li a {
         color: black;
     }
 
+    .mySlides {
+        background-color: #7888c2;
+    }
+
     .navigationmenu {
-        background-color: #fdf7f5;
-        padding: 0.5vw;
-        border: 1px solid transparent;
-        text-align: center;
-
-    }
-
-    .navigationmenu ul {
-        margin-bottom: 0px;
-        text-align: center;
-    }
-
-    .navigationmenu li {
-        display: inline-block;
-        margin: 1vw 4vw;
-        line-height: 0;
-    }
-
-    .navigationmenu li a {
         color: black;
+        cursor: pointer;
+        background-color: #fdf7f5;
+        padding: 1vw 15vw 1vw 15vw;
+        border: 1px solid transparent;
+        justify-content: center;
+        -webkit-justify-content: center;
+        display: grid;
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        column-gap: 1vw;
+        grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.3vw;
+    }
+
+    .onPage {
+        color: #556fb4;
+        font-weight: 900;
+
     }
 
     .searchform {

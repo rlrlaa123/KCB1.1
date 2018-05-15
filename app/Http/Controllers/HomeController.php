@@ -28,9 +28,9 @@ class HomeController extends Controller
     {
 //        $request->user()->authorizeRoles('user');
 //        return json_encode($request->user()->hasrole('admin'));
-        $hotfocus = HotFocus::latest(5);
-        $fyi = FYI::latest(5);
-        $library = Library::latest(5);
+        $hotfocus = HotFocus::latest()->take(6)->paginate(2);
+        $fyi = FYI::latest()->take(5)->get();
+        $library = Library::latest()->take(5)->get();
         return view('/main/home', compact('library', 'hotfocus', 'fyi'));
     }
 }

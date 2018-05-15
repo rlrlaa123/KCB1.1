@@ -18,9 +18,9 @@ class CreateRelatedNewsTable extends Migration
             $table->integer('dash_id');
             $table->string('rn_title');
             $table->text('rn_content');
+            $table->string('rn_link');
             $table->date('rn_date');
-            $table->string('rn_fileimage');
-            $table->string('rn_thumbnails');
+            $table->string('rn_fileimage')->nullable();
             $table->timestamps();
         });
     }

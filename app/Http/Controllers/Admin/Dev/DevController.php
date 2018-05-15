@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Location;
+use App\SearchCharge;
+use App\SearchType;
 use App\Dev;
 use Illuminate\Http\Request;
 use Image;
@@ -30,7 +32,9 @@ class DevController extends Controller
     public function index()
     {
         $locations = Location::all();
-        return view('admin.dev.dev_info.index', compact('locations'));
+        $searchtype= SearchType::all();
+        $searchcharge= SearchCharge::all();
+        return view('admin.dev.dev_info.index', compact('locations','searchtype','searchcharge'));
     }
 
     public function developmentfileupload(Request $request)

@@ -1,4 +1,4 @@
-<div class="sidebar basicinfo {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? '' : 'hide'}}">
+<div class="basicinfo-selector {{ preg_match('/\/admin\/basic.+/', $_SERVER['REQUEST_URI']) ? '' : 'hide'}}">
     <div class="sidemenu">기초정보</div>
     <div class="sideuser">관리자</div>
     <div class="sidesubmenu">

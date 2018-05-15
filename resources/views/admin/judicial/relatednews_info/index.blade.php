@@ -15,7 +15,7 @@
                     </ul>
                 </div>
             @endif
-            {!! Form::open(array('url' => 'admin/relatednewsfileupload','enctype' => 'multipart/form-data')) !!}
+            {!! Form::open(array('url' => '/admin/relatednewsfileupload/','enctype' => 'multipart/form-data')) !!}
             <div class="row">
                 <table>
                     <tr>
@@ -26,6 +26,11 @@
                     <tr>
                         <td class="datainput">내용</td>
                         <td>{!! Form::textarea('rn_content', null, array('class'=>'form-control', 'placeholder'=>'관련 뉴스를 입력해주세요.', 'cols'=>70)) !!}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="datainput">뉴스 링크</td>
+                        <td>{!! Form::text('rn_link', null, array('class'=>'form-control', 'placeholder'=>'뉴스 링크를 입력해주세요', 'size'=>68)) !!}
                         </td>
                     </tr>
                     <tr>

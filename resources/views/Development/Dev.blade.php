@@ -4,6 +4,27 @@
         margin: 1vw 15vw 1vw 15vw;
     }
 
+    .result_container h3{
+        display: inline;
+        font-size: 1.5vw;
+        margin: 1vw;
+        font-weight:700;
+        color: #636b6f;
+    }
+    .ClearBtn {
+        color: #FFFFFF;
+        background-color: #546eb4;
+        padding: 0.2vw 0.4vw;
+        font-size: 1.2vw;
+        text-align: center;
+        align-items: center;
+        font-weight: bolder;
+        border: none;
+        border-radius: 0.4vw;
+        float: right;
+        margin: 1vw;
+    }
+
     .dev_info_search {
         padding: 0;
         display: -ms-grid;
@@ -92,7 +113,7 @@
         text-overflow: ellipsis;
         padding: 0.3vw;
         font-size: 1.3vw;
-        cursor:pointer;
+        cursor: pointer;
         font-weight: lighter;
     }
 
@@ -106,11 +127,11 @@
     }
 
     .dev_table_child::-webkit-scrollbar-thumb {
-        background-color: black;
+        background-color: lightgrey;
     }
 
     .dev_table_child::-webkit-scrollbar-button {
-        background-color: transparent;
+        background-color: transparent
     }
 
     .dev_table_child::-webkit-scrollbar-corner {
@@ -125,6 +146,7 @@
 
     .result_container {
         padding: 2vw 0 0 0;
+        margin-top: 5vh;
     }
 
     .dev_info_result_title {
@@ -136,7 +158,7 @@
         text-align: center;
         width: 100%;
         max-width: 100%;
-        margin: 0;
+        margin: 1.2vw 0 0 0;
         border-top: 0.5px solid;
         border-bottom: 0.5px solid;
 
@@ -147,8 +169,8 @@
         max-width: 100%;
         margin: 0;
         border-bottom: 0.5px solid;
-        height:300px;
-        text-align:center;
+        height: 300px;
+        text-align: center;
         vertical-align: middle;
         overflow: auto;
     }
@@ -170,6 +192,13 @@
         margin: 0;
         border-top: 0.5px solid;
         border-bottom: 0.5px solid;
+    }
+    .dev_table_child::-webkit-scrollbar:hover{
+        width: 0;
+        background: lightgrey;
+    }
+    .dev_table_child::-webkit-scrollbar-thumb:hover {
+        background: lightgrey;
     }
 
 </style>
@@ -196,7 +225,8 @@
                     </div>
                     <div class="dev_table_child" id="district">
                         @forelse($location as $loc)
-                            <div onclick="dev_district('{{$loc->dev_district}}')" class="listed2 district_switch" id="{{ $loc->num_id }}"
+                            <div onclick="dev_district('{{$loc->dev_district}}','{{ $loc->dev_city }}')"
+                                 class="listed2 district_switch" id="{{ $loc->num_id }}"
                                  style="display: none;">{{$loc->dev_district}}</div>
                         @empty
                         @endforelse
@@ -224,34 +254,36 @@
                 </div>
             </div>
         </div>
+        <div style="text-align:left;">
+            <button class="ClearBtn" onclick="ClearBtn()">조건 초기화</button>
+        </div>
         <div class="result_container">
-            <h3 style="display: inline;">개발사업정보 결과</h3>
-            <button style="float: right;" onclick="ClearBtn()">ClearBtn</button>
+            <h3>개발사업정보 결과</h3>
             <div class="dev_info_result_title">
                 <div>사업명</div>
                 <div>지역</div>
-                <div>면적</div>
+                <div>유형</div>
                 <div>주체</div>
                 <div>방식</div>
             </div>
             <div class="dev_info_result_wrapper">
                 {{--@forelse($data as $value)--}}
-                    {{--<a href="{{url('dev/'.$value->dev_id)}}" class="dev_info_resulted" style="display:none;">--}}
-                        {{--<div class="dev_info_result">--}}
-                            {{--<div class="dev_thumbnails"><img src="http://127.0.0.1:8000/{{$value->dev_thumbnails}}">--}}
-                            {{--</div>--}}
-                            {{--<div class="dev_title"></div>--}}
-                            {{--<div>--}}
-                                {{--<div class="dev_city"></div>--}}
-                                {{--<div class="dev_district"></div>--}}
-                            {{--</div>--}}
-                            {{--<div class="dev_area_size"></div>--}}
-                            {{--<div class="dev_charge"></div>--}}
-                            {{--<div class="dev_method"></div>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
+                {{--<a href="{{url('dev/'.$value->dev_id)}}" class="dev_info_resulted" style="display:none;">--}}
+                {{--<div class="dev_info_result">--}}
+                {{--<div class="dev_thumbnails"><img src="http://127.0.0.1:8000/{{$value->dev_thumbnails}}">--}}
+                {{--</div>--}}
+                {{--<div class="dev_title"></div>--}}
+                {{--<div>--}}
+                {{--<div class="dev_city"></div>--}}
+                {{--<div class="dev_district"></div>--}}
+                {{--</div>--}}
+                {{--<div class="dev_area_size"></div>--}}
+                {{--<div class="dev_charge"></div>--}}
+                {{--<div class="dev_method"></div>--}}
+                {{--</div>--}}
+                {{--</a>--}}
                 {{--@empty--}}
-                    {{--<div style="text-align: center; vertical-align: middle; color:#aaaaaa">검색하신 결과가 없습니다.</div>--}}
+                {{--<div style="text-align: center; vertical-align: middle; color:#aaaaaa">검색하신 결과가 없습니다.</div>--}}
                 {{--@endforelse--}}
             </div>
         </div>
@@ -294,17 +326,21 @@
         var dev_data = {
             dev_district: '',
             dev_type: '',
-            dev_charge: ''
+            dev_charge: '',
+            dev_city: ''
         };
 
-        function dev_district(dev) {
+        function dev_district(dev, dev1) {
             dev_data['dev_district'] = dev;
+            dev_data['dev_city'] = dev1;
             Chosen(dev_data);
         }
+
         function dev_type(dev) {
             dev_data['dev_type'] = dev;
             Chosen(dev_data);
         }
+
         function dev_charge(dev) {
             dev_data['dev_charge'] = dev;
             Chosen(dev_data);
@@ -326,7 +362,7 @@
                 var wrapper = document.getElementsByClassName('dev_info_result_wrapper')[0];
                 wrapper.innerHTML = '';
 
-                data.map(function(ele) {
+                data.map(function (ele) {
                     var newDiv = document.createElement('div');
                     newDiv.className = 'dev_info_result_container';
 
@@ -339,7 +375,7 @@
                     var newContainer4 = document.createElement('div');
                     newContainer4.innerHTML = ele.dev_charge;
                     var newContainer5 = document.createElement('div');
-                    newContainer5.innerHTML = ele.dev_method;
+                    newContainer5.innerHTML = ele.dev_city + ' ' + ele.dev_district;
 
                     newDiv.appendChild(newContainer1);
                     newDiv.appendChild(newContainer2);
@@ -355,9 +391,9 @@
         }
 
         var city = document.getElementsByClassName('city_switch');
-        Array.from(city).map(function(ele) {
-            ele.addEventListener('click',function() {
-                Array.from(city).map(function(ele2) {
+        Array.from(city).map(function (ele) {
+            ele.addEventListener('click', function () {
+                Array.from(city).map(function (ele2) {
                     ele2.className = 'listed city_switch';
                 });
                 this.className += ' active';
@@ -365,27 +401,27 @@
         });
 
         var type = document.getElementsByClassName('type_switch');
-        Array.from(type).map(function(ele) {
-            ele.addEventListener('click',function() {
-                Array.from(type).map(function(ele2) {
+        Array.from(type).map(function (ele) {
+            ele.addEventListener('click', function () {
+                Array.from(type).map(function (ele2) {
                     ele2.className = 'listed type_switch';
                 });
                 this.className += ' active';
             })
         });
         var charge = document.getElementsByClassName('charge_switch');
-        Array.from(charge).map(function(ele) {
-            ele.addEventListener('click',function() {
-                Array.from(charge).map(function(ele2) {
+        Array.from(charge).map(function (ele) {
+            ele.addEventListener('click', function () {
+                Array.from(charge).map(function (ele2) {
                     ele2.className = 'listed charge_switch';
                 });
                 this.className += ' active';
             })
         });
         var district = document.getElementsByClassName('district_switch');
-        Array.from(district).map(function(ele) {
-            ele.addEventListener('click',function() {
-                Array.from(district).map(function(ele2) {
+        Array.from(district).map(function (ele) {
+            ele.addEventListener('click', function () {
+                Array.from(district).map(function (ele2) {
                     ele2.className = 'listed district_switch';
                 });
                 this.className += ' active';
@@ -400,16 +436,16 @@
                 dev_type: '',
                 dev_charge: ''
             };
-            Array.from(city).map(function(ele) {
+            Array.from(city).map(function (ele) {
                 ele.className = 'listed city_switch'
             });
-            Array.from(district).map(function(ele) {
+            Array.from(district).map(function (ele) {
                 ele.className = 'listed district_switch'
             });
-            Array.from(type).map(function(ele) {
+            Array.from(type).map(function (ele) {
                 ele.className = 'listed type_switch'
             });
-            Array.from(charge).map(function(ele) {
+            Array.from(charge).map(function (ele) {
                 ele.className = 'listed charge_switch'
             })
         }

@@ -51,7 +51,7 @@
                     </ul>
                 </div>
             @endif
-            {!! Form::open(array('url' => 'admin/libraryfileupload','enctype' => 'multipart/form-data')) !!}
+            {!! Form::open(array('url' => '/admin/libraryfileupload/','enctype' => 'multipart/form-data')) !!}
             <div class="row">
                 <table>
                     <tr>

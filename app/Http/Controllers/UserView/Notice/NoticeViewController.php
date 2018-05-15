@@ -12,14 +12,16 @@ class NoticeViewController extends Controller
 {
     public function index(Request $request)
     {
-        $notexpired = Notice::where('created_at','>',Carbon::now()->subDays(30));
-        $data = Notice::latest()->paginate(12);
+        $notexpired = Notice::latest()->where('created_at','>',Carbon::now()->subDays(30))->paginate(12);
+        $data = Notice::latest()->where('created_at','<',Carbon::now()->subDays(30))->paginate(12);
         return view('Notice.Notice',compact('data','notexpired'));
     }
     public function show($id)
     {
         $data = Notice::where('notice_id',$id)->first();
-        return view('Notice.detailed.notice_detailed',compact('data'));
+        $previous = Notice::where('notice_id', '<', $data->notice_id)->max('notice_id');
+        $next = Notice::where('notice_id', '>', $data->notice_id)->min('notice_id');
+        return view('Notice.detailed.notice_detailed',compact('data', 'previous', 'next'));
     }
     public function notice_filedownload($id){
         $data = Notice::where('notice_id', $id)->first();

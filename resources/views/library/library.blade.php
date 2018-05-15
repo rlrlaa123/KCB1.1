@@ -4,55 +4,62 @@
         margin: 1vw 15vw 1vw 15vw;
     }
 
-    .librarypage table {
-        width: 100%;
+    .table_id {
+        width: 5%;
+    }
+
+    .table_date {
+        width: 15%;
+    }
+
+    .library_title {
+        background-color: white;
     }
 
     .librarypage th, td {
         text-align: center;
-        border: solid 1px black;
+        border: solid 1px transparent;
     }
 
-    .librarylist {
+    .library-selector {
+        cursor: pointer;
+        padding: 0.7vw;
+        font-weight: 600;
+        justify-content: left;
         text-align: left;
-        width: 100%;
-        list-style: none;
-        padding: 0;
+        font-size: 1.5vw;
+        width: 25%;
+        color: black
     }
 
-    .librarylist li {
-        display: inline;
-        padding: 1vw 2vw;
-        font-weight: bolder;
-        font-size: 1.1vw;
+    .library-selector:hover {
+        font-size: 1.7vw;
+        color: #e85254;
+        font-weight: 800;
     }
 
 </style>
 @section('content')
     <div class="librarypage">
-        <div>
-            <ul class="librarylist">
-                <li>자료실1</li>
-            </ul>
+        <div class="library-selector {{ $_SERVER['REQUEST_URI'] === '/library' ? 'judicialpage_list_onpage' : ''}}"
+             onclick="location.href='/library';">자료실
         </div>
         <hr/>
         <div>
-            <table class="pagecontent">
+            <table class="pagecontents">
                 <thead>
                 <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>날짜</th>
+                    <th class="th2 table_id">번호</th>
+                    <th class="th1">제목</th>
+                    <th class="th2 table_date">날짜</th>
                 </tr>
                 </thead>
                 @forelse($data as $value)
-                    <a href="{{ url('library/'.$value->library_id) }}">
-                        <tr>
-                            <td>{{$value->library_id}}</td>
-                            <td>{{$value->library_title}}</td>
-                            <td>{{$value->library_date}}</td>
+                        <tr class="tothedetailpage" onclick="location.href='{{url('library/'.$value->library_id)}}'">
+                            <td class="td1">{{$value->library_id}}</td>
+                            <td class="library_title">{{$value->library_title}}</td>
+                            <td class="td1">{{$value->library_date}}</td>
                         </tr>
-                    </a>
                 @empty
                     <td colspan="3">해당 글이 없습니다.</td>
                 @endforelse

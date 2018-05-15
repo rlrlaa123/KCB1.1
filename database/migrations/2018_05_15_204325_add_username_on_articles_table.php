@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDevLocationToDevelopmentTable extends Migration
+class AddUsernameOnArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddDevLocationToDevelopmentTable extends Migration
      */
     public function up()
     {
-        Schema::table('development', function (Blueprint $table) {
-            $table->string('location')->nullable();
+        Schema::table('articles', function (Blueprint $table) {
+            $table->string('username');
+            $table->foreign('username')->references('username')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -25,8 +26,8 @@ class AddDevLocationToDevelopmentTable extends Migration
      */
     public function down()
     {
-        Schema::table('development', function (Blueprint $table) {
-            $table->dropColumn('location');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropColumn('username');
         });
     }
 }

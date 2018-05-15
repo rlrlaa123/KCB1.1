@@ -3,6 +3,17 @@
     .fyipage {
         margin: 1vw 15vw 1vw 15vw;
     }
+    .table_id {
+        width: 5%;
+    }
+
+    .table_date {
+        width: 15%;
+    }
+
+    .fyi_title {
+        background-color: white;
+    }
 
     .fyipage table {
         width: 100%;
@@ -12,47 +23,43 @@
         text-align: center;
         border: solid 1px black;
     }
+    .fyipage th, td {
+        text-align: center;
+        border: solid 1px transparent;
+    }
 
-    .fyilist {
+    .fyi-selector {
+        cursor: pointer;
+        padding: 0.7vw;
+        font-weight: 600;
+        justify-content: left;
         text-align: left;
-        width: 100%;
-        list-style: none;
-        padding: 0;
+        font-size: 1.5vw;
+        width: 25%;
+        color: black
     }
 
-    .fyilist li {
-        display: inline;
-        padding: 1vw 2vw;
-        font-weight: bolder;
-        font-size: 1.1vw;
-    }
 
 </style>
 @section('content')
     <div class="fyipage">
-        <div>
-            <ul class="fyilist">
-                <li>공지사항</li>
-            </ul>
-        </div>
+        <div class="fyi-selector"onclick="location.href='/fyi';">공지사항</div>
         <hr/>
         <div>
-            <table class="pagecontent">
+            <table class="pagecontents">
                 <thead>
                 <tr>
-                    <th>공지 번호</th>
-                    <th>공지 제목</th>
-                    <th>공지 날짜</th>
+                    <th class="th2 table_id">번호</th>
+                    <th class="th1">제목</th>
+                    <th class="th2 table_date">날짜</th>
                 </tr>
                 </thead>
                 @forelse($data as $value)
-                    <a href="{{ url('fyi/'.$value->fyi_id) }}">
-                        <tr>
-                            <td>{{$value->fyi_id}}</td>
-                            <td>{{$value->fyi_title}}</td>
-                            <td>{{$value->fyi_date}}</td>
+                        <tr class="tothedetailpage"onclick="location.href='{{url('fyi/'.$value->fyi_id)}}'">
+                            <td class="td1">{{$value->fyi_id}}</td>
+                            <td class="fyi_title">{{$value->fyi_title}}</td>
+                            <td class="td1">{{$value->fyi_date}}</td>
                         </tr>
-                    </a>
                 @empty
                     <td colspan="3">등록된 공지사항이 없습니다.</td>
                 @endforelse

@@ -19,7 +19,7 @@ class CreatePoliciesTable extends Migration
                 $table->string('p_title');
                 $table->text('p_content');
                 $table->date('p_date');
-                $table->string('p_fileimage');
+                $table->string('p_fileimage')->nullable();
                 $table->timestamps();
 
         });

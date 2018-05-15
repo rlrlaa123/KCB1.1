@@ -69,6 +69,10 @@
             padding: 1vw 15vw 1vw 15vw;
             background-color: #e7e9f4;
         }
+        .hotfocus_shortcut{
+            height:150px;
+
+        }
 
         .hotfocus_shortcut div {
             width: 100%;
@@ -76,8 +80,8 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            text-align: left;
-            justify-content: left;
+            text-align: center;
+            cursor: pointer;
         }
 
         .library_shortcut div {
@@ -87,6 +91,18 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             text-align: left;
+            cursor: pointer;
+        }
+
+        .fyi_shortcut div {
+            width: 100%;
+            -ms-text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: left;
+            justify-content: left;
+            cursor: pointer;
         }
 
         .homemenu2item {
@@ -261,7 +277,7 @@
 @section('content')
     <div class="searchbarcontainer">
         <form class="navbar-form searchform" method="POST" action="{{url('queries.search')}}">
-            <input type="search" class="form-control" placeholder="검색" size="30">
+            <input type="search" class="form-control" placeholder="검색" size="40">
             <button type="search" class="lens_button"><img src="http://127.0.0.1:8000/img/searchbarbutton.png"/>
             </button>
         </form>
@@ -278,15 +294,21 @@
                 <button class="_tothepage"><a href="/hotfocus">+더보기</a></button>
             </div>
             <div id="hotfocus" class="w3-container menu1">
+                <div class="hotfocus_shortcut">
                 @forelse($hotfocus as $value)
-                    <a href="{{ url('hotfocus/'.$value->hf_id) }}">
-                        <div class="hotfocus_shortcut">
-                            <div>{{$value->hf_title}}</div>
-                        </div>
-                    </a>
+                    {{--<a href="{{ url('hotfocus/'.$value->hf_id) }}">--}}
+                        <img  onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')" src="http://127.0.0.1:8000/{{$value->hf_thumbnails}}"/>
+
+                    {{--</a>--}}
                 @empty
                     <div style="text-align:center;">등록된 글이 없습니다.</div>
                 @endforelse
+                    @if($hotfocus->count())
+                        <div class="text-center">
+                            {!! $hotfocus->render() !!}
+                        </div>
+                    @endif
+                </div>
             </div>
             <div id="freesample" class="w3-container menu1" style="display:none">
                 <div style="text-align:center;">무료샘플이 없습니다.</div>
@@ -299,12 +321,9 @@
                 <hr>
                 <div>
                     @forelse($fyi as $value)
-                        <a href="{{ url('fyi/'.$value->fyi_id) }}">
-                            <div class="library_shortcut">
-                                <div>{{$value->fyi_title}}</div>
-                                <div>{{$value->fyi_date}}</div>
-                            </div>
-                        </a>
+                        <div class="fyi_shortcut" onclick="location.href=('{{url('fyi/'.$value->fyi_id)}}')">
+                            <div>{{$value->fyi_title}}</div>
+                        </div>
                     @empty
                         <div style="text-align:center;">등록된 공지사항이 없습니다.</div>
                     @endforelse
@@ -354,12 +373,16 @@
             </div>
             <div id="data1" class="menu2">
                 @forelse($library as $value)
-                    <a href="{{ url('library/'.$value->library_id) }}">
-                        <div class="library_shortcut">
-                            <div>{{$value->library_title}}</div>
-                            <div>{{$value->library_date}}</div>
-                        </div>
-                    </a>
+                    {{--<a href="{{ url('library/'.$value->library_id) }}">--}}
+                    {{--<div class="library_shortcut">--}}
+                    {{--<div>{{$value->library_title}}</div>--}}
+                    {{--<div>{{$value->library_date}}</div>--}}
+                    {{--</div>--}}
+                    {{--</a>--}}
+                    <div class="library_shortcut" onclick="location.href=('{{url('library/'.$value->library_id)}}')">
+                        <div>{{$value->library_title}}</div>
+                        <div>{{$value->library_date}}</div>
+                    </div>
                 @empty
                     <div style="text-align:center;">등록된 글이 없습니다.</div>
                 @endforelse

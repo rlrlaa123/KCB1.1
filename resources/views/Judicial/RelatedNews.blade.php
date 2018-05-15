@@ -4,85 +4,44 @@
         margin: 1vw 15vw 1vw 15vw;
     }
 
-    .RNpage table {
-        width: auto;
-
-    }
-
-    .RNpage img {
-        width: 8vw;
-        height: 14vh;
-    }
-
     .RNpage th, td {
         text-align: center;
-        border: solid 1px black;
-        padding: 1vw;
+        border: solid 1px transparent;
     }
 
-    .RNlist {
-        text-align: left;
-        width: 100%;
-        list-style: none;
-        padding: 0vw;
-    }
-
-    .RNlist li {
-        display: inline;
-        padding: 1vw 2vw;
-        font-size: 1vw;
-
-    }
 </style>
 @section('content')
-
     <div class="RNpage">
-        <div>
-            <ul class="RNlist">
-                <li><a href="{{url('judicial')}}">유권 해석/판례</a></li>
-                <li><a href="{{url('hotfocus')}}">HOT 포커스</a></li>
-                <li><a href="{{url('policy')}}">규정 지침</a></li>
-                <li style="font-weight:bolder; color:#e84e4e; font-size:1.1vw;"><a href="{{url('relatednews')}}">관련
-                        뉴스</a></li>
-            </ul>
-        </div>
+        @include('layouts.partials.judicialpage_list')
         <hr/>
-        <table>
-            <tr>
+        <div>
+            <table class="pagecontents">
+                <thead>
+                <tr>
+                    <th class="th1 table_id">번호</th>
+                    <th class="th2 table_dash_id">구분</th>
+                    <th class="th1 table_title">제목</th>
+                    <th class="th2 table_date">날짜</th>
+                </tr>
+                </thead>
+                <tbody>
                 @forelse($data as $value)
-                    <td>
-                        <a href="{{ url('relatednews/'.$value->rn_id) }}">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <img src="http://127.0.0.1:8000/{{ $value->rn_thumbnails }}">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        {{$value->rn_title}}
-                                    </td>
-                                </tr>
-                            </table>
-                            {{--@foreach($data as $value)--}}
-                            {{--<tr>--}}
-                            {{--<td>{{$value['id']}}</td>--}}
-                            {{--<td>{{$value['dash_id']}}</td>--}}
-                            {{--<td>{{$value['title']}}</td>--}}
-                            {{--<td>{{$value['date']}}</td>--}}
-                            {{--</tr>--}}
-                            {{--@endforeach--}}
-                        </a>
-                    </td>
+                    <tr class="tothedetailpage" onclick="location.href='{{url('relatednews/'.$value->rn_id)}}'">
+                        <td class="td1">{{$value->rn_id}}</td>
+                        <td class="td2">관련 뉴스</td>
+                        <td>{{$value->rn_title}}</td>
+                        <td class="td1">{{$value->rn_date}}</td>
+                    </tr>
                 @empty
-                    <div>해당 글이 없습니다.</div>
+                    <td colspan="4">해당 글이 없습니다.</td>
                 @endforelse
-            </tr>
-        </table>
-        @if($data->count())
-            <div class="text-center">
-                {!! $data->render() !!}
-            </div>
-        @endif
+                </tbody>
+            </table>
+            @if($data->count())
+                <div class="text-center">
+                    {!! $data->render() !!}
+                </div>
+            @endif
+        </div>
     </div>
 @endsection

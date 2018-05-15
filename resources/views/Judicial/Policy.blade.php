@@ -4,58 +4,32 @@
         margin: 1vw 15vw 1vw 15vw;
     }
 
-    .Policypage table {
-        width: 100%;
-
-    }
-
     .Policypage th, td {
         text-align: center;
-        border: solid 1px black;
-    }
-
-    .Policylist {
-        text-align: left;
-        width: 100%;
-        list-style: none;
-        padding: 0vw;
-    }
-
-    .Policylist li {
-        display: inline;
-        padding: 1vw 2vw;
-        font-size: 1vw;
+        border: solid 1px transparent;
     }
 
 </style>
 @section('content')
     <div class="Policypage">
-        <div>
-            <ul class="Policylist">
-                <li><a href="{{url('judicial')}}">유권 해석/판례</a></li>
-                <li><a href="{{url('hotfocus')}}">HOT 포커스</a></li>
-                <li style="font-weight:bolder; color:#e84e4e; font-size:1.1vw;"><a href="{{url('policy')}}">규정 지침</a>
-                </li>
-                <li><a href="{{url('relatednews')}}">관련 뉴스</a></li>
-            </ul>
-        </div>
+        @include('layouts.partials.judicialpage_list')
         <hr/>
         <div>
-            <table class="pagecontent">
+            <table class="pagecontents">
                 <thead>
                 <tr>
-                    <th>번호</th>
-                    <th>구분</th>
-                    <th>제목</th>
-                    <th>날짜</th>
+                    <th class="th1 table_id">번호</th>
+                    <th class="th2 table_dash_id">구분</th>
+                    <th class="th1 table_title">제목</th>
+                    <th class="th2 table_date">날짜</th>
                 </tr>
                 </thead>
                 @forelse($data as $value)
-                    <tr>
-                        <td>{{$value->p_id}}</td>
-                        <td>규정/지침</td>
-                        <td><a href="{{ url('policy/'.$value->p_id) }}">{{$value->p_title}}</a></td>
-                        <td>{{$value->p_date}}</td>
+                    <tr class="tothedetailpage" onclick="location.href='{{url('policy/'.$value->p_id)}}'">
+                        <td class="td1 ">{{$value->p_id}}</td>
+                        <td class="td2">규정/지침</td>
+                        <td>{{$value->p_title}}</td>
+                        <td class="td1">{{$value->p_date}}</td>
                     </tr>
                 @empty
                     <td colspan="4">해당 글이 없습니다.</td>

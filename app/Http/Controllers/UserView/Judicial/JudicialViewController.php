@@ -16,7 +16,9 @@ class JudicialViewController extends Controller
     public function show($id)
     {
         $data = Judicial::where('j_id',$id)->first();
-        return view('.Judicial.detailed.jdetailed',compact('data'));
+        $previous = Judicial::where('j_id', '<', $data->j_id)->max('j_id');
+        $next = Judicial::where('j_id', '>', $data->j_id)->min('j_id');
+        return view('.Judicial.detailed.jdetailed',compact('data', 'previous', 'next'));
     }
     public function j_filedownload($id){
         $data=Judicial::where('j_id',$id)->first();

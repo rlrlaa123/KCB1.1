@@ -1,6 +1,6 @@
 <div class="navigationheader">
-    <a href="/"><img src=" " title="logo" alt="logo" align="left" style="margin-left: 14vw;"></a>
-    <ul>
+    <a href="/"><img src="http://127.0.0.1:8000/img/temporary_logo.png" title="logo" alt="logo" align="left"></a>
+    <span><ul>
         @guest
             <li><a href="{{ route('login') }}">로그인</a></li>
             <li><a href="{{ route('register') }}">회원가입</a></li>
@@ -36,27 +36,41 @@
                     <a href="{{url('intro')}}">회사소개</a>
                     <a href="{{url('register')}}">회원가입</a>
                     <a href="{{url('login')}}">로그인</a>
+                    <a href="{{url('notice')}}">공고/공시</a>
                     <a href="{{url('fyi')}}">공지사항</a>
-                    <a href="{{url('asking')}}">상담하기</a>
                     <a href="{{url('dev_info')}}">개발사업정보검색</a>
                     <a href="{{url('judicial')}}">유권해석&판례</a>
-                    <a href="{{url('notice')}}">공고/ 공시</a>
                     <a href="{{url('hotfocus')}}">HOT 포커스</a>
+                    <a href="{{url('policy')}}">규정지침</a>
                     <a href="{{url('relatednews')}}">관련 뉴스</a>
                     <a href="{{url('library')}}">자료실</a>
                     <a href="{{url('articles')}}">커뮤니티</a>
+                    <a href="{{url('report')}}">신고하기</a>
+                    <a href="{{url('asking')}}">상담하기</a>
                 </div>
             </div>
         </li>
-    </ul>
+        </ul></span>
 </div>
 <div class="navigationmenu">
-    <ul>
-        <li><a href="{{url('intro')}}">회사 소개</a></li>
-        <li><a href="{{url('notice')}}">공고/공시</a></li>
-        <li><a href="{{url('dev_info')}}">개발사업정보</a></li>
-        <li><a href="{{url('judicial')}}">유권해석&판례</a></li>
-        <li><a href="{{url('library')}}">자료실</a></li>
-        <li><a href="{{url('articles') }}">커뮤니티</a></li>
-    </ul>
+        <div class="intro {{ $_SERVER['REQUEST_URI'] === '/intro' ? 'onPage' : ''}}"
+             onclick="location.href='/intro';">회사소개
+        </div>
+        <div class="notice {{ $_SERVER['REQUEST_URI'] === '/notice' ? 'onPage' : ''}}"
+             onclick="location.href='/notice';">공고/공시
+        </div>
+        <div class="dev_info {{ $_SERVER['REQUEST_URI'] === '/dev_info' ? 'onPage' : ''}}"
+             onclick="location.href='/dev_info';">개발사업정보
+        </div>
+        <div class="judicial {{ $_SERVER['REQUEST_URI'] === '/judicial' ? 'onPage' : ''}}"
+             onclick="location.href='/judicial';">유권해석&판례
+        </div>
+        <div class="library {{ $_SERVER['REQUEST_URI'] === '/library' ? 'onPage' : ''}}"
+             onclick="location.href='/library';">자료실
+        </div>
+        <div class="community {{ $_SERVER['REQUEST_URI'] === '/articles' ? 'onPage' : ''}}"
+             onclick="location.href='/articles';">커뮤니티
+        </div>
+
+
 </div>

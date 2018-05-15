@@ -1,4 +1,20 @@
 @extends('layouts.admin')
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        height: 500,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor textcolor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code help wordcount'
+        ],
+        toolbar: 'insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+        content_css: [
+            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            '//www.tinymce.com/css/codepen.min.css']
+    });
+</script>
 @section('content')
     <div id="2" class="infoput">
         <div class="container">
@@ -13,7 +29,7 @@
                     </ul>
                 </div>
             @endif
-            {!! Form::open(array('url' => 'admin/hotfocusfileupload','enctype' => 'multipart/form-data')) !!}
+            {!! Form::open(array('url' => '/admin/hotfocusfileupload/','enctype' => 'multipart/form-data')) !!}
             <div class="row">
                 <table>
                     <tr>
@@ -42,14 +58,9 @@
         </div>
     </div>
     <script>
+
         @if($messaged = Session::get('success'))
         alert('등록이 완료되었습니다.');
-        {{--var i;--}}
-        {{--var x = document.getElementsByClassName("infoput");--}}
-        {{--for (i = 0; i < x.length; i++) {--}}
-        {{--x[i].style.display = "none";--}}
-        {{--}--}}
-        {{--document.getElementById({{$messaged}}).style.display = "block";--}}
         @endif
     </script>
 @endsection

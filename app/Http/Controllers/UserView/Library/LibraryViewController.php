@@ -16,7 +16,9 @@ class LibraryViewController extends Controller
     public function show($id)
     {
         $data = Library::where('library_id', $id)->first();
-        return view('library.detailed.library_detailed', compact('data'));
+        $previous = Library::where('library_id', '<', $data->library_id)->max('library_id');
+        $next = Library::where('library_id', '>', $data->library_id)->min('library_id');
+        return view('library.detailed.library_detailed', compact('data', 'previous', 'next'));
     }
 
     public function library_filedownload($id)

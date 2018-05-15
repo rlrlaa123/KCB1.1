@@ -17,7 +17,9 @@ class FYIViewController extends Controller
     public function show($id)
     {
         $data = FYI::where('fyi_id', $id)->first();
-        return view('.FYI.detailed.fyidetailed', compact('data'));
+        $previous = FYI::where('fyi_id', '<', $data->fyi_id)->max('fyi_id');
+        $next = FYI::where('fyi_id', '>', $data->fyi_id)->min('fyi_id');
+        return view('.FYI.detailed.fyi_detailed', compact('data', 'previous', 'next'));
     }
 
     public function fyi_filedownload($id)

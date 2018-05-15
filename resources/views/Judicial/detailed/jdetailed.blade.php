@@ -1,59 +1,55 @@
 @extends('layouts.app')
 @include('detailedpage.detailed_style')
 @section('content')
+    <style>
+
+        .jdetailedtable div {
+            text-align: left;
+            padding: 0.8vw 2vw;
+            font-size: 1vw;
+        }
+
+    </style>
     <div class="content">
-    <h4>
-        유권해석/판례
-    </h4>
-
-    <div>
-        <ul class="detailed">
-            <li><a href="{{url('judicial')}}">유권 해석/판례</a></li>
-            <li><a href="{{url('hotfocus')}}">HOT 포커스</a></li>
-            <li><a href="{{url('policy')}}">규정 지침</a></li>
-            <li><a href="{{url('relatednews')}}">관련 뉴스</a></li>
-        </ul>
+        <h4>
+           유권해석&판례
+        </h4>
+        @include('layouts.partials.detailpage_list')
+        <div>
+            <div class="content_title"><strong>{{$data->j_title}}</strong><span>작성일 : {{$data->j_date}}</span>
+            </div>
+            <table class="jdetailedtable">
+                <tr>
+                    <td>
+                        <div class="writer_and_filedownload">작성자 : 관리자 <span>
+                                <a href="{{url('j_filedownload/'.$data->j_id)}}">파일 다운로드 Date:{{$data->j_date}}</a></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="jdetailed_table_content">
+                            <tr>
+                                <td>
+                                    <div>
+                                        <p>{{$data->j_content}}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="table_footer">
+                                        <span><a href="{{url('judicial/'.$previous)}}">이전글</a>
+                                            <a href="{{url('judicial/'.$next)}}">다음글</a>
+                                        </span><a
+                                                href="{{url('judicial')}}">목록</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div>
-        <h2>
-
-        </h2>
-    <table class="jdetailedtable">
-        <tr>
-            <td>
-                <a href="{{url('j_filedownload/'.$data->j_id)}}">파일 다운로드</a>
-            </td>
-            <td>
-                {{$data->j_title}}
-            </td>
-            <td>
-                {{$data->j_date}}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table class="jdetailed_table_content">
-                    <tr>
-                        <td>
-                            <p>{{$data->j_title}}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>{{$data->j_content}}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-                                <img src="http://127.0.0.1:8000/{{$data->j_fileimage}}">
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    </div>
-    </div>
-    @endsection
+@endsection

@@ -35,37 +35,81 @@ class PolicyController extends Controller
             'p_content'=>'required',
             'dash_id'=>'integer'
         ]);
-        if(!file_exists('fileuploaded')) {
-            File::makeDirectory('fileuploaded');
-            if (!file_exists('fileuploaded/policy')) {
-                File::makeDirectory('fileuploaded/policy');
-                if (!file_exists('fileuploaded/policy/file')) {
-                    File::makeDirectory('fileuploaded/policy/file');
+        if ($request->p_fileimage == null) {
+            $date = Carbon::now();
+            $news = new Policy;
+            $news->p_title = $request['p_title'];
+            $news->dash_id = 3;
+            $news->p_content = $request['p_content'];
+            $news->p_fileimage = null;
+            $news->p_date = $date;
+
+            $news->save();
+
+        } else {
+
+            if (!file_exists('fileuploaded')) {
+                File::makeDirectory('fileuploaded');
+                if (!file_exists('fileuploaded/policy')) {
+                    File::makeDirectory('fileuploaded/policy');
+                    if (!file_exists('fileuploaded/policy/file')) {
+                        File::makeDirectory('fileuploaded/policy/file');
+                    }
                 }
             }
+            $image = $request->file('p_fileimage');
+            $imagename = $request['p_title'] . '.' . $image->getClientOriginalExtension();
+
+            $date = Carbon::now();
+            $destinationPath = public_path('fileuploaded/policy/file');
+            $image->move($destinationPath, $imagename);
+
+            $news = new Policy;
+            $news->p_title = $request['p_title'];
+            $news->dash_id = 3;
+            $news->p_content = $request['p_content'];
+            $news->p_fileimage = 'fileuploaded/policy/file/' . $imagename;
+            $news->p_date = $date;
+
+            $news->save();
+
         }
-
-        $image = $request->file('p_fileimage');
-        $imagename = $request['p_title'].'.'.$image->getClientOriginalExtension();
-
-        $date=Carbon::now();
-
-        $destinationPath = public_path('fileuploaded/policy/file');
-        $image->move($destinationPath, $imagename);
-
-        $news = new Policy;
-        $news->p_title=$request['p_title'];
-        $news->dash_id= 3;
-        $news->p_content= $request['p_content'];
-        $news->p_fileimage = 'fileuploaded/policy/file/'.$imagename;
-        $news->p_date=$date;
-
-        $news->save();
-
         return back()
-            ->with('success','3');
+            ->with('success', '4');
 
     }
+
+//        if(!file_exists('fileuploaded')) {
+//            File::makeDirectory('fileuploaded');
+//            if (!file_exists('fileuploaded/policy')) {
+//                File::makeDirectory('fileuploaded/policy');
+//                if (!file_exists('fileuploaded/policy/file')) {
+//                    File::makeDirectory('fileuploaded/policy/file');
+//                }
+//            }
+//        }
+//
+//        $image = $request->file('p_fileimage');
+//        $imagename = $request['p_title'].'.'.$image->getClientOriginalExtension();
+//
+//        $date=Carbon::now();
+//
+//        $destinationPath = public_path('fileuploaded/policy/file');
+//        $image->move($destinationPath, $imagename);
+//
+//        $news = new Policy;
+//        $news->p_title=$request['p_title'];
+//        $news->dash_id= 3;
+//        $news->p_content= $request['p_content'];
+//        $news->p_fileimage = 'fileuploaded/policy/file/'.$imagename;
+//        $news->p_date=$date;
+//
+//        $news->save();
+//
+//        return back()
+//            ->with('success','3');
+//
+//    }
 //    public function store(Request $request){
 //        $this->validate($request, [
 //            'title'=>'required|text',

@@ -1,4 +1,4 @@
-<div class="sidebar userinfo {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? '' : 'hide'}}">
+<div class="sidebar userinfo {{ preg_match('/\/admin\/user.+/', $_SERVER['REQUEST_URI']) ? '' : 'hide'}}">
     <div class="sidemenu">회원정보</div>
     <div class="sideuser">회원정보</div>
     <div class="sidesubmenu">

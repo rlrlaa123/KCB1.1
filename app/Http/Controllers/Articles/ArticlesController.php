@@ -39,6 +39,7 @@ class ArticlesController extends Controller
     public function store(\App\Http\Requests\ArticlesRequest $request)
     {
 //        $article=\App\User::find(1)->articles()->create($request->all());
+
         $article=$request->user()->articles()->create($request->all());
 
 //     $rules =[
@@ -84,9 +85,11 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(\App\Article $article)
+    public function edit(\App\Http\Requests\ArticlesRequest $request, \App\Article $article)
     {
-        $this->authorize('update', $article);
+        $article->update($request->all());
+        flash()->success('수정하신 내용을 저장했습니다.');
+        return redirect(route('articles.show', $article->id));
 //        return view('articles.edit', compact('article'));
         //
     }
@@ -114,7 +117,8 @@ class ArticlesController extends Controller
      */
     public function destroy(\App\Article $article)
     {
-        $this->authorize('delete', $article);
+       $article->delete();
+       return response()->json([],204);
 //      $article->delete();
 //      return response()->json([],204);
     }
