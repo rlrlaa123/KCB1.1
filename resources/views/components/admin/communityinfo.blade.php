@@ -3,9 +3,9 @@
     <div class="sideuser">커뮤니티</div>
     <div class="sidesubmenu">
         <ul>
-            <li class="selector  {{ $_SERVER['REQUEST_URI'] == '/admin/community/' ? 'active' : ''}}"><a href="{{url('/admin/community/')}}">자유게시판</a></li>
-            <li class="selector  {{ $_SERVER['REQUEST_URI'] == '/admin/report/' ? 'active' : ''}}"><a href="{{url('/admin/report/')}}">신고하기</a></li>
-            <li class="selector  {{ $_SERVER['REQUEST_URI'] == '/admin/asking/' ? 'active' : ''}}"><a href="{{url('/admin/asking/')}}">상담하기</a></li>
+            <li class="selector  {{ preg_match('/\/admin\/community.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a href="{{url('/admin/community/')}}">자유게시판</a></li>
+            <li class="selector  {{ preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a href="{{url('/admin/report/')}}">신고하기</a></li>
+            <li class="selector  {{ preg_match('/\/admin\/asking.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a href="{{url('/admin/asking/')}}">상담하기</a></li>
         </ul>
     </div>
 </div>

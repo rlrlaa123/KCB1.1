@@ -39,7 +39,7 @@
         <div class="libraryinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/library' ? 'active' : ''}}"
              onclick="location.href='/admin/library/';">자료실
         </div>
-        <div class="communityinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/community/'|| $_SERVER['REQUEST_URI'] === '/admin/asking/'|| $_SERVER['REQUEST_URI'] === '/admin/report/' ? 'active' : ''}}"
+        <div class="communityinfo-selector {{ preg_match('/\/admin\/community.+/' , $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/basic.+/', $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
              onclick="location.href='/admin/community/';">커뮤니티
         </div>
     </div>
