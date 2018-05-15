@@ -31,7 +31,7 @@ Route::post('/uploadfile', 'UploadFileController@showUploadFile');
 //Route::post('/action_page', function(){
 //    return view('layouts.navbar.action_page');
 //});
-Route::post('queries', 'QueryController@search')->name('queries.search');
+Route::post('search/', 'SearchController@search');
 //개발정보검색
 Route::get('dev_info', 'UserView\Dev\DevViewController@index');
 Route::get('dev/{id}', 'UserView\Dev\DevViewController@show');

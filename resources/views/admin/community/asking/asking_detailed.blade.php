@@ -14,14 +14,12 @@
             상담하기
         </h4>
         <div>
-            <div class="content_title"><strong>{{$data->asking_title}}</strong><span>작성일 : {{$data->asking_date}}</span>
-            </div>
+            <div class="content_title"><strong>{{$data->asking_title}}</strong><span>작성일 : {{$data->asking_date}}</span></div>
             <table class="askingdetailedtable">
                 <tr>
                     <td>
-                        <div class="writer_and_filedownload">작성자 : {{$data->asking_user}} 작성자
-                            이메일: {{$data->asking_user_email}}
-                            <span><a href="{{url('/asking_file/'.$data->asking_id)}}">파일 다운로드 Date:{{$data->asking_date}}</a></span>
+                        <div class="writer_and_filedownload">작성자 : {{$data->asking_user}} 작성자 이메일: {{$data->asking_user_email}}
+                            <span><a href="{{url('asking_file/'.$data->asking_id)}}">파일 다운로드 Date:{{$data->asking_date}}</a></span>
                         </div>
                     </td>
                 </tr>
@@ -44,9 +42,7 @@
                             <tr>
                                 <td>
                                     <div class="table_footer">
-                                        <span><a href="{{url('/admin/asking/'.$previous)}}">이전글</a> <a
-                                                    href="{{url('/admin/asking/'.$next)}}">다음글</a>  </span><a
-                                                href="{{url('/admin/asking/')}}">목록</a>
+                                        <span><a href="{{url('/admin/asking/'.$previous)}}">이전글</a> <a href="{{url('/admin/asking/'.$next)}}">다음글</a>  </span><a href="/admin/asking/">목록</a>
                                     </div>
                                 </td>
                             </tr>

@@ -276,7 +276,7 @@
 
 @section('content')
     <div class="searchbarcontainer">
-        <form class="navbar-form searchform" method="POST" action="{{url('queries.search')}}">
+        <form class="navbar-form searchform" method="POST" action="{{url('search/')}}">
             <input type="search" class="form-control" placeholder="검색" size="40">
             <button type="search" class="lens_button"><img src="http://127.0.0.1:8000/img/searchbarbutton.png"/>
             </button>

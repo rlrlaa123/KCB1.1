@@ -37,7 +37,7 @@ class ReportController extends Controller
         $data = Report::where('report_id',$id)->first();
         $previous = Report::where('report_id', '<', $data->report_id)->max('report_id');
         $next = Report::where('report_id', '>', $data->report_id)->min('report_id');
-        return view('.admin.report.report_detailed',compact('data', 'previous', 'next'));
+        return view('.admin.community.report.report_detailed',compact('data', 'previous', 'next'));
     }
 
 }

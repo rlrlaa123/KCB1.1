@@ -18,7 +18,7 @@
             <table class="reportdetailedtable">
                 <tr>
                     <td>
-                        <div class="writer_and_filedownload">작성자 : {{$data->report_name}}
+                        <div class="writer_and_filedownload">작성자 : {{$data->report_user}}
                         </div>
                     </td>
                 </tr>
@@ -35,7 +35,7 @@
                             <tr>
                                 <td>
                                     <div class="table_footer">
-                                        <span><a href="{{url('admin/report/'.$previous)}}">이전글</a> <a href="{{url('admin/report/'.$next)}}">다음글</a>  </span><a href="{{url('admin/report')}}">목록</a>
+                                        <span><a href="{{url('admin/report/'.$previous)}}">이전글</a> <a href="{{url('admin/report/'.$next)}}">다음글</a>  </span><a href="/admin/report/">목록</a>
                                     </div>
                                 </td>
                             </tr>
