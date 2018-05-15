@@ -20,23 +20,23 @@
         </div>
     </div>
     <div class="navsubbar">
-        <div class="basicinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? 'active' : ''}}"
+        <div class="basicinfo-selector {{ preg_match('/\/admin\/basic.+/' , $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
              onclick="location.href='/admin/basic/';">기초정보
         </div>
-        <div class="userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}"
+        <div class="userinfo-selector {{ preg_match('/\/admin\/user.+/' , $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
              onclick="location.href='/admin/user/';">회원정보
         </div>
-        <div class="developmentinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/dev' ? 'active' : ''}}"
+        <div class="developmentinfo-selector {{  preg_match('/\/admin\/dev.+/' , $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
              onclick="location.href='/admin/dev/';">개발사업정보
         </div>
-        <div class="judicialinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/judicial/' || $_SERVER['REQUEST_URI'] === '/admin/hotfocus/'
-        ||$_SERVER['REQUEST_URI'] === '/admin/policy/'||$_SERVER['REQUEST_URI'] === '/admin/relatednews/' ? 'active' : ''}}"
+        <div class="judicialinfo-selector {{ preg_match('/\/admin\/judicial.+/' , $_SERVER['REQUEST_URI'])||  preg_match('/\/admin\/hotfocus.+/' , $_SERVER['REQUEST_URI'])
+        || preg_match('/\/admin\/policy.+/' , $_SERVER['REQUEST_URI'])|| preg_match('/\/admin\/relatednews.+/' , $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
              onclick="location.href='/admin/judicial/';">유권해석&판례
         </div>
-        <div class="noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice/'||$_SERVER['REQUEST_URI']==='admin/fyi/' ? 'active' : ''}}"
+        <div class="noticeinfo-selector {{ preg_match('/\/admin\/notice.+/' , $_SERVER['REQUEST_URI'])|| preg_match('/\/admin\/community.+/' , $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
              onclick="location.href='/admin/notice/';">공고/공시
         </div>
-        <div class="libraryinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/library' ? 'active' : ''}}"
+        <div class="libraryinfo-selector {{  preg_match('/\/admin\/library.+/' , $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
              onclick="location.href='/admin/library/';">자료실
         </div>
         <div class="communityinfo-selector {{ preg_match('/\/admin\/community.+/' , $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/basic.+/', $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
