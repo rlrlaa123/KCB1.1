@@ -18,12 +18,16 @@
             <table class="reportdetailedtable">
                 <tr>
                     <td>
-                        <div class="writer_and_filedownload">작성자 : {{$data->report_user}}
+                        <div class="writer_and_filedownload">작성자 : {{$data->report_user}} 작성자 이메일 : {{$data->report_user_email}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="writer_and_filedownload">작성자 이메일 : {{$data->report_user_email}}
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <table class="reportdetailed_table_content">
                             <tr>
                                 <td>

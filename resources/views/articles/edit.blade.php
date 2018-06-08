@@ -9,3 +9,4 @@
         @include('articles.partial.form')
         <div class="form-group"><button>수정하기</button></div>
     </form>
+    @endsection

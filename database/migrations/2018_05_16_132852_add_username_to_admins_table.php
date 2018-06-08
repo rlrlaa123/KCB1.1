@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUsernameInAdminsTable extends Migration
+class AddUsernameToAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddUsernameInAdminsTable extends Migration
      */
     public function up()
     {
-
         Schema::table('admins', function (Blueprint $table) {
-            $table->string('username')->unique();
+            $table->string('username');
         });
     }
 

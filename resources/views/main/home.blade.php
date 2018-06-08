@@ -3,6 +3,10 @@
 @section('style')
     <style>
 
+        .pagination {
+            list-style: none;
+        }
+
         * {
             box-sizing: border-box;
             -webkit-box-sizing: border-box;
@@ -11,6 +15,8 @@
         body {
             width: 100%;
             height: 100%;
+            min-height: 50%;
+            overflow-x: hidden;
         }
 
         .body1 {
@@ -69,9 +75,18 @@
             padding: 1vw 15vw 1vw 15vw;
             background-color: #e7e9f4;
         }
-        .hotfocus_shortcut{
-            height:150px;
 
+        .hotfocus_shortcut {
+            display: flex;
+            justify-content: space-between;
+            height: 200px;
+
+        }
+
+        .hotfocus_shortcut img {
+            padding: 1vw;
+            width: 50%;
+            height: 100%;
         }
 
         .hotfocus_shortcut div {
@@ -252,7 +267,6 @@
             padding: 0;
             margin: 0;
             border: #e85254;
-            margin-left: 0;
             background-color: #e85254;
             border-radius: 0.4vw;
         }
@@ -276,14 +290,14 @@
 
 @section('content')
     <div class="searchbarcontainer">
-        <form class="navbar-form searchform" method="POST" action="{{url('search/')}}">
-            <input type="search" class="form-control" placeholder="검색" size="40">
-            <button type="search" class="lens_button"><img src="http://127.0.0.1:8000/img/searchbarbutton.png"/>
+        <form class="navbar-form searchform" method="GET" action="{{url('/search/')}}">
+            <input type="search" name="search" class="form-control" placeholder="검색" size="40">
+            <button type="submit" class="lens_button"><img src="http://127.0.0.1:8000/img/searchbarbutton.png"/>
             </button>
         </form>
         <div>
             <a href="{{url('notice')}}" class="navbarotherpage">TODAY 보상 공고/공시</a>
-            <a href="{{url('asking')}}" class="navbarotherpage">보상/용역 대행 컨설팅</a>
+            <a href="{{url('/consulting')}}" class="navbarotherpage">보상 용역 대행 컨설팅</a>
         </div>
     </div>
     <div class="body1">
@@ -295,20 +309,21 @@
             </div>
             <div id="hotfocus" class="w3-container menu1">
                 <div class="hotfocus_shortcut">
-                @forelse($hotfocus as $value)
-                    {{--<a href="{{ url('hotfocus/'.$value->hf_id) }}">--}}
-                        <img  onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')" src="http://127.0.0.1:8000/{{$value->hf_thumbnails}}"/>
+                    @forelse($hotfocus as $value)
+                        {{--<a href="{{ url('hotfocus/'.$value->hf_id) }}">--}}
+                        <img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"
+                             src="http://127.0.0.1:8000/{{$value->hf_thumbnails}}"/>
 
-                    {{--</a>--}}
-                @empty
-                    <div style="text-align:center;">등록된 글이 없습니다.</div>
-                @endforelse
-                    @if($hotfocus->count())
-                        <div class="text-center">
-                            {!! $hotfocus->render() !!}
-                        </div>
-                    @endif
+                        {{--</a>--}}
+                    @empty
+                        <div style="text-align:center;">등록된 글이 없습니다.</div>
+                    @endforelse
                 </div>
+                @if($hotfocus->count())
+                    <div class="text-center">
+                        {!! $hotfocus->render() !!}
+                    </div>
+                @endif
             </div>
             <div id="freesample" class="w3-container menu1" style="display:none">
                 <div style="text-align:center;">무료샘플이 없습니다.</div>
@@ -373,7 +388,7 @@
             </div>
             <div id="data1" class="menu2">
                 @forelse($library as $value)
-                    {{--<a href="{{ url('library/'.$value->library_id) }}">--}}
+                    {{--<a href="{{ url('search/'.$value->library_id) }}">--}}
                     {{--<div class="library_shortcut">--}}
                     {{--<div>{{$value->library_title}}</div>--}}
                     {{--<div>{{$value->library_date}}</div>--}}

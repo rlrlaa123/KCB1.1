@@ -25,16 +25,22 @@ Route::get('/asking', function () {
     return view('asking');
 });
 Route::get('/agreement', 'Auth\AgreementController@index');
+
+/*------------------보상용역대행컨설팅------------------------------------*/
+
+Route::get('/consulting', 'ConsultingViewController@Index');
+Route::get('/consulting_filedownload/{id}', 'ConsultingViewController@consulting_filedownload');
+
 Route::resource('/articles', 'ArticlesController');
-Route::get('/uploadfile', 'UploadFileController@index');
-Route::post('/uploadfile', 'UploadFileController@showUploadFile');
+
+Route::get('/fee', 'FeeController@index');
 //Route::post('/action_page', function(){
 //    return view('layouts.navbar.action_page');
 //});
-Route::post('search/', 'SearchController@search');
+Route::get('/search', 'SearchController@search');
 //개발정보검색
 Route::get('dev_info', 'UserView\Dev\DevViewController@index');
-Route::get('dev/{id}', 'UserView\Dev\DevViewController@show');
+Route::get('dev_info/{id}', 'UserView\Dev\DevViewController@show');
 Route::get('development_filedownload/{id}', 'UserView\Dev\DevViewController@development_filedownload');
 Route::get('development_reference_filedownload/{id}', 'UserView\Dev\DevViewController@development_reference_filedownload');
 Route::post('showdistrictlist', function (\Illuminate\Http\Request $request) {
@@ -49,7 +55,7 @@ Route::post('chosen', function (\Illuminate\Http\Request $request) {
         if ($request->dev_district == '전체')
             $data = \App\Dev::where('dev_city', $request->dev_city)->orderBy('dev_district')->get();
         else
-            $data = \App\Dev::where('dev_district', $request->dev_district)->orderBy('dev_district')->get();
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_district' => $request->dev_district])->orderBy('dev_district')->get();
     } // dev_type
     elseif ($request->dev_type != null && $request->dev_district == null && $request->dev_charge == null) {
         if ($request->dev_type == '전체') {
@@ -64,16 +70,50 @@ Route::post('chosen', function (\Illuminate\Http\Request $request) {
             $data = \App\Dev::where('dev_charge', $request->dev_charge)->orderBy('dev_charge')->get();
     } // dev_district dev_type
     elseif ($request->dev_district != null && $request->dev_type != null && $request->dev_charge == null) {
-        $data = \App\Dev::where(['dev_district' => $request->dev_district, 'dev_type' => $request->dev_type])->get();
+        if ($request->dev_district == '전체' && $request->dev_type == '전체')
+            $data = \App\Dev::where('dev_city', $request->dev_city)->orderBy('dev_district')->get();
+        elseif ($request->dev_district == '전체' && $request->dev_type != '전체')
+            $data = \App\Dev::where(['dev_type' => $request->dev_type, 'dev_city' => $request->dev_city])->orderBy('dev_type')->get();
+        elseif ($request->dev_district != '전체' && $request->dev_type == '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_district' => $request->dev_district])->orderBy('dev_district')->get();
+        else
+            $data = \App\Dev::where(['dev_district' => $request->dev_district, 'dev_type' => $request->dev_type])->get();
     } // dev_district dev_charge
     elseif ($request->dev_district != null && $request->dev_type == null && $request->dev_charge != null) {
-        $data = \App\Dev::where(['dev_district' => $request->dev_district, 'dev_charge' => $request->dev_charge])->get();
+        if ($request->dev_charge == '전체' && $request->dev_district == '전체')
+            $data = \App\Dev::where('dev_city', $request->dev_city)->orderBy('dev_charge')->get();
+        elseif ($request->dev_charge == '전체' && $request->dev_district != '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_district' => $request->dev_district])->orderBy('dev_district')->get();
+        elseif ($request->dev_charge != '전체' && $request->dev_district == '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_charge' => $request->dev_charge])->orderBy('dev_charge')->get();
+        else
+            $data = \App\Dev::where(['dev_district' => $request->dev_district, 'dev_charge' => $request->dev_charge])->get();
     } // dev_type dev_charge
     elseif ($request->dev_district == null && $request->dev_type != null && $request->dev_charge != null) {
-        $data = \App\Dev::where(['dev_type' => $request->dev_type, 'dev_charge' => $request->dev_charge])->get();
+        if ($request->dev_type == '전체' && $request->dev_charge == '전체')
+            $data = \App\Dev::orderBy('dev_type')->get();
+        elseif ($request->dev_type == '전체' && $request->dev_charge != '전체')
+            $data = \App\Dev::where('dev_charge', $request->dev_charge)->orderBy('dev_charge')->get();
+        elseif ($request->dev_type != '전체' && $request->dev_charge == '전체')
+            $data = \App\Dev::where('dev_type', $request->dev_type)->orderBy('dev_type')->get();
+        else
+            $data = \App\Dev::where(['dev_type' => $request->dev_type, 'dev_charge' => $request->dev_charge])->get();
     } // dev_district dev_type dev_charge
     elseif ($request->dev_district != null && $request->dev_type != null && $request->dev_charge != null) {
-        $data = \App\Dev::where(['dev_district' => $request->dev_district, 'dev_type' => $request->dev_type, 'dev_charge' => $request->dev_charge])->get();
+        if ($request->dev_type == '전체' && $request->dev_charge == '전체' && $request->dev_district == '전체')
+            $data = \App\Dev::where('dev_city', $request->dev_city)->orderBy('dev_district')->get();
+        elseif ($request->dev_type == '전체' && $request->dev_charge == '전체' && $request->dev_district != '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_district' => $request->dev_district])->get();
+        elseif ($request->dev_type != '전체' && $request->dev_charge == '전체' && $request->dev_district == '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_type' => $request->dev_type])->get();
+        elseif ($request->dev_type == '전체' && $request->dev_charge != '전체' && $request->dev_district == '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_charge' => $request->dev_charge])->get();
+        else
+            $data = \App\Dev::where([
+                'dev_district' => $request->dev_district,
+                'dev_type' => $request->dev_type,
+                'dev_charge' => $request->dev_charge
+            ])->get();
     }
 
     return json_encode($data, JSON_UNESCAPED_UNICODE);
@@ -83,34 +123,41 @@ Route::post('chosen', function (\Illuminate\Http\Request $request) {
 Route::get('fyi', 'UserView\FYI\FYIViewController@index');
 Route::get('fyi/{id}', 'UserView\FYI\FYIViewController@show');
 Route::get('fyi_filedownload/{id}', 'UserView\FYI\FYIViewController@fyi_filedownload');
+Route::get('fyisearch','SearchController@fyi_search');
 
 //---------------------------------------------------------------------------------------------------------
 //유권해석/판례
 Route::get('judicial', 'UserView\Judicial\JudicialViewController@index');
 Route::get('judicial/{id}', 'UserView\Judicial\JudicialViewController@show');
 Route::get('j_filedownload/{id}', 'UserView\Judicial\JudicialViewController@j_filedownload');
+Route::get('judicialsearch','SearchController@j_search');
 
 Route::get('hotfocus', 'UserView\Judicial\HotFocusViewController@index');
 Route::get('hotfocus/{id}', 'UserView\Judicial\HotFocusViewController@show');
 Route::get('hf_filedownload/{id}', 'UserView\Judicial\HotFocusViewController@hf_filedownload');
+Route::get('hotfocussearch','SearchController@hf_search');
 
 Route::get('relatednews', 'UserView\Judicial\RelatedNewsUserViewController@index');
 Route::get('relatednews/{id}', 'UserView\Judicial\RelatedNewsUserViewController@show');
 Route::get('rn_filedownload/{id}', 'UserView\Judicial\RelatedNewsUserViewController@rn_filedownload');
+Route::get('relatednewssearch','SearchController@relatednews_search');
 
 Route::get('policy', 'UserView\Judicial\PoliciesViewController@index');
 Route::get('policy/{id}', 'UserView\Judicial\PoliciesViewController@show');
 Route::get('p_filedownload/{id}', 'UserView\Judicial\PoliciesViewController@p_filedownload');
+Route::get('policysearch','SearchController@p_search');
 //---------------------------------------------------------------------------------------------------------
 //자료실
 Route::get('library', 'UserView\Library\LibraryViewController@index');
 Route::get('library/{id}', 'UserView\Library\LibraryViewController@show');
 Route::get('library_filedownload/{id}', 'UserView\Library\LibraryViewController@library_filedownload');
+Route::get('librarysearch/','SearchController@library_search');
 //---------------------------------------------------------------------------------------------------------
 //공고 공시
 Route::get('notice', 'UserView\Notice\NoticeViewController@index');
 Route::get('notice/{id}', 'UserView\Notice\NoticeViewController@show');
 Route::get('notice_filedownload/{id}', 'UserView\Notice\NoticeViewController@notice_filedownload');
+Route::get('noticesearch','SearchController@notice_search');
 //---------------------------------------------------------------------------------------------------------
 //커뮤니티
 Route::get('asking', 'UserView\Community\UserAskingController@index');
@@ -134,6 +181,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/basic/', 'Admin\Basic\SiteController@index');
     Route::get('/user/', 'Admin\User\UserController@index');
 
+    //----------------보상용역대행 컨설팅--------------------//
+    Route::get('/consulting/', 'Admin\Consulting\ConsultingController@index');
+    Route::post('/consultingfileupload/', 'Admin\Consulting\ConsultingController@consultingfileupload');
 
     //----------------공지사항--------------------//
     Route::get('/fyi/', 'Admin\FYI\FYIController@index');
@@ -146,6 +196,12 @@ Route::prefix('admin')->group(function () {
     //-------------개발정보검색-----------------//
     Route::get('/dev/', 'Admin\Dev\DevController@index');
     Route::post('/developmentfileupload/', 'Admin\Dev\DevController@developmentfileupload');
+    Route::post('/showdistrictlist', function (\Illuminate\Http\Request $request) {
+        $locations = \App\Location::select('num_id')->where('dev_city', $request->data)->get();
+
+        return $locations;
+    });
+
     //---------------공고/공시-----------------//
     Route::get('/notice/', 'Admin\Notice\NoticeController@index');
     Route::post('/noticefileupload/', 'Admin\Notice\NoticeController@noticefileupload');
@@ -172,6 +228,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/asking/', 'Admin\Community\AskingController@index');
     Route::get('/asking/{id}', 'Admin\Community\AskingController@show');
-    Route::get('/asking_file/{id}', 'Admin\Community\AskingController@asking_filedownload');
+    Route::get('/asking_filedownload/{id}', 'Admin\Community\AskingController@asking_filedownload');
 });
 //---------------------------------------------------------------------------------------------------------

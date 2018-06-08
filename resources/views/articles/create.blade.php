@@ -2,7 +2,6 @@
 <style>
     .communitycreate_page{
         margin:1vw 15vw 1vw 15vw;
-
     }
 </style>
 @section('content')

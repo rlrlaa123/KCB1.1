@@ -33,7 +33,7 @@
         ||$_SERVER['REQUEST_URI'] === '/admin/policy'||$_SERVER['REQUEST_URI'] === '/admin/relatednews' ? 'active' : ''}}"
              onclick="location.href='/admin/judicial';">유권해석&판례
         </div>
-        <div class="noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice'||$_SERVER['REQUEST_URI']==='admin/fyi' ? 'active' : ''}}"
+        <div class="noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice'||$_SERVER['REQUEST_URI']==='admin/fyi'|| $_SERVER['REQUEST_URI']==='admin/consulting' ? 'active' : ''}}"
              onclick="location.href='/admin/notice';">공고/공시
         </div>
         <div class="libraryinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/library' ? 'active' : ''}}"

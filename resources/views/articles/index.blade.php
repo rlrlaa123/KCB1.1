@@ -24,6 +24,8 @@
 </style>
 @section('content')
     <div class="community_page">
+        @include('layouts.partials.communitylist')
+        <hr/>
         <h4>커뮤니티</h4>
         <small>글 목록</small>
         <hr/>
@@ -40,7 +42,7 @@
                 @forelse($articles as $value)
                     <tr class="tothedetailpage" onclick="location.href='{{url('articles/'.$value->id)}}'">
                         <td class="td2">{{$value->id}}</td>
-                        <td>{{$value->title}}</td>
+                        <td style="text-align:left; padding:1vw">{{$value->title}}</td>
                         <td class="td1">{{$value->created_at}}</td>
                     </tr>
                 @empty

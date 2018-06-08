@@ -12,7 +12,18 @@
 </style>
 @section('content')
     <div class="Policypage">
-        @include('layouts.partials.judicialpage_list')
+        <div class="justify-content">
+            <div>@include('layouts.partials.judicialpage_list')</div>
+            <div>
+                <form class="navbar-form searchform" method="GET" action="{{url('/policysearch/')}}">
+                    <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
+                           style="height: 3vh; width: 15vw; padding:0;">
+                    <button type="submit" class="lens_button1"><img
+                                src="http://127.0.0.1:8000/img/searchbarbutton1.png"/>
+                    </button>
+                </form>
+            </div>
+        </div>
         <hr/>
         <div>
             <table class="pagecontents">

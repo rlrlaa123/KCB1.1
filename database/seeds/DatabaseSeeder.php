@@ -11,13 +11,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        if(config('database.default')!=='sqlite'){
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        }
         // Role comes before User seeder here.
         $this->call(RoleTableSeeder::class);
         // User seeder will use the roles above created.
+        App\User::truncate();
         $this->call(UserTableSeeder::class);
         // Admin seeder will use the roles above created.
         $this->call(AdminTableSeeder::class);
         // Development seeder will be genereated.
         $this->call(DevelopmentTableSeeder::class);
+        // Articles seeder will be genereated.
+        App\Article::truncate();
+        $this->call(ArticlesTableSeeder::class);
+        if(config('database.default')!=='sqlite') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        }
     }
 }

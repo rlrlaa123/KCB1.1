@@ -36,14 +36,17 @@ class CommunityController extends Controller
 
     public function show($id)
     {
+        $articles=Article::where('id', $id)->first();
         $data = Article::where('id', $id)->first();
         $previous = Article::where('id', '<', $data->id)->max('id');
         $next = Article::where('id', '>', $data->id)->min('id');
-        return view('admin.community.community.community_detailed',compact('data', 'previous', 'next'));
+        return view('admin.community.community.community_detailed',compact('data', 'previous', 'next','articles'));
     }
-    public function destroy(\App\Article $article)
+    public function destroy($articles)
     {
-        $this->authorize('delete', $article);
+        $this->authorize('delete', $articles);
+        $this->delete();
+        return response()->json([], 204);
 //      $article->delete();
 //      return response()->json([],204);
     }

@@ -42,10 +42,13 @@ class AdminLoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
 
-        return redirect('/');
+        $request->session()->flush();
+        $request->session()->regenerate();
+        return redirect()->guest(route( 'admin.login' ));
+
     }
 }

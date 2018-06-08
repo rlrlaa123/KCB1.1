@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagsTable extends Migration
+class CreateTableConsulting extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('slug')->index();
+        Schema::create('consulting', function (Blueprint $table) {
+            $table->increments('consulting_id');
+            $table->string('consulting_title');
+            $table->date('consulting_date');
+            $table->string('consulting_fileimage');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('consulting');
     }
 }

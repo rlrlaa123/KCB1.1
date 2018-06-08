@@ -27,10 +27,10 @@ class CreateDevelopmentTable extends Migration
             $table->string('dev_charge');
             $table->string('dev_method');
             $table->integer('dev_area_size');
-            $table->string('dev_applied_law');
+            $table->string('dev_applied_law')->nullable();
             $table->date('dev_publicly_starting_date');
-            $table->text('dev_future_plan');
-            $table->string('dev_reference');
+            $table->text('dev_future_plan')->nullable();
+            $table->string('dev_reference')->nullable();
             $table->timestamps();
         });
     }

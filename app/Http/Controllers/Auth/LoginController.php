@@ -71,10 +71,13 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::guard('web')->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
 
-        return redirect('/');
+
+        return redirect('/home');
     }
 }

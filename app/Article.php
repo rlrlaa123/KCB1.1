@@ -3,13 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
+use App\User;
 
 class Article extends Model
 {
 
     protected $with=['user'];
-    protected $fillable=['title','content'];
+    protected $table='articles';
+    protected $fillable=['title','content','username'];
     public function admin(){
         return $this->belongsTo(Admin::class);
     }

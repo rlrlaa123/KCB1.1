@@ -32,9 +32,11 @@ class DevController extends Controller
     public function index()
     {
         $locations = Location::all();
+//        $chosen=Location::where('dev_city','$chosen')->get();
+        $cities=Location::distinct()->get(['dev_city']);
         $searchtype= SearchType::all();
         $searchcharge= SearchCharge::all();
-        return view('admin.dev.dev_info.index', compact('locations','searchtype','searchcharge'));
+        return view('admin.dev.dev_info.index', compact('locations','searchtype','searchcharge', 'cities'));
     }
 
     public function developmentfileupload(Request $request)
@@ -47,7 +49,6 @@ class DevController extends Controller
             'dev_comment' => 'required',
             'dev_city' => 'required|string',
             'dev_district' => 'required|string',
-            'location' => 'nullable|string',
             'dev_type' => 'required|string',
             'dev_charge' => 'required|string',
             'dev_status' => 'required|string',

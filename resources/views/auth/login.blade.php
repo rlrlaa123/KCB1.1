@@ -1,20 +1,25 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container" style="margin:1vw 15vw 1vw 15vw; width:75%;">
+        <div style="display:flex; justify-content: space-between; align-items: center">
+            <b style="font-size: 1.5vw;">로그인</b><b style="font-size: 1.2vw; cursor:pointer" onclick="location.href='{{url('/')}}'" >홈으로</b>
+        </div>
+        <hr/>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('로그인') }}</div>
-
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             {!! csrf_field() !!}
 
                             <div class="form-group row">
-                                <label for="username" class="col-sm-4 col-form-label text-md-right">{{ __('아이디') }}</label>
+                                <label for="username"
+                                       class="col-sm-4 col-form-label text-md-right">{{ __('아이디') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+                                    <input id="username" type="text"
+                                           class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                           name="username" value="{{ old('username') }}" required autofocus>
 
                                     @if ($errors->has('username'))
                                         <span class="invalid-feedback">
@@ -25,10 +30,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('비밀번호') }}</label>
+                                <label for="password"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('비밀번호') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" type="password"
+                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                           name="password" required>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback">
@@ -42,7 +50,8 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('아이디 저장') }}
+                                            <input type="checkbox"
+                                                   name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('아이디 저장') }}
                                         </label>
                                     </div>
                                 </div>

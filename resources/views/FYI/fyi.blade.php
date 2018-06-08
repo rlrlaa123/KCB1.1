@@ -3,6 +3,7 @@
     .fyipage {
         margin: 1vw 15vw 1vw 15vw;
     }
+
     .table_id {
         width: 5%;
     }
@@ -23,6 +24,7 @@
         text-align: center;
         border: solid 1px black;
     }
+
     .fyipage th, td {
         text-align: center;
         border: solid 1px transparent;
@@ -43,7 +45,18 @@
 </style>
 @section('content')
     <div class="fyipage">
-        <div class="fyi-selector"onclick="location.href='/fyi';">공지사항</div>
+        <div class="justify-content">
+            <div class="fyi-selector" onclick="location.href='/fyi';">공지사항</div>
+            <div>
+                <form class="navbar-form searchform" method="GET" action="{{url('/fyisearch/')}}">
+                    <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
+                           style="height: 3vh; width: 15vw; padding:0;">
+                    <button type="submit" class="lens_button1"><img
+                                src="http://127.0.0.1:8000/img/searchbarbutton1.png"/>
+                    </button>
+                </form>
+            </div>
+        </div>
         <hr/>
         <div>
             <table class="pagecontents">
@@ -55,11 +68,11 @@
                 </tr>
                 </thead>
                 @forelse($data as $value)
-                        <tr class="tothedetailpage"onclick="location.href='{{url('fyi/'.$value->fyi_id)}}'">
-                            <td class="td1">{{$value->fyi_id}}</td>
-                            <td class="fyi_title">{{$value->fyi_title}}</td>
-                            <td class="td1">{{$value->fyi_date}}</td>
-                        </tr>
+                    <tr class="tothedetailpage" onclick="location.href='{{url('fyi/'.$value->fyi_id)}}'">
+                        <td class="td1">{{$value->fyi_id}}</td>
+                        <td class="fyi_title">{{$value->fyi_title}}</td>
+                        <td class="td1">{{$value->fyi_date}}</td>
+                    </tr>
                 @empty
                     <td colspan="3">등록된 공지사항이 없습니다.</td>
                 @endforelse

@@ -18,7 +18,7 @@
             <table class="articlesdetailedtable">
                 <tr>
                     <td>
-                        <div class="writer_and_filedownload">작성자 : {{$data->user_id}}
+                        <div class="writer_and_filedownload">작성자 : {{$data->user->name}}
                         </div>
                     </td>
                 </tr>
@@ -36,9 +36,19 @@
                             <tr>
                                 <td>
                                     <div class="table_footer">
-                                        <span><a href="{{url('/admin/articles/'.$previous)}}">이전글</a>
-                                            <a href="{{url('/admin/articles/'.$next)}}">다음글</a>  </span><a href="/admin/articles/">목록</a>
+                                        <span><a href="{{url('/admin/community/'.$previous)}}">이전글</a>
+                                            <a href="{{url('/admin/community/'.$next)}}">다음글</a></span>
+                                        <a href="{{url('/admin/community/')}}">목록</a>
                                     </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @can('delete', $articles)
+                                        <button class="button__delete">
+                                            글 삭제
+                                        </button>
+                                    @endcan
                                 </td>
                             </tr>
                         </table>
@@ -47,4 +57,26 @@
             </table>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.button__delete').on('click', function (e) {
+            var articleId = "{{$articles->id}}"
+
+            if (confirm('글을 삭제합니다.')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/admin/community/' + articleId
+                }).then(function () {
+                    window.location.href = '/admin/community';
+                })
+            }
+        });
+    </script>
 @endsection

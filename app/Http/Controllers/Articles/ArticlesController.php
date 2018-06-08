@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Auth\Access\AuthorizationException;
+use \Illuminate\Validation\Validator;
 use App\Http\Requests\ArticlesRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Article;
+use App\User;
+
 
 class ArticlesController extends Controller
 {
@@ -12,9 +19,14 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
-        $articles=\App\Article::latest()->paginate(3);
+        $articles = Article::latest()->paginate(10);
 //       dd(view('articles.index', compact('articles'))->render());
         return view('articles.index', compact('articles'));
     }
@@ -26,104 +38,85 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $article=new\App\Article;
-        return view('articles.create',compact('article'));
+        $article = new Article;
+        return view('articles.create', compact('article'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(\App\Http\Requests\ArticlesRequest $request)
+    public function store(ArticlesRequest $request)
     {
-//        $article=\App\User::find(1)->articles()->create($request->all());
-
-        $article=$request->user()->articles()->create($request->all());
-
-//     $rules =[
-//         'title'=>['required'],
-//         'content'=>['required','min:10'],
-//     ];
-//     $messages=[
-//         'title.required'=>'제목은 필수 입력 항목입니다.',
-//         'content.required'=>'본문은 필수 입력 항목입니다.',
-//         'content.min'=>'본문은 최소 :min 글자 이상이 필요합니다.'
-//     ];
-//     $validator=\Validator::make($request->all(),$rules, $messages);
-//     if($validator->fails()){
-//         return back()->withErrors($validator)->withInput();
-//     }
-//        $this->validate($request, $rules,$messages);
-//     $article=\App\User::find(1)->articles()->create($request->all());
-        if(!$article){
-            return back()->with('flash_message','글이 저장되지 않았습니다.')->withInput();
+//        $article=User::find(1)->articles()->create($request->all());
+        $article = $request->user()->articles()->create($request->all());
+        if (!$article) {
+            return back()->with('flash_message', '글이 저장되지 않았습니다.')->withInput();
         }
-        event(new\App\Events\ArticlesEvent($article));
+        return redirect(route('articles.index'))->with('flash_message', '작성하신 글이 저장되었습니다.');
 
-        return redirect(route('articles.index'))->with('flash_message','작성하신 글이 저장되었습니다.');
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(\App\Article $article)
+    public function show($id)
     {
-//        $article=\App\Article::findOrFail($id);
-//        debug($article->toArray());
-        return view('articles.show',compact('article'));
+//        $article=Article::find($id);
+        $articles = Article::find($id);
+        $article = $articles[1];
+//        return json_encode($article[1]);
+//        return $article;
+        return view('articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(\App\Http\Requests\ArticlesRequest $request, \App\Article $article)
+    public function edit(Article $article)
     {
-        $article->update($request->all());
-        flash()->success('수정하신 내용을 저장했습니다.');
-        return redirect(route('articles.show', $article->id));
-//        return view('articles.edit', compact('article'));
+        $this->authorize('update', $article);
+//        $article->update($request->all());
+//        flash()->success('수정하신 내용을 저장했습니다.');
+//        return redirect(route('articles.show', $article->id));
+        return view('articles.edit', compact('article'));
         //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(\App\Http\Requests\ArticlesRequest $request, \App\Article $article)
+    public function update(ArticlesRequest $request, Article $article)
     {
         $article->update($request->all());
-        flash()->success('수정하신 내용을 저장했습니다.');
 
-        return redirect(route('articles.show', $article->id));
+        return redirect(route('articles.show', $article->id))->with('success', '수정하신 내용을 저장했습니다.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(\App\Article $article)
     {
-       $article->delete();
-       return response()->json([],204);
-//      $article->delete();
-//      return response()->json([],204);
+        $this->authorize('delete', $article);
+        $article->delete();
+        return response()->json([],204);
+
     }
-    public function __construct()
-    {
-        $this->middleware('auth',['except'=>['index','show']]);
-    }
+
 }

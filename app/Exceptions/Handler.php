@@ -49,13 +49,21 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if(app()->environment('production')){
+            if($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException){
+                return response(view('errors.notice',[
+                    'title'=>'찾을 수 없습니다.',
+                    'description'=>'죄송합니다. 요청하신 페이지가 없습니다.'
+                ]), 404);
+            }
+        }
         return parent::render($request, $exception);
     }
 
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
-            return response()->json(['error' => 'unauthenticated'], 401);
+            return response()->json(['error' => 'Unauthenticated'], 401);
         }
 
         $guard = array_get($exception->guards(),0);

@@ -47,7 +47,7 @@
                                     <div class="table_footer">
                                         <span><a href="{{url('library/'.$previous)}}">이전글</a>
                                             <a href="{{url('library/'.$next)}}">다음글</a></span>
-                                        <a href="{{url('library')}}">목록</a>
+                                        <a href="{{url('search')}}">목록</a>
                                     </div>
                                 </td>
                             </tr>

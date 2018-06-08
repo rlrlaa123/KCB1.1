@@ -15,20 +15,22 @@
         width: 100%;
         opacity: 0.6;
         text-align: center;
-        padding:0;
-        margin:0;
+        padding: 0;
+        margin: 0;
     }
-    .text-block p{
-        margin:0;
+
+    .text-block p {
+        margin: 0;
         text-align: center;
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        width:100%;
-        height:20%;
+        width: 100%;
+        height: 20%;
 
     }
+
     .noticepage {
         margin: 1vw 15vw 1vw 15vw;
     }
@@ -79,8 +81,19 @@
 </style>
 @section('content')
     <div class="noticepage">
-        <div class="notice-selector {{ $_SERVER['REQUEST_URI'] === '/notice' ? 'judicialpage_list_onpage' : ''}}"
-             onclick="location.href='/notice';">TODAY 공고/공시
+        <div class="justify-content">
+            <div class="notice-selector {{ $_SERVER['REQUEST_URI'] === '/notice' ? 'judicialpage_list_onpage' : ''}}"
+                 onclick="location.href='/notice';">TODAY 공고/공시
+            </div>
+            <div>
+                <form class="navbar-form searchform" method="GET" action="{{url('/noticesearch/')}}">
+                    <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
+                           style="height: 3vh; width: 15vw; padding:0;">
+                    <button type="submit" class="lens_button1"><img
+                                src="http://127.0.0.1:8000/img/searchbarbutton1.png"/>
+                    </button>
+                </form>
+            </div>
         </div>
         <hr/>
         <table>
@@ -91,8 +104,10 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <div class="image_text_container"><img src="http://127.0.0.1:8000/{{ $not_expired->notice_thumbnails }}">
-                                            <div class="text-block"><p>{{$not_expired->notice_title}}</p></div></div>
+                                        <div class="image_text_container"><img
+                                                    src="http://127.0.0.1:8000/{{ $not_expired->notice_thumbnails }}">
+                                            <div class="text-block"><p>{{$not_expired->notice_title}}</p></div>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
@@ -105,8 +120,10 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <div class="image_text_container"><img src="http://127.0.0.1:8000/{{ $value->notice_thumbnails }}">
-                                            <div class="text-block"><p>{{$value->notice_title}}</p></div></div>
+                                        <div class="image_text_container"><img
+                                                    src="http://127.0.0.1:8000/{{ $value->notice_thumbnails }}">
+                                            <div class="text-block"><p>{{$value->notice_title}}</p></div>
+                                        </div>
                                     </td>
                             </table>
                         </a>

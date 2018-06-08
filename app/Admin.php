@@ -46,6 +46,10 @@ class Admin extends Authenticatable
             ? $this->hasRole($roles) || abort(401, 'author는 다음 페이지에 권한이 없습니다.')
             : $this->hasRole($roles) || abort(401, 'admin는 다음 페이지에 권한이 없습니다.');
     }
+    public function isAdmin(){
+        return ($this->id ===1) ? true : false;
+    }
+
 
     /**
      * Check multiple roles

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUsernameOnArticlesTable extends Migration
+class AddPhoneToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddUsernameOnArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->string('username');
-            $table->foreign('username')->references('username')->on('users')->onUpdate('cascade')->onDelete('cascade');
+        Schema::table('users', function (Blueprint $table) {
+           $table->string('phone')->unique();
         });
     }
 
@@ -26,8 +25,8 @@ class AddUsernameOnArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('username');
+        Schema::table('users', function (Blueprint $table) {
+            //
         });
     }
 }

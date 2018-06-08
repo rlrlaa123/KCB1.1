@@ -19,6 +19,8 @@ class UserTableSeeder extends Seeder
         $user->username = 'user';
         $user->name = 'Test User';
         $user->email = 'user@user.com';
+        $user->birth = \Faker\Provider\DateTime::dateTime();
+        $user->gender= 'M';
         $user->password = bcrypt('secret');
         $user->phone = '01033334444';
         $user->save();
@@ -28,6 +30,8 @@ class UserTableSeeder extends Seeder
         $premium->username = 'premium';
         $premium->name = 'Test Premium';
         $premium->email = 'premium@premium.com';
+        $premium->birth = \Faker\Provider\DateTime::dateTime();
+        $premium->gender = 'M';
         $premium->password = bcrypt('secret');
         $premium->phone = '01055556666';
         $premium->save();

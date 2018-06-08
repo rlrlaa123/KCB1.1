@@ -18,7 +18,7 @@
                 @forelse($data as $value)
                     <tr class="tothedetailpage" onclick="location.href='{{url('/admin/community/'.$value->id)}}'">
                         <td class="td1">{{$value->id}}</td>
-                        <td class="td2">{{$value->username}}</td>
+                        <td class="td2">{{$value->user->name}}</td>
                         <td>{{$value->title}}</td>
                         <td class="td1">{{$value->created_at}}</td>
                     </tr>

@@ -23,8 +23,11 @@ class DevViewController extends Controller
         return view('Development.Dev',compact('data','location','cities', 'search_charge', 'search_type'));
     }
     public function show($id) {
+
         $data = Dev::where('dev_id',$id)->first();
-        return view('Development.detailed.detailed',compact('data'));
+        $previous = Dev::where('dev_id', '<', $data->dev_id)->max('dev_id');
+        $next = Dev::where('dev_id', '>', $data->dev_id)->min('dev_id');
+        return view('Development.detailed.detailed',compact('data', 'previous','next'));
     }
     public function development_filedownload($id){
         $data=Dev::where('dev_id',$id)->first();

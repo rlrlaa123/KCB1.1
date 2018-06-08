@@ -19,7 +19,7 @@
                 <tr>
                     <td>
                         <div class="writer_and_filedownload">작성자 : {{$data->asking_user}} 작성자 이메일: {{$data->asking_user_email}}
-                            <span><a href="{{url('asking_file/'.$data->asking_id)}}">파일 다운로드 Date:{{$data->asking_date}}</a></span>
+                            <span><a href="{{url('/asking_filedownload/'.$data->id)}}">파일 다운로드 Date:{{$data->asking_date}}</a></span>
                         </div>
                     </td>
                 </tr>

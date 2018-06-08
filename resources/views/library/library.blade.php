@@ -41,8 +41,18 @@
 </style>
 @section('content')
     <div class="librarypage">
-        <div class="library-selector {{ $_SERVER['REQUEST_URI'] === '/library' ? 'judicialpage_list_onpage' : ''}}"
-             onclick="location.href='/library';">자료실
+        <div class="justify-content">
+            <div class="library-selector {{ $_SERVER['REQUEST_URI'] === '/library' ? 'judicialpage_list_onpage' : ''}}"
+                 onclick="location.href='/library';">자료실
+            </div>
+            <div>
+                <form class="navbar-form searchform" method="GET" action="{{url('/librarysearch/')}}">
+                    <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
+                           style="height: 3vh; width: 15vw; padding:0;">
+                    <button type="submit" class="lens_button1"><img src="http://127.0.0.1:8000/img/searchbarbutton1.png"/>
+                    </button>
+                </form>
+            </div>
         </div>
         <hr/>
         <div>
@@ -55,11 +65,11 @@
                 </tr>
                 </thead>
                 @forelse($data as $value)
-                        <tr class="tothedetailpage" onclick="location.href='{{url('library/'.$value->library_id)}}'">
-                            <td class="td1">{{$value->library_id}}</td>
-                            <td class="library_title">{{$value->library_title}}</td>
-                            <td class="td1">{{$value->library_date}}</td>
-                        </tr>
+                    <tr class="tothedetailpage" onclick="location.href='{{url('library/'.$value->library_id)}}'">
+                        <td class="td1">{{$value->library_id}}</td>
+                        <td class="library_title">{{$value->library_title}}</td>
+                        <td class="td1">{{$value->library_date}}</td>
+                    </tr>
                 @empty
                     <td colspan="3">해당 글이 없습니다.</td>
                 @endforelse
