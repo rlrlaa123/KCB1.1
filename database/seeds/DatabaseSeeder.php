@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         // Admin seeder will use the roles above created.
         $this->call(AdminTableSeeder::class);
         // Development seeder will be genereated.
+//        $this->call(Dev_LocationSeeder::class);
+        // Dev_location seeder will be genereated.
         $this->call(DevelopmentTableSeeder::class);
         // Articles seeder will be genereated.
         App\Article::truncate();
