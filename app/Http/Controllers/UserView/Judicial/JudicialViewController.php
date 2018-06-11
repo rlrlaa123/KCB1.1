@@ -8,6 +8,10 @@ use App\Judicial;
 
 class JudicialViewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
     public function index(Request $request)
     {
         $data = \App\Judicial::latest()->paginate(10);

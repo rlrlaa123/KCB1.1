@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class DevViewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
     public function index(){
 
         $search_type=SearchType::all();

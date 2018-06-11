@@ -114,15 +114,15 @@
                         </a></td>
                 @empty
                 @endforelse
-                @foreach($data as $value1)
+                @foreach($data as $value)
                     <td class="expired">
                         <a onclick="tothedetailpage1()">
                             <table>
                                 <tr>
                                     <td>
                                         <div class="image_text_container"><img
-                                                    src="http://127.0.0.1:8000/{{ $value1->notice_thumbnails }}">
-                                            <div class="text-block"><p>{{$value1->notice_title}}</p></div>
+                                                    src="http://127.0.0.1:8000/{{ $value->notice_thumbnails }}">
+                                            <div class="text-block"><p>{{$value->notice_title}}</p></div>
                                         </div>
                                     </td>
                             </table>
@@ -153,19 +153,6 @@
             else {
                 alert('자료를 열람할 권한이 없습니다.');
             }
-            console.log({{ !(\Illuminate\Support\Facades\Auth::user()->hasRole('user')) }})
-        }
-        function tothedetailpage1() {
-            // Premium 회원일 때만 접근 가능!
-            console.log();
-            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
-            if (role === "1") {
-                location.href = "{{ url('/notice', $value1->notice_id) }}";
-            }
-            else {
-                alert('자료를 열람할 권한이 없습니다.');
-            }
-            console.log({{ !(\Illuminate\Support\Facades\Auth::user()->hasRole('user')) }})
         }
     </script>
 @endsection

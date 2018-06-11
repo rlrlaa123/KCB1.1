@@ -75,6 +75,6 @@ class User extends Authenticatable
         else {
             return 0;
         }
-//        return null !== $this->roles()->where('name', $role)->first();
+
     }
 }

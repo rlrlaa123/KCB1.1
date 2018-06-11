@@ -8,6 +8,10 @@ use App\FYI;
 
 class FYIViewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
     public function index(Request $request)
     {
         $data = FYI::latest()->paginate(10);

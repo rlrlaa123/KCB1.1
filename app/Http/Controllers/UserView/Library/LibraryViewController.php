@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class LibraryViewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $data = Library::latest()->paginate(10);

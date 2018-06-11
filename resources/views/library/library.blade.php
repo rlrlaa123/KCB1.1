@@ -90,12 +90,27 @@
             if( role === "1" ) {
                 location.href= "{{ url('/library', $value->library_id) }}";
             }
-            else {
+            {{--else if(role === null){--}}
+                {{--location.href="{{url('/login')}}"--}}
+            {{--}--}}
+            else{
                 alert('자료를 열람할 권한이 없습니다.');
             }
-            console.log({{ !(\Illuminate\Support\Facades\Auth::user()->hasRole('user')) }})
+            {{--if ("{{\Illuminate\Support\Facades\Auth::check()}}") {--}}
+                {{--var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";--}}
+                {{--if (role === "1") {--}}
+                    {{--location.href = "{{ url('/library', $value->library_id) }}";--}}
+                {{--}--}}
+                {{--else if(role === "null"){--}}
+                        {{--location.href="{{url('/login')}}"--}}
+                        {{--}--}}
+                {{--else {--}}
+                    {{--alert('자료를 열람할 권한이 없습니다.');--}}
+                {{--}--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--location.href = "{{url('/login')}}";--}}
+            {{--}--}}
         }
     </script>
-@endsection
-@section('script')
 @endsection

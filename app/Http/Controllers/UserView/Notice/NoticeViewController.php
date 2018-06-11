@@ -10,6 +10,10 @@ use Carbon\Carbon;
 
 class NoticeViewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
         $notexpired = Notice::latest()->where('created_at','>',Carbon::now()->subDays(30))->paginate(12);

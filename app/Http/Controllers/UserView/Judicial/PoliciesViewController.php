@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PoliciesViewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
     public function index()
     {
         $data = \App\Policy::latest()->paginate(10);

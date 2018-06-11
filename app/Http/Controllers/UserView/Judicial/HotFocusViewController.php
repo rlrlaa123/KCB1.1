@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class HotFocusViewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+    }
+
     public function index()
     {
         $data = HotFocus::latest()->paginate(12);
