@@ -11,7 +11,7 @@ class HotFocusViewController extends Controller
     public function index()
     {
         $data = HotFocus::latest()->paginate(12);
-        return view('Judicial.HotFocus', compact('data'));
+        return view('Judicial.Hotfocus', compact('data'));
     }
 
     public function show($id)
