@@ -11,7 +11,7 @@ class FYIViewController extends Controller
     public function index(Request $request)
     {
         $data = FYI::latest()->paginate(10);
-        return view('FYI.FYI', compact('data'));
+        return view('FYI.fyi', compact('data'));
     }
 
     public function show($id)
