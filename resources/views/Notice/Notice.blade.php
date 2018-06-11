@@ -98,15 +98,15 @@
         <hr/>
         <table>
             <tr>
-                @forelse($notexpired as $not_expired)
+                @forelse($notexpired as $value)
                     <td class="notexpired">
-                        <a href="{{ url('notice/'.$not_expired->notice_id) }}">
+                        <a onclick="tothedetailpage()">
                             <table>
                                 <tr>
                                     <td>
                                         <div class="image_text_container"><img
-                                                    src="http://127.0.0.1:8000/{{ $not_expired->notice_thumbnails }}">
-                                            <div class="text-block"><p>{{$not_expired->notice_title}}</p></div>
+                                                    src="http://127.0.0.1:8000/{{ $value->notice_thumbnails }}">
+                                            <div class="text-block"><p>{{$value->notice_title}}</p></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -116,7 +116,7 @@
                 @endforelse
                 @foreach($data as $value)
                     <td class="expired">
-                        <a href="{{ url('notice/'.$value->notice_id) }}">
+                        <a onclick="tothedetailpage()">
                             <table>
                                 <tr>
                                     <td>
@@ -142,4 +142,18 @@
             </div>
         @endif
     </div>
+    <script>
+        function tothedetailpage() {
+            // Premium 회원일 때만 접근 가능!
+            console.log();
+            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+            if (role === "1") {
+                location.href = "{{ url('/notice', $value->notice_id) }}";
+            }
+            else {
+                alert('자료를 열람할 권한이 없습니다.');
+            }
+            console.log({{ !(\Illuminate\Support\Facades\Auth::user()->hasRole('user')) }})
+        }
+    </script>
 @endsection

@@ -67,8 +67,8 @@
         -ms-grid-column: 3;
     }
 
-    .grid-item:nth-child(2) {
-        -ms-grid-column: 3;
+    .grid-item:nth-child(3) {
+        -ms-grid-column: 5;
     }
 
     .business_result {
