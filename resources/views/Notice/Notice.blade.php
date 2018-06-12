@@ -112,6 +112,19 @@
                                 </tr>
                             </table>
                         </a></td>
+                    <script>
+                        function tothedetailpage() {
+                            // Premium 회원일 때만 접근 가능!
+                            console.log();
+                            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+                            if (role === "1") {
+                                location.href = "{{ url('/notice', $value->notice_id) }}";
+                            }
+                            else {
+                                alert('자료를 열람할 권한이 없습니다.');
+                            }
+                        }
+                    </script>
                 @empty
                 @endforelse
                 @foreach($data as $value)
@@ -128,6 +141,19 @@
                             </table>
                         </a>
                     </td>
+                        <script>
+                            function tothedetailpage1() {
+                                // Premium 회원일 때만 접근 가능!
+                                console.log();
+                                var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+                                if (role === "1") {
+                                    location.href = "{{ url('/notice', $value->notice_id) }}";
+                                }
+                                else {
+                                    alert('자료를 열람할 권한이 없습니다.');
+                                }
+                            }
+                        </script>
                 @endforeach
             </tr>
         </table>
@@ -142,17 +168,4 @@
             </div>
         @endif
     </div>
-    <script>
-        function tothedetailpage() {
-            // Premium 회원일 때만 접근 가능!
-            console.log();
-            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
-            if (role === "1") {
-                location.href = "{{ url('/notice', $value->notice_id) }}";
-            }
-            else {
-                alert('자료를 열람할 권한이 없습니다.');
-            }
-        }
-    </script>
 @endsection
