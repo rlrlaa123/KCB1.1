@@ -77,6 +77,7 @@
         }
 
         .hotfocus_shortcut {
+            padding: 0 3vw 0 1vw;
             display: flex;
             justify-content: space-between;
             height: 200px;

@@ -13,7 +13,6 @@
     <h4>
        공지사항
     </h4>
-    @include('layouts.partials.detailpage_list')
     <div>
         <div class="content_title"><strong>{{$data->fyi_title}}</strong><span>작성일 : {{$data->fyi_date}}</span></div>
         <table class="fyidetailedtable">

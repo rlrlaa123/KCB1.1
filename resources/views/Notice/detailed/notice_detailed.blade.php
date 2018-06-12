@@ -14,7 +14,6 @@
         <h4>
             공고/공시
         </h4>
-        @include('layouts.partials.detailpage_list')
         <div>
             <div class="content_title"><strong>{{$data->notice_title}}</strong><span>작성일 : {{$data->notice_date}}</span></div>
             <table class="noticedetailedtable">
