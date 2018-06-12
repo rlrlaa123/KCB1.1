@@ -73,6 +73,20 @@
                         <td class="fyi_title">{{$value->fyi_title}}</td>
                         <td class="td1">{{$value->fyi_date}}</td>
                     </tr>
+                    <script>
+                        function tothedetailpage() {
+                            // Premium 회원일 때만 접근 가능!
+                            console.log();
+                            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+                            if (role === "1") {
+                                location.href = "{{ url('/fyi', $value->fyi_id) }}";
+                            }
+                            else {
+                                alert('자료를 열람할 권한이 없습니다.');
+                            }
+                            console.log({{ !(\Illuminate\Support\Facades\Auth::user()->hasRole('user')) }})
+                        }
+                    </script>
                 @empty
                     <td colspan="3">등록된 공지사항이 없습니다.</td>
                 @endforelse
@@ -84,18 +98,5 @@
             @endif
         </div>
     </div>
-    <script>
-        function tothedetailpage() {
-            // Premium 회원일 때만 접근 가능!
-            console.log();
-            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
-            if (role === "1") {
-                location.href = "{{ url('/fyi', $value->fyi_id) }}";
-            }
-            else {
-                alert('자료를 열람할 권한이 없습니다.');
-            }
-            console.log({{ !(\Illuminate\Support\Facades\Auth::user()->hasRole('user')) }})
-        }
-    </script>
+
 @endsection
