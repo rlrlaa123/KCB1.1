@@ -292,7 +292,7 @@
     <div class="searchbarcontainer">
         <form class="navbar-form searchform" method="GET" action="{{url('/search/')}}">
             <input type="search" name="search" class="form-control" placeholder="검색" size="40">
-            <button type="submit" class="lens_button"><img src="http://127.0.0.1:8000/img/searchbarbutton.png"/>
+            <button type="submit" class="lens_button"><img src="/img/searchbarbutton.png"/>
             </button>
         </form>
         <div>
@@ -312,7 +312,7 @@
                     @forelse($hotfocus as $value)
                         {{--<a href="{{ url('hotfocus/'.$value->hf_id) }}">--}}
                         <img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"
-                             src="http://127.0.0.1:8000/{{$value->hf_thumbnails}}"/>
+                             src="/{{$value->hf_thumbnails}}"/>
 
                         {{--</a>--}}
                     @empty
