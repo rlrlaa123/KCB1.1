@@ -105,7 +105,7 @@
                                 <tr>
                                     <td>
                                         <div class="image_text_container"><img
-                                                    src="http://127.0.0.1:8000/{{$value->notice_thumbnails}}">
+                                                    src="/{{$value->notice_thumbnails}}">
                                             <div class="text-block"><p>{{$value->notice_title}}</p></div>
                                         </div>
                                     </td>
@@ -134,7 +134,7 @@
                                 <tr>
                                     <td>
                                         <div class="image_text_container"><img
-                                                    src="http://127.0.0.1:8000/{{ $value->notice_thumbnails }}">
+                                                    src="/{{ $value->notice_thumbnails }}">
                                             <div class="text-block"><p>{{$value->notice_title}}</p></div>
                                         </div>
                                     </td>

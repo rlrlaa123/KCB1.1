@@ -1,5 +1,5 @@
 <div class="navigationheader">
-    <a href="/"><img src="http://127.0.0.1:8000/img/KCB_logo.png" sizes="200"
+    <a href="/"><img src="/img/KCB_logo.png" sizes="200"
                      title="logo" alt="logo" align="left"></a>
     <span><ul>
             @guest

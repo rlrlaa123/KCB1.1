@@ -39,7 +39,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p><img src="http://127.0.0.1:8000/{{$data->library_fileimage}}"/></p>
+                                    <p><img src="{{$data->library_fileimage}}"/></p>
                                 </td>
                             </tr>
                             <tr>
