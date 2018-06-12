@@ -64,7 +64,7 @@
                 </tr>
                 </thead>
                 @forelse($fyi as $value)
-                        <tr class="tothedetailpage"onclick="location.href='{{url('fyi/'.$value->fyi_id)}}'">
+                        <tr class="tothedetailpage" onclick="location.href='{{url('fyi/'.$value->fyi_id)}}'">
                             <td class="td1">{{$value->fyi_id}}</td>
                             <td class="fyi_title">{{$value->fyi_title}}</td>
                             <td class="td1">{{$value->fyi_date}}</td>

@@ -37,7 +37,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <p><img src="{{$data->fyi_fileimage}}"></p>
+                                <p><img src="/{{$data->fyi_fileimage}}"></p>
                             </td>
                         </tr>
                         <tr>

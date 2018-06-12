@@ -65,24 +65,11 @@
                 </tr>
                 </thead>
                 @forelse($data as $value)
-                    <tr class="tothedetailpage" onclick="tothedetailpage()">
+                    <tr class="tothedetailpage" onclick="tothedetailpage({{$value->library_id}})">
                         <td class="td1">{{$value->library_id}}</td>
                         <td class="library_title">{{$value->library_title}}</td>
                         <td class="td1">{{$value->library_date}}</td>
                     </tr>
-                    <script>
-                        function tothedetailpage() {
-                            // Premium 회원일 때만 접근 가능!
-                            console.log();
-                            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
-                            if( role === "1" ) {
-                                location.href= "{{ url('/library', $value->library_id) }}";
-                            }
-                            else{
-                                alert('자료를 열람할 권한이 없습니다.');
-                            }
-                        }
-                    </script>
                 @empty
                     <td colspan="3">해당 글이 없습니다.</td>
                 @endforelse
@@ -94,4 +81,18 @@
             @endif
         </div>
     </div>
+
+    <script>
+        function tothedetailpage(id) {
+            // Premium 회원일 때만 접근 가능!
+            console.log();
+            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+            if( role === "1" ) {
+                location.href= "/library/"+id;
+            }
+            else{
+                alert('자료를 열람할 권한이 없습니다.');
+            }
+        }
+    </script>
 @endsection
