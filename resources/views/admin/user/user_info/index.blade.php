@@ -32,8 +32,10 @@
                         <td>
                             @if($value->grade=='user')
                               일반회원
-                                @else
+                                @elseif($value->grade=='premium')
                                 프리미엄
+                                @else
+                                미등록
                                 @endif
                             </td>
                         <td>
@@ -45,7 +47,7 @@
                                     <option value="premium">프리미엄</option>
                                 </select>
                                 <input type="hidden" name="id" value="{{$value->id}}">
-                                <button type="submit" form="user_grade_control">변경</button>
+                                <button type="submit">변경</button>
                                 <div></div>
                             </form>
                         </td>

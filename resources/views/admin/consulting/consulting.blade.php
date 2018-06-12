@@ -30,7 +30,7 @@
         .datainput {
             font-size: 1vw;
             padding: 1vw 1vw 1vw 1vw;
-            background-color: #FFFFF0;
+            background-color: #FFFFFF;
         }
 
         .savebutton {

@@ -151,7 +151,7 @@
                 location.href = "/notice/" + id;
             }
             else {
-                alert('자료를 열람할 권한이 없습니다.');
+                alert('프리미엄 회원만 열람이 가능합니다.');
             }
         }
     </script>
