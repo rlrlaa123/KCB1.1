@@ -186,7 +186,6 @@ Route::prefix('admin')->group(function () {
         $role_premium = \App\Role::where('name', 'premium')->first();
         $role_user = \App\Role::where('name', 'user')->first();
         $user = \App\User::where('id', $request->id)->first();
-        return $request;
         if ($request->grade =='premium'){
             $user->roles()->attach($role_premium);
             $user->grade='premium';
