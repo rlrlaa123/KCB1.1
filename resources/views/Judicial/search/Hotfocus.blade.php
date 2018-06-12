@@ -59,7 +59,7 @@
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
                            style="height: 3vh; width: 15vw; padding:0;">
                     <button type="submit" class="lens_button1"><img
-                                src="http://127.0.0.1:8000/img/searchbarbutton1.png"/>
+                                src="/img/searchbarbutton1.png"/>
                     </button>
                 </form>
             </div>
@@ -73,7 +73,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                    <div class="image_text_container"><img src="http://127.0.0.1:8000/{{ $value->hf_thumbnails }}">
+                                    <div class="image_text_container"><img src="/{{ $value->hf_thumbnails }}">
                                         <div class="text-block"><p>{{$value->hf_title}}</p></div></div>
                                     </td>
                                 </tr>

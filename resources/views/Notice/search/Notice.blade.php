@@ -90,7 +90,7 @@
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
                            style="height: 3vh; width: 15vw; padding:0;">
                     <button type="submit" class="lens_button1"><img
-                                src="http://127.0.0.1:8000/img/searchbarbutton1.png"/>
+                                src="/img/searchbarbutton1.png"/>
                     </button>
                 </form>
             </div>
@@ -105,13 +105,14 @@
                                 <tr>
                                     <td>
                                         <div class="image_text_container"><img
-                                                    src="http://127.0.0.1:8000/{{ $not_expired->notice_thumbnails }}">
+                                                    src="{{ $not_expired->notice_thumbnails }}">
                                             <div class="text-block"><p>{{$not_expired->notice_title}}</p></div>
                                         </div>
                                     </td>
                                 </tr>
                             </table>
-                        </a></td>
+                        </a>
+                    </td>
                 @empty
                 @endforelse
                 @forelse($data as $value)
@@ -121,7 +122,7 @@
                                 <tr>
                                     <td>
                                         <div class="image_text_container"><img
-                                                    src="http://127.0.0.1:8000/{{ $value->notice_thumbnails }}">
+                                                    src="{{ $value->notice_thumbnails }}">
                                             <div class="text-block"><p>{{$value->notice_title}}</p></div>
                                         </div>
                                     </td>

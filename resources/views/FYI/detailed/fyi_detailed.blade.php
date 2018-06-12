@@ -37,7 +37,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <p><img src="http://127.0.0.1:8000/{{$data->fyi_fileimage}}"></p>
+                                <p><img src="{{$data->fyi_fileimage}}"></p>
                             </td>
                         </tr>
                         <tr>

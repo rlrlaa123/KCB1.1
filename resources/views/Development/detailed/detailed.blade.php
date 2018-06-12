@@ -65,7 +65,7 @@
         </div>
         <hr/>
         <div class="basic_info_div">
-            <div style="width:35%; margin:1vw;"><img src="http://127.0.0.1:8000/img/no_image.jpg" style="width: 100%;">
+            <div style="width:35%; margin:1vw;"><img src="/img/no_image.jpg" style="width: 100%;">
             </div>
             <div style="width: 65%;">
                 <table>

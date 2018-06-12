@@ -39,7 +39,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p><img src="{{$data->library_fileimage}}"/></p>
+                                    <p><img src="/{{$data->library_fileimage}}"/></p>
                                 </td>
                             </tr>
                             <tr>
