@@ -49,7 +49,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin:5px;
+        margin: 5px;
     }
 
     .table_footer a {
@@ -238,11 +238,13 @@
         padding: 2vw 3vw;
 
     }
-    .tothedetailpage{
-        cursor:pointer;
+
+    .tothedetailpage {
+        cursor: pointer;
     }
-    .tothedetailpage td{
-        padding:1vw;
+
+    .tothedetailpage td {
+        padding: 1vw;
         text-align: center;
         font-size: 1vw;
     }
@@ -287,7 +289,6 @@
         margin: 1px;
     }
 
-
     /*공지사항 CSS---------------------------------------------------------------------------------*/
 
     .fyi_detailedtable {
@@ -322,6 +323,7 @@
         border-bottom: 0.1px solid lightgrey;
         margin: 1px;
     }
+
     /*상담하기 CSS---------------------------------------------------------------------------------*/
     .askingdetailedtable {
         width: 100%;
@@ -363,26 +365,29 @@
     .askingpage th, .askingpage td {
         text-align: center;
         border: solid 1px lightgrey;
-        padding:1vw;
+        padding: 1vw;
     }
-    .askingpage table{
+
+    .askingpage table {
         border-collapse: collapse;
     }
-    .text-center{
+
+    .text-center {
         text-align: center;
         justify-content: center;
 
     }
-    .text-center li{
+
+    .text-center li {
         display: inline;
         text-align: center;
-        color:black;
-    }
-    .pagination a{
-        color:black;
-        text-decoration: none;
+        color: black;
     }
 
+    .pagination a {
+        color: black;
+        text-decoration: none;
+    }
 
     /*상담하기 CSS---------------------------------------------------------------------------------*/
     .reportdetailedtable {
@@ -421,15 +426,54 @@
     .reportpage {
         margin: 1vw 15vw 1vw 15vw;
     }
+
     .reportpage th, .askingpage td {
         text-align: center;
         border: solid 1px lightgrey;
-        padding:1vw;
+        padding: 1vw;
     }
-    .reportpage table{
+
+    .reportpage table {
         border-collapse: collapse;
     }
 
+    /*회원정보 리스트 CSS---------------------------------------------------------------------------------*/
+
+    .userinfopage {
+        margin: 1vw;
+        font-size: 1vw;
+    }
+
+    .userinfotable {
+        padding: 1vw;
+        text-align: center;
+        font-size: 1vw;
+    }
+
+    .userinfopage th, .userinfopage td {
+        text-align: center;
+        border: solid 1px lightgrey;
+        padding: 0.5vw;
+        font-size: 1vw;
+        font-weight: 700;
+    }
+
+    .userinfopage table {
+        border-collapse: collapse;
+    }
+
+    #user_grade_control > select, #user_grade_control > button {
+        font-size: 1vw;
+    }
+
+    #user_grade_control > button {
+        background-color: #2278ff;
+        border: #2278ff;
+        -webkit-border-radius: 0.3vw;
+        -moz-border-radius: 0.3vw;
+        border-radius: 0.3vw;
+        color: #ffffff;
+    }
 
 
 </style>

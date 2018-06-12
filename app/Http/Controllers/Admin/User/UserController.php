@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\User;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
@@ -25,6 +26,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return view('admin.user.user_info.index');
+        $data = User::latest()->orderby('id')->paginate(30);
+        return view('admin.user.user_info.index', compact('data'));
     }
+
 }

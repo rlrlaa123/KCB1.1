@@ -23,6 +23,7 @@ class UserTableSeeder extends Seeder
         $user->gender= 'M';
         $user->password = bcrypt('secret');
         $user->phone = '01033334444';
+        $user->grade = 'user';
         $user->save();
         $user->roles()->attach($role_user);
 
@@ -34,6 +35,7 @@ class UserTableSeeder extends Seeder
         $premium->gender = 'M';
         $premium->password = bcrypt('secret');
         $premium->phone = '01055556666';
+        $premium->grade = 'premium';
         $premium->save();
         $premium->roles()->attach($role_premium);
     }

@@ -179,7 +179,28 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
     Route::get('/basic/', 'Admin\Basic\SiteController@index');
+
+    //------------------회원정보 리스트----------------------//
     Route::get('/user/', 'Admin\User\UserController@index');
+    Route::post('/user_grade_control', function (\Illuminate\Http\Request $request) {
+        $role_premium = \App\Role::where('name', 'premium')->first();
+        $role_user = \App\Role::where('name', 'user')->first();
+        $user = \App\User::where('id', $request->id)->first();
+//        return $user;
+        if ($request->grade == 'premium'){
+            $user->roles()->attach($role_premium);
+            $user->grade='premium';
+            
+
+        }elseif($request->grade=='user'){
+            $user->roles()->attach($role_user);
+            $user->grade='user';
+        }else{
+
+        }
+        $user->save();
+        return redirect('admin/user/');
+    });
 
     //----------------보상용역대행 컨설팅--------------------//
     Route::get('/consulting/', 'Admin\Consulting\ConsultingController@index');
