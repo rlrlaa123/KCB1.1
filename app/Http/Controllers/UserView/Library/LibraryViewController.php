@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Userview\Library;
 use App\Library;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LibraryViewController extends Controller
@@ -20,9 +21,9 @@ class LibraryViewController extends Controller
         return view('library.library', compact('data'));
     }
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        Auth::user()->authorizeRoles(['6premium'||'12premium']);
+        $request->user()->authorizeRoles(['premium']);
 
         $data = Library::where('library_id', $id)->first();
         $previous = Library::where('library_id', '<', $data->library_id)->max('library_id');

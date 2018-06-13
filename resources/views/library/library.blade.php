@@ -86,10 +86,10 @@
         function tothedetailpage(id) {
             // Premium 회원일 때만 접근 가능!
             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
-            if( role === "1" ) {
-                location.href= "/library/"+id;
+            if (role === "1") {
+                location.href = "/library/" + id;
             }
-            else{
+            else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
             }
         }

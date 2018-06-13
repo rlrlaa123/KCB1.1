@@ -48,14 +48,14 @@ class User extends Authenticatable
      */
     public function authorizeRoles($roles)
     {
-//        if (is_array($roles)) {
-//            return $this->hasAnyRole($roles) ||
-//                abort(401, $roles.'는 다음 페이지에 권한이 없습니다.');
-//        }
-        return $roles === '6premium' || $roles ==='12premium'
-            ? $this->hasRole($roles) || abort(401, 'premium는 다음 페이지에 권한이 없습니다.')
-            : $this->hasRole($roles) || abort(401, 'user는 다음 페이지에 권한이 없습니다.');
+        if (is_array($roles)) {
+            return $this->hasAnyRole($roles) ||
+                abort(401, 'This action is unauthorized.');
+        }
+        return $this->hasOneRole($roles) ||
+            abort(401, 'This action is unauthorized.');
     }
+
 
     /**
      * Check multiple roles
@@ -70,6 +70,10 @@ class User extends Authenticatable
      * Check one role
      * @param string $role
      */
+    public function hasOneRole($role)
+    {
+        return null !== $this->roles()->where('name', $role)->first();
+    }
     public function hasRole($role)
     {
         if ($this->roles()->where('name', $role)->first()) {

@@ -201,16 +201,19 @@ Route::prefix('admin')->group(function () {
         $grade_updated_at = \Carbon\Carbon::now();
         $updated_time = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $grade_updated_at);
         if ($request->grade == '6premium') {
+            $user->roles()->detach();
             $user->roles()->attach($role_premium);
             $user->grade = '6premium';
             $user->grade_updated_at = $updated_time;
             $user->grade_expiration_date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $grade_updated_at)->addDays('180');
         } else if ($request->grade == '12premium') {
+            $user->roles()->detach();
             $user->roles()->attach($role_premium);
             $user->grade = '12premium';
             $user->grade_updated_at = $updated_time;
             $user->grade_expiration_date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $grade_updated_at)->addDays('365');
         } else {
+            $user->roles()->detach();
             $user->roles()->attach($role_user);
             $user->grade = 'user';
             $user->grade_updated_at = null;

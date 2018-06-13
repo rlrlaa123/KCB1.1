@@ -16,7 +16,7 @@
             border-collapse: collapse;
             border: 1px solid black;
             font-size: 1.3vw;
-            padding: 1vw;
+            padding: 0.5vw;
         }
     </style>
     <div class="myinfo">

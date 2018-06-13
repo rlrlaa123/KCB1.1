@@ -25,7 +25,7 @@ class SiteController extends Controller
      */
     public function index(Request $request)
     {
-//        $request->user()->authorizeRoles(['admin']);
+        $request->user()->authorizeRoles(['admin']);
 //        return json_encode($request->user()->hasrole('admin'));
         return view('admin.basic.site_info.index');
     }

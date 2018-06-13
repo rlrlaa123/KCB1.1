@@ -46,8 +46,10 @@ class Admin extends Authenticatable
             ? $this->hasRole($roles) || abort(401, 'author는 다음 페이지에 권한이 없습니다.')
             : $this->hasRole($roles) || abort(401, 'admin는 다음 페이지에 권한이 없습니다.');
     }
-    public function isAdmin(){
-        return ($this->id ===1) ? true : false;
+
+    public function isAdmin()
+    {
+        return ($this->id === 1) ? true : false;
     }
 
 
@@ -68,34 +70,54 @@ class Admin extends Authenticatable
     {
         return null !== $this->roles()->where('name', $role)->first();
     }
-    public function articles(){
+
+    public function articles()
+    {
         return $this->hasmany(Article::class);
     }
-    public function judicial(){
+
+    public function judicial()
+    {
         return $this->hasmany(Judicial::class);
     }
-    public function library(){
+
+    public function library()
+    {
         return $this->hasmany(Library::class);
     }
-    public function relatednews(){
+
+    public function relatednews()
+    {
         return $this->hasmany(RelatedNews::class);
     }
-    public function hotfocus(){
+
+    public function hotfocus()
+    {
         return $this->hasmany(HotFocus::class);
     }
-    public function policy(){
+
+    public function policy()
+    {
         return $this->hasmany(Policy::class);
     }
-    public function notice(){
+
+    public function notice()
+    {
         return $this->hasmany(Notice::class);
     }
-    public function fyi(){
+
+    public function fyi()
+    {
         return $this->hasmany(FYI::class);
     }
-    public function dev(){
+
+    public function dev()
+    {
         return $this->hasMany(Dev::class);
     }
-    public function dev_location(){
+
+    public function dev_location()
+    {
         return $this->hasMany(location::class);
     }
 }
