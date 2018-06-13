@@ -18,7 +18,7 @@ class CreateAskingTable extends Migration
             $table->string('asking_user');
             $table->string('asking_user_email');
             $table->string('asking_title');
-            $table->string('asking_password');
+            $table->string('asking_password')->nullable();
             $table->string('asking_content');
             $table->string('asking_file')->nullable();
             $table->date('asking_date');

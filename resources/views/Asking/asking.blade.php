@@ -58,7 +58,7 @@
                 </tr>
                 <tr>
                     <td class="datainput">비밀번호</td>
-                    <td>{!! Form::password('asking_password', null, array('class'=>'form-control', 'placeholder'=>'비밀번호를 입력해주세요.', 'cols'=>70)) !!}
+                    <td><b>비밀번호 4자리를 입력해주세요.</b>{!! Form::text('asking_password', null,array('class' => 'form-control','placeholder'=>'비밀번호를 입력해주세요.', 'size'=>68 )) !!}
                     </td>
                 </tr>
                 <tr>

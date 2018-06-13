@@ -16,7 +16,7 @@ class UserAskingController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth');
     }
 
     public function index(Request $request)
@@ -27,9 +27,11 @@ class UserAskingController extends Controller
     public function show(Request $request, $id){
         $request->user()->authorizeRoles(['premium']);
         $data = Asking::where('id', $id)->first();
-        $previous = Asking::where('id', '<', $data->id)->max('id');
-        $next = Asking::where('id', '>', $data->id)->min('id');
-        return view('.Asking.detail', compact('data', 'previous', 'next'));
+//        $previous1 = Asking::where('id', '<', $data->id)->get();
+//        $next1 = Asking::where('id', '>', $data->id)->get();
+//        $previous = $previous1->where(max('id'))->get();
+//        $next = $next1->where(min('id'))->get();
+        return view('.Asking.detail', compact('data'));
     }
     public function write(){
         return view('.Asking.asking');
@@ -44,7 +46,7 @@ class UserAskingController extends Controller
             'asking_user_email' => 'required|string',
             'asking_title' => 'required',
             'asking_file' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,svg,txt,xlsx,xls,ppt,pptx,doc,docx,pdf', //a required, max 10000kb, doc or docx, pdf file
-            'asking_password' => 'required|string|min:4|max:4',
+            'asking_password' => 'nullable|string|min:4|max:4',
             'asking_content' => 'required',
         ]);
         if ($request->asking_file == null) {
@@ -54,7 +56,7 @@ class UserAskingController extends Controller
             $ask->asking_user_email = $request['asking_user_email'];
             $ask->asking_title = $request['asking_title'];
             $ask->asking_content = $request['asking_content'];
-            $ask->asking_password = $request['asking_passowrd'];
+            $ask->asking_password = $request['asking_password'];
             $ask->asking_file = null;
             $ask->asking_date = $date;
 
@@ -78,7 +80,7 @@ class UserAskingController extends Controller
             $ask->asking_user = $request['asking_user'];
             $ask->asking_user_email = $request['asking_user_email'];
             $ask->asking_content = $request['asking_content'];
-            $ask->asking_password = bcrypt($request['asking_passowrd']);
+            $ask->asking_password = bcrypt($request['asking_password']);
             $ask->asking_file = 'userconsulting/file/' . $filename;
             $ask->asking_date = $date;
 
@@ -86,6 +88,13 @@ class UserAskingController extends Controller
 
         }
         return redirect('asking')->with('success','등록완료');
+    }
+    public function asking_filedownload(Request $request, $id)
+    {
+        $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
+        $data = Asking::where('id', $id)->first();
+        $download_path = (public_path() . '/' . $data->asking_file);
+        return response()->download($download_path);
     }
 
 }

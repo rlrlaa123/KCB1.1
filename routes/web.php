@@ -163,6 +163,7 @@ Route::get('/asking', 'UserView\Community\UserAskingController@index');
 Route::get('/asking/{id}','UserView\Community\UserAskingController@show');
 Route::get('/ask','UserView\Community\UserAskingController@write');
 Route::post('/asking_fileupload', 'UserView\Community\UserAskingController@asking_fileupload');
+Route::get('/asking_filedownload/{id}', 'UserView\Community\UserAskingController@asking_filedownload');
 
 Route::get('/report', 'UserView\Community\UserReportController@index');
 Route::post('/report_fileupload', 'UserView\Community\UserReportController@report_fileupload');

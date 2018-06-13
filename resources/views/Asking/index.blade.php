@@ -21,6 +21,7 @@
         font-weight: lighter;
     }
 
+
 </style>
 @section('content')
     <div class="asking_page">
@@ -40,9 +41,9 @@
                 </thead>
                 <tbody>
                 @forelse($data as $value)
-                    @if($value->password != null)
+                    @if($value->asking_password != null)
                         <tr class="tothedetailpage"
-                            onclick="passwordpopup([{{$value->asking_password}},{{$value->id}}])">
+                            onclick="passwordpopup([{{$value->id}},{{$value->asking_password}}])">
                             <td class=" td2">{{$value->id}}</td>
                             <td style="text-align:left; padding:1vw">비공개글입니다.</td>
                             <td class="td1">{{$value->created_at}}</td>
@@ -70,11 +71,11 @@
         </div>
     </div>
     <script>
-        function passwordpopup(real_password, id) {
+        function passwordpopup(id, password) {
             var role = "{{ Illuminate\Support\Facades\Auth::user()->checkPremium(Illuminate\Support\Facades\Auth::user()->grade) }}";
             if (role === "1") {
-                var password = prompt("비밀번호를 입력하세요.");
-                if (password === real_password) {
+                var password_input = prompt("비밀번호를 입력하세요.");
+                if (password === password_input) {
                     location.href = "/asking/" + id;
                 } else {
                     alert("비밀번호를 정확히 입력해주세요.");
@@ -83,6 +84,7 @@
             else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
             }
+
         }
 
         function tothedetailpage(id) {
@@ -90,7 +92,7 @@
             if (role === "1") {
                 location.href = "/asking/" + id;
             }
-            else{
+            else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
             }
         }

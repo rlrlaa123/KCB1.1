@@ -474,5 +474,38 @@
         color: #ffffff;
     }
 
+    /*회원정보 리스트 CSS---------------------------------------------------------------------------------*/
+    .asking_detailedtable {
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    .asking_detailed {
+        text-align: left;
+        width: 100%;
+        padding: 0;
+    }
+
+    .asking_detailed_table_content img {
+        width: auto;
+        height: auto;
+        max-width: 70%;
+        max-height: 70vw;
+        margin: 1vw;
+    }
+
+    .asking_detailed_table_content p {
+        justify-content: left;
+        text-align: left;
+        padding: 2vw 3vw;
+
+    }
+
+    .asking_detailed_table_content div {
+        border-top: 0.1px solid lightgrey;
+        border-bottom: 0.1px solid lightgrey;
+        margin: 1px;
+    }
 
 </style>
