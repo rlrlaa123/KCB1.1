@@ -52,7 +52,7 @@ class User extends Authenticatable
 //            return $this->hasAnyRole($roles) ||
 //                abort(401, $roles.'는 다음 페이지에 권한이 없습니다.');
 //        }
-        return $roles === 'user'
+        return $roles === '6premium' || $roles ==='12premium'
             ? $this->hasRole($roles) || abort(401, 'premium는 다음 페이지에 권한이 없습니다.')
             : $this->hasRole($roles) || abort(401, 'user는 다음 페이지에 권한이 없습니다.');
     }
@@ -81,10 +81,9 @@ class User extends Authenticatable
 
     public function checkPremium($role)
     {
-        if($role == 'premium') {
+        if ($role == '6premium' || $role == '12premium') {
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }

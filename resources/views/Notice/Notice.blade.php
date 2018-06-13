@@ -146,7 +146,7 @@
         function tothedetailpage(id) {
             // Premium 회원일 때만 접근 가능!
             console.log();
-            var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
             if (role === "1") {
                 location.href = "/notice/" + id;
             }

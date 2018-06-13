@@ -265,7 +265,7 @@
 @section('content')
     <div class="dev_page">
         <div style="display:flex; justify-content: space-between; align-items: center">
-            <b style="font-size: 1.5vw;">개발사업정보 검색</b><b style="font-size: 1.2vw;">상세 검색</b>
+            <b style="font-size: 1.5vw;">개발사업정보 검색</b><b></b>
         </div>
         <hr/>
         <div class="dev_info_search">
@@ -314,7 +314,7 @@
                 </div>
             </div>
         </div>
-        <div class="ClearBtn" onclick="window.open('{{url('/dev_info')}}')">
+        <div class="ClearBtn" onclick="location.href='{{url('/dev_info')}}'">
             조건 초기화
         </div>
         <div class="result_container">
@@ -427,9 +427,8 @@
                     newDiv.className = 'dev_info_result_container';
                     newDiv.onclick =
                             function () {
-                                var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+                                var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
                                 if (role === "1") {
-                                    // location.href = "/dev_info/ " + id;
                                     window.open("{{url('dev_info')}}" + "/" + ele.dev_id);
                                 }else if(role==="0"){
                                     alert('프리미엄 회원만 열람이 가능합니다.');

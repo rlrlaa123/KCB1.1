@@ -453,7 +453,6 @@
     .userinfopage th, .userinfopage td {
         text-align: center;
         border: solid 1px lightgrey;
-        padding: 0.5vw;
         font-size: 1vw;
         font-weight: 700;
     }

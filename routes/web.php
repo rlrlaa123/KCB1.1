@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
+Route::get('/myinfo', 'UserView\MyInfoController@index');
 Route::get('/intro', 'IntroController@index');
 Route::get('/asking', function () {
     return view('asking');
@@ -182,16 +183,38 @@ Route::prefix('admin')->group(function () {
 
     //------------------회원정보 리스트----------------------//
     Route::get('/user/', 'Admin\User\UserController@index');
+    Route::post('search_user', function (\Illuminate\Http\Request $request) {
+        $search = \App\User::where('username', $request->search_user)->get();
+        if ($search != null) {
+            $result = $search;
+        } else {
+            $result = [];
+        }
+        $data = \App\User::latest()->orderby('id')->paginate(30);
+
+        return view('admin.user.user_info.index', compact('data', 'result'));
+    });
     Route::post('/user_grade_control', function (\Illuminate\Http\Request $request) {
         $role_premium = \App\Role::where('name', 'premium')->first();
         $role_user = \App\Role::where('name', 'user')->first();
         $user = \App\User::where('id', $request->id)->first();
-        if ($request->grade == 'premium') {
+        $grade_updated_at = \Carbon\Carbon::now();
+        $updated_time = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $grade_updated_at);
+        if ($request->grade == '6premium') {
             $user->roles()->attach($role_premium);
-            $user->grade = 'premium';
-        } else{
+            $user->grade = '6premium';
+            $user->grade_updated_at = $updated_time;
+            $user->grade_expiration_date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $grade_updated_at)->addDays('180');
+        } else if ($request->grade == '12premium') {
+            $user->roles()->attach($role_premium);
+            $user->grade = '12premium';
+            $user->grade_updated_at = $updated_time;
+            $user->grade_expiration_date = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $grade_updated_at)->addDays('365');
+        } else {
             $user->roles()->attach($role_user);
             $user->grade = 'user';
+            $user->grade_updated_at = null;
+            $user->grade_expiration_date = null;
         }
         $user->save();
         return redirect('admin/user/');
