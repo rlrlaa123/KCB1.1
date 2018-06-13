@@ -20,6 +20,7 @@ class AdminTableSeeder extends Seeder
         $admin->name = 'Test Admin';
         $admin->email = 'admin@admin.com';
         $admin->password = bcrypt('secret');
+        $admin->grade = 'admin';
         $admin->save();
         $admin->roles()->attach($role_admin);
 
@@ -28,6 +29,7 @@ class AdminTableSeeder extends Seeder
         $author->name = 'Test Author';
         $author->email = 'author@author.com';
         $author->password = bcrypt('secret');
+        $author->grade = 'author';
         $author->save();
         $author->roles()->attach($role_author);
     }
