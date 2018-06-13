@@ -32,7 +32,7 @@
         padding: 0;
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns:1fr 0 1fr 0 1fr;
+        -ms-grid-columns: 1fr 0 1fr 0 1fr;
         grid-template-columns: 33% 33% 33%;
         text-align: center;
         height: 300px;
@@ -231,8 +231,8 @@
 
     .dev_info_result_container {
         display: grid;
-        display:-ms-grid;
-        -ms-grid-columns:1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
         grid-template-columns: 15% 15% 25% 25% 20%;
         cursor: pointer;
         text-align: center;
@@ -425,10 +425,16 @@
                 data.map(function (ele) {
                     var newDiv = document.createElement('div');
                     newDiv.className = 'dev_info_result_container';
-                    newDiv.onclick = function () {
-                        console.log(ele.dev_id);
-                        window.open("{{url('dev_info')}}" + "/" + ele.dev_id);
-                    };
+                    newDiv.onclick =
+                            function () {
+                                var role = "{{ \Illuminate\Support\Facades\Auth::user()->hasRole('premium') }}";
+                                if (role === "1") {
+                                    // location.href = "/dev_info/ " + id;
+                                    window.open("{{url('dev_info')}}" + "/" + ele.dev_id);
+                                }else if(role==="0"){
+                                    alert('프리미엄 회원만 열람이 가능합니다.');
+                                }
+                            };
 
                     var newContainer1 = document.createElement('div');
                     newContainer1.innerHTML = ele.dev_title;
@@ -445,7 +451,6 @@
                     var newContainer5 = document.createElement('div');
                     newContainer5.innerHTML = ele.dev_city + ' ' + ele.dev_district;
                     newContainer5.classList.add("grid-item");
-                    {{--newDiv.onclick='location.href="{{url('dev_info/')}}"';--}}
 
                     newDiv.appendChild(newContainer1);
                     newDiv.appendChild(newContainer2);
@@ -498,6 +503,5 @@
                 this.className += ' active';
             })
         });
-
     </script>
 @endsection

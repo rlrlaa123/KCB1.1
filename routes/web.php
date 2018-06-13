@@ -123,41 +123,41 @@ Route::post('chosen', function (\Illuminate\Http\Request $request) {
 Route::get('fyi', 'UserView\FYI\FYIViewController@index');
 Route::get('fyi/{id}', 'UserView\FYI\FYIViewController@show');
 Route::get('fyi_filedownload/{id}', 'UserView\FYI\FYIViewController@fyi_filedownload');
-Route::get('fyisearch','SearchController@fyi_search');
+Route::get('fyisearch', 'SearchController@fyi_search');
 
 //---------------------------------------------------------------------------------------------------------
 //유권해석/판례
 Route::get('/judicial', 'UserView\Judicial\JudicialViewController@index');
 Route::get('/judicial/{id}', 'UserView\Judicial\JudicialViewController@show');
 Route::get('/j_filedownload/{id}', 'UserView\Judicial\JudicialViewController@j_filedownload');
-Route::get('/judicialsearch','SearchController@j_search');
+Route::get('/judicialsearch', 'SearchController@j_search');
 
 Route::get('/hotfocus', 'UserView\Judicial\HotFocusViewController@index');
 Route::get('/hotfocus/{id}', 'UserView\Judicial\HotFocusViewController@show');
 Route::get('/hf_filedownload/{id}', 'UserView\Judicial\HotFocusViewController@hf_filedownload');
-Route::get('/hotfocussearch','SearchController@hf_search');
+Route::get('/hotfocussearch', 'SearchController@hf_search');
 
 Route::get('/relatednews', 'UserView\Judicial\RelatedNewsUserViewController@index');
 Route::get('/relatednews/{id}', 'UserView\Judicial\RelatedNewsUserViewController@show');
 Route::get('/rn_filedownload/{id}', 'UserView\Judicial\RelatedNewsUserViewController@rn_filedownload');
-Route::get('/relatednewssearch','SearchController@relatednews_search');
+Route::get('/relatednewssearch', 'SearchController@relatednews_search');
 
 Route::get('/policy', 'UserView\Judicial\PoliciesViewController@index');
 Route::get('/policy/{id}', 'UserView\Judicial\PoliciesViewController@show');
 Route::get('/p_filedownload/{id}', 'UserView\Judicial\PoliciesViewController@p_filedownload');
-Route::get('/policysearch','SearchController@p_search');
+Route::get('/policysearch', 'SearchController@p_search');
 //---------------------------------------------------------------------------------------------------------
 //자료실
 Route::get('/library', 'UserView\Library\LibraryViewController@index');
 Route::get('/library/{id}', 'UserView\Library\LibraryViewController@show');
 Route::get('/library_filedownload/{id}', 'UserView\Library\LibraryViewController@library_filedownload');
-Route::get('/librarysearch/','SearchController@library_search');
+Route::get('/librarysearch/', 'SearchController@library_search');
 //---------------------------------------------------------------------------------------------------------
 //공고 공시
 Route::get('/notice', 'UserView\Notice\NoticeViewController@index');
 Route::get('/notice/{id}', 'UserView\Notice\NoticeViewController@show');
 Route::get('/notice_filedownload/{id}', 'UserView\Notice\NoticeViewController@notice_filedownload');
-Route::get('/noticesearch','SearchController@notice_search');
+Route::get('/noticesearch', 'SearchController@notice_search');
 //---------------------------------------------------------------------------------------------------------
 //커뮤니티
 Route::get('/asking', 'UserView\Community\UserAskingController@index');
@@ -186,19 +186,16 @@ Route::prefix('admin')->group(function () {
         $role_premium = \App\Role::where('name', 'premium')->first();
         $role_user = \App\Role::where('name', 'user')->first();
         $user = \App\User::where('id', $request->id)->first();
-        if ($request->grade =='premium'){
+        if ($request->grade == 'premium') {
             $user->roles()->attach($role_premium);
-            $user->grade='premium';
-        }elseif($request->grade=='user'){
+            $user->grade = 'premium';
+        } else{
             $user->roles()->attach($role_user);
-            $user->grade='user';
-        }else{
-
+            $user->grade = 'user';
         }
         $user->save();
         return redirect('admin/user/');
     });
-
     //----------------보상용역대행 컨설팅--------------------//
     Route::get('/consulting/', 'Admin\Consulting\ConsultingController@index');
     Route::post('/consultingfileupload/', 'Admin\Consulting\ConsultingController@consultingfileupload');

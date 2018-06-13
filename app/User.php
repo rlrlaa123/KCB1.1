@@ -15,9 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone', 'username', 'birth','gender','grade',
+        'name', 'email', 'password', 'phone', 'username', 'birth', 'gender',
     ];
-    protected $dates=['last_login'];
+    protected $dates = ['last_login'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -27,7 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function articles(){
+
+    public function articles()
+    {
         return $this->hasmany(Article::class);
     }
 
@@ -36,8 +38,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function isAdmin(){
-        return ($this->id ===1) ? true : false;
+    public function isAdmin()
+    {
+        return ($this->id === 1) ? true : false;
     }
 
     /**
@@ -69,10 +72,9 @@ class User extends Authenticatable
      */
     public function hasRole($role)
     {
-        if($this->roles()->where('name', $role)->first()) {
+        if ($this->roles()->where('name', $role)->first()) {
             return 1;
-        }
-        else {
+        } else {
             return 0;
         }
 

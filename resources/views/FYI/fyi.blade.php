@@ -95,7 +95,6 @@
             else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
             }
-            console.log({{ !(\Illuminate\Support\Facades\Auth::user()->hasRole('user')) }})
         }
     </script>
 @endsection

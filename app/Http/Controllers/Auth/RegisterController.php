@@ -43,14 +43,16 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'username'=>'required|string|unique:users',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -58,7 +60,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param  array  $data
      * @return \App\User
      */
     protected function create(array $data)
@@ -67,15 +69,17 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'username' => $data['username'],
             'phone' => $data['phone'],
-            'birth' => $data['birth'],
-            'gender' => $data['gender'],
+            'birth'=> $data['birth'],
+            'gender'=> $data['gender'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'grade' => 'user',
+            'grade'=>$data['grade'],
         ]);
 
         // 유저 Role 세팅
-        $user->roles()->attach(Role::where('name', 'user')->first());
+        $user
+            ->roles()
+            ->attach(Role::where('name', 'user')->first());
         return $user;
     }
 }

@@ -30,25 +30,22 @@
                         <td>{{$value->phone}}</td>
                         <td>{{$value->created_at}}</td>
                         <td>
-                            @if($value->grade=='user')
-                              일반회원
-                                @elseif($value->grade=='premium')
-                                프리미엄
+                            @if($value->grade=='premium')
+                              프리미엄
                                 @else
-                                미등록
+                                일반회원
                                 @endif
                             </td>
                         <td>
                             <form id="user_grade_control" action="{{url('admin/user_grade_control')}}" method="POST">
                                 {!! csrf_field() !!}
                                 <select id="grade" name="grade">
-                                    <option style="background-color:#d3d3d3;" selected disabled>--등급 선택--</option>
                                     <option value="user">일반회원</option>
                                     <option value="premium">프리미엄</option>
                                 </select>
                                 <input type="hidden" name="id" value="{{$value->id}}">
                                 <button type="submit">변경</button>
-                                <div></div>
+
                             </form>
                         </td>
                     </tr>

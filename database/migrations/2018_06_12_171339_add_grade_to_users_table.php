@@ -14,10 +14,10 @@ class AddGradeToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('grade');
+            $table->string('grade')->nullable();
         });
         Schema::table('admins', function(Blueprint $table){
-           $table->string('grade');
+           $table->string('grade')->nullable();
         });
     }
 
