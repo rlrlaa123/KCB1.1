@@ -69,7 +69,7 @@
             <tr>
                 @forelse($data as $value)
                     <td class="pagecontents_td">
-                        <a href="{{ url('hotfocus/'.$value->hf_id) }}">
+                        <a onclick="tothedetailpage({{$value->hf_id}})">
                             <table>
                                 <tr>
                                     <td>
@@ -90,6 +90,19 @@
             </div>
         @endif
     </div>
+
+    <script>
+        function tothedetailpage(id) {
+            // Premium 회원일 때만 접근 가능!
+            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
+            if (role === "1") {
+                location.href = "/hotfocus/" + id;
+            }
+            else {
+                alert('프리미엄 회원만 열람이 가능합니다.');
+            }
+        }
+    </script>
 @endsection
 
 {{--<div>--}}

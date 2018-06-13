@@ -166,8 +166,6 @@ Route::post('/asking_fileupload', 'UserView\Community\UserAskingController@askin
 
 Route::get('/report', 'UserView\Community\UserReportController@index');
 Route::post('/report_fileupload', 'UserView\Community\UserReportController@report_fileupload');
-//결과페이지
-Route::get('/detailed', 'UserView\DetailedController@index');
 //---------------------------------------------------------------------------------------------------------
 //관리자
 Route::prefix('admin')->group(function () {

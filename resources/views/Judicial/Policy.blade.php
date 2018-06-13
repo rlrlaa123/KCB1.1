@@ -36,7 +36,7 @@
                 </tr>
                 </thead>
                 @forelse($data as $value)
-                    <tr class="tothedetailpage" onclick="location.href='{{url('policy/'.$value->p_id)}}'">
+                    <tr class="tothedetailpage" onclick="location.href=tothedetailpage({{$value->p_id}})">
                         <td class="td1 ">{{$value->p_id}}</td>
                         <td class="td2">규정/지침</td>
                         <td>{{$value->p_title}}</td>
@@ -53,4 +53,17 @@
             @endif
         </div>
     </div>
+
+    <script>
+        function tothedetailpage(id) {
+            // Premium 회원일 때만 접근 가능!
+            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
+            if (role === "1") {
+                location.href = "/library/" + id;
+            }
+            else {
+                alert('프리미엄 회원만 열람이 가능합니다.');
+            }
+        }
+    </script>
 @endsection

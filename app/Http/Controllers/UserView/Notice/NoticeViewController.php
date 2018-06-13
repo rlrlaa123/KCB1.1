@@ -14,22 +14,28 @@ class NoticeViewController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index(Request $request)
     {
-        $notexpired = Notice::latest()->where('created_at','>',Carbon::now()->subDays(30))->paginate(12);
-        $data = Notice::latest()->where('created_at','<',Carbon::now()->subDays(30))->paginate(12);
-        return view('Notice.Notice',compact('data','notexpired'));
+        $notexpired = Notice::latest()->where('created_at', '>', Carbon::now()->subDays(30))->paginate(12);
+        $data = Notice::latest()->where('created_at', '<', Carbon::now()->subDays(30))->paginate(12);
+        return view('Notice.Notice', compact('data', 'notexpired'));
     }
-    public function show($id)
+
+    public function show(Request $request, $id)
     {
-        $data = Notice::where('notice_id',$id)->first();
+        $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
+        $data = Notice::where('notice_id', $id)->first();
         $previous = Notice::where('notice_id', '<', $data->notice_id)->max('notice_id');
         $next = Notice::where('notice_id', '>', $data->notice_id)->min('notice_id');
-        return view('Notice.detailed.notice_detailed',compact('data', 'previous', 'next'));
+        return view('Notice.detailed.notice_detailed', compact('data', 'previous', 'next'));
     }
-    public function notice_filedownload($id){
+
+    public function notice_filedownload(Request $request, $id)
+    {
+        $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
         $data = Notice::where('notice_id', $id)->first();
-        $download_path=(public_path().'/'.$data->notice_fileimage);
+        $download_path = (public_path() . '/' . $data->notice_fileimage);
         return response()->download($download_path);
     }
 }

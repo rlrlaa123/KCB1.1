@@ -23,7 +23,7 @@ class LibraryViewController extends Controller
 
     public function show(Request $request, $id)
     {
-        $request->user()->authorizeRoles(['premium']);
+        $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
 
         $data = Library::where('library_id', $id)->first();
         $previous = Library::where('library_id', '<', $data->library_id)->max('library_id');
@@ -31,8 +31,9 @@ class LibraryViewController extends Controller
         return view('library.detailed.library_detailed', compact('data', 'previous', 'next'));
     }
 
-    public function library_filedownload($id)
+    public function library_filedownload(Request $request, $id)
     {
+        $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
         $data = Library::where('library_id', $id)->first();
         $download_path = (public_path() . '/' . $data->library_fileimage);
         return response()->download($download_path);
