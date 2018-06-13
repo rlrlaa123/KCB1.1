@@ -74,7 +74,7 @@
         function passwordpopup(id, password) {
             var role = "{{ Illuminate\Support\Facades\Auth::user()->checkPremium(Illuminate\Support\Facades\Auth::user()->grade) }}";
             if (role === "1") {
-                var password_input = prompt("비밀번호를 입력하세요.");
+                var password_input = prompt("비밀번호 4자리를 입력하세요.");
                 if (password === password_input) {
                     location.href = "/asking/" + id;
                 } else {

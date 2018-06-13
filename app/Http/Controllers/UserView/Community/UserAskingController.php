@@ -26,6 +26,7 @@ class UserAskingController extends Controller
     }
     public function show(Request $request, $id){
         $request->user()->authorizeRoles(['premium']);
+
         $data = Asking::where('id', $id)->first();
 //        $previous1 = Asking::where('id', '<', $data->id)->get();
 //        $next1 = Asking::where('id', '>', $data->id)->get();
