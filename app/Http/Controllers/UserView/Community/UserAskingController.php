@@ -21,11 +21,24 @@ class UserAskingController extends Controller
 
     public function index(Request $request)
     {
-        return view('Asking.asking');
+        $data=Asking::latest()->paginate(10);
+        return view('Asking.index', compact('data'));
     }
+    public function show(Request $request, $id){
+        $request->user()->authorizeRoles(['premium']);
+        $data = Asking::where('id', $id)->first();
+        $previous = Asking::where('id', '<', $data->id)->max('id');
+        $next = Asking::where('id', '>', $data->id)->min('id');
+        return view('.Asking.detail', compact('data', 'previous', 'next'));
+    }
+    public function write(){
+        return view('.Asking.asking');
+    }
+
 
     public function asking_fileupload(Request $request)
     {
+        $request->user()->authorizeRoles(['premium']);
         $this->validate($request, [
             'asking_user'=>'required|string',
             'asking_user_email' => 'required|string',

@@ -22,9 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
 Route::get('/myinfo', 'UserView\MyInfoController@index');
 Route::get('/intro', 'IntroController@index');
-Route::get('/asking', function () {
-    return view('asking');
-});
+
 Route::get('/agreement', 'Auth\AgreementController@index');
 
 /*------------------보상용역대행컨설팅------------------------------------*/
@@ -162,6 +160,8 @@ Route::get('/noticesearch', 'SearchController@notice_search');
 //---------------------------------------------------------------------------------------------------------
 //커뮤니티
 Route::get('/asking', 'UserView\Community\UserAskingController@index');
+Route::get('/asking/{id}','UserView\Community\UserAskingController@show');
+Route::get('/ask','UserView\Community\UserAskingController@write');
 Route::post('/asking_fileupload', 'UserView\Community\UserAskingController@asking_fileupload');
 
 Route::get('/report', 'UserView\Community\UserReportController@index');
