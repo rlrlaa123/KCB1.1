@@ -77,6 +77,15 @@ class User extends Authenticatable
         } else {
             return 0;
         }
+    }
 
+    public function checkPremium($role)
+    {
+        if($role == 'premium') {
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 }
