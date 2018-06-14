@@ -17,7 +17,7 @@
             border-bottom: 1px solid #e3e3e3;
             border-right: 1px solid #e3e3e3;
             padding: 5px 20px;
-            font-family: none;
+            font-family: sans-serif;
         }
 
         .header {
@@ -27,19 +27,6 @@
         .content {
             font-weight: lighter;
         }
-        /*.myinfo > table {*/
-            /*width: 100%;*/
-            /*border-collapse: collapse;*/
-            /*border: 1px solid black;*/
-
-        /*}*/
-
-        /*.myinfo > table td {*/
-            /*border-collapse: collapse;*/
-            /*border: 1px solid black;*/
-            /*font-size: 1.3vw;*/
-            /*padding: 0.5vw;*/
-        /*}*/
     </style>
     <div class="wrapper">
         <h3>

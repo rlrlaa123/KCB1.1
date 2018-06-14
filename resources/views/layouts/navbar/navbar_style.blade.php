@@ -322,16 +322,6 @@
         justify-content: center;
     }
 
-    .searchbarcontainer {
-        text-align: center;
-        margin: 0;
-        padding: 5vw;
-        background-image: url('/img/navbarbackgroundpicture.png');
-        -webkit-background-size: 100%;
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
-
     .navbarotherpage {
         display: inline;
         color: white;
