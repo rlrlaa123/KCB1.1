@@ -69,7 +69,7 @@ class UserAskingController extends Controller
         $ask->asking_user = $request['asking_user'];
         $ask->asking_user_email = $request['asking_user_email'];
         $ask->asking_content = $request['asking_content'];
-        $ask->asking_password = Hash::make($request['asking_password']);
+        $ask->asking_password = $request['asking_password'];
         $ask->asking_date = $date;
 
         if ($request->asking_file == null) {
@@ -102,7 +102,14 @@ class UserAskingController extends Controller
         return response()->download($download_path);
     }
     public function asking_compare(Request $request){
-        $request
+        $id=Asking::where('id', $request['asking_id'])->first();
+        $password_input= $request['password_input'];
+        if($password_input === $id->asking_password){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
 }
