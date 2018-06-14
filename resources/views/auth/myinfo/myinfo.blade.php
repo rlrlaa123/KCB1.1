@@ -1,84 +1,90 @@
 @extends('layouts.app')
 @section('content')
     <style>
-        .myinfo {
+        .wrapper {
             margin: 1vw 15vw 1vw 15vw;
         }
-
-        .myinfo > table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid black;
-
+        .myinfo {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            border-top: 2px solid #a3a3a3;
+            border-bottom: 1px solid #e3e3e3;
+            border-right: 1px solid #e3e3e3;
+            border-left: 1px solid #e3e3e3;
         }
 
-        .myinfo > table td {
-            border-collapse: collapse;
-            border: 1px solid black;
-            font-size: 1.3vw;
-            padding: 0.5vw;
+        .myinfo div {
+            border-bottom: 1px solid #e3e3e3;
+            border-right: 1px solid #e3e3e3;
+            padding: 5px 20px;
+            font-family: none;
         }
+
+        .header {
+            background-color: #fdf7f5;
+        }
+
+        .content {
+            font-weight: lighter;
+        }
+        /*.myinfo > table {*/
+            /*width: 100%;*/
+            /*border-collapse: collapse;*/
+            /*border: 1px solid black;*/
+
+        /*}*/
+
+        /*.myinfo > table td {*/
+            /*border-collapse: collapse;*/
+            /*border: 1px solid black;*/
+            /*font-size: 1.3vw;*/
+            /*padding: 0.5vw;*/
+        /*}*/
     </style>
-    <div class="myinfo">
+    <div class="wrapper">
         <h3>
             나의 정보
         </h3>
-        <table>
-            <tr>
-                <td>이름</td>
-                <td>{{$data->name}}</td>
-                <td>아이디</td>
-                <td>{{$data->username}}</td>
-            </tr>
-            <tr>
-                <td>이메일</td>
-                <td>{{$data->email}}</td>
-                <td>이름</td>
-                <td>{{$data->phone}}</td>
-            </tr>
-            <tr>
-                <td>아이디 생성일</td>
-                <td>{{$data->created_at}}</td>
-                <td>생년월일</td>
-                <td>{{$data->birth}}</td>
-            </tr>
-            <tr>
-                <td>등급</td>
-                <td>
-                    @if($data->grade=='6premium')
-                        6개월 프리미엄
-                    @elseif($data->grade=='12premium')
-                        12개월 프리미엄
-                    @else
-                        일반회원
-                    @endif
-                </td>
-
-                <td>프리미엄 등록일
-                </td>
-                <td>
-                    <div style="font-size: 0.7vw; font-weight:700;">
-                        @if($data->grade_updated_at!=null)
-                            {{$data->grade_updated_at}}
-                        @else
-                            변경사항 없음.
-                        @endif
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">프리미엄 만료일</td>
-                <td colspan="2">
-                    <div style="font-size: 0.7vw; font-weight:700;">
-                        @if($data->grade_updated_at!=null)
-                            {{$data->grade_expiration_date}}
-                        @else
-                            없음.
-                        @endif
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <hr>
+        <div class="myinfo">
+            <div class="header">이름</div>
+            <div class="content">{{ $data->name }}</div>
+            <div class="header">아이디</div>
+            <div class="content">{{ $data->username }}</div>
+            <div class="header">이메일</div>
+            <div class="content">{{ $data->email }}</div>
+            <div class="header">휴대폰 번호</div>
+            <div class="content">{{ $data->phone }}</div>
+            <div class="header">아이디 생성일</div>
+            <div class="content">{{ $data->created_at }}</div>
+            <div class="header">생년월일</div>
+            <div class="content">{{ $data->birth }}</div>
+            <div class="header">등급</div>
+            <div class="content">
+                @if($data->grade=='6premium')
+                    6개월 프리미엄
+                @elseif($data->grade=='12premium')
+                    12개월 프리미엄
+                @else
+                    일반회원
+                @endif
+            </div>
+            <div class="header">프리미엄 등록일</div>
+            <div class="content">
+                @if($data->grade_updated_at!=null)
+                    {{$data->grade_updated_at}}
+                @else
+                    변경사항 없음.
+                @endif
+            </div>
+            <div class="header">프리미엄 만료일</div>
+            <div class="content">
+                @if($data->grade_updated_at!=null)
+                    {{$data->grade_expiration_date}}
+                @else
+                    없음.
+                @endif
+            </div>
+        </div>
     </div>
-
 @endsection

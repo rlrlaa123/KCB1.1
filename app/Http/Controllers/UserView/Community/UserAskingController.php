@@ -102,7 +102,7 @@ class UserAskingController extends Controller
         return response()->download($download_path);
     }
     public function asking_compare(Request $request){
-        $request
+//        $request
     }
 
 }
