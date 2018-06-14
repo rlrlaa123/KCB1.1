@@ -26,17 +26,16 @@ class UserAskingController extends Controller
         return view('Asking.index', compact('data'));
     }
 
-    public function show(Request $request, $id)
-    {
-        $request->user()->authorizeRoles(['premium']);
-
-        $data = Asking::where('id', $id)->first();
-//        $previous1 = Asking::where('id', '<', $data->id)->get();
-//        $next1 = Asking::where('id', '>', $data->id)->get();
-//        $previous = $previous1->where(max('id'))->get();
-//        $next = $next1->where(min('id'))->get();
-        return view('.Asking.detail', compact('data'));
-    }
+//    public function show(Request $request, $id)
+//    {
+//
+//        $data = Asking::where('id', $id)->first();
+////        $previous1 = Asking::where('id', '<', $data->id)->get();
+////        $next1 = Asking::where('id', '>', $data->id)->get();
+////        $previous = $previous1->where(max('id'))->get();
+////        $next = $next1->where(min('id'))->get();
+//        return view('.Asking.detail', compact('data'));
+//    }
 
     public function write()
     {
@@ -69,7 +68,7 @@ class UserAskingController extends Controller
         $ask->asking_user = $request['asking_user'];
         $ask->asking_user_email = $request['asking_user_email'];
         $ask->asking_content = $request['asking_content'];
-        $ask->asking_password = Hash::make($request['asking_password']);
+        $ask->asking_password = $request['asking_password'];
         $ask->asking_date = $date;
 
         if ($request->asking_file == null) {
@@ -102,7 +101,14 @@ class UserAskingController extends Controller
         return response()->download($download_path);
     }
     public function asking_compare(Request $request){
-//        $request
+        $data=Asking::where('id', $request['asking_id'])->first();
+        $password_input= $request['password_input'];
+        if($password_input === $data->asking_password){
+            return view('Asking.detail', compact('data'));
+        }
+        else{
+            return 0;
+        }
     }
 
 }

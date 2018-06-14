@@ -98,8 +98,8 @@
 
                 }).done(function (compared) {
                     console.log(compared);
-                    if (compared) {
-                        location.href = "/asking/" + asking_id;
+                    if (compared === "1") {
+                        location.href = "/asking/compare/" + asking_id;
                     } else {
                         alert("비밀번호를 정확히 입력해주세요.");
                     }
