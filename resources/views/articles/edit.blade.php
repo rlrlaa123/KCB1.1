@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="page-header">
-        <h4>포럼<small> / 글 수정 / {{$article->title}}</small></h4>
+        {{--<h4>포럼<small> / 글 수정 / {{$article->title}}</small></h4>--}}
     </div>
     <form action="{{route('articles.update', $article->id)}}" method="POST">
         {!! csrf_field() !!}

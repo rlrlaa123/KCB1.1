@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
         // Dev_location seeder will be genereated.
         $this->call(DevelopmentTableSeeder::class);
         // Articles seeder will be genereated.
-        App\Article::truncate();
-        $this->call(ArticlesTableSeeder::class);
+//        App\Article::truncate();
+//        $this->call(ArticlesTableSeeder::class);
         if(config('database.default')!=='sqlite') {
             DB::statement('SET FOREIGN_KEY_CHECKS=1');
         }

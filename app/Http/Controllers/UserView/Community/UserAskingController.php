@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Asking;
 use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\RedirectResponse;
 
@@ -68,7 +69,7 @@ class UserAskingController extends Controller
         $ask->asking_user = $request['asking_user'];
         $ask->asking_user_email = $request['asking_user_email'];
         $ask->asking_content = $request['asking_content'];
-        $ask->asking_password = bcrypt($request['asking_password']);
+        $ask->asking_password = Hash::make($request['asking_password']);
         $ask->asking_date = $date;
 
         if ($request->asking_file == null) {
@@ -99,6 +100,9 @@ class UserAskingController extends Controller
         $data = Asking::where('id', $id)->first();
         $download_path = (public_path() . '/' . $data->asking_file);
         return response()->download($download_path);
+    }
+    public function asking_compare(Request $request){
+        $request
     }
 
 }

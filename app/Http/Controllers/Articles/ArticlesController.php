@@ -67,9 +67,7 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-//        $article=Article::find($id);
-        $articles = Article::find($id);
-        $article = $articles[1];
+        $article = $id;
 //        return json_encode($article[1]);
 //        return $article;
         return view('articles.show', compact('article'));
@@ -83,11 +81,12 @@ class ArticlesController extends Controller
      */
     public function edit(Article $article)
     {
-        $this->authorize('update', $article);
-//        $article->update($request->all());
-//        flash()->success('수정하신 내용을 저장했습니다.');
-//        return redirect(route('articles.show', $article->id));
-        return view('articles.edit', compact('article'));
+        if (Auth::user()->id == $article->user->id) {
+            return view('articles.edit', compact('article'));
+        } else {
+
+            return back();
+        }
         //
     }
 
@@ -113,9 +112,13 @@ class ArticlesController extends Controller
      */
     public function destroy(\App\Article $article)
     {
-        $this->authorize('delete', $article);
-        $article->delete();
-        return response()->json([],204);
+        if (Auth::user()->id == $article->user->id) {
+            $article->delete();
+
+            return response()->json([], 204);
+        } else {
+            return back();
+        }
 
     }
 

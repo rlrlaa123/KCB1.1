@@ -1,12 +1,12 @@
 @extends('layouts.app')
 <style>
-    .articleshowpage{
-        margin:1vw 15vw 1vw 15vw;
+    .articleshowpage {
+        margin: 1vw 15vw 1vw 15vw;
     }
 </style>
 <script>
     @if($messaged = Session::get('success'))
-    alert ('수정하신 내용이 저장되었습니다.');
+    alert('수정하신 내용이 저장되었습니다.');
     @endif
 </script>
 
@@ -14,23 +14,23 @@
 
     <div class="articleshowpage">
         <div class="page-header">
-            <h4>포럼
-                <small> / {{$article->title}}</small>
+            <h4 style="font-weight: 700;">커뮤니티
+                <b style="font-weight:700; font-size:1.1vw;"> / {{$article->title}}</b>
             </h4>
         </div>
         <article data-id="{{$article->id}}">
             @include('articles.partial.article', compact('article'))
         </article>
         <div class="text-center action__article">
-            @can('update', $article)
+            @if($article->user->id==\Illuminate\Support\Facades\Auth::user()->id)
                 <a href="{{route('articles.edit', $article->id)}}" class="btn btn-info">
                     <i class="fa fa-pencil"></i>글 수정</a>
-            @endcan
-            @can('delete', $article)
+            @endif
+            @if($article->user->id==\Illuminate\Support\Facades\Auth::user()->id)
                 <button class="btn btn-danger button__delete">
-                   글 삭제
+                    글 삭제
                 </button>
-            @endcan
+            @endif
             <a href="{{route('articles.index')}}" class="btn btn-default">
                 <i class="fa fa-list"></i>글 목록</a>
         </div>
@@ -57,4 +57,4 @@
             }
         });
     </script>
-@endsection
+@stop
