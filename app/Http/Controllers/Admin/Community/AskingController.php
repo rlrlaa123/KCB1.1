@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Asking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AskingController extends Controller
 {
@@ -27,8 +28,9 @@ class AskingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request){
-        $data=Asking::latest()->paginate(10);
+    public function index(Request $request)
+    {
+        $data = Asking::latest()->paginate(10);
 
         return view('admin.community.asking.index', compact('data'));
     }
@@ -38,8 +40,19 @@ class AskingController extends Controller
         $data = Asking::where('id', $id)->first();
         $previous = Asking::where('id', '<', $data->id)->max('id');
         $next = Asking::where('id', '>', $data->id)->min('id');
-        return view('admin.community.asking.asking_detailed',compact('data', 'previous', 'next'));
+        return view('admin.community.asking.asking_detailed', compact('data', 'previous', 'next'));
     }
+
+    public function asking_comment(Request $request)
+    {
+
+        $comment= Asking::where('id', $request['id'])->first();
+        $comment->admin_comment = $request['admin_comment'];
+        $comment->save();
+
+        return Redirect::back()->withInput();
+    }
+
     public function asking_filedownload($id)
     {
         $data = Asking::where('id', $id)->first();

@@ -7,6 +7,7 @@
     .asking_page th, td {
         text-align: center;
         border: solid 1px transparent;
+
     }
 
     .asking_new {
@@ -45,7 +46,7 @@
                         <tr class="tothedetailpage"
                             onclick="passwordpopup([{{$value->id}},{{$value->asking_password}}])">
                             <td class=" td2">{{$value->id}}</td>
-                            <td style="text-align:left; padding:1vw">비공개글입니다.</td>
+                            <td style="text-align:left; padding:1vw">비공개글입니다.<img src="/img/padlock.png" style="width:23px; margin-left:1vw;"></td>
                             <td class="td1">{{$value->created_at}}</td>
                         </tr>
                     @else
@@ -71,12 +72,12 @@
         </div>
     </div>
     <script>
-        function passwordpopup(id, password) {
+        function passwordpopup(loginInfo) {
             var role = "{{ Illuminate\Support\Facades\Auth::user()->checkPremium(Illuminate\Support\Facades\Auth::user()->grade) }}";
             if (role === "1") {
-                var password_input = prompt("비밀번호 4자리를 입력하세요.");
-                if (password === password_input) {
-                    location.href = "/asking/" + id;
+                var password_input = parseInt(prompt("비밀번호 4자리를 입력하세요."));
+                if (loginInfo[1] === password_input) {
+                    location.href = "/asking/" + loginInfo[0];
                 } else {
                     alert("비밀번호를 정확히 입력해주세요.");
                 }

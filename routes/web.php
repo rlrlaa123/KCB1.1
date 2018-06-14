@@ -269,5 +269,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/asking/', 'Admin\Community\AskingController@index');
     Route::get('/asking/{id}', 'Admin\Community\AskingController@show');
     Route::get('/asking_filedownload/{id}', 'Admin\Community\AskingController@asking_filedownload');
+    Route::post('/asking/comment', 'Admin\Community\AskingController@asking_comment');
 });
 //---------------------------------------------------------------------------------------------------------

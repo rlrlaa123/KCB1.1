@@ -21,10 +21,12 @@ class UserAskingController extends Controller
 
     public function index(Request $request)
     {
-        $data=Asking::latest()->paginate(10);
+        $data = Asking::latest()->paginate(10);
         return view('Asking.index', compact('data'));
     }
-    public function show(Request $request, $id){
+
+    public function show(Request $request, $id)
+    {
         $request->user()->authorizeRoles(['premium']);
 
         $data = Asking::where('id', $id)->first();
@@ -34,7 +36,9 @@ class UserAskingController extends Controller
 //        $next = $next1->where(min('id'))->get();
         return view('.Asking.detail', compact('data'));
     }
-    public function write(){
+
+    public function write()
+    {
         return view('.Asking.asking');
     }
 
@@ -43,53 +47,52 @@ class UserAskingController extends Controller
     {
         $request->user()->authorizeRoles(['premium']);
         $this->validate($request, [
-            'asking_user'=>'required|string',
+            'asking_user' => 'required|string',
             'asking_user_email' => 'required|string',
             'asking_title' => 'required',
             'asking_file' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,svg,txt,xlsx,xls,ppt,pptx,doc,docx,pdf', //a required, max 10000kb, doc or docx, pdf file
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'asking_password' => 'nullable|string|min:4|max:4',
             'asking_content' => 'required',
         ]);
+        if (!file_exists('userconsulting')) {
+            File::makeDirectory('userconsulting');
+            if (!file_exists('userconsulting/file'))
+                File::makeDirectory('userconsulting/file');
+            if (!file_exists('userconsulting/image'))
+                File::makeDirectory('userconsulting/image');
+        }
+        $date = Carbon::now();
+        $ask = new Asking;
+        $ask->asking_title = $request['asking_title'];
+        $ask->asking_user = $request['asking_user'];
+        $ask->asking_user_email = $request['asking_user_email'];
+        $ask->asking_content = $request['asking_content'];
+        $ask->asking_password = bcrypt($request['asking_password']);
+        $ask->asking_date = $date;
+
         if ($request->asking_file == null) {
-            $date = Carbon::now();
-            $ask = new Asking;
-            $ask->asking_user = $request['asking_user'];
-            $ask->asking_user_email = $request['asking_user_email'];
-            $ask->asking_title = $request['asking_title'];
-            $ask->asking_content = $request['asking_content'];
-            $ask->asking_password = $request['asking_password'];
             $ask->asking_file = null;
-            $ask->asking_date = $date;
-
-            $ask->save();
-
         } else {
-            if (!file_exists('userconsulting')) {
-                File::makeDirectory('userconsulting');
-                if (!file_exists('userconsulting/file'))
-                    File::makeDirectory('userconsulting/file');
-            }
             $file = $request->file('asking_file');
             $filename = $request['asking_title'] . '.' . $file->getClientOriginalExtension();
-
-            $date = Carbon::now();
             $destinationPath = public_path('userconsulting/file');
             $file->move($destinationPath, $filename);
-
-            $ask = new Asking;
-            $ask->asking_title = $request['asking_title'];
-            $ask->asking_user = $request['asking_user'];
-            $ask->asking_user_email = $request['asking_user_email'];
-            $ask->asking_content = $request['asking_content'];
-            $ask->asking_password = bcrypt($request['asking_password']);
             $ask->asking_file = 'userconsulting/file/' . $filename;
-            $ask->asking_date = $date;
-
-            $ask->save();
-
         }
-        return redirect('asking')->with('success','등록완료');
+        if ($request->image == null) {
+            $ask->image = null;
+        } else {
+            $image = $request->file('image');
+            $imagename = $request['asking_title'] . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('userconsulting/image');
+            $image->move($destinationPath, $imagename);
+            $ask->image = 'userconsulting/image/' . $imagename;
+        }
+        $ask->save();
+        return redirect('asking')->with('success', '등록완료');
     }
+
     public function asking_filedownload(Request $request, $id)
     {
         $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.

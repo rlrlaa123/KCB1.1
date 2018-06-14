@@ -34,15 +34,29 @@
                                     </div>
                                 </td>
                             </tr>
+                            @if($data->image != null)
                             <tr>
                                 <td>
-                                    <p><img src="http://127.0.0.1:8000/{{$data->asking_file}}"></p>
+                                    <p><img src="http://127.0.0.1:8000/{{$data->image}}" style="width:100%;"></p>
+                                </td>
+                            </tr>
+                            @endif
+                            <tr>
+                                <td>
+                                    <div class="admin_comment"><form action="{{url('/admin/asking/comment')}}" method="POST">
+                                            {{csrf_field()}}
+                                            <label for="admin_comment">의견 입력:</label>
+                                            <div>
+                                            <textarea cols="80" id="admin_comment" name="admin_comment" rows="5" style="overflow-y:scroll;">{{old('admin_comment',$data->admin_comment)}}</textarea>
+                                            <input type="hidden" value="{{$data->id}}" name="id"></div>
+                                        <button type="submit" style="float: right;">제출</button></form>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="table_footer">
-                                        <span><a href="{{url('/admin/asking/'.$previous)}}">이전글</a> <a href="{{url('/admin/asking/'.$next)}}">다음글</a>  </span><a href="/admin/asking/">목록</a>
+                                        <span><a href="{{url('/admin/asking/'.$previous)}}">이전글</a> <a href="{{url('/admin/asking/'.$next)}}">다음글</a></span><a href="/admin/asking/">목록</a>
                                     </div>
                                 </td>
                             </tr>
