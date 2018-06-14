@@ -30,7 +30,7 @@
             border-radius: 0.5vw;
         }
     </style>
-    <div class="content">
+    <div class="content" style="display: none;">
         <h4>
             상담하기 상세
         </h4>
@@ -62,9 +62,6 @@
                             <tr>
                                 <td>
                                     <div style="text-align: right;">
-                                        {{--<span><b onclick="passwordpopup([{{$previous->asking_password}},{{$previous->id}}])">이전글</b>--}}
-                                        {{--<b onclick="passwordpopup([{{$next->asking_password}},{{$next->id}}])">다음글</b>--}}
-                                        {{--</span>--}}
                                         <b onclick="location.href='{{url('/asking/')}}'">목록</b>
                                     </div>
                                 </td>
@@ -95,20 +92,31 @@
             @endif
         </div>
     </div>
-    {{--<script>--}}
-    {{--function passwordpopup(real_password, id) {--}}
-    {{--var role = "{{ Illuminate\Support\Facades\Auth::user()->checkPremium(Illuminate\Support\Facades\Auth::user()->grade) }}";--}}
-    {{--if (role === "1") {--}}
-    {{--var password = prompt("비밀번호를 입력하세요.");--}}
-    {{--if (password === real_password) {--}}
-    {{--location.href = "/asking/" + id;--}}
-    {{--} else {--}}
-    {{--alert("비밀번호를 정확히 입력해주세요.");--}}
-    {{--}--}}
-    {{--}--}}
-    {{--else {--}}
-    {{--alert('프리미엄 회원만 열람이 가능합니다.');--}}
-    {{--}--}}
-    {{--}--}}
-    {{--</script>--}}
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var comparing = {
+            asking_id: '',
+            password_input: ''
+        };
+        var password_input = parseInt(prompt("비밀번호 4자리를 입력하세요."));
+
+        comparing['asking_id'] = {{ $data->id }};
+        comparing['password_input'] = password_input;
+        $.ajax({
+            type: "POST",
+            url: '/asking/compare',
+            data: comparing
+        }).done(function (compared) {
+            if (compared === "1") {
+                document.getElementsByClassName('content')[0].style.display = 'block';
+            } else {
+                alert("비밀번호를 정확히 입력해주세요.");
+                location.href = '/asking';
+            }
+        });
+    </script>
 @endsection
