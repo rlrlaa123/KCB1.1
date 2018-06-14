@@ -26,17 +26,16 @@ class UserAskingController extends Controller
         return view('Asking.index', compact('data'));
     }
 
-    public function show(Request $request, $id)
-    {
-        $request->user()->authorizeRoles(['premium']);
-
-        $data = Asking::where('id', $id)->first();
-//        $previous1 = Asking::where('id', '<', $data->id)->get();
-//        $next1 = Asking::where('id', '>', $data->id)->get();
-//        $previous = $previous1->where(max('id'))->get();
-//        $next = $next1->where(min('id'))->get();
-        return view('.Asking.detail', compact('data'));
-    }
+//    public function show(Request $request, $id)
+//    {
+//
+//        $data = Asking::where('id', $id)->first();
+////        $previous1 = Asking::where('id', '<', $data->id)->get();
+////        $next1 = Asking::where('id', '>', $data->id)->get();
+////        $previous = $previous1->where(max('id'))->get();
+////        $next = $next1->where(min('id'))->get();
+//        return view('.Asking.detail', compact('data'));
+//    }
 
     public function write()
     {
@@ -102,10 +101,10 @@ class UserAskingController extends Controller
         return response()->download($download_path);
     }
     public function asking_compare(Request $request){
-        $id=Asking::where('id', $request['asking_id'])->first();
+        $data=Asking::where('id', $request['asking_id'])->first();
         $password_input= $request['password_input'];
-        if($password_input === $id->asking_password){
-            return 1;
+        if($password_input === $data->asking_password){
+            return view('Asking.detail', compact('data'));
         }
         else{
             return 0;
