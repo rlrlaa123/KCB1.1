@@ -4,11 +4,13 @@
     <style>
         .btn {
             border: 1px solid lightgrey;
-            color: grey;
-            font-weight: 800;
+            /*color: grey;*/
             padding: 0.8vw 1.5vw;
             border-radius: 1vw;
             -webkit-border-radius: 1vw;
+            color: red;
+            font-weight: lighter;
+            text-decoration: none;
         }
     </style>
     <div class="askingpage">
@@ -24,6 +26,7 @@
                     <th class="th2 table_date">면적</th>
                     <th class="th2 table_date">주체</th>
                     <th class="th2 table_date">방식</th>
+                    <th class="th2"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,9 +45,10 @@
                             <span>{{ $value->dev_city }}</span>
                             <span>{{ $value->dev_district }}</span>
                         </td>
-                        <td class="td1">{{ $value->dev_area_size }}</td>
-                        <td class="td1">{{ $value->dev_charge }}</td>
-                        <td class="td1">{{ $value->dev_method }}</td>
+                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">{{ $value->dev_area_size }}</td>
+                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">{{ $value->dev_charge }}</td>
+                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">{{ $value->dev_method }}</td>
+                        <td class="td1" onclick="deleteDev({{ $value->dev_id }})"><button class="btn btn-delete">삭제하기</button></td>
                     </tr>
                 @empty
                     <td colspan="4">해당 글이 없습니다.</td>
@@ -53,4 +57,24 @@
             </table>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        function deleteDev(devId) {
+            $('div.dev_id');
+            if (confirm('글을 삭제합니다.')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/admin/dev/' + devId
+                }).then(function () {
+                    window.location.href = '/admin/dev/';
+                })
+            }
+        }
+    </script>
 @endsection

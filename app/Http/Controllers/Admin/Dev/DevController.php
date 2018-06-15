@@ -180,4 +180,11 @@ class DevController extends Controller
 
         return redirect('admin/dev');
     }
+
+    public function delete($id)
+    {
+        $dev = Dev::where('dev_id', $id)->delete();
+
+        return response()->json([], 204);
+    }
 }
