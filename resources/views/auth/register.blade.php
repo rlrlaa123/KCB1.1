@@ -88,7 +88,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('비밀번호') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required style="font-family: sans-serif">
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback">
@@ -102,7 +102,7 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('비밀번호 확인') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required style="font-family: sans-serif">
                                 </div>
                             </div>
 

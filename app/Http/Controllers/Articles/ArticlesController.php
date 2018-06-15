@@ -70,7 +70,10 @@ class ArticlesController extends Controller
         $article = $id;
 //        return json_encode($article[1]);
 //        return $article;
-        return view('articles.show', compact('article'));
+
+        $previous = Article::where('id', '<', $id)->max('id');
+        $next = Article::where('id', '>', $id)->min('id');
+        return view('articles.show', compact('article', 'previous', 'next'));
     }
 
     /**
