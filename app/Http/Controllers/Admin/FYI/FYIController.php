@@ -40,28 +40,32 @@ class FYIController extends Controller
             'fyi_fileimage' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,txt,xlsx,xls,ppt,pptx,doc,docx,pdf', //a required, max 10000kb, doc or docx, pdf file
             'fyi_content' => 'required',
         ]);
-        if (!file_exists('fileuploaded')) {
-            File::makeDirectory('fileuploaded');
-            if (!file_exists('fileuploaded/fyi')) {
-                File::makeDirectory('fileuploaded/fyi');
-                if (!file_exists('fileuploaded/fyi/file')) {
-                    File::makeDirectory('fileuploaded/fyi/file');
+        $news = new FYI;
+        if ($request->hasFile('fyi_fileimage')) {
+            if (!file_exists('fileuploaded')) {
+                File::makeDirectory('fileuploaded');
+                if (!file_exists('fileuploaded/fyi')) {
+                    File::makeDirectory('fileuploaded/fyi');
+                    if (!file_exists('fileuploaded/fyi/file')) {
+                        File::makeDirectory('fileuploaded/fyi/file');
+                    }
                 }
             }
-        }
 
-        $image = $request->file('fyi_fileimage');
-        $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image = $request->file('fyi_fileimage');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = public_path('fileuploaded/fyi/file');
+            $image->move($destinationPath, $imagename);
+
+            $news->fyi_fileimage = 'fileuploaded/fyi/file/' . $imagename;
+        } else
+            $news->fyi_fileimage = null;
 
         $date = Carbon::now();
 
-        $destinationPath = public_path('fileuploaded/fyi/file');
-        $image->move($destinationPath, $imagename);
-
-        $news = new FYI;
         $news->fyi_title = $request['fyi_title'];
         $news->fyi_content = $request['fyi_content'];
-        $news->fyi_fileimage = 'fileuploaded/fyi/file/' . $imagename;
         $news->fyi_date = $date;
 
         $news->save();
@@ -69,20 +73,7 @@ class FYIController extends Controller
 //        $this->postImage->add($input);
 
         return back()
-            ->with('success', '등록완료')
-            ->with('imageName', $imagename);
+            ->with('success', '등록완료');
 
     }
-//    public function store(Request $request){
-//        $this->validate($request, [
-//            'fyititle'=>'required|text',
-//            'fyi_content'=>'required|text',
-//            'fyi_fileimage'=>'file|nullable|max:1999',
-//        ]);
-//        if($request->hasFile('fileimage')){
-//            $filenameWithExt=$request->file('fileimage');
-//        }else{
-//            $fileNameToStore='noimage.jpg';
-//        }
-//    }
 }
