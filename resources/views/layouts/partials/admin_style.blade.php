@@ -106,12 +106,12 @@
     }
 
     .sidebar {
-        display: grid;
-        grid-template-rows: 12% 10% 25%;
         border-right: 1px solid #ccc;
     }
 
     .sidebar div {
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
 
@@ -119,15 +119,14 @@
         display: flex;
         justify-content: center;
         font-weight: bold;
+        height: 66px;
     }
 
     .sideuser {
-        justify-content: left;
-        text-align: center;
-        padding: 25px;
         border-top: 1px solid #ccc;
         border-bottom: 1px solid #ccc;
         background-color: #FFFFF0;
+        height: 66px;
     }
 
     .sidesubmenu {
@@ -159,11 +158,6 @@
     .sidesubmenu ul li:last-child {
         border-bottom: 1px solid #ccc;
     }
-
-    /*.sidesubmenu ul li a{*/
-    /*color:black;*/
-    /*text-decoration:none;*/
-    /*}*/
 
     .active {
         background-color: #e1e1e1 !important;
