@@ -94,7 +94,7 @@
 
         .body2 {
             width: auto;
-            padding: 1vw 15vw 1vw 15vw;
+            padding: 3vw 15vw ;
             background-color: #e7e9f4;
         }
 
@@ -228,9 +228,6 @@
             transition: background-color 0.6s ease;
         }
 
-        .menu2 {
-            height: 280px;
-        }
 
         /* Fading animation */
         .fade {
