@@ -7,7 +7,7 @@
                 <li><a href="{{ url('agreement') }}">회원가입</a></li>
                 <li><a href="{{url('fyi')}}">공지사항</a></li>
                 <li><a href="{{url('fee')}}">요금표 안내</a></li>
-                <li><a href="">고객센터</a></li>
+                {{--<li><a href="">고객센터</a></li>--}}
                 <li>
                     <div class="dropdown">
                         <button class="dropbtn menu_btn" type="button">전체메뉴
@@ -18,7 +18,7 @@
                             <a href="{{url('login')}}">로그인</a>
                             <a href="{{url('fyi')}}">공지사항</a>
                             <a href="{{url('fee')}}">요금표 안내</a>
-                            <a href="{{url('asking')}}">고객센터</a>
+                            {{--<a href="{{url('asking')}}">고객센터</a>--}}
                         </div>
                     </div>
                 </li>
@@ -43,7 +43,7 @@
                 <li><a href="{{url('myinfo')}}">나의 정보</a></li>
                 <li><a href="{{url('fyi')}}">공지사항</a></li>
                 <li><a href="{{url('fee')}}">요금표 안내</a></li>
-                <li><a href="">고객센터</a></li>
+                {{--<li><a href="">고객센터</a></li>--}}
                 <li>
                     <div class="dropdown">
                         <button class="dropbtn menu_btn" type="button">전체메뉴

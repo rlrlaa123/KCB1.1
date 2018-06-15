@@ -50,7 +50,7 @@ class ConsultingController extends Controller
         }
 
         $file = $request->file('consulting_fileimage');
-        $filename = $request['consulting_title'] . '.' . $file->getClientOriginalExtension();
+        $filename = $request['consulting_id'] . '.' . $file->getClientOriginalExtension();
 
         $date = Carbon::now();
 

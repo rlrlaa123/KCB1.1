@@ -1,8 +1,17 @@
 @extends('layouts.app')
 
 @section('style')
-    <style>
 
+    <style>
+        .searchbarcontainer {
+            text-align: center;
+            margin: 0;
+            padding: 5vw;
+            background-image: url('/img/navbarbackgroundpicture.png');
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
         .pagination {
             list-style: none;
         }
@@ -297,7 +306,7 @@
             <button type="submit" class="lens_button"><img src="/img/searchbarbutton.png"/>
             </button>
         </form>
-        <div>
+        <div style="text-align:center;">
             <a href="{{url('notice')}}" class="navbarotherpage">TODAY 보상 공고/공시</a>
             <a href="{{url('/consulting')}}" class="navbarotherpage">보상 용역 대행 컨설팅</a>
         </div>
@@ -305,9 +314,9 @@
     <div class="body1">
         <div class="grid-item">
             <div class="homemenu1">
-                <button class="homemenu1item" onclick="openmenu1('hotfocus')">HOT 포커스</button>
-                <button class="homemenu1item" onclick="openmenu1('freesample')">무료샘플</button>
-                <button class="_tothepage"><a href="/hotfocus">+더보기</a></button>
+                <button class="homemenu1item" onclick="openmenu1('hotfocus')" style="font-size: 1.1vw;">HOT 포커스</button>
+                <button class="homemenu1item" onclick="openmenu1('freesample')" style="font-size: 1.1vw;">무료샘플</button>
+                <button class="_tothepage"><a href="/hotfocus" style="font-size:1.1vw;">+더보기</a></button>
             </div>
             <div id="hotfocus" class="w3-container menu1">
                 <div class="hotfocus_shortcut">
@@ -318,7 +327,7 @@
 
                         {{--</a>--}}
                     @empty
-                        <div style="text-align:center;">등록된 글이 없습니다.</div>
+                        <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
                     @endforelse
                 </div>
                 @if($hotfocus->count())
@@ -327,14 +336,14 @@
                     </div>
                 @endif
             </div>
-            <div id="freesample" class="w3-container menu1" style="display:none">
-                <div style="text-align:center;">무료샘플이 없습니다.</div>
+            <div id="freesample" class="w3-container menu1" style="display:none; height:200px;">
+                <div style="text-align:center; font-size:0.8vw;">무료샘플이 없습니다.</div>
             </div>
         </div>
         <div class="grid-item">
-            <div class="homemenu2">
+            <div class="homemenu2" style="font-size: 1.1vw;">
                 공지사항
-                <a href="{{url('fyi')}}" class="_tothepage">+더보기</a>
+                <a href="{{url('fyi')}}" class="_tothepage" style="font-size: 1.1vw;">+더보기</a>
                 <hr>
                 <div>
                     @forelse($fyi as $value)
@@ -342,7 +351,7 @@
                             <div>{{$value->fyi_title}}</div>
                         </div>
                     @empty
-                        <div style="text-align:center;">등록된 공지사항이 없습니다.</div>
+                        <div style="text-align:center; font-size:0.8vw;">등록된 공지사항이 없습니다.</div>
                     @endforelse
                 </div>
             </div>
@@ -378,9 +387,9 @@
             <div style="margin:1vw 0; border-bottom: 1px solid #7888c2;">
                 <button id="library_shortcut_button1" class="homemenu2item"
                         onclick="openmenu2('data1'); highlight('library_shortcut_button1')"
-                        style="border-right: 0.5px solid; border-bottom-style: none;">자료실
+                        style="border-right: 0.5px solid; border-bottom-style: none; font-size:1.1vw;">자료실
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4;"><a href="/library" style="margin:8px 16px;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4;"><a href="/library" style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
@@ -391,7 +400,7 @@
                         <div>{{ $value->library_date }}</div>
                     </div>
                 @empty
-                    <div style="text-align:center;">등록된 글이 없습니다.</div>
+                    <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
                 @endforelse
             </div>
         </div>
@@ -404,26 +413,21 @@
                     </div>
                 </a>
             @empty
-                <div style="text-align:center;">등록된 글이 없습니다.</div>
+                <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
             @endforelse
         </div>
     </div>
     <div style="  margin: 1vw 15vw 1vw 15vw;">
-        <h2>
-            파트너사
+        <h2 style="font-size:1.1vw;">
+            유용한 사이트
         </h2>
         <hr/>
         <div class="partners">
-            <div class="grid-item" style="float:left;">
-                <img src="" width="100px">
-            </div>
             <div class="grid-item" style="display:inline-block">
-                <img src="" width="100px">
-                <img src="" width="100px">
-                <img src="" width="100px">
-                <img src="" width="100px">
-                <img src="" width="100px">
-                <img src="" width="100px">
+                <a href="http://www.moleg.go.kr/main.html" target="__blank"><img src="/img/moleg_logo.png" width="100px"></a>
+            </div>
+            <div class="grid-item" style="display:inline-block;">
+                <a href="http://www.nsdi.go.kr/lxportal/?menuno=2679" target="__blank"><img src="/img/nsdi_logo.png" width="100px"></a>
             </div>
         </div>
     </div>

@@ -45,7 +45,7 @@ class NoticeController extends Controller
         }
 
         $image = $request->file('notice_fileimage');
-        $imagename = $request['notice_title'] . '.' . $image->getClientOriginalExtension();
+        $imagename = $request['notice_id'] . '.' . $image->getClientOriginalExtension();
 
         $date = Carbon::now();
 

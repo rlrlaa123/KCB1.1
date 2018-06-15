@@ -37,6 +37,7 @@
                 </div>
             @endif
             {{ Form::open(array('id'=>'development','url' => '/admin/developmentfileupload/','enctype' => 'multipart/form-data')) }}
+            {{csrf_field()}}
             <div class="row">
                 <table>
                     <tr>

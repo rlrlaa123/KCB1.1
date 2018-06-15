@@ -116,8 +116,7 @@ class DevController extends Controller
 
 //        $this->postImage->add($input);
         return $dev;
-        return back()
-            ->with('success');
+
     }
 
 }

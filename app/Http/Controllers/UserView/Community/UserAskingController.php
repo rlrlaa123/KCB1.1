@@ -75,7 +75,7 @@ class UserAskingController extends Controller
             $ask->asking_file = null;
         } else {
             $file = $request->file('asking_file');
-            $filename = $request['asking_title'] . '.' . $file->getClientOriginalExtension();
+            $filename = $request['id'].$request['created_at']. '.' . $file->getClientOriginalExtension();
             $destinationPath = public_path('userconsulting/file');
             $file->move($destinationPath, $filename);
             $ask->asking_file = 'userconsulting/file/' . $filename;
@@ -84,7 +84,7 @@ class UserAskingController extends Controller
             $ask->image = null;
         } else {
             $image = $request->file('image');
-            $imagename = $request['asking_title'] . '.' . $image->getClientOriginalExtension();
+            $imagename = $request['id'].$request['created_at']. '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('userconsulting/image');
             $image->move($destinationPath, $imagename);
             $ask->image = 'userconsulting/image/' . $imagename;

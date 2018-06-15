@@ -51,7 +51,7 @@ class LibraryController extends Controller
         }
 
         $image = $request->file('library_fileimage');
-        $imagename = $request['library_title'] . '.' . $image->getClientOriginalExtension();
+        $imagename = $request['library_id'] . '.' . $image->getClientOriginalExtension();
 
         $date = Carbon::now();
 
