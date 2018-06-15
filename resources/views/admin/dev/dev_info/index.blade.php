@@ -27,36 +27,36 @@
                 <div>
                     {{$errors->first('development')}}
                 </div>
-                {{--<div class="alert alert-danger">--}}
-                    {{--<strong>양식에 맞게 채워주세요.</strong><br><br>--}}
-                    {{--<ul>--}}
-                        {{--@foreach ($errors as $error)--}}
-                            {{--<li>{{ $error }}</li>--}}
-                        {{--@endforeach--}}
-                    {{--</ul>--}}
-                {{--</div>--}}
+                <div class="alert alert-danger">
+                    <strong>양식에 맞게 채워주세요.</strong><br><br>
+                    <ul>
+                        @foreach ($errors as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
-            {!! Form::open(array('id'=>'development','url' => '/admin/developmentfileupload/','enctype' => 'multipart/form-data')) !!}
+            {{ Form::open(array('id'=>'development','url' => '/admin/developmentfileupload/','enctype' => 'multipart/form-data')) }}
             <div class="row">
                 <table>
                     <tr>
                         <td class="datainput">제목</td>
-                        <td>{!! Form::text('dev_title', null,array('class' => 'form-control','placeholder'=>'제목을 입력해주세요.', 'size'=>68 )) !!}
+                        <td>{{ Form::text('dev_title', null,array('class' => 'form-control','placeholder'=>'제목을 입력해주세요.', 'size'=>68 )) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">추진내역</td>
-                        <td>{!! Form::text('dev_initiated_log', null, array('class'=>'form-control', 'placeholder'=>'추진내역을 입력해주세요.', 'size'=>68)) !!}
+                        <td>{{ Form::text('dev_initiated_log', null, array('class'=>'form-control', 'placeholder'=>'추진내역을 입력해주세요.', 'size'=>68)) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">추진내역날짜</td>
-                        <td>{!! Form::date('dev_initiated_date', null, array('class'=>'form-control')) !!}
+                        <td>{{ Form::date('dev_initiated_date', null, array('class'=>'form-control')) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">COMMENT</td>
-                        <td>{!! Form::textarea('dev_comment', null, array('class'=>'form-control', 'placeholder'=>'COMMENT를 입력해주세요.', 'cols'=>70)) !!}
+                        <td>{{ Form::textarea('dev_comment', null, array('class'=>'form-control', 'placeholder'=>'COMMENT를 입력해주세요.', 'cols'=>70)) }}
                         </td>
                     </tr>
                     <tr>
@@ -81,7 +81,7 @@
                     </tr>
                     {{--<tr>--}}
                         {{--<td class="datainput">위치</td>--}}
-                        {{--<td>{!! Form::text('location' ,null, array('class'=>'form-control', 'placeholder'=>'해당 개발예정지구 위치를 입력해주세요.')) !!}--}}
+                        {{--<td>{{ Form::text('location' ,null, array('class'=>'form-control', 'placeholder'=>'해당 개발예정지구 위치를 입력해주세요.')) !!}-}}
                         {{--</td>--}}
                     {{--</tr>--}}
                     <tr>
@@ -117,32 +117,32 @@
                     </tr>
                     <tr>
                         <td class="datainput">사업 방식</td>
-                        <td>{!! Form::text('dev_method' ,null, array('class'=>'form-control', 'placeholder'=>'사업방식을 입력해주세요.')) !!}
+                        <td>{{ Form::text('dev_method' ,null, array('class'=>'form-control', 'placeholder'=>'사업방식을 입력해주세요.')) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">적용 법률</td>
-                        <td>{!! Form::text('dev_applied_law' ,null, array('class'=>'form-control', 'placeholder'=>'적용법률을 입력해주세요.')) !!}
+                        <td>{{ Form::text('dev_applied_law' ,null, array('class'=>'form-control', 'placeholder'=>'적용법률을 입력해주세요.')) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">사업인정고시일</td>
-                        <td>{!! Form::date('dev_publicly_starting_date' ,null, array('class'=>'form-control')) !!}
+                        <td>{{ Form::date('dev_publicly_starting_date' ,null, array('class'=>'form-control')) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">향후 추진 계획</td>
-                        <td>{!! Form::textarea('dev_future_plan' ,null, array('class'=>'form-control', 'placeholder'=>'향후 추진 계획을 입력해주세요.', 'cols'=>70)) !!}
+                        <td>{{ Form::textarea('dev_future_plan' ,null, array('class'=>'form-control', 'placeholder'=>'향후 추진 계획을 입력해주세요.', 'cols'=>70)) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">참고 자료</td>
-                        <td>{!! Form::file('dev_reference[]',null, array('class'=>'image', 'multiple'=>true)) !!}
+                        <td>{{ Form::file('dev_reference[]',null, array('class'=>'image', 'multiple'=>true)) }}
                         </td>
                     </tr>
                     <tr>
                         <td class="datainput">위치 이미지</td>
-                        <td>{!! Form::file('dev_fileimage', array('class' => 'image')) !!}
+                        <td>{{ Form::file('dev_fileimage', array('class' => 'image')) }}
                         </td>
                     </tr>
                     <tr>
@@ -153,7 +153,7 @@
                     </tr>
                 </table>
             </div>
-            {!! Form::close() !!}
+            {{ Form::close() }}
         </div>
     </div>
 @endsection

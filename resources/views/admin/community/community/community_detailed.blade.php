@@ -44,11 +44,9 @@
                             </tr>
                             <tr>
                                 <td>
-                                    @can('delete', $articles)
                                         <button class="button__delete">
                                             글 삭제
                                         </button>
-                                    @endcan
                                 </td>
                             </tr>
                         </table>
@@ -72,7 +70,7 @@
             if (confirm('글을 삭제합니다.')) {
                 $.ajax({
                     type: 'DELETE',
-                    url: '/admin/community/' + articleId
+                    url: '/articles/' + articleId
                 }).then(function () {
                     window.location.href = '/admin/community';
                 })

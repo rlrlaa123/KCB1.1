@@ -207,8 +207,8 @@
         padding: 0;
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
-        grid-template-columns: 15% 15% 25% 25% 20%;
+        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
+        grid-template-columns: 20% 20% 15% 12.5% 20% 12.5%;
         text-align: center;
         width: 100%;
         max-width: 100%;
@@ -232,10 +232,12 @@
     .dev_info_result_container {
         display: grid;
         display: -ms-grid;
-        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
-        grid-template-columns: 15% 15% 25% 25% 20%;
+        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
+        grid-template-columns: 20% 20% 15% 12.5% 20% 12.5%;
         cursor: pointer;
         text-align: center;
+        font-size: 1vw;
+        font-weight:700;
     }
 
     .dev_info_result {
@@ -320,6 +322,7 @@
         <div class="result_container">
             <h3>개발사업정보 결과</h3>
             <div class="dev_info_result_title">
+                <div class="grid-item">   </div>
                 <div class="grid-item">사업명</div>
                 <div class="grid-item">지역</div>
                 <div class="grid-item">면적</div>
@@ -434,21 +437,23 @@
                                     alert('프리미엄 회원만 열람이 가능합니다.');
                                 }
                             };
-
                     var newContainer1 = document.createElement('div');
-                    newContainer1.innerHTML = ele.dev_title;
+                    newContainer1.innerHTML = ele.dev_thumbnails;
                     newContainer1.classList.add("grid-item");
                     var newContainer2 = document.createElement('div');
-                    newContainer2.innerHTML = ele.dev_district;
-                    newContainer2.classList.add("grid-item");
+                    newContainer1.innerHTML = ele.dev_title;
+                    newContainer1.classList.add("grid-item");
                     var newContainer3 = document.createElement('div');
+                    newContainer2.innerHTML = ele.dev_city + ' ' + ele.dev_district;
+                    newContainer2.classList.add("grid-item");
+                    var newContainer4 = document.createElement('div');
                     newContainer3.innerHTML = ele.dev_area_size;
                     newContainer3.classList.add("grid-item");
-                    var newContainer4 = document.createElement('div');
+                    var newContainer5 = document.createElement('div');
                     newContainer4.innerHTML = ele.dev_charge;
                     newContainer4.classList.add("grid-item");
-                    var newContainer5 = document.createElement('div');
-                    newContainer5.innerHTML = ele.dev_city + ' ' + ele.dev_district;
+                    var newContainer6 = document.createElement('div');
+                    newContainer5.innerHTML = ele.dev_method;
                     newContainer5.classList.add("grid-item");
 
                     newDiv.appendChild(newContainer1);
@@ -456,6 +461,7 @@
                     newDiv.appendChild(newContainer3);
                     newDiv.appendChild(newContainer4);
                     newDiv.appendChild(newContainer5);
+                    newDiv.appendChild(newContainer6);
                     wrapper.appendChild(newDiv);
 
                 });

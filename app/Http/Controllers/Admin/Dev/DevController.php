@@ -59,7 +59,7 @@ class DevController extends Controller
             'dev_future_plan' => 'nullable',
             'dev_reference' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,svg,txt,xlsx,xls,ppt,pptx,doc,docx,pdf',
         ]);
-        if (!file_exists('fileuploaded')) {
+        if (!   file_exists('fileuploaded')) {
             File::makeDirectory('fileuploaded/');
             if (!file_exists('fileuploaded/Development_information')) {
                 File::makeDirectory('fileuploaded/Development_information');
@@ -115,8 +115,9 @@ class DevController extends Controller
         $dev->save();
 
 //        $this->postImage->add($input);
-
+        return $dev;
         return back()
             ->with('success');
     }
+
 }

@@ -112,7 +112,7 @@ class ArticlesController extends Controller
      */
     public function destroy(\App\Article $article)
     {
-        if (Auth::user()->id == $article->user->id) {
+        if (Auth::user()->id == $article->user->id||Auth::user()->roles()->admin) {
             $article->delete();
 
             return response()->json([], 204);
