@@ -52,7 +52,7 @@ class RelatedNewsController extends Controller
                 }
             }
             $image = $request->file('rn_fileimage');
-            $imagename = $request['rn_id'] . '.' . $image->getClientOriginalExtension();
+            $imagename =time(). '.' . $image->getClientOriginalExtension();
 
             $date = Carbon::now();
             $destinationPath = public_path('fileuploaded/relatednews/images');

@@ -59,7 +59,7 @@ class PolicyController extends Controller
                 }
             }
             $image = $request->file('p_fileimage');
-            $imagename = $request['p_id'] . '.' . $image->getClientOriginalExtension();
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
 
             $date = Carbon::now();
             $destinationPath = public_path('fileuploaded/policy/file');

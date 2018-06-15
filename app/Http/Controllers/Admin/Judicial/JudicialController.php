@@ -64,7 +64,7 @@ class JudicialController extends Controller
                 }
             }
             $image = $request->file('j_fileimage');
-            $imagename = $request['j_id'] . '.' . $image->getClientOriginalExtension();
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
 
             $date = Carbon::now();
             $destinationPath = public_path('fileuploaded/judicial/file');

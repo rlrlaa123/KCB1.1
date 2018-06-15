@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div id="app">
+<div id="app" style="background-color: white;">
     @include('layouts.navbar.navbar')
     @yield('content')
     @include('layouts.partials.footer')

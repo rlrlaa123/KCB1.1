@@ -12,6 +12,7 @@
             background-size: 100%;
             background-repeat: no-repeat;
         }
+
         .pagination {
             list-style: none;
         }
@@ -33,7 +34,7 @@
             display: grid;
             -ms-grid-columns: 1fr 1vw 1fr;
             grid-column-gap: 1vw;
-            grid-template-columns: 55% 45%;
+            grid-template-columns: 50% 50%;
             margin: 1vw 15vw 1vw 15vw;
             text-align: center;
             width: 75%;
@@ -60,21 +61,32 @@
         .homemenu1 {
             width: 100%;
             overflow: hidden;
-            padding: 0vw 3vw 1vw 3vw;
+            padding: 0 3vw 0 3vw;
+            border-bottom: 1px solid #bcc1e1;
         }
 
         .homemenu2 {
             width: 100%;
             overflow: hidden;
-            padding: 0vw 3vw 1vw 3vw;
+            padding: 0 3vw 0 3vw;
+            border-bottom: 1px solid #bcc1e1;
+
         }
 
         .homemenu1item {
-            padding: 8px 16px;
+            padding: 1.4vh 1.5vw;
             float: left;
             width: auto;
             border: none;
             display: block;
+            outline: 0;
+            background-color: white;
+        }
+
+        .homemenu2item {
+            padding: 1.4vh 1.5vw;
+            width: auto;
+            border: none;
             outline: 0;
             background-color: white;
         }
@@ -89,14 +101,15 @@
             padding: 0 3vw 0 1vw;
             display: flex;
             justify-content: space-between;
-            height: 200px;
+            height: 175px;
 
         }
 
         .hotfocus_shortcut img {
-            padding: 1vw;
+            margin: 1vw;
             width: 50%;
-            height: 100%;
+            height: 80%;
+            border: 1px solid #e85254;
         }
 
         .hotfocus_shortcut div {
@@ -132,7 +145,7 @@
             cursor: pointer;
         }
 
-        .homemenu2item {
+        .homemenu3item {
             padding: 8px 16px;
             width: auto;
             border-top: none;
@@ -151,6 +164,7 @@
             color: grey;
             background-color: transparent;
             vertical-align: center;
+            cursor: pointer;
         }
 
         ._tothepage:hover {
@@ -169,10 +183,11 @@
         }
 
         .advbanner {
-            width: 100%;
+
             position: relative;
-            margin: 1vw 15vw 1vw 15vw;
-            height: 2vw;
+            margin: 1vw 9vw 1vw 15vw;
+            height: 11vh;
+            background-color: #bcc1e1;
         }
 
         .mySlides {
@@ -321,17 +336,14 @@
             <div id="hotfocus" class="w3-container menu1">
                 <div class="hotfocus_shortcut">
                     @forelse($hotfocus as $value)
-                        {{--<a href="{{ url('hotfocus/'.$value->hf_id) }}">--}}
                         <img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"
-                             src="/{{$value->hf_thumbnails}}"/>
-
-                        {{--</a>--}}
+                             src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>
                     @empty
                         <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
                     @endforelse
                 </div>
                 @if($hotfocus->count())
-                    <div class="text-center">
+                    <div class="text-center" style="height: 12vh;">
                         {!! $hotfocus->render() !!}
                     </div>
                 @endif
@@ -342,20 +354,23 @@
         </div>
         <div class="grid-item">
             <div class="homemenu2" style="font-size: 1.1vw;">
-                공지사항
-                <a href="{{url('fyi')}}" class="_tothepage" style="font-size: 1.1vw;">+더보기</a>
-                <hr>
-                <div>
-                    @forelse($fyi as $value)
-                        <div class="fyi_shortcut" onclick="location.href=('{{url('fyi/'.$value->fyi_id)}}')">
-                            <div>{{$value->fyi_title}}</div>
-                        </div>
-                    @empty
-                        <div style="text-align:center; font-size:0.8vw;">등록된 공지사항이 없습니다.</div>
-                    @endforelse
-                </div>
+                <div class="homemenu2item" style="justify-content: space-between; display:flex; align-items: center ">
+                    <div>공지사항</div>
+                    <a href="{{url('fyi')}}" class="_tothepage" style="font-size: 1.1vw;">+더보기</a></div>
+
+            </div>
+            <div>
+                @forelse($fyi as $value)
+                    <div class="fyi_shortcut" onclick="location.href=('{{url('fyi/'.$value->fyi_id)}}')"
+                         style="cursor:pointer;">
+                        <div>{{$value->fyi_title}}</div>
+                    </div>
+                @empty
+                    <div style="text-align:center; font-size:0.8vw;">등록된 공지사항이 없습니다.</div>
+                @endforelse
             </div>
         </div>
+    </div>
     </div>
     <div class="advbanner">
         <div class="mySlides fade">
@@ -385,11 +400,13 @@
     <div class="body2">
         <div>
             <div style="margin:1vw 0; border-bottom: 1px solid #7888c2;">
-                <button id="library_shortcut_button1" class="homemenu2item"
-                        onclick="openmenu2('data1'); highlight('library_shortcut_button1')"
-                        style="border-right: 0.5px solid; border-bottom-style: none; font-size:1.1vw;">자료실
+                <button id="library_shortcut_button1" class="homemenu3item"
+                        onclick="location.href='{{url('/library')}}'"
+                        style="border-right: 0.5px solid; border-bottom-style: none;
+                         font-size:1.1vw; cursor:pointer;">자료실
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4;"><a href="/library" style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library"
+                                                                                                 style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
@@ -424,10 +441,12 @@
         <hr/>
         <div class="partners">
             <div class="grid-item" style="display:inline-block">
-                <a href="http://www.moleg.go.kr/main.html" target="__blank"><img src="/img/moleg_logo.png" width="100px"></a>
+                <a href="http://www.moleg.go.kr/main.html" target="__blank"><img src="/img/moleg_logo.png"
+                                                                                 width="100px"></a>
             </div>
             <div class="grid-item" style="display:inline-block;">
-                <a href="http://www.nsdi.go.kr/lxportal/?menuno=2679" target="__blank"><img src="/img/nsdi_logo.png" width="100px"></a>
+                <a href="http://www.nsdi.go.kr/lxportal/?menuno=2679" target="__blank"><img src="/img/nsdi_logo.png"
+                                                                                            width="100px"></a>
             </div>
         </div>
     </div>
@@ -478,7 +497,7 @@
 
         function highlight(whichmenu) {
             var i;
-            var x = document.getElementsByClassName("homemenu2item");
+            var x = document.getElementsByClassName("homemenu3item");
             for (i = 0; i < x.length; i++) {
                 x[i].style.display.borderBottomStyle = "none";
             }

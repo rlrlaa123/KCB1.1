@@ -63,7 +63,11 @@
                 </tr>
                 <tr>
                     <td class="datainput">파일 첨부</td>
-                    <td>{!! Form::file('asking_file', array('class' => 'image')) !!}</td>
+                    <td>{!! Form::file('asking_file', array('class' => 'file')) !!}</td>
+                </tr>
+                <tr>
+                    <td class="datainput">이미지 사진</td>
+                    <td>{!! Form::file('image', array('class' => 'image')) !!}</td>
                 </tr>
                 <tr>
                     <td class="savebutton" colspan="2">

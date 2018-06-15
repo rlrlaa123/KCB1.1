@@ -46,7 +46,7 @@ class HotFocusController extends Controller
         }
 
         $image = $request->file('hf_fileimage');
-        $imagename = $request['hf_id'] . '.' . $image->getClientOriginalExtension();
+        $imagename = time(). '.' . $image->getClientOriginalExtension();
 
         $date = Carbon::now();
 

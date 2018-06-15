@@ -51,7 +51,7 @@ class FYIController extends Controller
         }
 
         $image = $request->file('fyi_fileimage');
-        $imagename = $request['fyi_id'] . '.' . $image->getClientOriginalExtension();
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
 
         $date = Carbon::now();
 
