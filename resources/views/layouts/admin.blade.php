@@ -19,9 +19,9 @@
         </div>
     </div>
     <div class="navsubbar">
-        <div class="basicinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? 'active' : ''}}"
-             onclick="location.href='/admin/basic';">기초정보
-        </div>
+        {{--<div class="basicinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? 'active' : ''}}"--}}
+             {{--onclick="location.href='/admin/basic';">기초정보--}}
+        {{--</div>--}}
         <div class="userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}"
              onclick="location.href='/admin/user';">회원정보
         </div>
