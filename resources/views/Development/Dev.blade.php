@@ -450,7 +450,7 @@
                     newContainer3.innerHTML = ele.dev_city + ' ' + ele.dev_district;
                     newContainer3.classList.add("grid-item");
                     var newContainer4 = document.createElement('div');
-                    newContainer4.innerHTML = ele.dev_area_size;
+                    newContainer4.innerHTML = numberWithCommas(ele.dev_area_size) + ' m<sup>2</sup>';
                     newContainer4.classList.add("grid-item");
                     var newContainer5 = document.createElement('div');
                     newContainer5.innerHTML = ele.dev_charge;
@@ -472,6 +472,10 @@
                 .fail(function (error) {
                     console.error(error);
                 });
+        }
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
         var city = document.getElementsByClassName('city_switch');
