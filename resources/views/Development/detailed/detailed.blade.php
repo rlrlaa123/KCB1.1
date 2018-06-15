@@ -135,13 +135,16 @@
                 <p>{{$data->dev_comment}}</p>
             </div>
         </div>
+        @if($data->dev_reference==null)
         <div class="dev_content">
             <b style="font-size:1.5vw; color:black;">참고자료</b>
             <hr/>
             <div>
-                <a href="{{url('development_reference_filedownload/'.$data->dev_id)}}">파일 다운로드</a>
+                <a href="{{url('development_reference_filedownload/'.$data->dev_id)}}" style="font-size:1.3vw;">{{$data->dev_reference}}</a>
             </div>
         </div>
+            @else
+        @endif
     </div>
 
 
