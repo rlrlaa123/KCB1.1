@@ -4,7 +4,7 @@
     @yield('style')
     @include('layouts.partials.header_admin')
     @include('layouts.partials.admin_style')
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <link href="{{ asset('css/NanumSquare-master/nanumsquare.css') }}" rel="Stylesheet">
 </head>
 <body>
 <div id="wrapper">
