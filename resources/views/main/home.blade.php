@@ -231,8 +231,6 @@
         }
     </style>
 @endsection
-
-
 @section('content')
     <div class="searchbarcontainer">
         <form class="navbar-form searchform" method="GET" action="{{url('/search/')}}">
