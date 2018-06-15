@@ -51,6 +51,7 @@
 
         .grid-item:nth-child(2) {
             -ms-grid-column: 3;
+            border-bottom: 1px solid #bcc1e1;
         }
 
         .grid-item:nth-child(3) {
@@ -101,6 +102,7 @@
             justify-content: space-between;
             align-items: center;
             height: 25vh;
+            border-bottom: 1px solid #bcc1e1;
         }
         .text-center{
 
@@ -269,7 +271,7 @@
                 </div>
                 @if($hotfocus->count())
                     <div>
-                    <div class="text-center" style="height: 12vh;">
+                    <div class="text-center">
                         {!! $hotfocus->render() !!}
                     </div>
                     </div>
