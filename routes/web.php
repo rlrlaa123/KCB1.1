@@ -240,6 +240,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/dev/create', 'Admin\Dev\DevController@create');
     Route::get('/dev/{id}/edit', 'Admin\Dev\DevController@edit');
     Route::put('/dev/{id}/update', 'Admin\Dev\DevController@update')->name('admin.dev.update');
+    Route::delete('/dev/{id}', 'Admin\Dev\DevController@delete')->name('admin.dev.delete');
     Route::post('/developmentfileupload/', 'Admin\Dev\DevController@developmentfileupload')->name('admin.dev.store');
     Route::post('/showdistrictlist', function (\Illuminate\Http\Request $request) {
         $locations = \App\Location::select('num_id', 'dev_district')->where('dev_city', $request->data)->get();

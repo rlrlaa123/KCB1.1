@@ -359,7 +359,7 @@
     }
 
     .askingpage {
-        margin: 1vw 15vw 1vw 15vw;
+        margin: 1vw 5vw;
     }
 
     .askingpage th, .askingpage td {

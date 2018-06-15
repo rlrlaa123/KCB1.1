@@ -84,16 +84,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_city">시/도</label><label for="dev_district">군/구</label>
+                            <td class="datainput"><label for="dev_city">시/도</label><label for="dev_district">군/구 {{ $data->dev_district }}</label>
                             </td>
                             <td>
                                 <select id="dev_city" name="dev_city" form="development-form"
-                                        onchange="showDistrictList(value)">
-                                    <option value={{ $data->dev_city }} selected>선택해주세요</ ion>
+                                        onchange="showDistrictList(value, '{{  $data->dev_city }}')">
+                                    <option value={{ $data->dev_city }} selected>선택해주세요</option>
                                     @foreach($cities as $city)
-                                        <option class="listed" value="{{$city->dev_city}}">
-                                            {{$city->dev_city}}
-                                        </option>
+                                        <option class="listed" value={{ $city->dev_city }} @if($data->dev_city == $city->dev_city) selected @endif>{{ $city->dev_city }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('dev_city'))
@@ -103,7 +101,7 @@
                                 @endif
                                 <select id="dev_district" name="dev_district" form="development-form">
                                     @foreach($locations as $loc)
-                                        <option class="listed2" value="{{ $data->dev_distric  }}"
+                                        <option class="listed2" value="{{ $data->dev_district  }}"
                                                 id="{{ $loc->num_id }}"
                                                 style="display: none">
                                             {{$loc->dev_district}}
@@ -118,11 +116,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_type">유형</label></td>
+                            <td class="datainput"><label for="dev_type">유형 {{$data->dev_type}}</label></td>
                             <td>
                                 <select id="dev_type" name="dev_type" form="development-form">
                                     @foreach($searchtype as $type)
-                                        <option value={{$type->search_type}}>{{$type->search_type}}</option>
+                                        <option value={{ $type->search_type }} @if($data->dev_type == $type->search_type) selected @endif>{{ $type->search_type }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('dev_type'))
@@ -135,9 +133,9 @@
                         <tr>
                             <td class="datainput"><label for="dev_charge">주체</label></td>
                             <td>
-                                <select id="dev_charge" name="dev_charge" form="development-form" multiple>
+                                <select id="dev_charge" name="dev_charge" form="development-form">
                                     @foreach($searchcharge as $charge)
-                                        <option value={{$charge->search_charge}}>{{$charge->search_charge}}</option>
+                                        <option value={{ $charge->search_charge }} @if($data->dev_charge == $charge->search_charge) selected @endif>{{ $charge->search_charge }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('dev_charge'))
@@ -151,7 +149,8 @@
                             <td class="datainput"><label for="dev_area_size">면적 (m<sup>2</sup>)</label></td>
                             <td>
                                 <input type="number" id="dev_area_size" name="dev_area_size"
-                                       class="form-control" size="68" value="{{ $data->dev_area_size }}" placeholder="면적을 입력 요.">
+                                       class="form-control" size="68" value="{{ $data->dev_area_size }}"
+                                       placeholder="면적을 입력 요.">
                                 @if ($errors->has('dev_area_size'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_area_size') }}
@@ -163,10 +162,10 @@
                             <td class="datainput"><label for="dev_status">보상상태</label></td>
                             <td>
                                 <select id="dev_status" name="dev_status" form="development-form">
-                                    <option value="전체" {{ old('dev_status') == "전체" ? 'selected' : '' }}>전체</option>
-                                    <option value="보상예정" {{ old('dev_status') == "보상예정" ? 'selected' : '' }}>보상예정</option>
-                                    <option value="보상중" {{ old('dev_status') == "보상중" ? 'selected' : '' }}>보상중</option>
-                                    <option value="보상완료" {{ old('dev_status') == "보상완료" ? 'selected' : '' }}>보상완료</option>
+                                    <option value="전체" @if($data->dev_status == '전체') selected @endif>전체</option>
+                                    <option value="보상예정" @if($data->dev_status == '보상예정') selected @endif>보상예정</option>
+                                    <option value="보상중" @if($data->dev_status == '보상중') selected @endif>보상중</option>
+                                    <option value="보상완료" @if($data->dev_status == '보상완료') selected @endif>보상완료</option>
                                 </select>
                                 @if ($errors->has('dev_status'))
                                     <div class="help-block">
@@ -215,7 +214,8 @@
                             <td class="datainput"><label for="dev_future_plan">향후 추진 계획</label></td>
                             <td>
                                 <textarea id="dev_future_plan" name="dev_future_plan" class="form-control"
-                                          placeholder="향후 추진 계획을 입력해주세요." cols="70">{{ $data->dev_future_plan }}</textarea>
+                                          placeholder="향후 추진 계획을 입력해주세요."
+                                          cols="70">{{ $data->dev_future_plan }}</textarea>
                                 @if ($errors->has('dev_future_plan'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_future_plan') }}
@@ -261,6 +261,7 @@
     </div>
 @endsection
 @section('script')
+
     <script>
         $.ajaxSetup({
             headers: {
@@ -269,7 +270,35 @@
         });
 
         //---------------------------Showing Districts------------------------------------------------------------
-        function showDistrictList(loc) {
+        var e = document.getElementById('dev_city');
+        var loc = e.options[e.selectedIndex].value;
+
+        var i;
+        var x = document.getElementsByClassName('listed2');
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        $.ajax({
+            type: "POST",
+            url: '/admin/showdistrictlist',
+            data: {data: loc}
+        }).done(function (district) {
+            district.map(function (ele) {
+                document.getElementById(ele['num_id']).value = ele['dev_district'];
+                document.getElementById(ele['num_id']).style.display = 'block';
+            })
+        }).fail(function (error) {
+            console.error(error);
+        });
+
+        function showDistrictList(loc, selected) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            //---------------------------Showing Districts------------------------------------------------------------
             var i;
             var x = document.getElementsByClassName('listed2');
             for (i = 0; i < x.length; i++) {
@@ -281,14 +310,16 @@
                 data: {data: loc}
             }).done(function (district) {
                 district.map(function (ele) {
-                    document.getElementById(ele['num_id']).value = ele['dev_distrct'];
+                    console.log(ele['num_id']);
+                    document.getElementById(ele['num_id']).value = ele['dev_district'];
                     document.getElementById(ele['num_id']).style.display = 'block';
-
+                    if(document.getElementById(ele['num_id']).value === selected) {
+                        document.getElementById('dev_district').selectedIndex = ele['num_id'];
+                    }
                 })
-            })
-                .fail(function (error) {
-                    console.error(error);
-                });
+            }).fail(function (error) {
+                console.error(error);
+            });
         }
     </script>
 @endsection
