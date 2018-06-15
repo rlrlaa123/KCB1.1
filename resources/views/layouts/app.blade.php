@@ -5,7 +5,7 @@
     @yield('style')
     @include('layouts.partials.header')
     @include('layouts.navbar.navbar_style')
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <link href="{{ asset('css/NanumSquare-master/nanumsquare.css') }}" rel="Stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
