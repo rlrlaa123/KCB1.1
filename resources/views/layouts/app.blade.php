@@ -8,7 +8,7 @@
     <link href="{{ asset('css/NanumSquare-master/nanumsquare.css') }}" rel="Stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-<body>
+<body style="background-color:white;">
 
 <div id="app" style="background-color: white;">
     @include('layouts.navbar.navbar')

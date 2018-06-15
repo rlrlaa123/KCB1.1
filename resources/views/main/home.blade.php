@@ -63,6 +63,9 @@
             overflow: hidden;
             padding: 0 3vw 0 3vw;
             border-bottom: 1px solid #bcc1e1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .homemenu2 {
@@ -74,17 +77,15 @@
         }
 
         .homemenu1item {
-            padding: 1.4vh 1.5vw;
-            float: left;
+            padding: 1.3vh 1.5vw;
             width: auto;
             border: none;
-            display: block;
             outline: 0;
             background-color: white;
         }
 
         .homemenu2item {
-            padding: 1.4vh 1.5vw;
+            margin: 1.4vh 1.5vw;
             width: auto;
             border: none;
             outline: 0;
@@ -146,7 +147,7 @@
         }
 
         .homemenu3item {
-            padding: 8px 16px;
+            padding: 8px 24px;
             width: auto;
             border-top: none;
             border-left: none;
@@ -159,7 +160,6 @@
         }
 
         ._tothepage {
-            float: right;
             border: none;
             color: grey;
             background-color: transparent;
@@ -317,7 +317,8 @@
 @section('content')
     <div class="searchbarcontainer">
         <form class="navbar-form searchform" method="GET" action="{{url('/search/')}}">
-            <input type="search" name="search" class="form-control" placeholder="검색" size="40">
+            <input type="search" name="search" class="form-control" style="width:auto!important;" placeholder="검색"
+                   size="40">
             <button type="submit" class="lens_button"><img src="/img/searchbarbutton.png"/>
             </button>
         </form>
@@ -329,9 +330,16 @@
     <div class="body1">
         <div class="grid-item">
             <div class="homemenu1">
-                <button class="homemenu1item" onclick="openmenu1('hotfocus')" style="font-size: 1.1vw;">HOT 포커스</button>
-                <button class="homemenu1item" onclick="openmenu1('freesample')" style="font-size: 1.1vw;">무료샘플</button>
-                <button class="_tothepage"><a href="/hotfocus" style="font-size:1.1vw;">+더보기</a></button>
+                <div class="justify-content">
+                    <div class="homemenu1item" id="hotfocus1" onclick="openmenu1('hotfocus'); give_effect('hotfocus1')"
+                         style="font-size: 1.1vw; border-right: 0.8px solid #c4e3f3; border-bottom:2px solid #e85251;">HOT 포커스
+                    </div>
+                    <div class="homemenu1item" id="freesample1" onclick="openmenu1('freesample'); give_effect('freesample1')"
+                         style="font-size: 1.1vw;">무료샘플
+                    </div>
+                </div>
+                <div class="_tothepage" style="font-size:1.1vw;" onclick="location.href='{{url('/hotfocus')}}'">+더보기
+                </div>
             </div>
             <div id="hotfocus" class="w3-container menu1">
                 <div class="hotfocus_shortcut">
@@ -399,10 +407,10 @@
     </div>
     <div class="body2">
         <div>
-            <div style="margin:1vw 0; border-bottom: 1px solid #7888c2;">
+            <div style="margin:1vw 0; border-bottom: 1px solid #7888c2; display:flex; justify-content: space-between; align-items: center;">
                 <button id="library_shortcut_button1" class="homemenu3item"
                         onclick="location.href='{{url('/library')}}'"
-                        style="border-right: 0.5px solid; border-bottom-style: none;
+                        style="border-bottom: 2px solid #e85251;
                          font-size:1.1vw; cursor:pointer;">자료실
                 </button>
                 <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library"
@@ -435,10 +443,10 @@
         </div>
     </div>
     <div style="  margin: 1vw 15vw 1vw 15vw;">
-        <h2 style="font-size:1.1vw;">
-            유용한 사이트
-        </h2>
-        <hr/>
+        <div style="margin: 1vw 0;border-bottom: 1px solid #7888c2; justify-content: space-between; display:flex; align-items: center;">
+            <h2 style="font-size:1.1vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; ">
+                유용한 사이트
+            </h2></div>
         <div class="partners">
             <div class="grid-item" style="display:inline-block">
                 <a href="http://www.moleg.go.kr/main.html" target="__blank"><img src="/img/moleg_logo.png"
@@ -484,6 +492,15 @@
                 x[i].style.display = "none";
             }
             document.getElementById(whichmenu).style.display = "block";
+        }
+
+        function give_effect(whichmenu) {
+            var i;
+            var x = document.getElementsByClassName("homemenu1item");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.borderBottom= "none";
+            }
+            document.getElementById(whichmenu).style.borderBottom= "2px solid #e85251";
         }
 
         function openmenu2(whichmenu) {

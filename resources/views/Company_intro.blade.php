@@ -111,13 +111,13 @@
             </div>
         </div>
         <div class="right grid-item">
-            <h3 style="font-weight:700; color:black; text-align:left; margin:0 0 0 1vw;">회사소개 및 대표 인사말</h3>
+            <h3 style="font-size: 2vw; font-weight:700; color:black; text-align:left; margin:0 0 0 1vw;">회사소개 및 대표 인사말</h3>
             <div class="introductionPage" id="introduction">
                 <img src="/img/intro.jpg"
                      style="float:left; width:30%; min-height:400px; height:100%; max-height:600px; margin: 1vw; vertical-align: top;">
                 <div>
-                    <h3 style="color:#7491bd; text-align:left; padding-top: 1vw;">새로운 창조를 위한 변화와 도전<br>
-                        <b style="font-weight:600; color:black;">Change and challenge for new creation</b></h3>
+                    <div style="font-size:2vw; color:#7491bd; text-align:left; padding-top: 1vw;">새로운 창조를 위한 변화와 도전<br>
+                        <b style="font-weight:600; color:black;">Change and challenge for new creation</b></div>
                     <div class="intro_desc">
                         <p>21세기 우리 경제는 비약적인 성장과 더불어 많은 사회문제 또한 야기 되었습니다. 특히 공익사업에 기한 손실보상 업무는 국민의 재산권 보존과 공공사업의 적기수행이라는
                             다소
