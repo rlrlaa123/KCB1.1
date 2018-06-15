@@ -160,6 +160,7 @@ Route::get('/noticesearch', 'SearchController@notice_search');
 //---------------------------------------------------------------------------------------------------------
 //커뮤니티
 Route::get('/asking', 'UserView\Community\UserAskingController@index');
+Route::get('/asking/{id}', 'UserView\Community\UserAskingController@show');
 Route::post('/asking/compare','UserView\Community\UserAskingController@asking_compare');
 Route::get('/asking/compare/{id}','UserView\Community\UserAskingController@asking_compare');
 Route::get('/ask','UserView\Community\UserAskingController@write');
