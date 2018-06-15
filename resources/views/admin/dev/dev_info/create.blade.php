@@ -74,9 +74,7 @@
                             <td class="datainput"><label for="dev"></label>COMMENT</td>
                             <td>
                                 <textarea id="dev_comment" name="dev_comment" class="form-control"
-                                          placeholder="COMMENT를 입력해주세요." cols="70">
-                                    {{ old('dev_comment') }}
-                                </textarea>
+                                          placeholder="COMMENT를 입력해주세요." cols="70">{{ old('dev_comment') }}</textarea>
                                 @if ($errors->has('dev_comment'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_comment') }}
@@ -216,9 +214,7 @@
                             <td class="datainput"><label for="dev_future_plan">향후 추진 계획</label></td>
                             <td>
                                 <textarea id="dev_future_plan" name="dev_future_plan" class="form-control"
-                                          placeholder="향후 추진 계획을 입력해주세요." cols="70">
-                                    {{ old('dev_future_plan') }}
-                                </textarea>
+                                          placeholder="향후 추진 계획을 입력해주세요." cols="70">{{ old('dev_future_plan') }}</textarea>
                                 @if ($errors->has('dev_future_plan'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_future_plan') }}
