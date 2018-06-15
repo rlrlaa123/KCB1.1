@@ -51,7 +51,7 @@
 
         .grid-item:nth-child(2) {
             -ms-grid-column: 3;
-            border-bottom: 1x solid #bcc1e1;
+            border-bottom: 1px solid #bcc1e1;
         }
 
         .grid-item:nth-child(3) {
