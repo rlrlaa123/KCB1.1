@@ -237,9 +237,9 @@ Route::prefix('admin')->group(function () {
 
     //-------------개발정보검색-----------------//
     Route::get('/dev/', 'Admin\Dev\DevController@index');
-    Route::post('/developmentfileupload/', 'Admin\Dev\DevController@developmentfileupload');
+    Route::post('/developmentfileupload/', 'Admin\Dev\DevController@developmentfileupload')->name('admin.dev.store');
     Route::post('/showdistrictlist', function (\Illuminate\Http\Request $request) {
-        $locations = \App\Location::select('num_id')->where('dev_city', $request->data)->get();
+        $locations = \App\Location::select('num_id', 'dev_district')->where('dev_city', $request->data)->get();
 
         return $locations;
     });

@@ -89,19 +89,6 @@
             </table>
         </div>
     </div>
-    {{--<div class="articleshowpage">--}}
-    {{--<div class="page-header">--}}
-    {{--<h4 style="font-weight: 700;">커뮤니티--}}
-    {{--<b style="font-weight:700; font-size:1.1vw;"> / {{$article->title}}</b>--}}
-    {{--</h4>--}}
-    {{--</div>--}}
-    {{--<article data-id="{{$article->id}}">--}}
-    {{--@include('articles.partial.article', compact('article'))--}}
-    {{--</article>--}}
-    {{--<div class="text-center action__article">--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--@stop--}}
 @endsection
 @section('script')
     <script>

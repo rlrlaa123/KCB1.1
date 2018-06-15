@@ -238,6 +238,9 @@
         text-align: center;
         font-size: 1vw;
         font-weight:700;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
     }
 
     .dev_info_result {
@@ -437,24 +440,24 @@
                                     alert('프리미엄 회원만 열람이 가능합니다.');
                                 }
                             };
-                    var newContainer1 = document.createElement('div');
-                    newContainer1.innerHTML = ele.dev_thumbnails;
+                    var newContainer1 = document.createElement('img');
+                    newContainer1.src = ele.dev_thumbnails;
                     newContainer1.classList.add("grid-item");
                     var newContainer2 = document.createElement('div');
-                    newContainer1.innerHTML = ele.dev_title;
-                    newContainer1.classList.add("grid-item");
-                    var newContainer3 = document.createElement('div');
-                    newContainer2.innerHTML = ele.dev_city + ' ' + ele.dev_district;
+                    newContainer2.innerHTML = ele.dev_title;
                     newContainer2.classList.add("grid-item");
-                    var newContainer4 = document.createElement('div');
-                    newContainer3.innerHTML = ele.dev_area_size;
+                    var newContainer3 = document.createElement('div');
+                    newContainer3.innerHTML = ele.dev_city + ' ' + ele.dev_district;
                     newContainer3.classList.add("grid-item");
-                    var newContainer5 = document.createElement('div');
-                    newContainer4.innerHTML = ele.dev_charge;
+                    var newContainer4 = document.createElement('div');
+                    newContainer4.innerHTML = ele.dev_area_size;
                     newContainer4.classList.add("grid-item");
-                    var newContainer6 = document.createElement('div');
-                    newContainer5.innerHTML = ele.dev_method;
+                    var newContainer5 = document.createElement('div');
+                    newContainer5.innerHTML = ele.dev_charge;
                     newContainer5.classList.add("grid-item");
+                    var newContainer6 = document.createElement('div');
+                    newContainer6.innerHTML = ele.dev_method;
+                    newContainer6.classList.add("grid-item");
 
                     newDiv.appendChild(newContainer1);
                     newDiv.appendChild(newContainer2);

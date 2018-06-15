@@ -12,9 +12,8 @@
         <div class="navbardiv"><a href="{{ url('admin') }}" id="appname">{{ config('app.name','Laravel') }}</a></div>
         <div id="userdate">| {{ \Illuminate\Support\Facades\Auth::user()->name }}님 안녕하세요
             / {{ \Carbon\Carbon::now() }}</div>
-        <div class="navbardiv"><a href="{{ route('admin.logout') }}"
-                                  onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();" id="logout">
+        <div class="navbardiv">
+            <a href="{{ route('admin.logout') }}" id="logout">
                 [ 로그아웃 ]
             </a>
         </div>
@@ -67,9 +66,6 @@
 <div class="footer">
     @include('layouts.partials.footer')
 </div>
-<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-    {{ csrf_field() }}
-</form>
 @yield('script')
 </body>
 </html>
