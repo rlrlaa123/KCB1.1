@@ -173,7 +173,7 @@ Route::post('/report_fileupload', 'UserView\Community\UserReportController@repor
 //관리자
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
-        return redirect('admin/basic');
+        return redirect('admin/dev');
     });
 
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
