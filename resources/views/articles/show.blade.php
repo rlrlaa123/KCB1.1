@@ -63,7 +63,7 @@
                                                 </a>
                                             @endif
                                             @if($article->user->id==\Illuminate\Support\Facades\Auth::user()->id)
-                                                <a class="button__delete">
+                                                <a class="button__delete" onclick="deleteArticle({{ $article->id }})">
                                                     글 삭제
                                                 </a>
                                             @endif
@@ -97,13 +97,13 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
         $('.button__delete').on('click', function (e) {
-            var articleId = $('article').data('id');
 
             if (confirm('글을 삭제합니다.')) {
                 $.ajax({
                     type: 'DELETE',
-                    url: '/articles/' + articleId
+                    url: '/articles/' + '{{ $article->id }}'
                 }).then(function () {
                     window.location.href = '/articles';
                 })
