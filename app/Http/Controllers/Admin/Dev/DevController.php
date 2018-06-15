@@ -33,33 +33,35 @@ class DevController extends Controller
     {
         $locations = Location::all();
 //        $chosen=Location::where('dev_city','$chosen')->get();
-        $cities=Location::distinct()->get(['dev_city']);
-        $searchtype= SearchType::all();
-        $searchcharge= SearchCharge::all();
-        return view('admin.dev.dev_info.index', compact('locations','searchtype','searchcharge', 'cities'));
+        $cities = Location::distinct()->get(['dev_city']);
+        $searchtype = SearchType::all();
+        $searchcharge = SearchCharge::all();
+        return view('admin.dev.dev_info.index', compact('locations', 'searchtype', 'searchcharge', 'cities'));
     }
 
     public function developmentfileupload(Request $request)
     {
+//        return $request;
         $this->validate($request, [
             'dev_title' => 'required|string',
             'dev_initiated_log' => 'required',
             'dev_initiated_date' => 'required|date',
             'dev_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'dev_comment' => 'required',
-            'dev_city' => 'required|string',
-            'dev_district' => 'required|string',
-            'dev_type' => 'required|string',
-            'dev_charge' => 'required|string',
-            'dev_status' => 'required|string',
-            'dev_method' => 'required|string',
+            'dev_city' => 'required',
+            'dev_district' => 'required',
+            'dev_type' => 'required',
+            'dev_charge' => 'required',
+            'dev_status' => 'required',
+            'dev_method' => 'required',
             'dev_area_size' => 'required|integer',
             'dev_applied_law' => 'nullable|string',
             'dev_publicly_starting_date' => 'required|string',
             'dev_future_plan' => 'nullable',
             'dev_reference' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,svg,txt,xlsx,xls,ppt,pptx,doc,docx,pdf',
         ]);
-        if (!   file_exists('fileuploaded')) {
+
+        if (!file_exists('fileuploaded')) {
             File::makeDirectory('fileuploaded/');
             if (!file_exists('fileuploaded/Development_information')) {
                 File::makeDirectory('fileuploaded/Development_information');
@@ -74,31 +76,37 @@ class DevController extends Controller
                 }
             }
         }
+        $dev = new Dev;
 
+        // Image 파일 업로드
         $image = $request->file('dev_fileimage');
-        $reference = $request->file('dev_reference');
-        $imagename = $request['dev_title'] . '.' . $image->getClientOriginalExtension();
-        $reference_name = $request['dev_title'] . '.' . $reference->getClientOriginalExtension();
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        // Reference 파일 업로드
+        if ($request->hasFile('dev_reference')) {
+            $reference = $request->file('dev_reference');
+            $reference_name = time() . '.' . $reference->getClientOriginalExtension();
 
-        $destinationPath = public_path('fileuploaded/Development_information/thumbnails');
+            $destinationPath_reference = public_path('fileuploaded/Development_information/references');
+            $reference->move($destinationPath_reference, $reference_name);
+
+            $dev->dev_reference = 'fileuploaded/Development_information/references/' . $reference_name;
+        }
+
+        $destinationPath_thumb = public_path('fileuploaded/Development_information/thumbnails');
         $thumbnails = Image::make($image->getRealPath());
         $thumbnails->resize(100, 100, function ($constraint) {
             $constraint->aspectRatio();
-        })->save($destinationPath . '/' . $imagename);
+        })->save($destinationPath_thumb . '/' . $imagename);
 
-        $destinationPath = public_path('fileuploaded/Development_information/images');
-        $image->move($destinationPath, $imagename);
+        $destinationPath_image = public_path('fileuploaded/Development_information/images');
+        $image->move($destinationPath_image, $imagename);
 
-        $destinationPath = public_path('fileuploaded/Development_information/references');
-        $reference->move($destinationPath, $reference_name);
 
-        $dev = new Dev;
         $dev->dev_title = $request['dev_title'];
         $dev->dev_initiated_log = $request['dev_initiated_log'];
         $dev->dev_initiated_date = $request['dev_initiated_date'];
         $dev->dev_fileimage = 'fileuploaded/Development_information/images/' . $imagename;
         $dev->dev_thumbnails = 'fileuploaded/Development_information/thumbnails/' . $imagename;
-        $dev->dev_reference = 'fileuploaded/Development_information/references/' . $reference_name;
         $dev->dev_comment = $request['dev_comment'];
         $dev->dev_city = $request['dev_city'];
         $dev->dev_district = $request['dev_district'];
@@ -111,11 +119,9 @@ class DevController extends Controller
         $dev->dev_publicly_starting_date = $request['dev_publicly_starting_date'];
         $dev->dev_future_plan = $request['dev_future_plan'];
 
-
         $dev->save();
 
-//        $this->postImage->add($input);
-        return $dev;
+        return redirect('admin/dev');
 
     }
 

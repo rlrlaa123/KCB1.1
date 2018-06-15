@@ -65,7 +65,7 @@
         </div>
         <hr/>
         <div class="basic_info_div">
-            <div style="width:35%; margin:1vw;"><img src="/img/no_image.jpg" style="width: 100%;">
+            <div style="width:35%; margin:1vw;"><img src="/{{ $data->dev_fileimage }}" style="width: 100%;">
             </div>
             <div style="width: 65%;">
                 <table>
@@ -111,7 +111,6 @@
                 <div class="grid-item" style="background-color:#f6f7fb;">
                     자료보기
                 </div>
-
             </div>
         </div>
         <div class="dev_content">
