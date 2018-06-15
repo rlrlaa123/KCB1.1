@@ -43,11 +43,12 @@
                 <tbody>
                 @forelse($data as $value)
                     @if($value->asking_password != null)
-                        <tr class="tothedetailpage"
-                            onclick="passwordpopup({{$value->id}})">
+                        <tr class="tothedetailpage">
+                            {{--onclick="passwordpopup({{$value->id}})">--}}
                             <td class=" td2">{{$value->id}}</td>
-                            <td style="text-align:left; padding:1vw">비공개글입니다.<img src="/img/padlock.png"
-                                                                                  style="width:23px; margin-left:1vw;">
+                            <td style="text-align:left; padding:1vw" onclick="passwordpopup({{ $value->id }})">
+                                비공개글입니다.
+                                <img src="/img/padlock.png" style="width:23px; margin-left:1vw;">
                             </td>
                             <td class="td1">{{$value->created_at}}</td>
                         </tr>
@@ -74,40 +75,13 @@
         </div>
     </div>
     <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
         function passwordpopup(asking_id) {
-            var comparing = {
-                asking_id: '',
-                password_input: ''
-            };
             var role = "{{ Illuminate\Support\Facades\Auth::user()->checkPremium(Illuminate\Support\Facades\Auth::user()->grade) }}";
             if (role === "1") {
-                var password_input = parseInt(prompt("비밀번호 4자리를 입력하세요."));
-
-                comparing['asking_id'] = asking_id;
-                comparing['password_input'] = password_input;
-                $.ajax({
-                    type: "POST",
-                    url: '/asking/compare',
-                    data: comparing
-
-                }).done(function (compared) {
-                    console.log(compared);
-                    if (compared === "1") {
-                        location.href = "/asking/compare/" + asking_id;
-                    } else {
-                        alert("비밀번호를 정확히 입력해주세요.");
-                    }
-                })
+                location.href = 'asking/' + asking_id;
             } else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
             }
-
         }
 
         function tothedetailpage(id) {

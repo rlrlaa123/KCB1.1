@@ -108,6 +108,8 @@
             text-overflow: ellipsis;
             text-align: left;
             cursor: pointer;
+            padding: 5px 10px;
+            border-bottom: 1px solid #7888c2
         }
 
         .fyi_shortcut div {
@@ -254,8 +256,7 @@
             display: -ms-grid;
             display: grid;
             -ms-grid-columns: 1fr 1fr;
-            grid-column-gap: 1vw;
-            grid-template-columns: 80% 20%;
+            grid-template-columns: 10% 70% 20%;
             text-align: center;
             width: 100%;
         }
@@ -374,30 +375,20 @@
     </div>
     <div class="body2">
         <div>
-            <div style="margin:1vw; border-bottom: 1px solid #7888c2;">
+            <div style="margin:1vw 0; border-bottom: 1px solid #7888c2;">
                 <button id="library_shortcut_button1" class="homemenu2item"
                         onclick="openmenu2('data1'); highlight('library_shortcut_button1')"
                         style="border-right: 0.5px solid; border-bottom-style: none;">자료실
                 </button>
-                <button id="library_shortcut_button2" class="homemenu2item"
-                        onclick="openmenu2('data2'); highlight('library_shortcut_button2')"
-                        style="border-bottom-style:none;">자료실
-                </button>
-                <button class="_tothepage" style="background-color: #e7e9f4;"><a href="/library"
-                                                                                 style="margin:8px 16px;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4;"><a href="/library" style="margin:8px 16px;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
                 @forelse($library as $value)
-                    {{--<a href="{{ url('search/'.$value->library_id) }}">--}}
-                    {{--<div class="library_shortcut">--}}
-                    {{--<div>{{$value->library_title}}</div>--}}
-                    {{--<div>{{$value->library_date}}</div>--}}
-                    {{--</div>--}}
-                    {{--</a>--}}
                     <div class="library_shortcut" onclick="location.href=('{{url('library/'.$value->library_id)}}')">
-                        <div>{{$value->library_title}}</div>
-                        <div>{{$value->library_date}}</div>
+                        <div>{{ $value->library_id }}</div>
+                        <div>{{ $value->library_title }}</div>
+                        <div>{{ $value->library_date }}</div>
                     </div>
                 @empty
                     <div style="text-align:center;">등록된 글이 없습니다.</div>
