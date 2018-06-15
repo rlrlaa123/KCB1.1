@@ -34,11 +34,13 @@
                                 </div>
                             </td>
                         </tr>
+                        @if($data->fyi_fileimage !=null)
                         <tr>
                             <td>
                                 <p><img src="/{{$data->fyi_fileimage}}"></p>
                             </td>
                         </tr>
+                        @endif
                         <tr>
                             <td>
                                 <div class="table_footer">

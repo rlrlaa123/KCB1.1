@@ -31,10 +31,17 @@
                 </thead>
                 <tbody>
                 @forelse($dev as $value)
-                    <tr class="tothedetailpage">
-                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'"><img src="/{{  $value->dev_thumbnails }}"></td>
-                        <td onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">{{$value->dev_title}}</td>
-                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">
+                    <tr class="tothedetailpage"
+                        onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">
+                        <td class="td1">
+                            @if($value->dev_thumbnails!=null)
+                                <img src="/{{  $value->dev_thumbnails }}">
+                            @else
+                                <img src="/img/no_image.jpg">
+                            @endif
+                        </td>
+                        <td>{{$value->dev_title}}</td>
+                        <td class="td1">
                             <span>{{ $value->dev_city }}</span>
                             <span>{{ $value->dev_district }}</span>
                         </td>
