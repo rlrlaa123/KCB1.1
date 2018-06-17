@@ -9,7 +9,6 @@
             padding: 5vw;
             background-image: url('/img/navbarbackgroundpicture.png');
             -webkit-background-size: 100%;
-            background-size: 100%;
             background-repeat: no-repeat;
         }
 
@@ -51,7 +50,6 @@
 
         .grid-item:nth-child(2) {
             -ms-grid-column: 3;
-            border-bottom: 1px solid #bcc1e1;
         }
 
         .grid-item:nth-child(3) {
@@ -234,7 +232,7 @@
 @section('content')
     <div class="searchbarcontainer">
         <form class="navbar-form searchform" method="GET" action="{{url('/search/')}}">
-            <input type="search" name="search" class="form-control" style="width:auto!important;" placeholder="검색"
+            <input type="search" name="search" class="form-control" style="width:40%;" placeholder="검색"
                    size="40">
             <button type="submit" class="lens_button"><img src="/img/searchbarbutton.png"/>
             </button>
@@ -263,6 +261,11 @@
             <div id="hotfocus" class="w3-container menu1">
                 <div class="hotfocus_shortcut">
                     @forelse($hotfocus as $value)
+                        {{--<div class="image_text_container">--}}
+                            {{--<img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"--}}
+                                 {{--src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>--}}
+                            {{--<div class="text-block"><p>{{$value->hf_title}}</p></div>--}}
+                        {{--</div>--}}
                         <img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"
                              src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>
                     @empty
@@ -311,8 +314,7 @@
                         style="border-bottom: 2px solid #e85251;
                          font-size:1.1vw; cursor:pointer;">자료실
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library"
-                                                                                                 style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library" style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
@@ -389,13 +391,5 @@
             document.getElementById(whichmenu).style.display = "block";
         }
 
-        function highlight(whichmenu) {
-            var i;
-            var x = document.getElementsByClassName("homemenu3item");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display.borderBottomStyle = "none";
-            }
-            document.getElementById(whichmenu).style.borderBottomStyle = "1px solid #E852514";
-        }
     </script>
 @endsection

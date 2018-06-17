@@ -28,10 +28,71 @@ class FYIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('admin.fyi.fyi_index');
+        $data = FYI::all();
+        return view('admin.fyi.fyi_index', compact('data'));
     }
+
+    public function create()
+    {
+        $data = FYI::all();
+        return view('admin.fyi.create', compact('data'));
+    }
+
+    public function edit($id)
+    {
+        $data = FYI::where('fyi_id', $id)->get()[0];
+        return view('admin.fyi.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'fyi_title' => 'required',
+            'fyi_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fyi_content' => 'required',
+        ]);
+        if ($request->hasFile('fyi_fileimage')) {
+            if (!file_exists('fileuploaded')) {
+                File::makeDirectory('fileuploaded');
+                if (!file_exists('fileuploaded/fyi')) {
+                    File::makeDirectory('fileuploaded/fyi');
+                    if (!file_exists('fileuploaded/fyi/file')) {
+                        File::makeDirectory('fileuploaded/fyi/file');
+                    }
+                }
+            }
+            $image = $request->file('fyi_fileimage');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('fileuploaded/fyi/images');
+            $image->move($destinationPath, $imagename);
+
+            $file = 'fileuploaded/fyi/file/' . $imagename;
+        } else {
+            $file = null;
+        }
+        $date = Carbon::now();
+
+        $data = FYI::where('fyi_id', $id)
+            ->update([
+                'fyi_title' => $request['fyi_title'],
+                'fyi_content' => $request['fyi_content'],
+                'fyi_fileimage' => $file,
+                'fyi_date' => $date
+            ]);
+
+
+        return redirect('admin/fyi');
+    }
+
+    public function delete($id)
+    {
+        $data = FYI::where('fyi_id', $id)->delete();
+
+        return response()->json([], 204);
+    }
+
 
     public function fyifileupload(Request $request)
     {

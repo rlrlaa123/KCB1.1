@@ -28,10 +28,71 @@ class LibraryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('admin.library.library_index');
+        $data = Library::all();
+        return view('admin.library.library_index', compact('data'));
     }
+
+    public function create()
+    {
+        $data = Library::all();
+        return view('admin.library.create', compact('data'));
+    }
+
+    public function edit($id)
+    {
+        $data = Library::where('library_id', $id)->get()[0];
+        return view('admin.library.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'library_title' => 'required',
+            'library_fileimage' => 'nullable|max:10000|mimes:gif,jpeg,jpg,svg,png,txt,xlsx,xls,ppt,pptx,doc,docx,pdf', //a required, max 10000kb, doc or docx, pdf file
+            'library_content' => 'required',
+        ]);
+        if ($request->hasFile('library_fileimage')) {
+            if (!file_exists('fileuploaded')) {
+                File::makeDirectory('fileuploaded');
+                if (!file_exists('fileuploaded/library')) {
+                    File::makeDirectory('fileuploaded/library');
+                    if (!file_exists('fileuploaded/library/file')) {
+                        File::makeDirectory('fileuploaded/library/file');
+                    }
+                }
+            }
+            $image = $request->file('library_fileimage');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = public_path('fileuploaded/library/file');
+            $image->move($destinationPath, $imagename);
+
+            $file = 'fileuploaded/library/file/' . $imagename;
+        } else
+            $file = null;
+
+        $date = Carbon::now();
+
+        $data = Library::where('j_id', $id)
+            ->update([
+                'library_title' => $request['library_title'],
+                'library_content' => $request['library_content'],
+                'library_fileimage' => $file,
+                'library_date' => $date,
+            ]);
+
+
+        return redirect('admin/library');
+    }
+    public function delete($id)
+    {
+        $data = Library::where('library_id', $id)->delete();
+
+        return response()->json([], 204);
+    }
+
 
     public function libraryfileupload(Request $request)
     {

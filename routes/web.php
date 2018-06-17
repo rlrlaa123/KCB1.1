@@ -229,10 +229,18 @@ Route::prefix('admin')->group(function () {
 
     //----------------공지사항--------------------//
     Route::get('/fyi/', 'Admin\FYI\FYIController@index');
+    Route::get('/fyi/create', 'Admin\FYI\FYIController@create');
+    Route::get('/fyi/{id}/edit', 'Admin\FYI\FYIController@edit');
+    Route::put('/fyi/{id}/update', 'Admin\FYI\FYIController@update')->name('admin.fyi.update');
+    Route::delete('/fyi/{id}', 'Admin\FYI\FYIController@delete')->name('admin.fyi.delete');
     Route::post('/fyifileupload/', 'Admin\FYI\FYIController@fyifileupload');
 
     //----------------자료실--------------------//
     Route::get('/library/', 'Admin\Library\LibraryController@index');
+    Route::get('/library/create', 'Admin\Library\LibraryController@create');
+    Route::get('/library/{id}/edit', 'Admin\Library\LibraryController@edit');
+    Route::put('/library/{id}/update', 'Admin\Library\LibraryController@update')->name('admin.library.update');
+    Route::delete('/library/{id}', 'Admin\Library\LibraryController@delete')->name('admin.library.delete');
     Route::post('/libraryfileupload/', 'Admin\Library\LibraryController@libraryfileupload');
 
     //-------------개발정보검색-----------------//
@@ -250,18 +258,38 @@ Route::prefix('admin')->group(function () {
 
     //---------------공고/공시-----------------//
     Route::get('/notice/', 'Admin\Notice\NoticeController@index');
+    Route::get('/notice/create', 'Admin\Notice\NoticeController@create');
+    Route::get('/notice/{id}/edit', 'Admin\Notice\NoticeController@edit');
+    Route::put('/notice/{id}/update', 'Admin\Notice\NoticeController@update')->name('admin.notice.update');
+    Route::delete('/notice/{id}', 'Admin\Notice\NoticeController@delete')->name('admin.notice.delete');
     Route::post('/noticefileupload/', 'Admin\Notice\NoticeController@noticefileupload');
     //--------------유권해석판례----------------//
     Route::get('/judicial/', 'Admin\Judicial\JudicialController@index');
+    Route::get('/judicial/create', 'Admin\Judicial\JudicialController@create');
+    Route::get('/judicial/{id}/edit', 'Admin\Judicial\JudicialController@edit');
+    Route::put('/judicial/{id}/update', 'Admin\Judicial\JudicialController@update')->name('admin.judicial.update');
+    Route::delete('/judicial/{id}', 'Admin\Judicial\JudicialController@delete')->name('admin.judicial.delete');
     Route::post('/judicialfileupload/', 'Admin\Judicial\JudicialController@judicialfileupload');
 
     Route::get('/hotfocus/', 'Admin\Judicial\HotFocusController@index');
+    Route::get('/hotfocus/create', 'Admin\Judicial\HotFocusController@create');
+    Route::get('/hotfocus/{id}/edit', 'Admin\Judicial\HotFocusController@edit');
+    Route::put('/hotfocus/{id}/update', 'Admin\Judicial\HotFocusController@update')->name('admin.hotfocus.update');
+    Route::delete('/hotfocus/{id}', 'Admin\Judicial\HotFocusController@delete')->name('admin.hotfocus.delete');
     Route::post('/hotfocusfileupload/', 'Admin\Judicial\HotFocusController@hotfocusfileupload');
 
     Route::get('/relatednews/', 'Admin\Judicial\RelatedNewsController@index');
+    Route::get('/relatednews/create', 'Admin\Judicial\RelatedNewsController@create');
+    Route::get('/relatednews/{id}/edit', 'Admin\Judicial\RelatedNewsController@edit');
+    Route::put('/relatednews/{id}/update', 'Admin\Judicial\RelatedNewsController@update')->name('admin.relatednews.update');
+    Route::delete('/relatednews/{id}', 'Admin\Judicial\RelatedNewsController@delete')->name('admin.relatednews.delete');
     Route::post('/relatednewsfileupload/', 'Admin\Judicial\RelatedNewsController@relatednewsfileupload');
 
     Route::get('/policy/', 'Admin\Judicial\PolicyController@index');
+    Route::get('/policy/create', 'Admin\Judicial\PolicyController@create');
+    Route::get('/policy/{id}/edit', 'Admin\Judicial\PolicyController@edit');
+    Route::put('/policy/{id}/update', 'Admin\Judicial\PolicyController@update')->name('admin.policy.update');
+    Route::delete('/policy/{id}', 'Admin\Judicial\PolicyController@delete')->name('admin.policy.delete');
     Route::post('/policyfileupload/', 'Admin\Judicial\PolicyController@policyfileupload');
 
     //--------------커뮤니티----------------//

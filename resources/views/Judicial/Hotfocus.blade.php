@@ -1,34 +1,5 @@
 @extends('layouts.app')
 <style>
-    .image_text_container {
-        position: relative;
-        width: 14vw;
-        height: 19vh;
-    }
-
-    /* Bottom right text */
-    .text-block {
-        background-color: black;
-        bottom: 0;
-        color: white;
-        width: 100%;
-        opacity: 0.6;
-        text-align: center;
-        padding:0;
-        margin:0;
-    }
-    .text-block p{
-        margin:0;
-        text-align: center;
-        -ms-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        bottom:0;
-        width:100%;
-        height:20%;
-
-    }
     .hotfocuspage {
         margin: 1vw 15vw 1vw 15vw;
     }
@@ -73,8 +44,8 @@
                             <table>
                                 <tr>
                                     <td>
-                                    <div class="image_text_container"><img src="/{{ $value->hf_thumbnails }}">
-                                        <div class="text-block"><p>{{$value->hf_title}}</p></div></div>
+                                    <div class="image_text_container" style="width: 14vw; height: 19vh;"><img src="/{{ $value->hf_thumbnails }}">
+                                        <div class="text-block"><p style="width:100%; height:20%;">{{$value->hf_title}}</p></div></div>
                                     </td>
                                 </tr>
                             </table>

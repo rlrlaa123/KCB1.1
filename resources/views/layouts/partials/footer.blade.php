@@ -1,4 +1,10 @@
 <style>
+    .mainfooter{
+        font-size:1.1vw;
+    }
+    .footerextra{
+        font-size:1vw;
+    }
 
 </style>
 <hr/>

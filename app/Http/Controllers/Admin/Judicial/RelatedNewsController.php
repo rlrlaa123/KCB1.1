@@ -15,18 +15,85 @@ class RelatedNewsController extends Controller
     {
         $this->middleware('auth:admin');
     }
-    public function index(Request $request){
-        return view('admin.judicial.relatednews_info.index');
+
+    public function index()
+    {
+        $data = RelatedNews::all();
+        return view('admin.judicial.relatednews_info.index', compact('data'));
     }
+
+    public function create()
+    {
+        $data = RelatedNews::all();
+        return view('admin.judicial.relatednews_info.create', compact('data'));
+    }
+
+    public function edit($id)
+    {
+        $data = RelatedNews::where('rn_id', $id)->get()[0];
+        return view('admin.judicial.relatednews_info.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'rn_title' => 'required',
+            'rn_fileimage' => 'nullable|max:10000|mimes:gif,jpeg,jpg,svg,png,txt,xlsx,xls,ppt,pptx,doc,docx,pdf', //a required, max 10000kb, doc or docx, pdf file
+            'rn_content' => 'required',
+            'rn_link' => 'string|nullable',
+            'dash_id' => 'integer'
+        ]);
+        if ($request->hasFile('rn_fileimage')) {
+            if (!file_exists('fileuploaded')) {
+                File::makeDirectory('fileuploaded');
+                if (!file_exists('fileuploaded/relatednews')) {
+                    File::makeDirectory('fileuploaded/relatednews');
+                    if (!file_exists('fileuploaded/relatednews/images')) {
+                        File::makeDirectory('fileuploaded/relatednews/images');
+                    }
+                }
+            }
+            $image = $request->file('rn_fileimage');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = public_path('fileuploaded/relatednews/images');
+            $image->move($destinationPath, $imagename);
+
+            $file = 'fileuploaded/relatednews/images/' . $imagename;
+        } else
+            $file = null;
+
+        $date = Carbon::now();
+
+        $data = RelatedNews::where('rn_id', $id)
+            ->update([
+                'rn_title' => $request['rn_title'],
+                'rn_content' => $request['rn_content'],
+                'dash_id'=> 4,
+                'rn_link' => $request['rn_link'],
+                'rn_fileimage' => $file,
+                'rn_date' => $date,
+            ]);
+
+
+        return redirect('admin/relatednews');
+    }
+    public function delete($id)
+    {
+        $data = RelatedNews::where('rn_id', $id)->delete();
+
+        return response()->json([], 204);
+    }
+
 
     public function relatednewsfileupload(Request $request)
     {
         $this->validate($request, [
             'rn_title' => 'required',
             'rn_fileimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'rn_content'=>'required',
-            'rn_link'=>'string|nullable',
-            'dash_id'=>'integer'
+            'rn_content' => 'required',
+            'rn_link' => 'string|nullable',
+            'dash_id' => 'integer'
         ]);
         if ($request->rn_fileimage == null) {
             $date = Carbon::now();
@@ -52,7 +119,7 @@ class RelatedNewsController extends Controller
                 }
             }
             $image = $request->file('rn_fileimage');
-            $imagename =time(). '.' . $image->getClientOriginalExtension();
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
 
             $date = Carbon::now();
             $destinationPath = public_path('fileuploaded/relatednews/images');

@@ -1,4 +1,30 @@
 <style>
+    .image_text_container {
+        position: relative;
+    }
+
+    /* Bottom right text */
+    .text-block {
+        background-color: black;
+        bottom: 0;
+        color: white;
+        width: 100%;
+        opacity: 0.6;
+        text-align: center;
+        padding:0;
+        margin:0;
+    }
+    .text-block p{
+        margin:0;
+        text-align: center;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        bottom:0;
+
+
+    }
     html{
         background-color:white;
     }

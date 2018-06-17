@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Judicial;
 
 
+use App\FYI;
 use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
@@ -23,10 +24,72 @@ class PolicyController extends Controller
      * @return \Illuminate\Http\Response
      *
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('admin.judicial.policy_info.index');
+        $data = Policy::all();
+        return view('admin.judicial.policy_info.index', compact('data'));
     }
+
+    public function create()
+    {
+        $data = Policy::all();
+        return view('admin.judicial.policy_info.create', compact('data'));
+    }
+
+    public function edit($id)
+    {
+        $data = Policy::where('p_id', $id)->get()[0]; =
+        return view('admin.judicial.policy_info.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'p_title' => 'required',
+            'p_fileimage' => 'nullable|max:10000|mimes:gif,jpeg,jpg,svg,png,txt,xlsx,xls,ppt,pptx,doc,docx,pdf', //a required, max 10000kb, doc or docx, pdf file
+            'p_content' => 'required',
+            'dash_id' => 'integer'
+        ]);
+        if ($request->hasFile('fyi_fileimage')) {
+            if (!file_exists('fileuploaded')) {
+                File::makeDirectory('fileuploaded');
+                if (!file_exists('fileuploaded/fyi')) {
+                    File::makeDirectory('fileuploaded/fyi');
+                    if (!file_exists('fileuploaded/fyi/file')) {
+                        File::makeDirectory('fileuploaded/fyi/file');
+                    }
+                }
+            }
+            $image = $request->file('fyi_fileimage');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = public_path('fileuploaded/fyi/file');
+            $image->move($destinationPath, $imagename);
+
+            $file = 'fileuploaded/fyi/file/' . $imagename;
+        } else
+            $file = null;
+
+
+        $data = Policy::where('p_id', $id)
+            ->update([
+                'p_title' => $request['p_title'],
+                'p_content' => $request['p_content'],
+                'p_fileimage' => $file,
+            ]);
+
+
+        return redirect('admin/policy');
+    }
+
+    public function delete($id)
+    {
+        $data = Policy::where('p_id', $id)->delete();
+
+        return response()->json([], 204);
+    }
+
+    /*--------------------------------------------------------------------------------------------------------------*/
 
     public function policyfileupload(Request $request)
     {
