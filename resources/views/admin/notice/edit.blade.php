@@ -28,7 +28,7 @@
     </style>
     <div id="notice" class="infoput">
         <div class="container" style="margin: 0 5%;">
-            <h1 class="infoputheader"><strong>※ {{ $data->notice_title }} 공고 공시 수정</strong></h1>
+            <h1 class="infoputheader"><strong>※ 공고 공시 수정</strong></h1>
             <form id="notice-form" method="POST" action="{{ route('admin.notice.update', $data->notice_id) }}"
                   enctype="multipart/form-data">
                 {!! method_field('PUT') !!}
@@ -39,7 +39,7 @@
                             <td class="datainput"><label for="notice_title">제목</label></td>
                             <td>
                                 <input type="text" id="notice_title" name="notice_title" class="form-control"
-                                       placeholder="제목을 입력해주세요." size="68" value="{{old('notice_title')}}">
+                                       placeholder="제목을 입력해주세요." size="68" value="{{old('notice_title', $data->notice_title)}}">
                                 @if ($errors->has('notice_title'))
                                     <div class="help-block">
                                         {{ $errors->first('notice_title') }}
@@ -51,7 +51,7 @@
                             <td class="datainput"><label for="notice_content">공고 공시 내용</label></td>
                             <td>
                                 <textarea id="notice_content" class="form-control" name="notice_content" cols="70" placeholder="공고 공시 내용을 입력해주세요.">
-                                {{ old('notice_content')}}
+                                {{ old('notice_content', $data->notice_content)}}
                                 </textarea>
                                 @if ($errors->has('notice_content'))
                                     <div class="help-block">
@@ -64,7 +64,7 @@
                             <td class="datainput"><label for="notice_fileimage">파일 첨부</label></td>
                             <td>
                                 <input type="file" id="notice_fileimage" name="notice_fileimage" class="image"
-                                       value="{{ old('notice_fileimage') }}">
+                                       value="{{ old('notice_fileimage', $data->notice_fileimage) }}">
                                 @if ($errors->has('notice_fileimage'))
                                     <div class="help-block">
                                         {{ $errors->first('notice_fileimage') }}

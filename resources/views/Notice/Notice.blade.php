@@ -1,7 +1,19 @@
 @extends('layouts.app')
 <style>
 
+    .display_grid{
+
+        display: -ms-grid;
+        display:grid;
+        grid-column-gap: 5vw;
+        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
+        grid-template-columns: 25% 25% 25% 25%;
+        padding:0;
+        text-align: center;
+
+    }
     .image_text_container {
+        text-align: left;
         position: relative;
         width: 14vw;
         height: 19vh;
@@ -40,12 +52,14 @@
     }
 
     .noticepage img {
-        width: 14vw;
+        width: 9.6vw;
         height: 80%;
     }
 
     .noticepage td {
-        display: inline-flex;
+        display: inline-block;
+        display:-moz-inline-block;
+        align-items: center;
         justify-content: space-between;
     }
 
@@ -97,16 +111,16 @@
         </div>
         <hr/>
         <table>
-            <tr>
+            <tr class="display_grid">
                 @forelse($notexpired as $value)
-                    <td class="notexpired">
+                    <td class="notexpired grid-item">
                         <a onclick="tothedetailpage({{$value->notice_id}})">
                             <table>
                                 <tr>
                                     <td>
                                         <div class="image_text_container"><img
                                                     src="/{{$value->notice_thumbnails}}">
-                                            <div class="text-block"><p>{{$value->notice_title}}</p></div>
+                                            <div class="text-block" style="width:9.6vw;"><p>{{$value->notice_title}}</p></div>
                                         </div>
                                     </td>
                                 </tr>

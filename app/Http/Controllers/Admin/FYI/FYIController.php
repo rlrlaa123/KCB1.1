@@ -42,7 +42,9 @@ class FYIController extends Controller
 
     public function edit($id)
     {
+
         $data = FYI::where('fyi_id', $id)->get()[0];
+//        return $data;
         return view('admin.fyi.edit', compact('data'));
     }
 

@@ -47,7 +47,7 @@
     .introbody {
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 1fr 1vw 1fr;
+        -ms-grid-columns: 0.25fr 0.1vw 1fr;
         grid-column-gap: 1vw;
         grid-template-columns: 20% 80%;
         margin: 2vw 15vw 1vw 15vw;
@@ -89,8 +89,8 @@
         outline: none;
         overflow: hidden;
         text-align: left;
-        font-size: 1vw;
-        padding: 0.5vw 2vw;
+        font-size: 0.9vw;
+        font-weight:600;
         color: black;
     }
 
@@ -101,8 +101,8 @@
     <div class="introbody">
 
         <div class="left grid-item">
-            <div><b style="font-weight:700; font-size: 1.5vw; color:black; padding:0.3vw 1.5vw;">회사소개</b>
-                <b style="color:grey; font-size:1.1vw; font-weight:600;">Company</b></div>
+            <div><b style="font-weight:700; font-size: 1.3vw; color:black;text-align: left;">회사소개</b>
+                <b style="color:grey; font-size:1.1vw; font-weight:600; text-align: left;">Company</b></div>
             <div class="intro_button" onclick="intro('introduction')">
                 회사소개 및 대표인사말
             </div>
@@ -114,9 +114,9 @@
             <h3 style="font-size: 2vw; font-weight:700; color:black; text-align:left; margin:0 0 0 1vw;">회사소개 및 대표 인사말</h3>
             <div class="introductionPage" id="introduction">
                 <img src="/img/intro.jpg"
-                     style="float:left; width:30%; min-height:400px; height:100%; max-height:600px; margin: 1vw; vertical-align: top;">
+                     style="float:left; width:30%; min-height:25vh; height:auto; margin: 1vw; vertical-align: top;">
                 <div>
-                    <div style="font-size:2vw; color:#7491bd; text-align:left; padding-top: 1vw;">새로운 창조를 위한 변화와 도전<br>
+                    <div style="font-size:1.9vw; color:#7491bd; text-align:left; padding-top: 1vw;">새로운 창조를 위한 변화와 도전<br>
                         <b style="font-weight:600; color:black;">Change and challenge for new creation</b></div>
                     <div class="intro_desc">
                         <p>21세기 우리 경제는 비약적인 성장과 더불어 많은 사회문제 또한 야기 되었습니다. 특히 공익사업에 기한 손실보상 업무는 국민의 재산권 보존과 공공사업의 적기수행이라는

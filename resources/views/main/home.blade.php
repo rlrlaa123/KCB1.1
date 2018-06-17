@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('style')
 
     <style>
@@ -56,6 +55,10 @@
             -ms-grid-column: 5;
         }
 
+        .grid-item:nth-child(5) {
+            -ms-grid-column: 7;
+        }
+
         .homemenu1 {
             width: 100%;
             overflow: hidden;
@@ -102,7 +105,8 @@
             height: 25vh;
             border-bottom: 1px solid #bcc1e1;
         }
-        .text-center{
+
+        .text-center {
 
         }
 
@@ -131,8 +135,10 @@
             text-overflow: ellipsis;
             text-align: left;
             cursor: pointer;
+            font-size:1vw;
+            font-weight:500;
             padding: 5px 10px;
-            border-bottom: 1px solid #7888c2
+
         }
 
         .fyi_shortcut div {
@@ -196,10 +202,11 @@
         .library_shortcut {
             display: -ms-grid;
             display: grid;
-            -ms-grid-columns: 1fr 1fr;
+            -ms-grid-columns: 0.2fr 1vw 2fr 1vw 0.3fr;
             grid-template-columns: 10% 70% 20%;
             text-align: center;
             width: 100%;
+            border-bottom: 1px solid #7888c2;
         }
 
         .searchform input {
@@ -262,9 +269,9 @@
                 <div class="hotfocus_shortcut">
                     @forelse($hotfocus as $value)
                         {{--<div class="image_text_container">--}}
-                            {{--<img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"--}}
-                                 {{--src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>--}}
-                            {{--<div class="text-block"><p>{{$value->hf_title}}</p></div>--}}
+                        {{--<img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"--}}
+                        {{--src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>--}}
+                        {{--<div class="text-block"><p>{{$value->hf_title}}</p></div>--}}
                         {{--</div>--}}
                         <img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"
                              src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>
@@ -274,9 +281,9 @@
                 </div>
                 @if($hotfocus->count())
                     <div>
-                    <div class="text-center">
-                        {!! $hotfocus->render() !!}
-                    </div>
+                        <div class="text-center">
+                            {!! $hotfocus->render() !!}
+                        </div>
                     </div>
                 @endif
             </div>
@@ -314,32 +321,21 @@
                         style="border-bottom: 2px solid #e85251;
                          font-size:1.1vw; cursor:pointer;">자료실
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library" style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library"
+                                                                                                 style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
                 @forelse($library as $value)
                     <div class="library_shortcut" onclick="location.href=('{{url('library/'.$value->library_id)}}')">
-                        <div>{{ $value->library_id }}</div>
-                        <div>{{ $value->library_title }}</div>
-                        <div>{{ $value->library_date }}</div>
+                        <div class="grid-item">{{ $value->library_id }}</div>
+                        <div class="grid-item">{{ $value->library_title }}</div>
+                        <div class="grid-item">{{ $value->library_date }}</div>
                     </div>
                 @empty
                     <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
                 @endforelse
             </div>
-        </div>
-        <div id="data2" class="menu2" style="display:none">
-            @forelse($library as $value)
-                <a href="{{ url('library/'.$value->library_id) }}">
-                    <div class="library_shortcut">
-                        <div>{{$value->library_title}}</div>
-                        <div>{{$value->library_date}}</div>
-                    </div>
-                </a>
-            @empty
-                <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
-            @endforelse
         </div>
     </div>
     <div style="  margin: 1vw 15vw 1vw 15vw;">

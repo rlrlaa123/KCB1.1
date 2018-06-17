@@ -9,10 +9,11 @@
 <body>
 <div id="wrapper">
     <div class="navbar">
-        <div class="navbardiv"><a href="{{ url('admin') }}" id="appname">{{ config('app.name','Laravel') }}</a></div>
-        <div id="userdate">| {{ \Illuminate\Support\Facades\Auth::user()->name }}님 안녕하세요
+        <div class="navbardiv grid-item"><a href="{{ url('admin') }}"
+                                            id="appname">{{ config('app.name','Laravel') }}</a></div>
+        <div id="userdate" class="grid-item">| {{ \Illuminate\Support\Facades\Auth::user()->name }}님 안녕하세요
             / {{ \Carbon\Carbon::now() }}</div>
-        <div class="navbardiv">
+        <div class="navbardiv grid-item">
             <a href="{{ route('admin.logout') }}" id="logout">
                 [ 로그아웃 ]
             </a>
@@ -20,45 +21,47 @@
     </div>
     <div class="navsubbar">
         {{--<div class="basicinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? 'active' : ''}}"--}}
-             {{--onclick="location.href='/admin/basic';">기초정보--}}
+        {{--onclick="location.href='/admin/basic';">기초정보--}}
         {{--</div>--}}
-        <div class="userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}"
+        <div class="grid-item  userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}" style="-ms-grid-column: 1"
              onclick="location.href='/admin/user';">회원정보
         </div>
-        <div class="developmentinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/dev' ? 'active' : ''}}"
-             onclick="location.href='/admin/dev';">개발사업정보
+        <div class="grid-item developmentinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/dev' ? 'active' : ''}}"
+             onclick="location.href='/admin/dev';" style="-ms-grid-column: 3">개발사업정보
         </div>
-        <div class="judicialinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/judicial' || $_SERVER['REQUEST_URI'] === '/admin/hotfocus'
+        <div class="grid-item  judicialinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/judicial' || $_SERVER['REQUEST_URI'] === '/admin/hotfocus'
         ||$_SERVER['REQUEST_URI'] === '/admin/policy'||$_SERVER['REQUEST_URI'] === '/admin/relatednews' ? 'active' : ''}}"
-             onclick="location.href='/admin/judicial';">유권해석&판례
+             onclick="location.href='/admin/judicial';" style="-ms-grid-column: 5">유권해석&판례
         </div>
-        <div class="noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice'||$_SERVER['REQUEST_URI']==='admin/fyi'|| $_SERVER['REQUEST_URI']==='admin/consulting' ? 'active' : ''}}"
-             onclick="location.href='/admin/notice';">공고/공시
+        <div class="grid-item  noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice'||$_SERVER['REQUEST_URI']==='admin/fyi'|| $_SERVER['REQUEST_URI']==='admin/consulting' ? 'active' : ''}}"
+             onclick="location.href='/admin/notice';" style="-ms-grid-column: 7">공고/공시
         </div>
-        <div class="libraryinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/library' ? 'active' : ''}}"
-             onclick="location.href='/admin/library';">자료실
+        <div class="grid-item  libraryinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/library' ? 'active' : ''}}"
+             onclick="location.href='/admin/library';" style="-ms-grid-column: 9">자료실
         </div>
-        <div class="communityinfo-selector {{ preg_match('/\/admin\/community.+/' , $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/basic.+/', $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
-             onclick="location.href='/admin/community/';">커뮤니티
+        <div class="grid-item communityinfo-selector {{ preg_match('/\/admin\/community.+/' , $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/basic.+/', $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
+             onclick="location.href='/admin/community/';"style="-ms-grid-column: 11">커뮤니티
         </div>
     </div>
 
     <div class="navlayout">
-        @component('components.admin.basicinfo')
-        @endcomponent
-        @component('components.admin.userinfo')
-        @endcomponent
-        @component('components.admin.developmentinfo')
-        @endcomponent
-        @component('components.admin.judicialinfo')
-        @endcomponent
-        @component('components.admin.noticeinfo')
-        @endcomponent
-        @component('components.admin.libraryinfo')
-        @endcomponent
-        @component('components.admin.communityinfo')
-        @endcomponent
-        <div>
+        <div class="grid-item">
+            @component('components.admin.basicinfo')
+            @endcomponent
+            @component('components.admin.userinfo')
+            @endcomponent
+            @component('components.admin.developmentinfo')
+            @endcomponent
+            @component('components.admin.judicialinfo')
+            @endcomponent
+            @component('components.admin.noticeinfo')
+            @endcomponent
+            @component('components.admin.libraryinfo')
+            @endcomponent
+            @component('components.admin.communityinfo')
+            @endcomponent
+        </div>
+        <div class="grid-item">
             @yield('content')
         </div>
     </div>

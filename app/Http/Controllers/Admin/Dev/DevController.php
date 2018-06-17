@@ -31,7 +31,7 @@ class DevController extends Controller
      */
     public function index()
     {
-        $dev = Dev::all();
+        $dev = Dev::latest()->paginate(30);
         return view('admin.dev.dev_info.index', compact('dev'));
     }
 
@@ -47,7 +47,7 @@ class DevController extends Controller
 
     public function developmentfileupload(Request $request)
     {
-//        return $request;
+
         $this->validate($request, [
             'dev_title' => 'required|string',
             'dev_initiated_log' => 'required',
@@ -86,11 +86,11 @@ class DevController extends Controller
 
         // Image 파일 업로드
         $image = $request->file('dev_fileimage');
-        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $imagename = 'dev_info'.time(). '.' . $image->getClientOriginalExtension();
         // Reference 파일 업로드
         if ($request->hasFile('dev_reference')) {
             $reference = $request->file('dev_reference');
-            $reference_name = time() . '.' . $reference->getClientOriginalExtension();
+            $reference_name = 'dev_info'.time(). '.' . $reference->getClientOriginalExtension();
 
             $destinationPath_reference = public_path('fileuploaded/Development_information/references');
             $reference->move($destinationPath_reference, $reference_name);
@@ -126,6 +126,7 @@ class DevController extends Controller
         $dev->dev_future_plan = $request['dev_future_plan'];
 
         $dev->save();
+        return $request;
 
         return redirect('admin/dev');
     }

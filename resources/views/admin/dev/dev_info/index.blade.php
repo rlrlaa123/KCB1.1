@@ -57,6 +57,11 @@
                 @endforelse
                 </tbody>
             </table>
+            @if($dev->count())
+                <div class="text-center">
+                    {!! $dev->render() !!}
+                </div>
+            @endif
         </div>
     </div>
 @endsection

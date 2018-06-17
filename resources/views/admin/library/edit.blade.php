@@ -39,7 +39,7 @@
                             <td class="datainput"><label for="library_title">제목</label></td>
                             <td>
                                 <input type="text" id="library_title" name="library_title" class="form-control"
-                                       placeholder="제목을 입력해주세요." size="68" value="{{old('library_title')}}">
+                                       placeholder="제목을 입력해주세요." size="68" value="{{old('library_title', $data->library_title)}}">
                                 @if ($errors->has('library_title'))
                                     <div class="help-block">
                                         {{ $errors->first('library_title') }}
@@ -51,7 +51,7 @@
                             <td class="datainput"><label for="library_content">자료실 내용</label></td>
                             <td>
                                 <textarea id="library_content" class="form-control" name="library_content" cols="70" placeholder="자료실 내용을 입력해주세요.">
-                                {{ old('library_content')}}
+                                {{ old('library_content',$data->library_content)}}
                                 </textarea>
                                 @if ($errors->has('library_content'))
                                     <div class="help-block">
@@ -64,7 +64,7 @@
                             <td class="datainput"><label for="library_fileimage">파일 첨부</label></td>
                             <td>
                                 <input type="file" id="library_fileimage" name="library_fileimage" class="image"
-                                       value="{{ old('library_fileimage') }}">
+                                       value="{{ old('library_fileimage', $data->library_fileimage) }}">
                                 @if ($errors->has('library_fileimage'))
                                     <div class="help-block">
                                         {{ $errors->first('library_fileimage') }}

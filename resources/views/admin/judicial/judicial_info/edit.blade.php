@@ -28,7 +28,7 @@
     </style>
     <div id="j" class="infoput">
         <div class="container" style="margin: 0 5%;">
-            <h1 class="infoputheader"><strong>※ {{ $data->j_title }} 유권해석&판례 수정</strong></h1>
+            <h1 class="infoputheader"><strong>※ 유권해석&판례 수정</strong></h1>
             <form id="judicial-form" method="POST" action="{{ route('admin.judicial.update', $data->j_id) }}"
                   enctype="multipart/form-data">
                 {!! method_field('PUT') !!}
@@ -39,7 +39,7 @@
                             <td class="datainput"><label for="j_title">제목</label></td>
                             <td>
                                 <input type="text" id="j_title" name="j_title" class="form-control"
-                                       placeholder="제목을 입력해주세요." size="68" value="{{old('j_title')}}">
+                                       placeholder="제목을 입력해주세요." size="68" value="{{old('j_title', $data->j_title)}}">
                                 @if ($errors->has('j_title'))
                                     <div class="help-block">
                                         {{ $errors->first('j_title') }}
@@ -51,7 +51,7 @@
                             <td class="datainput"><label for="j_content">유권해석&판례 내용</label></td>
                             <td>
                                 <textarea id="j_content" class="form-control" name="j_content" cols="70" placeholder="유권해석&판례 내용을 입력해주세요.">
-                                {{ old('j_content')}}
+                                {{ old('j_content', $data->j_content)}}
                                 </textarea>
                                 @if ($errors->has('j_content'))
                                     <div class="help-block">
@@ -64,7 +64,7 @@
                             <td class="datainput"><label for="j_fileimage">파일 첨부</label></td>
                             <td>
                                 <input type="file" id="j_fileimage" name="j_fileimage" class="image"
-                                       value="{{ old('j_fileimage') }}">
+                                       value="{{ old('j_fileimage', $data->j_fileimage) }}">
                                 @if ($errors->has('j_fileimage'))
                                     <div class="help-block">
                                         {{ $errors->first('j_fileimage') }}

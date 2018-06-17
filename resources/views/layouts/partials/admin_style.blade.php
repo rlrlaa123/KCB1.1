@@ -32,8 +32,13 @@
 
     .navbar {
         display: grid;
+        display:-ms-grid;
+        grid-column-gap: 0;
+        -ms-grid-columns: 1.5fr 1vw 5fr 1vw 1.5fr;
+        text-align: center;
         grid-template-columns: 15% 70% 15%;
         background-color: black;
+
     }
 
     .navbar div {
@@ -41,10 +46,12 @@
         padding: 14px 16px;
         display: flex;
         align-items: center;
+        font-size:1.5vw;
     }
 
     .navbardiv {
         justify-content: center;
+
     }
 
     .navbar div a {
@@ -74,8 +81,33 @@
 
     .navsubbar {
         display: grid;
-        grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+        display: -ms-grid;
+        grid-column-gap: 0;
+        -ms-grid-columns: 1fr 0 1fr 0 1fr 0 1fr 0 1fr 0 1fr;
+        text-align: center;
+        grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+        font-size: 1vw;
         border: 1px solid #e1e1e1;
+    }
+
+    .grid-item:nth-child(2) {
+        -ms-grid-column: 3;
+    }
+
+    .grid-item:nth-child(3) {
+        -ms-grid-column: 5;
+    }
+
+    .grid-item:nth-child(7) {
+        -ms-grid-column: 9;
+    }
+
+    .grid-item:nth-child(9) {
+        -ms-grid-column: 11;
+    }
+
+    .grid-item:nth-child(11) {
+        -ms-grid-column: 13;
     }
 
     .navsubbar div {
@@ -101,6 +133,10 @@
 
     .navlayout {
         display: grid;
+        display:-ms-grid;
+        grid-column-gap: 0;
+        -ms-grid-columns: 1fr 1vw 4fr;
+        text-align: center;
         grid-template-columns: 20% 80%;
         min-height: 550px;
     }
