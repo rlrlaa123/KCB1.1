@@ -38,7 +38,7 @@ class PolicyController extends Controller
 
     public function edit($id)
     {
-        $data = Policy::where('p_id', $id)->get()[0]; =
+        $data = Policy::where('p_id', $id)->get()[0];
         return view('admin.judicial.policy_info.edit', compact('data'));
     }
 

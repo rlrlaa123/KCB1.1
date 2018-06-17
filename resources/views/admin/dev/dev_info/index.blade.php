@@ -45,13 +45,15 @@
                             <span>{{ $value->dev_city }}</span>
                             <span>{{ $value->dev_district }}</span>
                         </td>
-                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">{{ $value->dev_area_size }}</td>
-                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">{{ $value->dev_charge }}</td>
-                        <td class="td1" onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">{{ $value->dev_method }}</td>
-                        <td class="td1" onclick="deleteDev({{ $value->dev_id }})"><button class="btn btn-delete">삭제하기</button></td>
+                        <td class="td1">{{ $value->dev_area_size }}</td>
+                        <td class="td1">{{ $value->dev_charge }}</td>
+                        <td class="td1">{{ $value->dev_method }}</td>
+                        <td class="td1" onclick="deleteDev({{ $value->dev_id }})">
+                            <button class="btn btn-delete">삭제하기</button>
+                        </td>
                     </tr>
                 @empty
-                    <td colspan="4">해당 글이 없습니다.</td>
+                    <td colspan="7">해당 글이 없습니다.</td>
                 @endforelse
                 </tbody>
             </table>
@@ -65,12 +67,13 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        function deleteDev(devId) {
+
+        function deleteDev(dev_id) {
             $('div.dev_id');
             if (confirm('글을 삭제합니다.')) {
                 $.ajax({
                     type: 'DELETE',
-                    url: '/admin/dev/' + devId
+                    url: '/admin/dev/' + dev_id
                 }).then(function () {
                     window.location.href = '/admin/dev/';
                 })

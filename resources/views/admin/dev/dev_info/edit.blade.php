@@ -39,7 +39,7 @@
                             <td class="datainput"><label for="dev_title">제목</label></td>
                             <td>
                                 <input type="text" id="dev_title" name="dev_title" class="form-control"
-                                       placeholder="제목을 입력해주세요." size="68" value="{{ $data->dev_title }}">
+                                       placeholder="제목을 입력해주세요." size="68" value="{{ old($data->dev_title) }}">
                                 @if ($errors->has('dev_title'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_title') }}
@@ -51,7 +51,7 @@
                             <td class="datainput"><label for="dev_initiated_log">추진내역</label></td>
                             <td>
                                 <input type="text" id="dev_initiated_log" name="dev_initiated_log" class="form-control"
-                                       placeholder="추진내역을 입력해주세요." size="68" value="{{ $data->dev_initiated_log }}">
+                                       placeholder="추진내역을 입력해주세요." size="68" value="{{ old($data->dev_initiated_log)}}">
                                 @if ($errors->has('dev_initiated_log'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_initiated_log') }}
@@ -63,7 +63,7 @@
                             <td class="datainput"><label for="dev_initiated_date">추진내역날짜</label></td>
                             <td>
                                 <input type="date" id="dev_initiated_date" name="dev_initiated_date"
-                                       class="form-control" size="68" value="{{ $data->dev_initiated_date }}">
+                                       class="form-control" size="68" value="{{ old('dev_initiated_date') }}">
                                 @if ($errors->has('dev_initiated_date'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_initiated_date') }}
@@ -75,7 +75,7 @@
                             <td class="datainput"><label for="dev"></label>COMMENT</td>
                             <td>
                                 <textarea id="dev_comment" name="dev_comment" class="form-control"
-                                          placeholder="COMMENT를 입력해주세요." cols="70">{{ $data->dev_comment }}</textarea>
+                                          placeholder="COMMENT를 입력해주세요." cols="70">{{ old('dev_comment') }}</textarea>
                                 @if ($errors->has('dev_comment'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_comment') }}
@@ -84,7 +84,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_city">시/도</label><label for="dev_district">군/구 {{ $data->dev_district }}</label>
+                            <td class="datainput"><label for="dev_city">시/도</label><label for="dev_district">군/구 {{ old('dev_district') }}</label>
                             </td>
                             <td>
                                 <select id="dev_city" name="dev_city" form="development-form"
@@ -116,7 +116,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_type">유형 {{$data->dev_type}}</label></td>
+                            <td class="datainput"><label for="dev_type">유형 {{old('dev_type')}}</label></td>
                             <td>
                                 <select id="dev_type" name="dev_type" form="development-form">
                                     @foreach($searchtype as $type)
@@ -149,7 +149,7 @@
                             <td class="datainput"><label for="dev_area_size">면적 (m<sup>2</sup>)</label></td>
                             <td>
                                 <input type="number" id="dev_area_size" name="dev_area_size"
-                                       class="form-control" size="68" value="{{ $data->dev_area_size }}"
+                                       class="form-control" size="68" value="{{ old('dev_area_size') }}"
                                        placeholder="면적을 입력 요.">
                                 @if ($errors->has('dev_area_size'))
                                     <div class="help-block">
@@ -178,7 +178,7 @@
                             <td class="datainput"><label for="dev_method">사업 방식</label></td>
                             <td>
                                 <input type="text" id="dev_method" name="dev_method" class="form-control"
-                                       placeholder="사업방식을 입력해주세요." size="68" value="{{ $data->dev_method }}">
+                                       placeholder="사업방식을 입력해주세요." size="68" value="{{ old('dev_method') }}">
                                 @if ($errors->has('dev_method'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_method') }}
@@ -190,7 +190,7 @@
                             <td class="datainput"><label for="dev_applied_law">적용 법률</label></td>
                             <td>
                                 <input type="text" id="dev_applied_law" name="dev_applied_law" class="form-control"
-                                       placeholder="적용법률을 입력해주세요." size="68" value="{{ $data->dev_applied_law }}">
+                                       placeholder="적용법률을 입력해주세요." size="68" value="{{ old('dev_applied_law') }}">
                                 @if ($errors->has('dev_applied_law'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_applied_law') }}
@@ -202,7 +202,7 @@
                             <td class="datainput"><label for="dev_publicly_starting_date">사업인정고시일</label></td>
                             <td>
                                 <input type="date" id="dev_publicly_starting_date" name="dev_publicly_starting_date"
-                                       class="form-control" value="{{ $data->dev_publicly_starting_date }}">
+                                       class="form-control" value="{{ old('dev_publicly_starting_date') }}">
                                 @if ($errors->has('dev_publicly_starting_date'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_publicly_starting_date') }}
@@ -215,7 +215,7 @@
                             <td>
                                 <textarea id="dev_future_plan" name="dev_future_plan" class="form-control"
                                           placeholder="향후 추진 계획을 입력해주세요."
-                                          cols="70">{{ $data->dev_future_plan }}</textarea>
+                                          cols="70">{{ old('dev_future_plan') }}</textarea>
                                 @if ($errors->has('dev_future_plan'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_future_plan') }}
@@ -227,7 +227,7 @@
                             <td class="datainput"><label for="dev_reference[]">참고 자료</label></td>
                             <td>
                                 <input type="file" id="dev_reference[]" name="dev_reference[]" class="image" multiple
-                                       value="{{ $data->dev_reference }}">
+                                       value="{{ old('dev_reference')}}">
                                 @if ($errors->has('dev_reference'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_reference') }}

@@ -1,66 +1,80 @@
 @extends('layouts.admin')
-<script>
-    tinymce.init({
-        selector: 'textarea',
-        height: 500,
-        menubar: false,
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor textcolor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table contextmenu paste code help wordcount'
-        ],
-        toolbar: 'insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-        content_css: [
-            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-            '//www.tinymce.com/css/codepen.min.css']
-    });
-</script>
+@include('detailedpage.detailed_style')
 @section('content')
-    <div id="2" class="infoput">
-        <div class="container">
-            <h1 class="infoputheader"><strong>※ Hot 포커스</strong></h1>
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>양식에 맞게 채워주세요.</strong><br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            {!! Form::open(array('url' => '/admin/hotfocusfileupload/','enctype' => 'multipart/form-data')) !!}
-            <div class="row">
-                <table>
-                    <tr>
-                        <td class="datainput">제목</td>
-                        <td>{!! Form::text('hf_title', null,array('class' => 'form-control','placeholder'=>'제목을 입력해주세요.', 'size'=>68 )) !!}
+    <style>
+        .btn {
+            border: 1px solid lightgrey;
+            /*color: grey;*/
+            padding: 0.8vw 1.5vw;
+            border-radius: 1vw;
+            -webkit-border-radius: 1vw;
+            color: red;
+            font-weight: lighter;
+            text-decoration: none;
+        }
+    </style>
+    <div class="askingpage">
+        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>HOT포커스 목록</h3>
+            <div style="cursor:pointer; border:2px solid #e85254; background-color: #e85254; color:white; padding:0.5vw; font-size:1vw; -webkit-border-radius: 1vw;-moz-border-radius: 1vw;border-radius: 1vw;"onclick="location.href='{{url('/admin/hotfocus/create')}}'">HOT포커스 추가</div></div>
+
+        <hr/>
+        <div>
+            <table class="pagecontents">
+                <thead>
+                <tr>
+                    <th class="th1 table_id">번호</th>
+                    <th class="th1 table_thumbnails"></th>
+                    <th class="th1 table_title">제목</th>
+                    <th class="th2 table_content">HOT포커스 내용</th>
+                    <th class="th2 table_created_at">HOT포커스 생성일</th>
+                    <th class="th2 table_updated_at">HOT포커스 수정일</th>
+                    <th class="th2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($data as $value)
+                    <tr class="tothedetailpage"
+                        onclick="location.href='{{ url('admin/hotfocus/'.$value->hf_id.'/edit') }}'">
+                        <td class="td1">{{$value->hf_id}}</td>
+                        @if($value->hf_thumbnails != null)
+                        <td class="td1"><img src="/{{$value->hf_thumbnails}}"></td>
+                            @else
+                            <td class="td1"><img src="/img/no_image.jpg"/></td>
+                        @endif
+                        <td class="td1">{{$value->hf_title}}</td>
+                        <td class="td1">{{$value->hf_content}}</td>
+                        <td class="td1">{{ $value->created_at }}</td>
+                        <td class="td1">{{ $value->hf_date }}</td>
+                        <td class="td1" onclick="deleting({{ $value->hf_id }})">
+                            <button class="btn btn-delete">삭제하기</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="datainput">내용</td>
-                        <td>{!! Form::textarea('hf_content', null, array('class'=>'form-control', 'placeholder'=>'Hot 포커스를 입력해주세요.', 'cols'=>70)) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="datainput">파일 첨부</td>
-                        <td>{!! Form::file('hf_fileimage', array('class' => 'image')) !!}</td>
-                    </tr>
-                    <tr>
-                        <td class="savebutton" colspan="2">
-                            <button type="submit" class="btn btn-success">저장하기
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            {!! Form::close() !!}
+                @empty
+                    <td colspan="7">해당 글이 없습니다.</td>
+                @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
+@endsection
+@section('script')
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-        @if($messaged = Session::get('success'))
-        alert('등록이 완료되었습니다.');
-        @endif
+        function deleting(hf_id) {
+            $('div.hf_id');
+            if (confirm('글을 삭제합니다.')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/admin/hotfocus/' + hf_id
+                }).then(function () {
+                    window.location.href = '/admin/hotfocus/';
+                })
+            }
+        }
     </script>
 @endsection

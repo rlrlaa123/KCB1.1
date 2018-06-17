@@ -333,24 +333,6 @@
                 <div class="grid-item">방식</div>
             </div>
             <div class="dev_info_result_wrapper">
-                {{--@forelse($data as $value)--}}
-                {{--<a href="{{url('dev/'.$value->dev_id)}}" class="dev_info_resulted" style="display:none;">--}}
-                {{--<div class="dev_info_result">--}}
-                {{--<div class="dev_thumbnails"><img src="http://127.0.0.1:8000/{{$value->dev_thumbnails}}">--}}
-                {{--</div>--}}
-                {{--<div class="dev_title"></div>--}}
-                {{--<div>--}}
-                {{--<div class="dev_city"></div>--}}
-                {{--<div class="dev_district"></div>--}}
-                {{--</div>--}}
-                {{--<div class="dev_area_size"></div>--}}
-                {{--<div class="dev_charge"></div>--}}
-                {{--<div class="dev_method"></div>--}}
-                {{--</div>--}}
-                {{--</a>--}}
-                {{--@empty--}}
-                {{--<div style="text-align: center; vertical-align: middle; color:#aaaaaa">검색하신 결과가 없습니다.</div>--}}
-                {{--@endforelse--}}
             </div>
         </div>
     </div>
@@ -441,7 +423,7 @@
                                 }
                             };
                     var newContainer1 = document.createElement('img');
-                    newContainer1.src = ele.dev_thumbnails;
+                    newContainer1.src = '/'+ele.dev_thumbnails;
                     newContainer1.classList.add("grid-item");
                     var newContainer2 = document.createElement('div');
                     newContainer2.innerHTML = ele.dev_title;

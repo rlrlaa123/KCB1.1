@@ -3,9 +3,12 @@
     <div class="sideuser">커뮤니티</div>
     <div class="sidesubmenu">
         <ul>
-            <li class="selector  {{ preg_match('/\/admin\/community.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a href="/admin/community/">자유게시판</a></li>
-            <li class="selector  {{ preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a href="/admin/report/">신고하기</a></li>
-            <li class="selector  {{ preg_match('/\/admin\/asking.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a href="/admin/asking/">상담하기</a></li>
+            <li class="selector  {{ preg_match('/\/admin\/community.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a
+                        href="/admin/community/">자유게시판</a></li>
+            <li class="selector  {{ preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a
+                        href="/admin/report/">신고하기</a></li>
+            <li class="selector  {{ preg_match('/\/admin\/asking.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"><a
+                        href="/admin/asking/">상담하기</a></li>
         </ul>
     </div>
 </div>

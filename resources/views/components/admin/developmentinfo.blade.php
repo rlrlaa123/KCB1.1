@@ -1,4 +1,4 @@
-<div class="sidebar developmentinfo {{ preg_match('/\/admin\/dev/', $_SERVER['REQUEST_URI']) ? '' : 'hide'}}">
+<div class="sidebar developmentinfo {{ preg_match('/\/admin\/dev/', $_SERVER['REQUEST_URI']) ||preg_match('/\/admin\/dev.+/', $_SERVER['REQUEST_URI'])? '' : 'hide'}}">
     <div class="sidemenu">개발사업정보</div>
     <div class="sideuser">목록</div>
     <div class="sidesubmenu">

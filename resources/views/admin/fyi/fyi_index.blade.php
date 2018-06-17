@@ -1,83 +1,73 @@
 @extends('layouts.admin')
+@include('detailedpage.detailed_style')
 @section('content')
     <style>
-        .sidesubmenu li:hover {
-            text-decoration: underline;
+        .btn {
+            border: 1px solid lightgrey;
+            /*color: grey;*/
+            padding: 0.8vw 1.5vw;
+            border-radius: 1vw;
+            -webkit-border-radius: 1vw;
+            color: red;
+            font-weight: lighter;
+            text-decoration: none;
         }
-
-        .infoput {
-            width: 100%;
-        }
-
-        .infoput table, td {
-            border: 1px solid;
-        }
-
-        .infoput table {
-            border-collapse: collapse;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        .infoputheader {
-            font-weight: normal;
-            font-size: 1.4em;
-            text-align: left;
-        }
-
-        .datainput {
-            font-size: 1vw;
-            padding: 1vw 1vw 1vw 1vw;
-            background-color: #FFFFF0;
-        }
-
-        .savebutton {
-            text-align: center;
-        }
-
     </style>
-    <div id='fyi' class="infoput">
-        <div class="container">
-            <h1 class="infoputheader"><strong>※ 공지사항</strong></h1>
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>양식에 맞게 채워주세요.</strong><br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            {!! Form::open(array('url' => 'admin/fyifileupload','enctype' => 'multipart/form-data')) !!}
-            <div class="row">
-                <table>
-                    <tr>
-                        <td class="datainput">제목</td>
-
-                        <td>{!! Form::text('fyi_title', null,array('class'=>'form-control','placeholder'=>'제목을 입력해주세요.', 'size'=>68 )) !!}
+    <div class="askingpage">
+        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>공지사항 목록</h3>
+            <div style="cursor:pointer; border:2px solid #e85254; background-color: #e85254; color:white; padding:0.5vw; font-size:1vw; -webkit-border-radius: 1vw;-moz-border-radius: 1vw;border-radius: 1vw;"onclick="location.href='{{url('/admin/fyi/create')}}'">공지사항 추가</div></div>
+        <hr/>
+        <div>
+            <table class="pagecontents">
+                <thead>
+                <tr>
+                    <th class="th1 table_id"></th>
+                    <th class="th1 table_title">제목</th>
+                    <th class="th2 table_date">공지 내용</th>
+                    <th class="th2 table_date">공지 생성일</th>
+                    <th class="th2 table_date">공지 수정일</th>
+                    <th class="th2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($data as $value)
+                    <tr class="tothedetailpage"
+                        onclick="location.href='{{ url('admin/fyi/'.$value->fyi_id.'/edit') }}'">
+                        <td class="td1">{{$value->fyi_id}}</td>
+                        <td class="td1">{{$value->fyi_title}}</td>
+                        <td class="td1">{{$value->fyi_content}}</td>
+                        <td class="td1">{{ $value->created_at }}</td>
+                        <td class="td1">{{ $value->fyi_date }}</td>
+                        <td class="td1" onclick="deleting({{ $value->fyi_id }})">
+                            <button class="btn btn-delete">삭제하기</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="datainput">내용</td>
-                        <td>{!! Form::textarea('fyi_content', null, array('class'=>'form-control', 'placeholder'=>'공지사항 내용을 입력해주세요.', 'cols'=>70)) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="datainput">파일 첨부</td>
-                        <td>{!! Form::file('fyi_fileimage', array('class' => 'image')) !!}</td>
-                    </tr>
-                    <tr>
-                        <td class="savebutton" colspan="2">
-                            <button type="submit" class="btn btn-success">저장하기
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            {!! Form::close() !!}
+                @empty
+                    <td colspan="6">해당 글이 없습니다.</td>
+                @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function deleting(fyi_id) {
+            $('div.fyi_id');
+            if (confirm('글을 삭제합니다.')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/admin/fyi/' + fyi_id
+                }).then(function () {
+                    window.location.href = '/admin/fyi/';
+                })
+            }
+        }
+    </script>
 @endsection

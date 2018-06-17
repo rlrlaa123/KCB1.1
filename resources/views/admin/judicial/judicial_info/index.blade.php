@@ -1,59 +1,73 @@
 @extends('layouts.admin')
+@include('detailedpage.detailed_style')
 @section('content')
-    <div id="1" class="infoput">
-        <div class="container">
-            <h1 class="infoputheader"><strong>※ 유권해석/판례</strong></h1>
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>양식에 맞게 채워주세요.</strong><br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            {!! Form::open(array('url' => 'admin/judicialfileupload','enctype' => 'multipart/form-data')) !!}
-            <div class="row">
-                <table>
-                    <tr>
-                        <td class="datainput">제목</td>
-
-                        <td>{!! Form::text('j_title', null,array('class'=>'form-control','placeholder'=>'제목을 입력해주세요.', 'size'=>68 )) !!}
+    <style>
+        .btn {
+            border: 1px solid lightgrey;
+            /*color: grey;*/
+            padding: 0.8vw 1.5vw;
+            border-radius: 1vw;
+            -webkit-border-radius: 1vw;
+            color: red;
+            font-weight: lighter;
+            text-decoration: none;
+        }
+    </style>
+    <div class="askingpage">
+        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>유권해석판례 목록</h3>
+            <div style="cursor:pointer; border:2px solid #e85254; background-color: #e85254; color:white; padding:0.5vw; font-size:1vw; -webkit-border-radius: 1vw;-moz-border-radius: 1vw;border-radius: 1vw;"onclick="location.href='{{url('/admin/judicial/create')}}'">유권해석 판례 추가</div></div>
+        <hr/>
+        <div>
+            <table class="pagecontents">
+                <thead>
+                <tr>
+                    <th class="th1 table_id">번호</th>
+                    <th class="th1 table_title">제목</th>
+                    <th class="th2 table_content">유권해석판례 내용</th>
+                    <th class="th2 table_created_at">유권해석판례 생성일</th>
+                    <th class="th2 table_updated_at">유권해석판례 수정일</th>
+                    <th class="th2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($data as $value)
+                    <tr class="tothedetailpage"
+                        onclick="location.href='{{ url('admin/judicial/'.$value->j_id.'/edit') }}'">
+                        <td class="td1">{{$value->j_id}}</td>
+                        <td class="td1">{{$value->j_title}}</td>
+                        <td class="td1">{{$value->j_content}}</td>
+                        <td class="td1">{{ $value->created_at }}</td>
+                        <td class="td1">{{ $value->j_date }}</td>
+                        <td class="td1" onclick="deleting({{ $value->j_id }})">
+                            <button class="btn btn-delete">삭제하기</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="datainput">내용</td>
-                        <td>{!! Form::textarea('j_content', null, array('class'=>'form-control', 'placeholder'=>'유권해석/판례를 입력해주세요.', 'cols'=>70)) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="datainput">파일 첨부</td>
-                        <td>{!! Form::file('j_fileimage', array('class' => 'image')) !!}</td>
-                    </tr>
-                    <tr>
-                        <td class="savebutton" colspan="2">
-                            <button type="submit" class="btn btn-success">저장하기
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            {!! Form::close() !!}
+                @empty
+                    <td colspan="6">해당 글이 없습니다.</td>
+                @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
-
-
+@endsection
+@section('script')
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-        @if($messaged = Session::get('success'))
-        alert('등록이 완료되었습니다.');
-        {{--var i;--}}
-        {{--var x = document.getElementsByClassName("infoput");--}}
-        {{--for (i = 0; i < x.length; i++) {--}}
-        {{--x[i].style.display = "none";--}}
-        {{--}--}}
-        {{--document.getElementById({{$messaged}}).style.display = "block";--}}
-        @endif
+        function deleting(j_id) {
+            $('div.j_id');
+            if (confirm('글을 삭제합니다.')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/admin/judicial/' + j_id
+                }).then(function () {
+                    window.location.href = '/admin/judicial/';
+                })
+            }
+        }
     </script>
 @endsection

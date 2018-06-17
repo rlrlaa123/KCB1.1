@@ -83,7 +83,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_city">시/도</label><label for="dev_district">군/구</label>
+                            <td class="datainput"><label for="dev_city">시/도</label>&nbsp;
+                                <label for="dev_district">군/구</label>
                             </td>
                             <td>
                                 <select id="dev_city" name="dev_city" form="development-form"
@@ -102,7 +103,7 @@
                                 @endif
                                 <select id="dev_district" name="dev_district" form="development-form">
                                     @foreach($locations as $loc)
-                                        <option class="listed2" value="{{ old('dev_district') }}"
+                                        <option class="listed2" value="{{$loc->dev_district}}"
                                                 id="{{ $loc->num_id }}"
                                                 style="display: none">
                                             {{$loc->dev_district}}
@@ -178,7 +179,7 @@
                             <td class="datainput"><label for="dev_method">사업 방식</label></td>
                             <td>
                                 <input type="text" id="dev_method" name="dev_method" class="form-control"
-                                       placeholder="사업방식을 입력해주세요." size="68" value="{{ old('dev') }}">
+                                       placeholder="사업방식을 입력해주세요." size="68" value="{{ old('dev_method') }}">
                                 @if ($errors->has('dev_method'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_method') }}
@@ -190,7 +191,7 @@
                             <td class="datainput"><label for="dev_applied_law">적용 법률</label></td>
                             <td>
                                 <input type="text" id="dev_applied_law" name="dev_applied_law" class="form-control"
-                                       placeholder="적용법률을 입력해주세요." size="68" value="{{ old('dev') }}">
+                                       placeholder="적용법률을 입력해주세요." size="68" value="{{ old('dev_applied_law') }}">
                                 @if ($errors->has('dev_applied_law'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_applied_law') }}
@@ -202,7 +203,7 @@
                             <td class="datainput"><label for="dev_publicly_starting_date">사업인정고시일</label></td>
                             <td>
                                 <input type="date" id="dev_publicly_starting_date" name="dev_publicly_starting_date"
-                                       class="form-control" value="{{ old('dev') }}">
+                                       class="form-control" value="{{ old('dev_publicly_starting_date') }}">
                                 @if ($errors->has('dev_publicly_starting_date'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_publicly_starting_date') }}

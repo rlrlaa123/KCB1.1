@@ -1,83 +1,74 @@
 @extends('layouts.admin')
+@include('detailedpage.detailed_style')
 @section('content')
     <style>
-        .sidesubmenu li:hover {
-            text-decoration: underline;
+        .btn {
+            border: 1px solid lightgrey;
+            /*color: grey;*/
+            padding: 0.8vw 1.5vw;
+            border-radius: 1vw;
+            -webkit-border-radius: 1vw;
+            color: red;
+            font-weight: lighter;
+            text-decoration: none;
         }
-
-        .infoput {
-            width: 100%;
-        }
-
-        .infoput table, td {
-            border: 1px solid;
-        }
-
-        .infoput table {
-            border-collapse: collapse;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        .infoputheader {
-            font-weight: normal;
-            font-size: 1.4em;
-            text-align: left;
-        }
-
-        .datainput {
-            font-size: 1vw;
-            padding: 1vw 1vw 1vw 1vw;
-            background-color: #FFFFF0;
-        }
-
-        .savebutton {
-            text-align: center;
-        }
-
     </style>
-    <div id='library' class="infoput">
-        <div class="container">
-            <h1 class="infoputheader"><strong>※ 자료실</strong></h1>
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>양식에 맞게 채워주세요.</strong><br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            {!! Form::open(array('url' => 'admin/libraryfileupload','enctype' => 'multipart/form-data')) !!}
-            <div class="row">
-                <table>
-                    <tr>
-                        <td class="datainput">제목</td>
+    <div class="askingpage">
+        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>자료실 목록</h3>
+            <div style="cursor:pointer; border:2px solid #e85254; background-color: #e85254; color:white; padding:0.5vw; font-size:1vw; -webkit-border-radius: 1vw;-moz-border-radius: 1vw;border-radius: 1vw;"onclick="location.href='{{url('/admin/library/create')}}'">자료실 추가</div></div>
 
-                        <td>{!! Form::text('library_title', null,array('class'=>'form-control','placeholder'=>'제목을 입력해주세요.', 'size'=>68 )) !!}
+        <hr/>
+        <div>
+            <table class="pagecontents">
+                <thead>
+                <tr>
+                    <th class="th1 table_id">번호</th>
+                    <th class="th1 table_title">제목</th>
+                    <th class="th2 table_content">자료실 내용</th>
+                    <th class="th2 table_created_at">자료실 생성일</th>
+                    <th class="th2 table_updated_at">자료실 수정일</th>
+                    <th class="th2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($data as $value)
+                    <tr class="tothedetailpage"
+                        onclick="location.href='{{ url('admin/library/'.$value->library_id.'/edit') }}'">
+                        <td class="td1">{{$value->library_id}}</td>
+                        <td class="td1">{{$value->library_title}}</td>
+                        <td class="td1">{{$value->library_content}}</td>
+                        <td class="td1">{{ $value->created_at }}</td>
+                        <td class="td1">{{ $value->library_date }}</td>
+                        <td class="td1" onclick="deleting({{ $value->library_id }})">
+                            <button class="btn btn-delete">삭제하기</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="datainput">내용</td>
-                        <td>{!! Form::textarea('library_content', null, array('class'=>'form-control', 'placeholder'=>'자료실 내용을 입력해주세요.', 'cols'=>70)) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="datainput">파일 첨부</td>
-                        <td>{!! Form::file('library_fileimage', array('class' => 'image')) !!}</td>
-                    </tr>
-                    <tr>
-                        <td class="savebutton" colspan="2">
-                            <button type="submit" class="btn btn-success">저장하기
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            {!! Form::close() !!}
+                @empty
+                    <td colspan="6">해당 글이 없습니다.</td>
+                @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function deleting(library_id) {
+            $('div.library_id');
+            if (confirm('글을 삭제합니다.')) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/admin/library/' + library_id
+                }).then(function () {
+                    window.location.href = '/admin/library/';
+                })
+            }
+        }
+    </script>
 @endsection
