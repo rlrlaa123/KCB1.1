@@ -181,6 +181,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
     Route::get('/basic/', 'Admin\Basic\SiteController@index');
+    Route::get('/resetPassword/{id}', 'Admin\Basic\SiteController@resetPassword');
+    Route::post('/basic/reset', 'Admin\Basic\SiteController@reset');
 
     //------------------회원정보 리스트----------------------//
     Route::get('/user/', 'Admin\User\UserController@index');

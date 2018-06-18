@@ -14,33 +14,39 @@
         <div id="userdate" class="grid-item">| {{ \Illuminate\Support\Facades\Auth::user()->name }}님 안녕하세요
             / {{ \Carbon\Carbon::now() }}</div>
         <div class="navbardiv grid-item">
-            <a href="{{ route('admin.logout') }}" id="logout">
-                [ 로그아웃 ]
+            <a href="{{ route('admin.logout') }}"
+               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                Logout
             </a>
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                  style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </div>
     </div>
     <div class="navsubbar">
-        {{--<div class="basicinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? 'active' : ''}}"--}}
-        {{--onclick="location.href='/admin/basic';">기초정보--}}
-        {{--</div>--}}
-        <div class="grid-item  userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}" style="-ms-grid-column: 1"
+        <div class="grid-item basicinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/basic' ? 'active' : ''}}" style="-ms-grid-column: 1"
+        onclick="location.href='/admin/basic';">기초정보
+        </div>
+        <div class="grid-item  userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}" style="-ms-grid-column: 3"
              onclick="location.href='/admin/user';">회원정보
         </div>
         <div class="grid-item developmentinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/dev' ? 'active' : ''}}"
-             onclick="location.href='/admin/dev';" style="-ms-grid-column: 3">개발사업정보
+             onclick="location.href='/admin/dev';" style="-ms-grid-column: 5">개발사업정보
         </div>
         <div class="grid-item  judicialinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/judicial' || $_SERVER['REQUEST_URI'] === '/admin/hotfocus'
         ||$_SERVER['REQUEST_URI'] === '/admin/policy'||$_SERVER['REQUEST_URI'] === '/admin/relatednews' ? 'active' : ''}}"
-             onclick="location.href='/admin/judicial';" style="-ms-grid-column: 5">유권해석&판례
+             onclick="location.href='/admin/judicial';" style="-ms-grid-column: 7">유권해석&판례
         </div>
         <div class="grid-item  noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice'||$_SERVER['REQUEST_URI']==='admin/fyi'|| $_SERVER['REQUEST_URI']==='admin/consulting' ? 'active' : ''}}"
-             onclick="location.href='/admin/notice';" style="-ms-grid-column: 7">공고/공시
+             onclick="location.href='/admin/notice';" style="-ms-grid-column: 9">공고/공시
         </div>
         <div class="grid-item  libraryinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/library' ? 'active' : ''}}"
-             onclick="location.href='/admin/library';" style="-ms-grid-column: 9">자료실
+             onclick="location.href='/admin/library';" style="-ms-grid-column: 11">자료실
         </div>
         <div class="grid-item communityinfo-selector {{ preg_match('/\/admin\/community.+/' , $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/basic.+/', $_SERVER['REQUEST_URI']) || preg_match('/\/admin\/report.+/', $_SERVER['REQUEST_URI']) ? 'active' : ''}}"
-             onclick="location.href='/admin/community/';"style="-ms-grid-column: 11">커뮤니티
+             onclick="location.href='/admin/community/';"style="-ms-grid-column: 13">커뮤니티
         </div>
     </div>
 

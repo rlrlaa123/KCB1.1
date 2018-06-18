@@ -83,9 +83,9 @@
         display: grid;
         display: -ms-grid;
         grid-column-gap: 0;
-        -ms-grid-columns: 1fr 0 1fr 0 1fr 0 1fr 0 1fr 0 1fr;
+        -ms-grid-columns: 1fr 0 1fr 0 1fr 0 1fr 0 1fr 0 1fr 0 1fr;
         text-align: center;
-        grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+        grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
         font-size: 1vw;
         border: 1px solid #e1e1e1;
     }
@@ -108,6 +108,9 @@
 
     .grid-item:nth-child(11) {
         -ms-grid-column: 13;
+    }
+    .grid-item:nth-child(13) {
+        -ms-grid-column: 15;
     }
 
     .navsubbar div {

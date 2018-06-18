@@ -147,6 +147,7 @@ class DevController extends Controller
             'dev_title' => 'required|string',
             'dev_initiated_log' => 'required',
             'dev_initiated_date' => 'required|date',
+            'dev_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'dev_comment' => 'required',
             'dev_city' => 'required',
             'dev_district' => 'required',
@@ -158,6 +159,7 @@ class DevController extends Controller
             'dev_applied_law' => 'nullable|string',
             'dev_publicly_starting_date' => 'required|string',
             'dev_future_plan' => 'nullable',
+            'dev_reference' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,svg,txt,xlsx,xls,ppt,pptx,doc,docx,pdf',
         ]);
         if($request->hasFile('dev_reference')){
             if (!file_exists('fileuploaded/Development_information/references')) {
@@ -190,6 +192,7 @@ class DevController extends Controller
                     }
                 }
             }
+            $delete= Dev::where('dev_id', $id)->get()[0];
             if($delete['dev_fileimage'] !=null) {
                 File::delete($delete['dev_fileimage']);
                 File::delete($delete['dev_thumbnails']);
