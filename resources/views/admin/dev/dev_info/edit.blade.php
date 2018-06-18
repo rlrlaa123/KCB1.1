@@ -224,10 +224,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_reference[]">참고 자료</label></td>
+                            <td class="datainput"><label for="dev_reference">참고 자료</label></td>
                             <td>
-                                <input type="file" id="dev_reference[]" name="dev_reference[]" class="image" multiple
-                                       value="{{ old('dev_reference', $data->dev_reference)}}">
+                                <input type="file" id="dev_reference" name="dev_reference" class="image"                                      value="{{ old('dev_reference', $data->dev_reference)}}">
                                 @if ($errors->has('dev_reference'))
                                     <div class="help-block">
                                         {{ $errors->first('dev_reference') }}
