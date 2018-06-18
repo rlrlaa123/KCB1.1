@@ -45,7 +45,7 @@
                 <tr>
                     <td>
                         <div class="writer_and_filedownload" style="padding: 5px;">
-                            작성자 : 관리자
+                            작성자 : {{$article->user->username}}
                         </div>
                     </td>
                 </tr>
