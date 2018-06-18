@@ -126,7 +126,6 @@ class DevController extends Controller
         $dev->dev_future_plan = $request['dev_future_plan'];
 
         $dev->save();
-        return $request;
 
         return redirect('admin/dev');
     }
