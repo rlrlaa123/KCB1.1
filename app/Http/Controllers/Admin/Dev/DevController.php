@@ -159,6 +159,59 @@ class DevController extends Controller
             'dev_publicly_starting_date' => 'required|string',
             'dev_future_plan' => 'nullable',
         ]);
+        if($request->hasFile('dev_reference')){
+            if (!file_exists('fileuploaded/Development_information/references')) {
+                File::makeDirectory('fileuploaded/Development_information/references');
+            }
+            $delete= Dev::where('dev_id', $id)->get()[0];
+            if($delete['dev_reference'] !=null) {
+                File::delete($delete['dev_reference']);
+            }
+            $image = $request->file('dev_reference');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('fileuploaded/Development_information/references');
+            $image->move($destinationPath, $imagename);
+
+            $file0 = 'fileuploaded/Development_information/references/' . $imagename;
+        } else {
+            $file0 = null;
+        }
+
+        if ($request->hasFile('dev_fileimage')) {
+            if (!file_exists('fileuploaded')) {
+                File::makeDirectory('fileuploaded');
+                if (!file_exists('fileuploaded/Development_information')) {
+                    File::makeDirectory('fileuploaded/Development_information');
+                    if (!file_exists('fileuploaded/Development_information/images')) {
+                        File::makeDirectory('fileuploaded/Development_information/images');
+                    }
+                    if (!file_exists('fileuploaded/Development_information/thumbnails')) {
+                        File::makeDirectory('fileuploaded/Development_information/thumbnails');
+                    }
+                }
+            }
+            if($delete['dev_fileimage'] !=null) {
+                File::delete($delete['dev_fileimage']);
+                File::delete($delete['dev_thumbnails']);
+            }
+            $image = $request->file('dev_fileimage');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+
+            $destinationPath = public_path('fileuploaded/Development_information/thumbnails');
+            $thumbnails = Image::make($image->getRealPath());
+            $thumbnails->resize(100, 100, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $imagename);
+
+            $destinationPath = public_path('fileuploaded/Development_information/images');
+            $image->move($destinationPath, $imagename);
+
+            $file = 'fileuploaded/Development_information/images/' . $imagename;
+            $file_1 = 'fileuploaded/Development_information/thumbnails/'.$imagename;
+        } else {
+            $file = null;
+            $file_1=null;
+        }
 
         $dev = Dev::where('dev_id', $id)
             ->update([
@@ -176,6 +229,10 @@ class DevController extends Controller
                 'dev_applied_law' => $request['dev_applied_law'],
                 'dev_publicly_starting_date' => $request['dev_publicly_starting_date'],
                 'dev_future_plan' => $request['dev_future_plan'],
+                'dev_reference' => $file0,
+                'dev_thumbnails' => $file_1,
+                'dev_fileimage' => $file,
+
             ]);
 
         return redirect('admin/dev');

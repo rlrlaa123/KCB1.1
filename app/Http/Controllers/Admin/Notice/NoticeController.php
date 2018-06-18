@@ -56,6 +56,11 @@ class NoticeController extends Controller
                     }
                 }
             }
+            $delete= Notice::where('notice_id', $id)->get()[0];
+            if($delete['notice_fileimage'] !=null) {
+                File::delete($delete['notice_fileimage']);
+                File::delete($delete['notice_thumbnails']);
+            }
             $image = $request->file('notice_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
 

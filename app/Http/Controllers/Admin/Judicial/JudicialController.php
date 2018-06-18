@@ -65,6 +65,10 @@ class JudicialController extends Controller
                     }
                 }
             }
+            $delete= Judicial::where('j_id', $id)->get()[0];
+            if($delete['j_fileimage'] !=null) {
+                File::delete($delete['j_fileimage']);
+            }
             $image = $request->file('j_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
 

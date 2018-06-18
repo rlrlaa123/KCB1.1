@@ -10,6 +10,7 @@ use App\FYI;
 use Illuminate\Http\Request;
 use Image;
 
+
 class FYIController extends Controller
 {
 
@@ -50,9 +51,10 @@ class FYIController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $this->validate($request, [
             'fyi_title' => 'required',
-            'fyi_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fyi_fileimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'fyi_content' => 'required',
         ]);
         if ($request->hasFile('fyi_fileimage')) {
@@ -65,9 +67,15 @@ class FYIController extends Controller
                     }
                 }
             }
+            $delete= FYI::where('fyi_id', $id)->get()[0];
+            if($delete['fyi_fileimage'] !=null) {
+//                return $delete['fyi_fileimage'];
+                File::delete($delete['fyi_fileimage']);
+            }
+
             $image = $request->file('fyi_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('fileuploaded/fyi/images');
+            $destinationPath = public_path('fileuploaded/fyi/file');
             $image->move($destinationPath, $imagename);
 
             $file = 'fileuploaded/fyi/file/' . $imagename;

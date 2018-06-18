@@ -53,6 +53,10 @@ class RelatedNewsController extends Controller
                     }
                 }
             }
+            $delete= RelatedNews::where('rn_id', $id)->get()[0];
+            if($delete['rn_fileimage'] !=null) {
+                File::delete($delete['rn_fileimage']);
+            }
             $image = $request->file('rn_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
 

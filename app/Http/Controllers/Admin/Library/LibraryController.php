@@ -63,6 +63,10 @@ class LibraryController extends Controller
                     }
                 }
             }
+            $delete= Library::where('library_id', $id)->get()[0];
+            if($delete['library_fileimage'] !=null) {
+                File::delete($delete['library_fileimage']);
+            }
             $image = $request->file('library_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
 

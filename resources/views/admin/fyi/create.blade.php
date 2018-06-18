@@ -22,9 +22,7 @@
                         <tr>
                             <td class="datainput"><label for="fyi_content">공지 내용</label></td>
                             <td>
-                                <textarea id="fyi_content" class="form-control" name="fyi_content" cols="70" placeholder="공지 내용을 입력해주세요.">
-                                {{ old('fyi_content')}}
-                                </textarea>
+                                <textarea id="fyi_content" class="form-control" name="fyi_content" cols="70" placeholder="공지 내용을 입력해주세요.">{{ old('fyi_content')}}</textarea>
                                 @if ($errors->has('fyi_content'))
                                     <div class="help-block">
                                         {{ $errors->first('fyi_content') }}

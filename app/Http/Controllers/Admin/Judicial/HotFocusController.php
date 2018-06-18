@@ -55,6 +55,12 @@ class HotFocusController extends Controller
                     }
                 }
             }
+            $delete= HotFocus::where('hf_id', $id)->get()[0];
+            if($delete['hf_fileimage'] !=null) {
+                File::delete($delete['hf_fileimage']);
+                File::delete($delete['hf_thumbnails']);
+            }
+
             $image = $request->file('hf_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
 

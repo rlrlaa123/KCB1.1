@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin\Judicial;
 
 
-use App\FYI;
+use App\Policy;
 use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-use App\Policy;
 use Illuminate\Http\Request;
 use Image;
 
@@ -50,23 +49,27 @@ class PolicyController extends Controller
             'p_content' => 'required',
             'dash_id' => 'integer'
         ]);
-        if ($request->hasFile('fyi_fileimage')) {
+        if ($request->hasFile('p_fileimage')) {
             if (!file_exists('fileuploaded')) {
                 File::makeDirectory('fileuploaded');
-                if (!file_exists('fileuploaded/fyi')) {
-                    File::makeDirectory('fileuploaded/fyi');
-                    if (!file_exists('fileuploaded/fyi/file')) {
-                        File::makeDirectory('fileuploaded/fyi/file');
+                if (!file_exists('fileuploaded/policy')) {
+                    File::makeDirectory('fileuploaded/policy');
+                    if (!file_exists('fileuploaded/policy/file')) {
+                        File::makeDirectory('fileuploaded/policy/file');
                     }
                 }
             }
-            $image = $request->file('fyi_fileimage');
+            $delete= Policy::where('p_id', $id)->get()[0];
+            if($delete['p_fileimage'] !=null) {
+                File::delete($delete['p_fileimage']);
+            }
+            $image = $request->file('p_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
 
-            $destinationPath = public_path('fileuploaded/fyi/file');
+            $destinationPath = public_path('fileuploaded/policy/file');
             $image->move($destinationPath, $imagename);
 
-            $file = 'fileuploaded/fyi/file/' . $imagename;
+            $file = 'fileuploaded/policy/file/' . $imagename;
         } else
             $file = null;
 
