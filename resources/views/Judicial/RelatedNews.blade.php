@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                 @forelse($data as $value)
-                    <tr class="tothedetailpage" onclick="location.href=tothedetailpage({{$value->rn_id}})">
+                    <tr class="tothedetailpage" onclick="tothedetailpage({{$value->rn_id}})">
                         <td class="td1">{{$value->rn_id}}</td>
                         <td class="td2">관련 뉴스</td>
                         <td>{{$value->rn_title}}</td>
@@ -58,6 +58,9 @@
 
     <script>
         function tothedetailpage(id) {
+            @if(\Illuminate\Support\Facades\Auth::guest())
+            alert('회원 가입 후에 열람하실 수 있습니다.');
+            @else
             // Premium 회원일 때만 접근 가능!
             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
             if (role === "1") {
@@ -66,6 +69,7 @@
             else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
             }
+            @endif
         }
     </script>
 @endsection

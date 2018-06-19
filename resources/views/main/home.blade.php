@@ -135,8 +135,8 @@
             text-overflow: ellipsis;
             text-align: left;
             cursor: pointer;
-            font-size:1vw;
-            font-weight:500;
+            font-size: 1vw;
+            font-weight: 500;
             padding: 5px 10px;
 
         }
@@ -268,12 +268,7 @@
             <div id="hotfocus" class="w3-container menu1">
                 <div class="hotfocus_shortcut">
                     @forelse($hotfocus as $value)
-                        {{--<div class="image_text_container">--}}
-                        {{--<img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"--}}
-                        {{--src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>--}}
-                        {{--<div class="text-block"><p>{{$value->hf_title}}</p></div>--}}
-                        {{--</div>--}}
-                        <img onclick="location.href=('{{url('hotfocus/'.$value->hf_id)}}')"
+                        <img onclick="tothedetailpage_hotfocus({{$value->hf_id}})"
                              src="/{{$value->hf_thumbnails}}" style="cursor:pointer;"/>
                     @empty
                         <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
@@ -300,7 +295,7 @@
             </div>
             <div>
                 @forelse($fyi as $value)
-                    <div class="fyi_shortcut" onclick="location.href=('{{url('fyi/'.$value->fyi_id)}}')"
+                    <div class="fyi_shortcut" onclick="tothedetailpage_fyi({{$value->fyi_id}})"
                          style="cursor:pointer; padding: 1vh 0.5vw; font-size: 1vw;">
                         <div>{{$value->fyi_title}}</div>
                     </div>
@@ -327,11 +322,12 @@
             </div>
             <div id="data1" class="menu2">
                 @forelse($library as $value)
-                    <div class="library_shortcut" onclick="location.href=('{{url('library/'.$value->library_id)}}')">
+                    <div class="library_shortcut" onclick="tothedetailpage_library({{$value->library_id}})">
                         <div class="grid-item">{{ $value->library_id }}</div>
                         <div class="grid-item">{{ $value->library_title }}</div>
                         <div class="grid-item">{{ $value->library_date }}</div>
                     </div>
+
                 @empty
                     <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
                 @endforelse
@@ -387,5 +383,46 @@
             document.getElementById(whichmenu).style.display = "block";
         }
 
+        function tothedetailpage_hotfocus(id) {
+            @if(\Illuminate\Support\Facades\Auth::guest())
+            alert('회원 가입 후에 열람하실 수 있습니다.');
+                    @else
+            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
+            if (role === "1") {
+                location.href = "/hotfocus/" + id;
+            }
+            else {
+                alert('프리미엄 회원만 열람이 가능합니다.');
+            }
+            @endif
+        }
+
+        function tothedetailpage_fyi(id) {
+            @if(\Illuminate\Support\Facades\Auth::guest())
+            alert('회원 가입 후에 열람하실 수 있습니다.');
+                    @else
+            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
+            if (role === "1") {
+                location.href = "/fyi/" + id;
+            }
+            else {
+                alert('프리미엄 회원만 열람이 가능합니다.');
+            }
+            @endif
+        }
+
+        function tothedetailpage_library(id) {
+            @if(\Illuminate\Support\Facades\Auth::guest())
+            alert('회원 가입 후에 열람하실 수 있습니다.');
+            @else
+            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
+            if (role === "1") {
+                location.href = "/library/" + id;
+            }
+            else {
+                alert('프리미엄 회원만 열람이 가능합니다.');
+            }
+            @endif
+        }
     </script>
 @endsection

@@ -1,17 +1,18 @@
 @extends('layouts.app')
 <style>
 
-    .display_grid{
+    .display_grid {
 
         display: -ms-grid;
-        display:grid;
+        display: grid;
         grid-column-gap: 5vw;
         -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
         grid-template-columns: 25% 25% 25% 25%;
-        padding:0;
+        padding: 0;
         text-align: center;
 
     }
+
     .image_text_container {
         text-align: left;
         position: relative;
@@ -58,7 +59,7 @@
 
     .noticepage td {
         display: inline-block;
-        display:-moz-inline-block;
+        display: -moz-inline-block;
         align-items: center;
         justify-content: space-between;
     }
@@ -120,7 +121,8 @@
                                     <td>
                                         <div class="image_text_container"><img
                                                     src="/{{$value->notice_thumbnails}}">
-                                            <div class="text-block" style="width:9.6vw;"><p>{{$value->notice_title}}</p></div>
+                                            <div class="text-block" style="width:9.6vw;"><p>{{$value->notice_title}}</p>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -158,6 +160,9 @@
     </div>
     <script>
         function tothedetailpage(id) {
+            @if(\Illuminate\Support\Facades\Auth::guest())
+            alert('회원 가입 후에 열람하실 수 있습니다.');
+            @else
             // Premium 회원일 때만 접근 가능!
             console.log();
             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
@@ -167,6 +172,7 @@
             else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
             }
+            @endif
         }
     </script>
 @endsection

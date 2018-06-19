@@ -415,12 +415,16 @@
                     newDiv.className = 'dev_info_result_container';
                     newDiv.onclick =
                             function () {
+                                @if(\Illuminate\Support\Facades\Auth::guest())
+                                alert('회원 가입 후에 열람하실 수 있습니다.');
+                                        @else
                                 var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
                                 if (role === "1") {
                                     window.open("{{url('dev_info')}}" + "/" + ele.dev_id);
                                 }else if(role==="0"){
                                     alert('프리미엄 회원만 열람이 가능합니다.');
                                 }
+                                @endif
                             };
                     var newContainer1 = document.createElement('img');
                     newContainer1.src = '/'+ele.dev_thumbnails;

@@ -14,6 +14,7 @@ class CreateUsefulWebsiteTable extends Migration
     public function up()
     {
         Schema::create('useful_website', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('organization');
             $table->string('website_address');
         });

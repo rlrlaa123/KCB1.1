@@ -12,9 +12,8 @@ class LibraryViewController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'index']);
     }
-
     public function index()
     {
         $data = Library::latest()->paginate(10);

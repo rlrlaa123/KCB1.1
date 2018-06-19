@@ -10,9 +10,8 @@ class HotFocusViewController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'index']);
     }
-
     public function index()
     {
         $data = HotFocus::latest()->paginate(12);
@@ -23,9 +22,7 @@ class HotFocusViewController extends Controller
     {
         $request->user()->authorizeRoles(['premium']);
         $data = HotFocus::where('hf_id', $id)->first();
-
         $previous = HotFocus::where('hf_id', '<', $data->hf_id)->max('hf_id');
-
         $next = HotFocus::where('hf_id', '>', $data->hf_id)->min('hf_id');
 
         return view('Judicial.detailed.hfdetailed', compact('data', 'previous', 'next'));
