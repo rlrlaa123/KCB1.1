@@ -130,7 +130,7 @@ class LibraryController extends Controller
         $news->library_date = $date;
 
         $news->save();
-        
+
 
         return back()
             ->with('success', '등록완료')

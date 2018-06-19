@@ -339,7 +339,7 @@
     </div>
     <div style="  margin: 1vw 15vw 1vw 15vw;">
         <div style="margin: 1vw 0;border-bottom: 1px solid #7888c2; justify-content: space-between; display:flex; align-items: center;">
-            <h2 style="font-weight:700; font-size:1.1vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; ">
+            <h2 style="font-weight:700; font-size:1.1vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; cursor:pointer; "onclick="location.href='{{url('/useful_website')}}'">
                 유용한 사이트
             </h2></div>
         <div class="partners">
