@@ -93,7 +93,7 @@
         display: -moz-inline-block;
         display: inline;
         padding: 0.7vw;
-        font-weight: 600;
+        font-weight: 700;
         justify-content: left;
         text-align: left;
         font-size: 1.3vw;
@@ -111,7 +111,7 @@
         display: -moz-inline-block;
         display: inline;
         padding: 0.7vw;
-        font-weight: 600;
+        font-weight: 700;
         justify-content: left;
         text-align: left;
         font-size: 1vw;
@@ -145,7 +145,7 @@
     .pagecontents th {
         padding: 0.9vw 0;
         font-size: 1.1vw;
-        font-weight: 400;
+        font-weight: 600;
         border-top: 1px solid lightgrey;
         border-bottom: 1px solid lightgrey;
         color: black;
@@ -155,7 +155,7 @@
     .pagecontents td, .pagecontents a, .pagecontents a:hover {
         padding: 0.9vw 0;
         font-size: 1.1vw;
-        font-weight: 500;
+        font-weight: 600;
         color: black;
         text-decoration: none;
     }
@@ -300,7 +300,7 @@
         display: inline-block;
         margin: 0vw 1.7vw;
         font-size: 1vw;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     .navigationheader li a {
@@ -332,7 +332,7 @@
         column-gap: 1vw;
         grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
         text-align: center;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 1.3vw;
     }
 
@@ -360,7 +360,7 @@
         opacity: 0.85;
         background: #7888c2;
         font-size: 0.8vw;
-        font-weight: bolder;
+        font-weight: 700;
         padding: 0.5vw 0.5vw 0.5vw 0.5vw;
         margin: 1vw;
         width: 120px;
@@ -368,9 +368,10 @@
     }
 
     .navbarotherpage:hover {
+        background-color: #000000;
         color: white;
         text-decoration: none;
-        font-size: 0.9vw;
+        font-size: 0.8vw;
     }
 
     .mainfooter {

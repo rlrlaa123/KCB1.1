@@ -18,8 +18,7 @@
 
     .left div:hover {
         font-size: 1vw;
-        background-color: #686ca4;
-        color: #ffffff;
+        color:  #686ca4;
     }
 
     .left div {
@@ -30,8 +29,8 @@
     .intro_desc {
         margin-top: 1em;
         margin-bottom: 1em;
-        margin-left: 0em;
-        margin-right: 0em;
+        margin-left: 0;
+        margin-right: 0;
         overflow: auto;
         text-align: left;
         position: relative;
@@ -89,7 +88,7 @@
         outline: none;
         overflow: hidden;
         text-align: left;
-        font-size: 0.9vw;
+        font-size: 1vw;
         font-weight:600;
         color: black;
     }
