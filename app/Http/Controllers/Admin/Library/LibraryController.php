@@ -130,24 +130,11 @@ class LibraryController extends Controller
         $news->library_date = $date;
 
         $news->save();
-
-//        $this->postImage->add($input);
+        
 
         return back()
             ->with('success', '등록완료')
             ->with('imageName', $imagename);
 
     }
-//    public function store(Request $request){
-//        $this->validate($request, [
-//            'librarytitle'=>'required|text',
-//            'library_content'=>'required|text',
-//            'library_fileimage'=>'file|nullable|max:1999',
-//        ]);
-//        if($request->hasFile('fileimage')){
-//            $filenameWithExt=$request->file('fileimage');
-//        }else{
-//            $fileNameToStore='noimage.jpg';
-//        }
-//    }
 }

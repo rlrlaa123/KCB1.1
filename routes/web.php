@@ -31,6 +31,7 @@ Route::get('/consulting', 'ConsultingViewController@Index');
 Route::get('/consulting_filedownload/{id}', 'ConsultingViewController@consulting_filedownload');
 
 Route::resource('/articles', 'ArticlesController');
+Route::get('/useful_website','UsefulWebsiteController@index');
 
 Route::get('/fee', 'FeeController@index');
 //Route::post('/action_page', function(){

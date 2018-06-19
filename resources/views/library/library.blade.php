@@ -42,9 +42,7 @@
 @section('content')
     <div class="librarypage">
         <div class="justify-content">
-            <div class="library-selector {{ $_SERVER['REQUEST_URI'] === '/library' ? 'judicialpage_list_onpage' : ''}}"
-                 onclick="location.href='/library';">자료실
-            </div>
+           @include('layouts.partials.library_list')
             <div>
                 <form class="navbar-form searchform" method="GET" action="{{url('/librarysearch/')}}">
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
