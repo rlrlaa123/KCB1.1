@@ -401,17 +401,8 @@
         }
 
         function tothedetailpage_fyi(id) {
-            @if(\Illuminate\Support\Facades\Auth::guest())
-            alert('회원 가입 후에 열람하실 수 있습니다.');
-                    @else
-            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
-            if (role === "1") {
+
                 location.href = "/fyi/" + id;
-            }
-            else {
-                alert('프리미엄 회원만 열람이 가능합니다.');
-            }
-            @endif
         }
 
         function tothedetailpage_library(id) {
