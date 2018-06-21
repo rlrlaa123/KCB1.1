@@ -131,10 +131,10 @@
             <b style="font-size:1.5vw; color:black;">COMMENT</b>
             <hr/>
             <div>
-                <p>{{$data->dev_comment}}</p>
+                <pre><p>{{$data->dev_comment}}</p></pre>
             </div>
         </div>
-        @if($data->dev_reference==null)
+        @if($data->dev_reference !=null)
         <div class="dev_content">
             <b style="font-size:1.5vw; color:black;">참고자료</b>
             <hr/>

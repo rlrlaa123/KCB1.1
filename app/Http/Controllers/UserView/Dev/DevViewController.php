@@ -47,7 +47,7 @@ class DevViewController extends Controller
         return response()->download($download_path);
     }
 
-    public function development_reference_download($id)
+    public function development_reference_filedownload($id)
     {
         $data = Dev::where('dev_id', $id)->first();
         $download_path = (public_path() . '/' . $data->dev_reference);

@@ -2,9 +2,10 @@
 @section('style')
 
     <style>
-        body{
-            font-weight:700;
+        body {
+            font-weight: 700;
         }
+
         .searchbarcontainer {
             text-align: center;
             margin: 0;
@@ -265,7 +266,8 @@
                          style="font-size: 1.1vw;">무료샘플
                     </div>
                 </div>
-                <div class="_tothepage" style="font-size:1.1vw;" onclick="location.href='{{url('/hotfocus')}}'">+더보기
+                <div class="_tothepage" style="font-size:1.1vw;"
+                     onclick="location.href='{{url('/hotfocus')}}'">+더보기
                 </div>
             </div>
             <div id="hotfocus" class="w3-container menu1">
@@ -277,13 +279,6 @@
                         <div style="text-align:center; font-size:0.8vw;">등록된 글이 없습니다.</div>
                     @endforelse
                 </div>
-                @if($hotfocus->count())
-                    <div>
-                        <div class="text-center">
-                            {!! $hotfocus->render() !!}
-                        </div>
-                    </div>
-                @endif
             </div>
             <div id="freesample" class="w3-container menu1" style="display:none; height:200px;">
                 <div style="text-align:center; font-size:0.8vw;">무료샘플이 없습니다.</div>
@@ -319,8 +314,7 @@
                         style="border-bottom: 2px solid #e85251;
                          font-size:1.1vw; cursor:pointer;">자료실
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library"
-                                                                                                 style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library" style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
@@ -339,7 +333,8 @@
     </div>
     <div style="  margin: 1vw 15vw 1vw 15vw;">
         <div style="margin: 1vw 0;border-bottom: 1px solid #7888c2; justify-content: space-between; display:flex; align-items: center;">
-            <h2 style="font-weight:700; font-size:1.1vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; cursor:pointer; "onclick="location.href='{{url('/useful_website')}}'">
+            <h2 style="font-weight:700; font-size:1.1vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; cursor:pointer; "
+                onclick="location.href='{{url('/useful_website')}}'">
                 유용한 사이트
             </h2></div>
         <div class="partners">
@@ -402,13 +397,13 @@
 
         function tothedetailpage_fyi(id) {
 
-                location.href = "/fyi/" + id;
+            location.href = "/fyi/" + id;
         }
 
         function tothedetailpage_library(id) {
             @if(\Illuminate\Support\Facades\Auth::guest())
             alert('회원 가입 후에 열람하실 수 있습니다.');
-            @else
+                    @else
             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
             if (role === "1") {
                 location.href = "/library/" + id;
