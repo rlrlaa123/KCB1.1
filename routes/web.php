@@ -43,6 +43,7 @@ Route::get('dev_info', 'UserView\Dev\DevViewController@index');
 Route::get('dev_info/{id}', 'UserView\Dev\DevViewController@show');
 Route::get('development_filedownload/{id}', 'UserView\Dev\DevViewController@development_filedownload');
 Route::get('development_reference_filedownload/{id}', 'UserView\Dev\DevViewController@development_reference_filedownload');
+Route::get('/dev_infotest_map','UserView\Dev\DevViewController@test_map');
 Route::post('showdistrictlist', function (\Illuminate\Http\Request $request) {
     $location = \App\Location::select('num_id')->where('dev_city', $request->data)->get();
 

@@ -53,5 +53,8 @@ class DevViewController extends Controller
         $download_path = (public_path() . '/' . $data->dev_reference);
         return response()->download($download_path);
     }
+    public function test_map(Request $request){
+        return view('Development.testing');
+    }
 }
 
