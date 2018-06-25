@@ -32,8 +32,8 @@
         padding: 0;
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 1fr 0 1fr 0 1fr;
-        grid-template-columns: 33% 33% 33%;
+        -ms-grid-columns: 5fr 0 2.5fr 0 2.5fr;
+        grid-template-columns: 50% 25% 25%;
         text-align: center;
         height: 300px;
         width: 100%;
@@ -131,10 +131,10 @@
     .location_class_child {
         cursor: pointer;
         padding: 0;
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: 1fr 1vw 1fr;
-        grid-template-columns: 50% 50%;
+        /*display: -ms-grid;*/
+        /*display: grid;*/
+        /*-ms-grid-columns: 1fr 1vw 1fr;*/
+        /*grid-template-columns: 50% 50%;*/
         text-align: center;
         max-width: 100%;
         margin: 0;
@@ -272,30 +272,50 @@
         <div style="display:flex; justify-content: space-between; align-items: center">
             <b style="font-size: 1.5vw;">개발사업정보 검색</b><b></b>
         </div>
-        <hr/>
         <div class="dev_info_search">
             <div class="search_classes grid-item1">
-                <div class="class_title"><strong>지역</strong></div>
-                <div class="location_children">
-                    <div class="grid-item" style="text-align: center;">시/도</div>
-                    <div class="grid-item" style="text-align:center;">군/구</div>
-                </div>
+                <div class="class_title">
+                    <div class="dropdown" style="text-align: left;padding-top: 0.5vw;">
+                        <button class="dropbtn menu_btn" type="button">시/도
+                            <span class="caret"></span></button>
+                        <div class="dropdown-content">
+                            <a href="javascript:FindDistrict(2);" class="">경기도</a>
+                            <a href="javascript:FindDistrict(1);" class="on">서울</a>
+                            <a href="javascript:FindDistrict(3);" class="">강원도</a>
+                            <a href="javascript:FindDistrict(4);" class="">경상남도</a>
+                            <a href="javascript:FindDistrict(5);" class="">경상북도</a>
+                            <a href="javascript:FindDistrict(6);" class="">광주</a>
+                            <a href="javascript:FindDistrict(7);" class="">대구</a>
+                            <a href="javascript:FindDistrict(8);" class="">대전</a>
+                            <a href="javascript:FindDistrict(9);" class="">부산</a>
+                            <a href="javascript:FindDistrict(10);" class="">세종</a>
+                            <a href="javascript:FindDistrict(11);" class="">울산</a>
+                            <a href="javascript:FindDistrict(12);" class="">인천</a>
+                            <a href="javascript:FindDistrict(13);" class="">전라남도</a>
+                            <a href="javascript:FindDistrict(14);" class="">전라북도</a>
+                            <a href="javascript:FindDistrict(15);" class="">제주도</a>
+                            <a href="javascript:FindDistrict(16);" class="">충청남도</a>
+                            <a href="javascript:FindDistrict(17);" class="">충청북도</a>
+                        </div>
+                    </div><strong>지역</strong></div>
                 <div class="location_class_child">
-                    <div class="dev_table_child grid-item">
-                        @foreach($cities as $city)
-                            <div class="listed city_switch" onclick="showDistrictList('{{$city->dev_city}}')">
-                                {{$city->dev_city}}
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="dev_table_child grid-item" id="district">
-                        @forelse($location as $loc)
-                            <div onclick="dev_district('{{$loc->dev_district}}','{{ $loc->dev_city }}')"
-                                 class="listed2 district_switch" id="{{ $loc->num_id }}"
-                                 style="display: none;">{{$loc->dev_district}}</div>
-                        @empty
-                        @endforelse
-                    </div>
+
+                    @include ('Development.testing')
+                    {{--<div class="dev_table_child grid-item">--}}
+                        {{--@foreach($cities as $city)--}}
+                            {{--<div class="listed city_switch" onclick="showDistrictList('{{$city->dev_city}}')">--}}
+                                {{--{{$city->dev_city}}--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
+                    {{--</div>--}}
+                    {{--<div class="dev_table_child grid-item" id="district">--}}
+                        {{--@forelse($location as $loc)--}}
+                            {{--<div onclick="dev_district('{{$loc->dev_district}}','{{ $loc->dev_city }}')"--}}
+                                 {{--class="listed2 district_switch" id="{{ $loc->num_id }}"--}}
+                                 {{--style="display: none;">{{$loc->dev_district}}</div>--}}
+                        {{--@empty--}}
+                        {{--@endforelse--}}
+                    {{--</div>--}}
                 </div>
             </div>
             <div class="search_classes grid-item1">
