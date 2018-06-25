@@ -1,4 +1,3 @@
-var d3 = require ('d3');
 var width = 700,
     height = 700,
     initialScale = 5500,
@@ -7,14 +6,14 @@ var width = 700,
     centered,
     labels;
 
-var projection = d3.geoMercator()
+var projection = d3.geo.mercator()
     .scale(initialScale)
     .translate([initialX, initialY]);
 
-var path = d3.geoPath()
+var path = d3.geo.path()
     .projection(projection);
 
-var zoom = d3.geo.zoom()
+var zoom = d3.behavior.zoom()
     .translate(projection.translate())
     .scale(projection.scale())
     .scaleExtent([height, 800 * height])
@@ -34,29 +33,23 @@ states.append("rect")
     .attr("width", width)
     .attr("height", height);
 
-d3.json("data/korea.json", function (json) {
+d3.json("js/Testing1.geojson", function(json) {
     states.selectAll("path")
         .data(json.features)
         .enter().append("path")
         .attr("d", path)
-        .attr("id", function (d) {
-            return 'path-' + d.id;
-        })
+        .attr("id", function(d) { return 'path-'+d.id; })
         .on("click", click);
 
     labels = states.selectAll("text")
         .data(json.features)
         .enter().append("text")
         .attr("transform", labelsTransform)
-        .attr("id", function (d) {
-            return 'label-' + d.id;
-        })
+        .attr("id", function(d) { return 'label-'+d.id; })
         .attr('text-anchor', 'middle')
         .attr("dy", ".35em")
         .on("click", click)
-        .text(function (d) {
-            return d.properties.Name;
-        });
+        .text(function(d) { return d.properties.Name; });
 });
 
 function click(d) {
@@ -76,9 +69,7 @@ function click(d) {
     }
 
     states.selectAll("path")
-        .classed("active", centered && function (d) {
-            return d === centered;
-        });
+        .classed("active", centered && function(d) { return d === centered; });
 
     states.transition()
         .duration(1000)
@@ -108,48 +99,49 @@ function labelsTransform(d) {
 }
 
 
+
 // 버튼
-$('#radio').buttonset();
-$('#zoomin').button({
-    text: false,
-    icons: {
-        primary: "ui-icon-plus"
-    }
-}).click(function () {
-    var arr = projection.translate(),
-        scale = projection.scale();
-
-    arr[0] = arr[0] * 1.2;
-    arr[1] = arr[1] * 1.2;
-    scale = scale * 1.2;
-
-    projection.translate(arr).scale(scale);
-    states.selectAll("path").attr("d", path);
-
-    labels.attr("transform", labelsTransform);
-});
-$('#zoomout').button({
-    text: false,
-    icons: {
-        primary: "ui-icon-minus"
-    }
-}).click(function () {
-    var arr = projection.translate(),
-        arr2 = projection.translate(),
-        scale = projection.scale();
-
-    arr[0] = arr[0] * 0.8;
-    arr[1] = arr[1] * 0.8;
-    scale = scale * 0.8;
-
-    projection.translate(arr).scale(scale);
-    states.selectAll("path").attr("d", path);
-
-    labels.attr("transform", labelsTransform);
-});
+// // $('#radio').buttonset();
+// $('#zoomin').button({
+//     text: false,
+//     icons: {
+//         primary: "ui-icon-plus"
+//     }
+// }).click(function() {
+//     var arr = projection.translate(),
+//         scale = projection.scale();
+//
+//     arr[0] = arr[0] * 1.2;
+//     arr[1] = arr[1] * 1.2;
+//     scale = scale * 1.2;
+//
+//     projection.translate(arr).scale(scale);
+//     states.selectAll("path").attr("d", path);
+//
+//     labels.attr("transform", labelsTransform);
+// });
+// $('#zoomout').button({
+//     text: false,
+//     icons: {
+//         primary: "ui-icon-minus"
+//     }
+// }).click(function() {
+//     var arr = projection.translate(),
+//         arr2 = projection.translate(),
+//         scale = projection.scale();
+//
+//     arr[0] = arr[0] * 0.8;
+//     arr[1] = arr[1] * 0.8;
+//     scale = scale * 0.8;
+//
+//     projection.translate(arr).scale(scale);
+//     states.selectAll("path").attr("d", path);
+//
+//     labels.attr("transform", labelsTransform);
+// });
 
 // 지명표시
-$('#radio').find('input').on('click', function () {
+$('#radio').find('input').on('click', function() {
     if (this.value == 'on') {
         labels.style('display', 'block');
     } else if (this.value == 'off') {
