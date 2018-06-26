@@ -1,5 +1,16 @@
 @extends('layouts.app')
 <style>
+    .letsusegrid {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 0 1fr;
+        grid-template-columns: 50% 50%;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
     .dev_page {
         margin: 1vw 15vw 1vw 15vw;
     }
@@ -32,10 +43,10 @@
         padding: 0;
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 1fr 0 1fr 0 1fr;
-        grid-template-columns: 33% 33% 33%;
+        -ms-grid-columns: 6fr 0 4fr;
+        grid-template-columns: 60% 40%;
         text-align: center;
-        height: 300px;
+        height: 62.5vh;
         width: 100%;
         max-width: 100%;
         margin: 0;
@@ -131,10 +142,11 @@
     .location_class_child {
         cursor: pointer;
         padding: 0;
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: 1fr 1vw 1fr;
-        grid-template-columns: 50% 50%;
+        height:100%;
+        /*display: -ms-grid;*/
+        /*display: grid;*/
+        /*-ms-grid-columns: 1fr 1vw 1fr;*/
+        /*grid-template-columns: 50% 50%;*/
         text-align: center;
         max-width: 100%;
         margin: 0;
@@ -142,12 +154,8 @@
 
     }
 
-    .location_class_child div {
-        width: 100%;
-    }
-
     .dev_table_child {
-        height: 235px;
+        height: 57vh;
         overflow-y: scroll;
         width: 100%;
         overflow-x: hidden;
@@ -237,7 +245,7 @@
         cursor: pointer;
         text-align: center;
         font-size: 1vw;
-        font-weight:700;
+        font-weight: 700;
         padding: 20px;
         justify-content: center;
         align-items: center;
@@ -272,45 +280,70 @@
         <div style="display:flex; justify-content: space-between; align-items: center">
             <b style="font-size: 1.5vw;">개발사업정보 검색</b><b></b>
         </div>
-        <hr/>
         <div class="dev_info_search">
             <div class="search_classes grid-item1">
-                <div class="class_title"><strong>지역</strong></div>
-                <div class="location_children">
-                    <div class="grid-item" style="text-align: center;">시/도</div>
-                    <div class="grid-item" style="text-align:center;">군/구</div>
+                <div class="class_title">
+                    <div class="dropdown1" style="float: left;">
+                        <button class="dropbtn1 menu_btn1" type="button">시/도
+                            <span class="caret"></span></button>
+                        <div class="dropdown1-content">
+                            <a href="javascript:FindDistrict(1);" class="on">서울</a>
+                            <a href="javascript:FindDistrict(2);" class="">경기도</a>
+                            <a href="javascript:FindDistrict(3);" class="">강원도</a>
+                            <a href="javascript:FindDistrict(4);" class="">경상남도</a>
+                            <a href="javascript:FindDistrict(5);" class="">경상북도</a>
+                            <a href="javascript:FindDistrict(6);" class="">광주</a>
+                            <a href="javascript:FindDistrict(7);" class="">대구</a>
+                            <a href="javascript:FindDistrict(8);" class="">대전</a>
+                            <a href="javascript:FindDistrict(9);" class="">부산</a>
+                            <a href="javascript:FindDistrict(10);" class="">세종</a>
+                            <a href="javascript:FindDistrict(11);" class="">울산</a>
+                            <a href="javascript:FindDistrict(12);" class="">인천</a>
+                            <a href="javascript:FindDistrict(13);" class="">전라남도</a>
+                            <a href="javascript:FindDistrict(14);" class="">전라북도</a>
+                            <a href="javascript:FindDistrict(15);" class="">제주도</a>
+                            <a href="javascript:FindDistrict(16);" class="">충청남도</a>
+                            <a href="javascript:FindDistrict(17);" class="">충청북도</a>
+                        </div>
+                    </div>
+                    <strong>지역</strong>
                 </div>
                 <div class="location_class_child">
-                    <div class="dev_table_child grid-item">
-                        @foreach($cities as $city)
-                            <div class="listed city_switch" onclick="showDistrictList('{{$city->dev_city}}')">
-                                {{$city->dev_city}}
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="dev_table_child grid-item" id="district">
-                        @forelse($location as $loc)
-                            <div onclick="dev_district('{{$loc->dev_district}}','{{ $loc->dev_city }}')"
-                                 class="listed2 district_switch" id="{{ $loc->num_id }}"
-                                 style="display: none;">{{$loc->dev_district}}</div>
-                        @empty
-                        @endforelse
-                    </div>
+
+                    @include ('Development.testing')
+                    {{--<div class="dev_table_child grid-item">--}}
+                    {{--@foreach($cities as $city)--}}
+                    {{--<div class="listed city_switch" onclick="showDistrictList('{{$city->dev_city}}')">--}}
+                    {{--{{$city->dev_city}}--}}
+                    {{--</div>--}}
+                    {{--@endforeach--}}
+                    {{--</div>--}}
+                    {{--<div class="dev_table_child grid-item" id="district">--}}
+                    {{--@forelse($location as $loc)--}}
+                    {{--<div onclick="dev_district('{{$loc->dev_district}}','{{ $loc->dev_city }}')"--}}
+                    {{--class="listed2 district_switch" id="{{ $loc->num_id }}"--}}
+                    {{--style="display: none;">{{$loc->dev_district}}</div>--}}
+                    {{--@empty--}}
+                    {{--@endforelse--}}
+                    {{--</div>--}}
                 </div>
             </div>
             <div class="search_classes grid-item1">
-                <div class="class_title"><strong>유형</strong></div>
-                <div class="dev_table_child">
+
+                <div class="letsusegrid">
+                    <div class="class_title grid-item" onclick="selectsearch_type('search_type')"><strong>유형</strong>
+                    </div>
+                    <div class="class_title grid-item" onclick="selectsearch_type('search_charge')"><strong>주체</strong>
+                    </div>
+                </div>
+                <div class="dev_table_child" id="search_type" style="display:block;">
                     @foreach($search_type as $type)
                         <div class="listed type_switch" onclick="dev_type('{{$type->search_type}}')">
                             {{$type->search_type}}
                         </div>
                     @endforeach
                 </div>
-            </div>
-            <div class="search_classes grid-item1">
-                <div class="class_title"><strong>주체</strong></div>
-                <div class="dev_table_child">
+                <div class="dev_table_child" id="search_charge" style="display:none;">
                     @foreach($search_charge as $charge)
                         <div class="listed charge_switch" onclick="dev_charge('{{$charge->search_charge}}')">
                             {{$charge->search_charge}}
@@ -325,7 +358,7 @@
         <div class="result_container">
             <h3>개발사업정보 결과</h3>
             <div class="dev_info_result_title">
-                <div class="grid-item">   </div>
+                <div class="grid-item"></div>
                 <div class="grid-item">사업명</div>
                 <div class="grid-item">지역</div>
                 <div class="grid-item">면적</div>
@@ -339,6 +372,15 @@
 @endsection
 @section('script')
     <script>
+        function selectsearch_type(type) {
+            var i;
+            var x = document.getElementsByClassName('dev_table_child');
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(type).style.display = "block";
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -379,19 +421,22 @@
         };
 
         function dev_district(dev, dev1) {
-            dev_data['dev_district'] = dev;
-            dev_data['dev_city'] = dev1;
+            dev_data['dev_city'] = dev;
+            dev_data['dev_district'] = dev1;
             Chosen(dev_data);
+            console.log(dev_data);
         }
 
         function dev_type(dev) {
             dev_data['dev_type'] = dev;
             Chosen(dev_data);
+            console.log(dev_data);
         }
 
         function dev_charge(dev) {
             dev_data['dev_charge'] = dev;
             Chosen(dev_data);
+            console.log(dev_data);
         }
 
         function Chosen(data) {
@@ -414,20 +459,20 @@
                     var newDiv = document.createElement('div');
                     newDiv.className = 'dev_info_result_container';
                     newDiv.onclick =
-                            function () {
-                                @if(\Illuminate\Support\Facades\Auth::guest())
-                                alert('회원 가입 후에 열람하실 수 있습니다.');
-                                        @else
-                                var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
-                                if (role === "1") {
-                                    window.open("{{url('dev_info')}}" + "/" + ele.dev_id);
-                                }else if(role==="0"){
-                                    alert('프리미엄 회원만 열람이 가능합니다.');
-                                }
-                                @endif
-                            };
+                        function () {
+                            @if(\Illuminate\Support\Facades\Auth::guest())
+                            alert('회원 가입 후에 열람하실 수 있습니다.');
+                                    @else
+                            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
+                            if (role === "1") {
+                                window.open("{{url('dev_info')}}" + "/" + ele.dev_id);
+                            } else if (role === "0") {
+                                alert('프리미엄 회원만 열람이 가능합니다.');
+                            }
+                            @endif
+                        };
                     var newContainer1 = document.createElement('img');
-                    newContainer1.src = '/'+ele.dev_thumbnails;
+                    newContainer1.src = '/' + ele.dev_thumbnails;
                     newContainer1.classList.add("grid-item");
                     var newContainer2 = document.createElement('div');
                     newContainer2.innerHTML = ele.dev_title;
