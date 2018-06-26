@@ -141,13 +141,16 @@ class DevController extends Controller
         return view('admin.dev.dev_info.edit', compact('data', 'locations', 'searchtype', 'searchcharge', 'cities'));
     }
 
+    // 수정사항 -> dev_fileimage를 nullable로 바꿈, why? 유저가 단순 텍스트만 수정하고 싶을 때에도 이미지를 추가해야하는 것이 번거롭기 때문,
+    // 수정사항으로 발생한 이슈 -> 데이터를 update 할 때, dev_fileimage, dev_reference, dev_thumbnails 데이터가 없어서 에러가 발생함,
+    // 이슈 해결 -> 이미지를 업로딩 할 때, 따로 데이터를 update 해주도록 코드를 바꿈.
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'dev_title' => 'required|string',
             'dev_initiated_log' => 'required',
             'dev_initiated_date' => 'required|date',
-            'dev_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'dev_fileimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'dev_comment' => 'required',
             'dev_city' => 'required',
             'dev_district' => 'required',
@@ -175,6 +178,9 @@ class DevController extends Controller
             $image->move($destinationPath, $imagename);
 
             $file0 = 'fileuploaded/Development_information/references/' . $imagename;
+            $dev = Dev::where('dev_id', $id)->update([
+                'dev_reference' => $file0,
+            ]);
         } else {
             $file0 = null;
         }
@@ -211,6 +217,10 @@ class DevController extends Controller
 
             $file = 'fileuploaded/Development_information/images/' . $imagename;
             $file_1 = 'fileuploaded/Development_information/thumbnails/'.$imagename;
+            $dev = Dev::where('dev_id', $id)->update([
+                'dev_thumbnails' => $file_1,
+                'dev_fileimage' => $file,
+            ]);
         } else {
             $file = null;
             $file_1=null;
@@ -232,10 +242,6 @@ class DevController extends Controller
                 'dev_applied_law' => $request['dev_applied_law'],
                 'dev_publicly_starting_date' => $request['dev_publicly_starting_date'],
                 'dev_future_plan' => $request['dev_future_plan'],
-                'dev_reference' => $file0,
-                'dev_thumbnails' => $file_1,
-                'dev_fileimage' => $file,
-
             ]);
 
         return redirect('admin/dev');
