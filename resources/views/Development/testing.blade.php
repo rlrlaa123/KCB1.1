@@ -1800,65 +1800,65 @@
         <ul>
             <li class="tx2_2_1"><a href="javascript:dev_district('경기도','가평군');" alt="경기도 가평" title="경기도 가평">가평</a>
             </li>
-            <li class="tx2_2_2"><a href="javascript:dev_district('경기도','고양');" alt="경기도 고양" title="경기도 고양">고양</a>
+            <li class="tx2_2_2"><a href="javascript:dev_district('경기도','고양시');" alt="경기도 고양" title="경기도 고양">고양</a>
             </li>
-            <li class="tx2_2_3"><a href="javascript:dev_district('경기도','과천');" alt="경기도 과천" title="경기도 과천">과천</a>
+            <li class="tx2_2_3"><a href="javascript:dev_district('경기도','과천시');" alt="경기도 과천" title="경기도 과천">과천</a>
             </li>
-            <li class="tx2_2_4"><a href="javascript:dev_district('경기도','광명');" alt="경기도 광명" title="경기도 광명">광명</a>
+            <li class="tx2_2_4"><a href="javascript:dev_district('경기도','광명시');" alt="경기도 광명" title="경기도 광명">광명</a>
             </li>
-            <li class="tx2_2_5"><a href="javascript:dev_district('경기도','광주');" alt="경기도 광주광역시" title="경기도 광주광역시">광주광역시</a>
+            <li class="tx2_2_5"><a href="javascript:dev_district('경기도','광주시');" alt="경기도 광주시" title="경기도 광주시">광주시</a>
             </li>
-            <li class="tx2_2_6"><a href="javascript:dev_district('경기도','구리');" alt="경기도 구리" title="경기도 구리">구리</a>
+            <li class="tx2_2_6"><a href="javascript:dev_district('경기도','구리시');" alt="경기도 구리" title="경기도 구리">구리</a>
             </li>
-            <li class="tx2_2_7"><a href="javascript:dev_district('경기도','군포');" alt="경기도 군포" title="경기도 군포">군포</a>
+            <li class="tx2_2_7"><a href="javascript:dev_district('경기도','군포시');" alt="경기도 군포" title="경기도 군포">군포</a>
             </li>
-            <li class="tx2_2_8"><a href="javascript:dev_district('경기도','김포');" alt="경기도 김포" title="경기도 김포">김포</a>
+            <li class="tx2_2_8"><a href="javascript:dev_district('경기도','김포시');" alt="경기도 김포" title="경기도 김포">김포</a>
             </li>
-            <li class="tx2_2_9"><a href="javascript:dev_district('경기도','남양주');" alt="경기도 남양주"
+            <li class="tx2_2_9"><a href="javascript:dev_district('경기도','남양주시');" alt="경기도 남양주"
                                    title="경기도 남양주">남양주</a></li>
-            <li class="tx2_2_10"><a href="javascript:dev_district('경기도','동두천');" alt="경기도 동두천"
+            <li class="tx2_2_10"><a href="javascript:dev_district('경기도','동두천시');" alt="경기도 동두천"
                                     title="경기도 동두천">동두천</a></li>
-            <li class="tx2_2_11"><a href="javascript:dev_district('경기도','부천');" alt="경기도 부천" title="경기도 부천">부천</a>
+            <li class="tx2_2_11"><a href="javascript:dev_district('경기도','부천시');" alt="경기도 부천" title="경기도 부천">부천</a>
             </li>
-            <li class="tx2_2_12"><a href="javascript:dev_district('경기도','성남');" alt="경기도 성남" title="경기도 성남">성남</a>
+            <li class="tx2_2_12"><a href="javascript:dev_district('경기도','성남시');" alt="경기도 성남" title="경기도 성남">성남</a>
             </li>
-            <li class="tx2_2_13"><a href="javascript:dev_district('경기도','수원');" alt="경기도 수원" title="경기도 수원">수원</a>
+            <li class="tx2_2_13"><a href="javascript:dev_district('경기도','수원시');" alt="경기도 수원" title="경기도 수원">수원</a>
             </li>
-            <li class="tx2_2_14"><a href="javascript:dev_district('경기도','시흥');" alt="경기도 시흥" title="경기도 시흥">시흥</a>
+            <li class="tx2_2_14"><a href="javascript:dev_district('경기도','시흥시');" alt="경기도 시흥" title="경기도 시흥">시흥</a>
             </li>
-            <li class="tx2_2_15"><a href="javascript:dev_district('경기도','안산');" alt="경기도 안산" title="경기도 안산">안산</a>
+            <li class="tx2_2_15"><a href="javascript:dev_district('경기도','안산시');" alt="경기도 안산" title="경기도 안산">안산</a>
             </li>
-            <li class="tx2_2_16"><a href="javascript:dev_district('경기도','안성');" alt="경기도 안성" title="경기도 안성">안성</a>
+            <li class="tx2_2_16"><a href="javascript:dev_district('경기도','안성시');" alt="경기도 안성" title="경기도 안성">안성</a>
             </li>
-            <li class="tx2_2_17"><a href="javascript:dev_district('경기도','안양');" alt="경기도 안양" title="경기도 안양">안양</a>
+            <li class="tx2_2_17"><a href="javascript:dev_district('경기도','안양시');" alt="경기도 안양" title="경기도 안양">안양</a>
             </li>
-            <li class="tx2_2_18"><a href="javascript:dev_district('경기도','양주');" alt="경기도 양주" title="경기도 양주">양주</a>
+            <li class="tx2_2_18"><a href="javascript:dev_district('경기도','양주시');" alt="경기도 양주" title="경기도 양주">양주</a>
             </li>
-            <li class="tx2_2_19"><a href="javascript:dev_district('경기도','양평');" alt="경기도 양평" title="경기도 양평">양평</a>
+            <li class="tx2_2_19"><a href="javascript:dev_district('경기도','양평군');" alt="경기도 양평" title="경기도 양평">양평</a>
             </li>
-            <li class="tx2_2_20"><a href="javascript:dev_district('경기도','여주');" alt="경기도 여주" title="경기도 여주">여주</a>
+            <li class="tx2_2_20"><a href="javascript:dev_district('경기도','여주시');" alt="경기도 여주" title="경기도 여주">여주</a>
             </li>
-            <li class="tx2_2_21"><a href="javascript:dev_district('경기도','연천');" alt="경기도 연천" title="경기도 연천">연천</a>
+            <li class="tx2_2_21"><a href="javascript:dev_district('경기도','연천군');" alt="경기도 연천" title="경기도 연천">연천</a>
             </li>
-            <li class="tx2_2_22"><a href="javascript:dev_district('경기도','오산');" alt="경기도 오산" title="경기도 오산">오산</a>
+            <li class="tx2_2_22"><a href="javascript:dev_district('경기도','오산시');" alt="경기도 오산" title="경기도 오산">오산</a>
             </li>
-            <li class="tx2_2_23"><a href="javascript:dev_district('경기도','용인');" alt="경기도 용인" title="경기도 용인">용인</a>
+            <li class="tx2_2_23"><a href="javascript:dev_district('경기도','용인시');" alt="경기도 용인" title="경기도 용인">용인</a>
             </li>
-            <li class="tx2_2_24"><a href="javascript:dev_district('경기도','의왕');" alt="경기도 의왕" title="경기도 의왕">의왕</a>
+            <li class="tx2_2_24"><a href="javascript:dev_district('경기도','의왕시');" alt="경기도 의왕" title="경기도 의왕">의왕</a>
             </li>
-            <li class="tx2_2_25"><a href="javascript:dev_district('경기도','의정부');" alt="경기도 의정부"
+            <li class="tx2_2_25"><a href="javascript:dev_district('경기도','의정부시');" alt="경기도 의정부"
                                     title="경기도 의정부">의정부</a></li>
-            <li class="tx2_2_26"><a href="javascript:dev_district('경기도','이천');" alt="경기도 이천" title="경기도 이천">이천</a>
+            <li class="tx2_2_26"><a href="javascript:dev_district('경기도','이천시');" alt="경기도 이천" title="경기도 이천">이천</a>
             </li>
-            <li class="tx2_2_27"><a href="javascript:dev_district('경기도','파주');" alt="경기도 파주" title="경기도 파주">파주</a>
+            <li class="tx2_2_27"><a href="javascript:dev_district('경기도','파주시');" alt="경기도 파주" title="경기도 파주">파주</a>
             </li>
-            <li class="tx2_2_28"><a href="javascript:dev_district('경기도','평택');" alt="경기도 평택" title="경기도 평택">평택</a>
+            <li class="tx2_2_28"><a href="javascript:dev_district('경기도','평택시');" alt="경기도 평택" title="경기도 평택">평택</a>
             </li>
-            <li class="tx2_2_29"><a href="javascript:dev_district('경기도','포천');" alt="경기도 포천" title="경기도 포천">포천</a>
+            <li class="tx2_2_29"><a href="javascript:dev_district('경기도','포천시');" alt="경기도 포천" title="경기도 포천">포천</a>
             </li>
-            <li class="tx2_2_30"><a href="javascript:dev_district('경기도','하남');" alt="경기도 하남" title="경기도 하남">하남</a>
+            <li class="tx2_2_30"><a href="javascript:dev_district('경기도','하남시');" alt="경기도 하남" title="경기도 하남">하남</a>
             </li>
-            <li class="tx2_2_31"><a href="javascript:dev_district('경기도','화성');" alt="경기도 화성" title="경기도 화성">화성</a>
+            <li class="tx2_2_31"><a href="javascript:dev_district('경기도','화성시');" alt="경기도 화성" title="경기도 화성">화성</a>
             </li>
         </ul>
     </div>
@@ -2213,11 +2213,11 @@
     <div class="mappedcity" style="display: none;">
         <img src="/map/Jeju.png" alt="제주특별시">
         <ul>
-            <li class="tx2_15_1"><a href="javascript:dev_district('제주특별시','서귀포시');" alt="제주특별시 서귀포시"
+            <li class="tx2_15_1"><a href="javascript:dev_district('제주특별자치도','서귀포시');" alt="제주특별시 서귀포시"
                                     title="제주특별시 서귀포시">서귀포시</a>
             </li>
-            <li class="tx2_15_2"><a href="javascript:dev_district('제주특별시','제주시');" alt="제주특별시 제주특별시시"
-                                    title="제주특별시 제주시">제주특별시</a></li>
+            <li class="tx2_15_2"><a href="javascript:dev_district('제주특별시자치도','제주시');" alt="제주특별시 제주특별시"
+                                    title="제주특별시 제주시">제주시</a></li>
         </ul>
     </div>
 </div>

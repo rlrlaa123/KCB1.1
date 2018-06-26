@@ -53,6 +53,7 @@
                                 <option value="6premium">프리미엄(6개월)</option>
                                 <option value="12premium">프리미엄(12개월)</option>
                             </select>
+
                             <input type="hidden" name="id" value="{{$value->id}}">
                             <button type="submit">변경</button>
                         </form>
