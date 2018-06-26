@@ -421,19 +421,22 @@
         };
 
         function dev_district(dev, dev1) {
-            dev_data['dev_district'] = dev;
-            dev_data['dev_city'] = dev1;
+            dev_data['dev_city'] = dev;
+            dev_data['dev_district'] = dev1;
             Chosen(dev_data);
+            console.log(dev_data);
         }
 
         function dev_type(dev) {
             dev_data['dev_type'] = dev;
             Chosen(dev_data);
+            console.log(dev_data);
         }
 
         function dev_charge(dev) {
             dev_data['dev_charge'] = dev;
             Chosen(dev_data);
+            console.log(dev_data);
         }
 
         function Chosen(data) {
