@@ -31,7 +31,7 @@ Route::get('/consulting', 'ConsultingViewController@Index');
 Route::get('/consulting_filedownload/{id}', 'ConsultingViewController@consulting_filedownload');
 
 Route::resource('/articles', 'ArticlesController');
-Route::get('/useful_website','UsefulWebsiteController@index');
+Route::get('/useful_website', 'UsefulWebsiteController@index');
 
 Route::get('/fee', 'FeeController@index');
 //Route::post('/action_page', function(){
@@ -102,12 +102,25 @@ Route::post('chosen', function (\Illuminate\Http\Request $request) {
     elseif ($request->dev_district != null && $request->dev_type != null && $request->dev_charge != null) {
         if ($request->dev_type == '전체' && $request->dev_charge == '전체' && $request->dev_district == '전체')
             $data = \App\Dev::where('dev_city', $request->dev_city)->orderBy('dev_district')->get();
+
         elseif ($request->dev_type == '전체' && $request->dev_charge == '전체' && $request->dev_district != '전체')
             $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_district' => $request->dev_district])->get();
+
+        elseif ($request->dev_type != '전체' && $request->dev_charge == '전체' && $request->dev_district != '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_type'=>$request->dev_type ,'dev_district' => $request->dev_district])->get();
+
+        elseif ($request->dev_type == '전체' && $request->dev_charge != '전체' && $request->dev_district != '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_charge' => $request->dev_charge, 'dev_district' => $request->dev_district])->get();
+
         elseif ($request->dev_type != '전체' && $request->dev_charge == '전체' && $request->dev_district == '전체')
             $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_type' => $request->dev_type])->get();
+
+        elseif ($request->dev_type != '전체' && $request->dev_charge != '전체' && $request->dev_district == '전체')
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_charge' => $request->dev_charge, 'dev_type' => $request->dev_type])->get();
+
         elseif ($request->dev_type == '전체' && $request->dev_charge != '전체' && $request->dev_district == '전체')
             $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_charge' => $request->dev_charge])->get();
+
         else
             $data = \App\Dev::where([
                 'dev_district' => $request->dev_district,
@@ -162,9 +175,9 @@ Route::get('/noticesearch', 'SearchController@notice_search');
 //커뮤니티
 Route::get('/asking', 'UserView\Community\UserAskingController@index');
 Route::get('/asking/{id}', 'UserView\Community\UserAskingController@show');
-Route::post('/asking/compare','UserView\Community\UserAskingController@asking_compare');
-Route::get('/asking/compare/{id}','UserView\Community\UserAskingController@asking_compare');
-Route::get('/ask','UserView\Community\UserAskingController@write');
+Route::post('/asking/compare', 'UserView\Community\UserAskingController@asking_compare');
+Route::get('/asking/compare/{id}', 'UserView\Community\UserAskingController@asking_compare');
+Route::get('/ask', 'UserView\Community\UserAskingController@write');
 Route::post('/asking_fileupload', 'UserView\Community\UserAskingController@asking_fileupload');
 Route::get('/asking_filedownload/{id}', 'UserView\Community\UserAskingController@asking_filedownload');
 
