@@ -50,9 +50,7 @@
                         <tr>
                             <td class="datainput"><label for="library_content">자료실 내용</label></td>
                             <td>
-                                <textarea id="library_content" class="form-control" name="library_content" cols="70" placeholder="자료실 내용을 입력해주세요.">
-                                {{ old('library_content',$data->library_content)}}
-                                </textarea>
+                                <textarea id="library_content" class="form-control" name="library_content" cols="70" placeholder="자료실 내용을 입력해주세요.">{{ old('library_content',$data->library_content)}}</textarea>
                                 @if ($errors->has('library_content'))
                                     <div class="help-block">
                                         {{ $errors->first('library_content') }}

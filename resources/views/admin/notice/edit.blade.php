@@ -50,9 +50,7 @@
                         <tr>
                             <td class="datainput"><label for="notice_content">공고 공시 내용</label></td>
                             <td>
-                                <textarea id="notice_content" class="form-control" name="notice_content" cols="70" placeholder="공고 공시 내용을 입력해주세요.">
-                                {{ old('notice_content', $data->notice_content)}}
-                                </textarea>
+                                <textarea id="notice_content" class="form-control" name="notice_content" cols="70" placeholder="공고 공시 내용을 입력해주세요.">{{ old('notice_content', $data->notice_content)}}</textarea>
                                 @if ($errors->has('notice_content'))
                                     <div class="help-block">
                                         {{ $errors->first('notice_content') }}
