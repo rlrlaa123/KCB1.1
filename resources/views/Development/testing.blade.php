@@ -1,54 +1,6 @@
 <style>
 
-    .menu_btn {
-        background-color: transparent;
-        border: 1px solid grey;
-        padding: 4px 6px;
-        -webkit-border-radius: 0.8vw;
-        -moz-border-radius: 0.8vw;
-        border-radius: 0.8vw;
-    }
 
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 11vw;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: black;
-        padding: 1vh 1vw;
-        text-decoration: none;
-        text-align: left;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {
-        background-color: darkgrey;
-    }
-
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {
-        background-color: transparent;
-        border: 1.5px solid;
-    }
     /* CSS Document */
 
     html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
@@ -93,14 +45,13 @@
     }
 
     /*Content*/
-    .content {
-        float: left;
+    .content1 {
+        display: flex;
+        justify-content: center;
         position: relative;
-        width: 650px;
-        height: 73%;
-        margin-bottom: 20px;
-        margin-right: 20px;
-        padding-left: 20px
+        width: auto;
+        height: 100%;
+
     }
 
     /*지역선택 - map*/
@@ -271,23 +222,22 @@
 
     .mappedcity {
         position: absolute;
-        width: 200px;
+        width: auto;
         height: 115px;
+        font-size:1vw;
         z-index: 11;
         text-align: center;
     }
 
     .mappedcity li {
         position: absolute;
-        font-size: 12px;
+        font-size: 1vw;
         letter-spacing: -1px;
-        font-family: 돋움, 'Dotum';
         font-weight: normal;
         color: #575757;
         width: 48px;
         height: 15px;
-        text-outline: #00CC99;
-        text-shadow: 3px 3px #fff;
+
     }
 
     .mappedcity li a {
@@ -1723,7 +1673,7 @@
 
 
 </style>
-<div class="content" style="height:79%; padding-left: 0;">
+<div class="content1" >
     <div class="mappedcity" style="display:block;" id="1">
         <img src="/map/Seoul.png" alt="서울"/>
         <ul>

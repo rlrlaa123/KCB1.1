@@ -226,6 +226,80 @@
         font-weight: 300
     }
 
+    .menu_btn1 {
+        background-color: transparent;
+        border: 0.5px solid grey;
+        font-size:1.3vw;
+        font-weight:500;
+        -webkit-border-radius: 0.8vw;
+        -moz-border-radius: 0.8vw;
+        border-radius: 0.8vw;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown1 {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown1-content {
+        display: none;
+        text-align: center;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 5vw;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        font-size:1vw;
+        max-height:57vh;
+        overflow-y: scroll;
+    }
+    .dropdown1-content::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    .dropdown1-content::-webkit-scrollbar-thumb {
+        background-color: lightgrey;
+    }
+
+    .dropdown1-content::-webkit-scrollbar-button {
+        background-color: transparent
+    }
+
+    .dropdown1-content::-webkit-scrollbar-corner {
+        background-color: grey;
+    }
+    .dropdown1-content::-webkit-scrollbar {
+        width: 2px !important;
+        -ms-overflow-style: auto;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown1-content a {
+        color: black;
+        padding: 1vh 0.2vw;
+        text-decoration: none;
+        text-align: left;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown1-content a:hover {
+        background-color: #a9a9a9;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown1:hover .dropdown1-content {
+        display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown1:hover .dropbtn1 {
+        background-color: transparent;
+
+    }
+
     /*---------------드롭다운 메뉴------------------------------------------------------------------------------*/
     .menu_btn {
         background-color: transparent;
@@ -263,7 +337,7 @@
 
     /* Change color of dropdown links on hover */
     .dropdown-content a:hover {
-        background-color: darkgrey;
+        background-color: #a9a9a9;
     }
 
     /* Show the dropdown menu on hover */
