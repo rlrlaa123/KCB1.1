@@ -331,9 +331,9 @@
             <div class="search_classes grid-item1">
 
                 <div class="letsusegrid">
-                    <div class="class_title grid-item" onclick="selectsearch_type('search_type')"><strong>유형</strong>
+                    <div class="class_title grid-item" style="cursor:pointer;" onclick="selectsearch_type('search_type')"><strong>유형</strong>
                     </div>
-                    <div class="class_title grid-item" onclick="selectsearch_type('search_charge')"><strong>주체</strong>
+                    <div class="class_title grid-item" style="cursor:pointer;" onclick="selectsearch_type('search_charge')"><strong>주체</strong>
                     </div>
                 </div>
                 <div class="dev_table_child" id="search_type" style="display:block;">

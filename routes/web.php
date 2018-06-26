@@ -43,7 +43,6 @@ Route::get('dev_info', 'UserView\Dev\DevViewController@index');
 Route::get('dev_info/{id}', 'UserView\Dev\DevViewController@show');
 Route::get('development_filedownload/{id}', 'UserView\Dev\DevViewController@development_filedownload');
 Route::get('development_reference_filedownload/{id}', 'UserView\Dev\DevViewController@development_reference_filedownload');
-Route::get('/dev_infotest_map','UserView\Dev\DevViewController@test_map');
 Route::post('showdistrictlist', function (\Illuminate\Http\Request $request) {
     $location = \App\Location::select('num_id')->where('dev_city', $request->data)->get();
 
@@ -188,50 +187,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/resetPassword/{id}', 'Admin\Basic\SiteController@resetPassword');
     Route::post('/basic/reset', 'Admin\Basic\SiteController@reset');
 
-
-    Event::listen('grade_control',function($user){
-        /*----------------------------------------------------------------------------------------*/
-        return $user;
-        $_array['type'] = "sms";
-        $_array['phone'] = (string)$user->phone;
-        $_array['names'] = iconv("UTF-8", "EUC-KR", $user->name);
-        $_array['msg'] = iconv(
-            "UTF-8",
-            "EUC-KR",
-            "[(주)한국보상원]\n".$user->name." 님의 회원 등급 변경이 완료됐습니다\n로그인 후, 마이페이지에서 확인하실 수 있습니다."
-        );
-        $_array['userid'] = "jazzpia";
-        $_array['callback'] = "0316229752";
-//        return json_encode($_array['names']);
-        $postValues = '';
-
-        $host = "sms.smsmania.co.kr";
-        $target = "/module/socket_send_multi.php";
-        $port = 80;
-
-        $socket = fsockopen($host, $port);
-        if (is_array($_array)) {
-            foreach ($_array AS $name => $value)
-                $postValues .= urlencode($name) . "=" . urlencode($value) . "&";
-            $postValues = substr($postValues, 0, -1);
-        }
-
-        $postLength = strlen($postValues);
-        $request = "POST $target HTTP/1.0\r\n";
-        $request .= "Host: $host\r\n";
-        $request .= "User-agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)\r\n";
-        $request .= "Content-type: application/x-www-form-urlencoded\r\n";
-        $request .= "Content-length: " . $postLength . "\r\n\r\n";
-        $request .= $postValues . "\r\n";
-        fputs($socket, $request);
-        $ret = "";
-        while (!feof($socket)) {
-            $ret .= trim(fgets($socket, 4096));
-        }
-
-        fclose($socket);
-        $std_bar = ":header_stop:";
-    });
     //------------------회원정보 리스트----------------------//
     Route::get('/user/', 'Admin\User\UserController@index');
     Route::post('/user_grade_control', 'Admin\User\UserController@user_grade_control');
