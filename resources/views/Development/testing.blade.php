@@ -2,18 +2,1402 @@
 
     @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
         .mappedcity {
-            top:13%;
+            top: 5%;
+        !important left: 4 vw;
+        !important
 
         }
-        .mappedcity,.mappedcity li a, .mappedcity li a:hover, .mappedcity li a.on, mappedcity li {
-            font-size:0.6vw!important;
 
+        .mappedcity, .mappedcity li a, .mappedcity li a:hover, .mappedcity li a.on, mappedcity li {
+            font-size: 0.8vw !important;
+
+        }
+
+        .mappedcity img {
+
+            width: 160% !important;
+
+        }
+
+        /*-------------------------------지역별 수정-------------------------------*/
+        /*서울*/
+        /* dev_info (1216, 15) */
+        .tx2_1_1 {
+            left: 357px !important;
+            top: 323px !important;
+        }
+
+        /* dev_info (1222, 15) */
+        .tx2_1_2 {
+            left: 500px !important;
+            top: 253px !important;
+        }
+
+        /* dev_info (1228, 15) */
+
+        .tx2_1_3 {
+            left: 290px !important;
+            top: 117px !important;
+        }
+
+        /* dev_info (1234, 15) */
+        .tx2_1_4 {
+            left: 61px !important;
+            top: 238px !important;
+        }
+
+        /* dev_info (1264, 15) */
+        .tx2_1_9 {
+            left: 385px !important;
+            top: 104px !important;
+        }
+
+        /* dev_info (1270, 16) */
+        .tx2_1_10 {
+            left: 331px !important;
+            top: 80px !important;
+        }
+        /* dev_info (1276, 15) */
+        .tx2_1_5 {
+            left: 231px!important;
+            top: 383px!important;
+        }
+
+        /* dev_info (1282, 15) */
+        .tx2_1_6 {
+            left: 400px!important;
+            top: 260px!important;
+        }
+
+        /* dev_info (1288, 15) */
+        .tx2_1_7 {
+            left: 104px!important;
+            top: 339px!important;
+        }
+
+        /* dev_info (1294, 15) */
+        .tx2_1_8 {
+            left: 161px!important;
+            top: 387px!important;
+        }
+
+        /* dev_info (1312, 16) */
+        .tx2_1_11 {
+            left: 365px!important;
+            top: 219px!important;
+        }
+
+        /* dev_info (1318, 16) */
+        .tx2_1_12 {
+            left: 230px!important;
+            top: 321px!important;
+        }
+
+        /* dev_info (1324, 16) */
+        .tx2_1_13 {
+            left: 176px!important;
+            top: 250px!important;
+        }
+
+        /* dev_info (1330, 16) */
+        .tx2_1_14 {
+            left: 215px!important;
+            top: 225px!important;
+        }
+
+        /* dev_info (1336, 16) */
+        .tx2_1_15 {
+            left: 305px!important;
+            top: 347px!important;
+        }
+
+        /* dev_info (1342, 16) */
+        .tx2_1_16 {
+            left: 334px!important;
+            top: 256px!important;
+        }
+
+        /* dev_info (1348, 16) */
+        .tx2_1_17 {
+            left: 317px!important;
+            top: 186px!important;
+        }
+
+        /* dev_info (1354, 16) */
+        .tx2_1_18 {
+            left: 446px!important;
+            top: 313px!important;
+        }
+
+        /* dev_info (1360, 16) */
+        .tx2_1_19 {
+            left: 105px!important;
+            top: 297px!important;
+        }
+
+        /* dev_info (1366, 16) */
+        .tx2_1_20 {
+            left: 161px!important;
+            top: 298px!important;
+        }
+
+        /* dev_info (1372, 16) */
+        .tx2_1_21 {
+            left: 256px!important;
+            top: 276px!important;
+        }
+
+        /* dev_info (1378, 16) */
+        .tx2_1_22 {
+            left: 194px!important;
+            top: 163px!important;
+        }
+
+        /* dev_info (1384, 16) */
+        .tx2_1_23 {
+            left: 252px!important;
+            top: 188px!important;
+        }
+
+        /* dev_info (1390, 16) */
+        .tx2_1_24 {
+            left: 280px!important;
+            top: 245px!important;
+        }
+
+        /* dev_info (1396, 16) */
+        .tx2_1_25 {
+            left: 403px!important;
+            top: 192px!important;
+        }
+        /*경기도*/
+        /* dev_info (1517, 15) */
+
+        .tx2_2_1 {
+            left: 350px!important;
+            top: 159px!Important;
+        }
+
+        /* dev_info (1637, 16) */
+        .tx2_2_21 {
+            left: 243px!important;
+            top: 60px!important;
+        }
+
+        /* dev_info (1685, 16) */
+        .tx2_2_29 {
+            left: 287px!important;
+            top: 105px!important;
+        }/* dev_info (1542, 15) */
+        .tx2_2_2 {
+            left: 179px!important;
+            top: 218px!important;
+        }
+
+        /* dev_info (1548, 15) */
+        .tx2_2_3 {
+            left: 224px!important;
+            top: 293px!important;
+        }
+
+        /* dev_info (1554, 15) */
+        .tx2_2_4 {
+            left: 185px!important;
+            top: 289px!important;
+        }
+
+        /* dev_info (1560, 15) */
+        .tx2_2_5 {
+            left: 296px!important;
+            top: 300px!important;
+        }
+
+        /* dev_info (1566, 15) */
+        .tx2_2_6 {
+            left: 263px!important;
+            top: 236px!important;
+        }
+
+        /* dev_info (1572, 15) */
+        .tx2_2_7 {
+            left: 199px!important;
+            top: 326px!important;
+        }
+
+        /* dev_info (1578, 15) */
+        .tx2_2_8 {
+            left: 105px!important;
+            top: 211px!important;
+        }
+
+        /* dev_info (1584, 15) */
+        .tx2_2_9 {
+            left: 295px!important;
+            top: 217px!important;
+        }
+
+        /* dev_info (1590, 16) */
+        .tx2_2_10 {
+            left: 244px!important;
+            top: 125px!important;
+        }
+
+        /* dev_info (1596, 16) */
+        .tx2_2_11 {
+            left: 163px!important;
+            top: 269px!important;
+        }
+
+        /* dev_info (1602, 16) */
+        .tx2_2_12 {
+            left: 249px!important;
+            top: 307px!important;
+        }
+
+        /* dev_info (1608, 16) */
+        .tx2_2_13 {
+            left: 222px!important;
+            top: 348px!important;
+        }
+
+        /* dev_info (1614, 16) */
+        .tx2_2_14 {
+            left: 162px!important;
+            top: 310px!important;
+        }
+
+        /* dev_info (1620, 16) */
+        .tx2_2_15 {
+            left: 177px!important;
+            top: 333px!important;
+        }
+
+        /* dev_info (1626, 16) */
+        .tx2_2_16 {
+            left: 302px!important;
+            top: 434px!important;
+        }
+
+        /* dev_info (1632, 16) */
+        .tx2_2_17 {
+            left: 203px!important;
+            top: 304px!important;
+        }
+
+        /* dev_info (1638, 16) */
+        .tx2_2_18 {
+            left: 230px!important;
+            top: 156px!important;
+        }
+
+        /* dev_info (1644, 16) */
+        .tx2_2_19 {
+            left: 377px!important;
+            top: 273px!important;
+        }
+
+        /* dev_info (1650, 16) */
+        .tx2_2_20 {
+            left: 400px!important;
+            top: 346px!important;
+        }
+
+        /* dev_info (1662, 16) */
+        .tx2_2_22 {
+            left: 234px!important;
+            top: 387px!important;
+        }
+
+        /* dev_info (1668, 16) */
+        .tx2_2_23 {
+            left: 282px!important;
+            top: 366px!important;
+        }
+
+        /* dev_info (1674, 16) */
+        .tx2_2_24 {
+            left: 222px!important;
+            top: 313px!important;
+        }
+
+        /* dev_info (1680, 16) */
+        .tx2_2_25 {
+            left: 242px!important;
+            top: 190px!important;
+        }
+
+        /* dev_info (1686, 16) */
+        .tx2_2_26 {
+            left: 344px!important;
+            top: 363px!important;
+        }
+
+        /* dev_info (1692, 16) */
+        .tx2_2_27 {
+            left: 167px!important;
+            top: 163px!important;
+        }
+
+        /* dev_info (1698, 16) */
+        .tx2_2_28 {
+            left: 218px!important;
+            top: 444px!important;
+        }
+
+        /* dev_info (1710, 16) */
+        .tx2_2_30 {
+            left: 282px!important;
+            top: 263px!important;
+        }
+
+        /* dev_info (1716, 16) */
+        .tx2_2_31 {
+            left: 189px!important;
+            top: 385px!important;
+        }
+        /*강원도*/
+
+            /* dev_info (1724, 15) */
+        .tx2_3_1 {
+            left: 391px!important;
+            top: 264px!important;
+        }
+
+        /* dev_info (1730, 15) */
+        .tx2_3_2 {
+            left: 296px!important;
+            top: 88px!important;
+        }
+
+        /* dev_info (1736, 15) */
+        .tx2_3_3 {
+            left: 446px!important;
+            top: 325px!important;
+        }
+
+        /* dev_info (1742, 15) */
+        .tx2_3_4 {
+            left: 465px!important;
+            top: 381px!important;
+        }
+
+        /* dev_info (1748, 15) */
+        .tx2_3_5 {
+            left: 329px!important;
+            top: 166px!important;
+        }
+
+        /* dev_info (1754, 15) */
+        .tx2_3_6 {
+            left: 209px!important;
+            top: 133px!important;
+        }
+
+        /* dev_info (1760, 15) */
+        .tx2_3_7 {
+            left: 343px!important;
+            top: 205px!important;
+        }
+
+        /* dev_info (1766, 15) */
+        .tx2_3_8 {
+            left: 319px!important;
+            top: 405px!important;
+        }
+
+        /* dev_info (1772, 15) */
+        .tx2_3_9 {
+            left: 187px!important;
+            top: 366px!important;
+        }
+
+        /* dev_info (1778, 16) */
+        .tx2_3_10 {
+            left: 263px!important;
+            top: 177px!important;
+        }
+
+        /* dev_info (1784, 16) */
+        .tx2_3_11 {
+            left: 369px!important;
+            top: 360px!important;
+        }
+
+        /* dev_info (1790, 16) */
+        .tx2_3_12 {
+            left: 79px!important;
+            top: 120px!important;
+        }
+
+        /* dev_info (1796, 16) */
+        .tx2_3_13 {
+            left: 150px!important;
+            top: 209px!important;
+        }
+
+        /* dev_info (1802, 16) */
+        .tx2_3_14 {
+            left: 427px!important;
+            top: 421px!important;
+        }
+
+        /* dev_info (1808, 16) */
+        .tx2_3_15 {
+            left: 308px!important;
+            top: 305px!important;
+        }
+
+        /* dev_info (1814, 16) */
+        .tx2_3_16 {
+            left: 205px!important;
+            top: 254px!important;
+        }
+
+        /* dev_info (1820, 16) */
+        .tx2_3_17 {
+            left: 142px!important;
+            top: 134px!important;
+        }
+
+        /* dev_info (1826, 16) */
+        .tx2_3_18 {
+            left: 231px!important;
+            top: 320px!important;
+        }
+        /*경남*/
+
+
+        /* dev_info (2118, 15) */
+        .tx2_4_2 {
+            left: 106px!important;
+            top: 79px!important;
+        }
+
+        /* dev_info (2148, 15) */
+        .tx2_4_7 {
+            left: 149px!important;
+            top: 331px!important;
+        }
+
+        /* dev_info (2154, 15) */
+        .tx2_4_8 {
+            left: 102px!important;
+            top: 215px!important;
+        }
+
+        /* dev_info (2178, 16) */
+        .tx2_4_12 {
+            left: 286px!important;
+            top: 160px!important;
+        }
+
+        /* dev_info (2196, 16) */
+        .tx2_4_15 {
+            left: 78px!important;
+            top: 302px!important;
+        }
+
+        /* dev_info (2208, 16) */
+        .tx2_4_17 {
+            left: 58px!important;
+            top: 130px!important;
+        }
+
+        /* dev_info (2214, 16) */
+        .tx2_4_18 {
+            left: 181px!important;
+            top: 139px!important;
+        }
+        /* dev_info (2156, 15) */
+        .tx2_4_1 {
+            left: 346px!important;
+            top: 411px!important;
+        }
+
+        /* dev_info (2168, 15) */
+        .tx2_4_3 {
+            left: 237px!important;
+            top: 355px!important;
+        }
+
+        /* dev_info (2174, 15) */
+        .tx2_4_4 {
+            left: 401px!important;
+            top: 250px!important;
+        }
+
+        /* dev_info (2180, 15) */
+        .tx2_4_5 {
+            left: 103px!important;
+            top: 427px!important;
+        }
+
+        /* dev_info (2186, 15) */
+        .tx2_4_6 {
+            left: 367px!important;
+            top: 178px!important;
+        }
+
+        /* dev_info (2204, 15) */
+        .tx2_4_9 {
+            left: 463px!important;
+            top: 204px!important;
+        }
+
+        /* dev_info (2210, 16) */
+        .tx2_4_10 {
+            left: 225px!important;
+            top: 205px!important;
+        }
+
+        /* dev_info (2216, 16) */
+        .tx2_4_11 {
+            left: 180px!important;
+            top: 276px!important;
+        }
+
+        /* dev_info (2228, 16) */
+        .tx2_4_13 {
+            left: 342px!important;
+            top: 266px!important;
+        }
+
+        /* dev_info (2234, 16) */
+        .tx2_4_14 {
+            left: 265px!important;
+            top: 400px!important;
+        }
+
+        /* dev_info (2246, 16) */
+        .tx2_4_16 {
+            left: 280px!important;
+            top: 249px!important;
+        }
+        /*경북*/
+        /* dev_info (2330, 15) */
+        .tx2_5_1 {
+            left: 250px!important;
+            top: 392px!important;
+        }
+
+        /* dev_info (2336, 15) */
+        .tx2_5_2 {
+            left: 350px!important;
+            top: 400px!important;
+        }
+
+        /* dev_info (2342, 15) */
+        .tx2_5_3 {
+            left: 126px!important;
+            top: 417px!important;
+        }
+
+        /* dev_info (2348, 15) */
+        .tx2_5_4 {
+            left: 138px!important;
+            top: 297px!important;
+        }
+
+        /* dev_info (2354, 15) */
+        .tx2_5_5 {
+            left: 214px!important;
+            top: 312px!important;
+        }
+
+        /* dev_info (2360, 15) */
+        .tx2_5_6 {
+            left: 84px!important;
+            top: 333px!important;
+        }
+
+        /* dev_info (2366, 15) */
+        .tx2_5_7 {
+            left: 102px!important;
+            top: 167px!important;
+        }
+
+        /* dev_info (2372, 15) */
+        .tx2_5_8 {
+            left: 252px!important;
+            top: 107px!important;
+        }
+
+        /* dev_info (2378, 15) */
+        .tx2_5_9 {
+            left: 80px!important;
+            top: 236px!important;
+        }
+
+        /* dev_info (2384, 16) */
+        .tx2_5_10 {
+            left: 112px!important;
+            top: 375px!important;
+        }
+
+        /* dev_info (2390, 16) */
+        .tx2_5_11 {
+            left: 228px!important;
+            top: 194px!important;
+        }
+
+        /* dev_info (2396, 16) */
+        .tx2_5_12 {
+            left: 357px!important;
+            top: 217px!important;
+        }
+
+        /* dev_info (2402, 16) */
+        .tx2_5_13 {
+            left: 313px!important;
+            top: 164px!important;
+        }
+
+        /* dev_info (2408, 16) */
+        .tx2_5_14 {
+            left: 185px!important;
+            top: 121px!important;
+        }
+
+        /* dev_info (2414, 16) */
+        .tx2_5_15 {
+            left: 274px!important;
+            top: 349px!important;
+        }
+
+        /* dev_info (2420, 16) */
+        .tx2_5_16 {
+            left: 164px!important;
+            top: 177px!important;
+        }
+
+        /* dev_info (2426, 16) */
+        .tx2_5_17 {
+            left: 490px!important;
+            top: 68px!important;
+        }
+
+        /* dev_info (2432, 16) */
+        .tx2_5_18 {
+            left: 343px!important;
+            top: 99px!important;
+        }
+
+        /* dev_info (2438, 16) */
+        .tx2_5_19 {
+            left: 191px!important;
+            top: 255px!important;
+        }
+
+        /* dev_info (2444, 16) */
+        .tx2_5_20 {
+            left: 259px!important;
+            top: 428px!important;
+        }
+
+        /* dev_info (2450, 16) */
+        .tx2_5_21 {
+            left: 300px!important;
+            top: 250px!important;
+        }
+
+        /* dev_info (2456, 16) */
+        .tx2_5_22 {
+            left: 164px!important;
+            top: 352px!important;
+        }
+
+        /* dev_info (2462, 16) */
+        .tx2_5_23 {
+            left: 349px!important;
+            top: 308px!important;
+        }
+        /*광주&대구&대전*/
+        /* dev_info (2616, 15) */
+        .tx2_6_1 {
+            left: 145px!important;
+            top: 212px!important;
+        }
+
+        /* dev_info (2622, 15) */
+        .tx2_6_2 {
+            left: 279px!important;
+            top: 357px!important;
+        }
+
+        /* dev_info (2628, 15) */
+        .tx2_6_3 {
+            left: 433px!important;
+            top: 303px!important;
+        }
+
+        /* dev_info (2634, 15) */
+        .tx2_6_4 {
+            left: 362px!important;
+            top: 172px!important;
+        }
+
+        /* dev_info (2640, 15) */
+        .tx2_6_5 {
+            left: 290px!important;
+            top: 274px!important;
+        }
+
+        /* dev_info (2648, 15) */
+        .tx2_7_1 {
+            left: 311px!important;
+            top: 209px!important;
+        }
+
+        /* dev_info (2654, 15) */
+        .tx2_7_2 {
+            left: 266px!important;
+            top: 219px!important;
+        }
+
+        /* dev_info (2660, 15) */
+        .tx2_7_3 {
+            left: 238px!important;
+            top: 311px!important;
+        }
+
+        /* dev_info (2666, 15) */
+        .tx2_7_4 {
+            left: 392px!important;
+            top: 85px!important;
+        }
+
+        /* dev_info (2672, 15) */
+        .tx2_7_5 {
+            left: 304px!important;
+            top: 100px!important;
+        }
+
+        /* dev_info (2678, 15) */
+        .tx2_7_6 {
+            left: 285px!important;
+            top: 153px!important;
+        }
+
+        /* dev_info (2684, 15) */
+        .tx2_7_7 {
+            left: 370px!important;
+            top: 210px!important;
+        }
+
+        /* dev_info (2690, 15) */
+        .tx2_7_8 {
+            left: 324px!important;
+            top: 172px!important;
+        }
+
+        /* dev_info (2698, 15) */
+        .tx2_8_1 {
+            left: 325px!important;
+            top: 119px!important;
+        }
+
+        /* dev_info (2704, 15) */
+        .tx2_8_2 {
+            left: 378px!important;
+            top: 250px!important;
+        }
+
+        /* dev_info (2710, 15) */
+        .tx2_8_3 {
+            left: 200px!important;
+            top: 350px!important;
+        }
+
+        /* dev_info (2716, 15) */
+        .tx2_8_4 {
+            left: 171px!important;
+            top: 200px!important;
+        }
+
+        /* dev_info (2722, 15) */
+        .tx2_8_5 {
+            left: 280px!important;
+            top: 328px!important;
+        }
+        /*부산*/
+        /* dev_info (2837, 15) */
+        .tx2_9_1 {
+            left: 150px!important;
+            top: 280px!important;
+        }
+
+        /* dev_info (2843, 15) */
+        .tx2_9_2 {
+            left: 318px!important;
+            top: 144px!important;
+        }
+
+        /* dev_info (2849, 15) */
+        .tx2_9_3 {
+            left: 410px!important;
+            top: 115px!important;
+        }
+
+        /* dev_info (2855, 15) */
+        .tx2_9_4 {
+            left: 326px!important;
+            top: 300px!important;
+        }
+
+        /* dev_info (2861, 15) */
+        .tx2_9_5 {
+            left: 288px!important;
+            top: 298px!important;
+        }
+
+        /* dev_info (2867, 15) */
+        .tx2_9_6 {
+            left: 306px!important;
+            top: 206px!important;
+        }
+
+        /* dev_info (2873, 15) */
+        .tx2_9_7 {
+            left: 271px!important;
+            top: 260px!important;
+        }
+
+        /* dev_info (2879, 15) */
+        .tx2_9_8 {
+            left: 256px!important;
+            top: 190px!important;
+        }
+
+        /* dev_info (2885, 15) */
+        .tx2_9_9 {
+            left: 229px!important;
+            top: 258px!important;
+        }
+
+        /* dev_info (2891, 16) */
+        .tx2_9_10 {
+            left: 222px!important;
+            top: 334px!important;
+        }
+
+        /* dev_info (2897, 16) */
+        .tx2_9_11 {
+            left: 247px!important;
+            top: 315px!important;
+        }
+
+        /* dev_info (2903, 16) */
+        .tx2_9_12 {
+            left: 345px!important;
+            top: 258px!important;
+        }
+
+        /* dev_info (2909, 16) */
+        .tx2_9_13 {
+            left: 317px!important;
+            top: 238px!important;
+        }
+
+        /* dev_info (2915, 16) */
+        .tx2_9_14 {
+            left: 300px!important;
+            top: 354px!important;
+        }
+
+        /* dev_info (2921, 16) */
+        .tx2_9_15 {
+            left: 267px!important;
+            top: 321px!important;
+        }
+
+        /* dev_info (2927, 16) */
+        .tx2_9_16 {
+            left: 386px!important;
+            top: 230px!important;
+        }
+
+        /* dev_info (2935, 16) */
+        .tx2_10_1 {
+            left: 300px!important;
+            top: 250px!important;
+        }
+
+        /* dev_info (2953, 16) */
+        .tx2_11_3 {
+            left: 408px!important;
+            top: 128px!important;
+        }
+
+        /* dev_info (2959, 16) */
+        .tx2_11_4 {
+            left: 237px!important;
+            top: 179px!important;
+        }
+        /* dev_info (3036, 16) */
+        .tx2_11_1 {
+            left: 365px!important;
+            top: 242px!important;
+        }
+
+        /* dev_info (3042, 16) */
+        .tx2_11_2 {
+            left: 451px!important;
+            top: 254px!important;
+        }
+
+        /* dev_info (3060, 16) */
+        .tx2_11_5 {
+            left: 335px!important;
+            top: 183px!important;
+        }
+
+        /* dev_info (3068, 16) */
+        .tx2_12_1 {
+            left: 282px!important;
+            top: 142px!important;
+        }
+
+        /* dev_info (3074, 16) */
+        .tx2_12_2 {
+            left: 504px!important;
+            top: 276px!important;
+        }
+
+        /* dev_info (3080, 16) */
+        .tx2_12_3 {
+            left: 450px!important;
+            top: 374px!important;
+        }
+
+        /* dev_info (3086, 16) */
+        .tx2_12_4 {
+            left: 500px!important;
+            top: 383px!important;
+        }
+
+        /* dev_info (3092, 16) */
+        .tx2_12_5 {
+            left: 420px!important;
+            top: 341px!important;
+        }
+
+        /* dev_info (3098, 16) */
+        .tx2_12_6 {
+            left: 488px!important;
+            top: 330px!important;
+        }
+
+        /* dev_info (3104, 16) */
+        .tx2_12_7 {
+            left: 425px!important;
+            top: 262px!important;
+        }
+
+        /* dev_info (3110, 16) */
+        .tx2_12_8 {
+            left: 450px!important;
+            top: 401px!important;
+        }
+
+        /* dev_info (3116, 16) */
+        .tx2_12_9 {
+            left: 292px!important;
+            top: 352px!important;
+        }
+
+        /* dev_info (3122, 17) */
+        .tx2_12_10 {
+            left: 413px!important;
+            top: 365px!important;
+        }
+
+        /* dev_info (3130, 16) */
+        .tx2_13_1 {
+            left: 258px!important;
+            top: 319px!important;
+        }
+
+        /* dev_info (3136, 16) */
+        .tx2_13_2 {
+            left: 423px!important;
+            top: 326px!important;
+        }
+
+        /* dev_info (3142, 16) */
+        .tx2_13_3 {
+            left: 400px!important;
+            top: 115px!important;
+        }
+
+        /* dev_info (3148, 16) */
+        .tx2_13_4 {
+            left: 506px!important;
+            top: 182px!important;
+        }
+
+        /* dev_info (3154, 16) */
+        .tx2_13_5 {
+            left: 457px!important;
+            top: 104px!important;
+        }
+
+        /* dev_info (3160, 16) */
+        .tx2_13_6 {
+            left: 244px!important;
+            top: 198px!important;
+        }
+
+        /* dev_info (3166, 16) */
+        .tx2_13_7 {
+            left: 313px!important;
+            top: 95px!important;
+        }
+
+        /* dev_info (3172, 16) */
+        .tx2_13_8 {
+            left: 147px!important;
+            top: 264px!important;
+        }
+
+        /* dev_info (3178, 16) */
+        .tx2_13_9 {
+            left: 155px!important;
+            top: 209px!important;
+        }
+
+        /* dev_info (3184, 17) */
+        .tx2_13_10 {
+            left: 375px!important;
+            top: 257px!important;
+        }
+
+        /* dev_info (3190, 17) */
+        .tx2_13_11 {
+            left: 427px!important;
+            top: 200px!important;
+        }
+
+        /* dev_info (3196, 17) */
+        .tx2_13_12 {
+            left: 66px!important;
+            top: 270px!important;
+        }
+
+        /* dev_info (3202, 17) */
+        .tx2_13_13 {
+            left: 513px!important;
+            top: 272px!important;
+        }
+
+        /* dev_info (3208, 17) */
+        .tx2_13_14 {
+            left: 155px!important;
+            top: 105px!important;
+        }
+
+        /* dev_info (3214, 17) */
+        .tx2_13_15 {
+            left: 213px!important;
+            top: 261px!important;
+        }
+
+        /* dev_info (3220, 17) */
+        .tx2_13_16 {
+            left: 236px!important;
+            top: 425px!important;
+        }
+
+        /* dev_info (3226, 17) */
+        .tx2_13_17 {
+            left: 255px!important;
+            top: 88px!important;
+        }
+
+        /* dev_info (3232, 17) */
+        .tx2_13_18 {
+            left: 302px!important;
+            top: 307px!important;
+        }
+
+        /* dev_info (3238, 17) */
+        .tx2_13_19 {
+            left: 96px!important;
+            top: 388px!important;
+        }
+
+        /* dev_info (3244, 17) */
+        .tx2_13_20 {
+            left: 191px!important;
+            top: 149px!important;
+        }
+
+        /* dev_info (3250, 17) */
+        .tx2_13_21 {
+            left: 193px!important;
+            top: 357px!important;
+        }
+
+        /* dev_info (3256, 17) */
+        .tx2_13_22 {
+            left: 324px!important;
+            top: 193px!important;
+        }
+
+        /* dev_info (3264, 16) */
+        .tx2_14_1 {
+            left: 54px!important;
+            top: 380px!important;
+        }
+
+        /* dev_info (3270, 16) */
+        .tx2_14_2 {
+            left: 104px!important;
+            top: 132px!important;
+        }
+
+        /* dev_info (3276, 16) */
+        .tx2_14_3 {
+            left: 159px!important;
+            top: 200px!important;
+        }
+
+        /* dev_info (3282, 16) */
+        .tx2_14_4 {
+            left: 388px!important;
+            top: 380px!important;
+        }
+
+        /* dev_info (3288, 16) */
+        .tx2_14_5 {
+            left: 482px!important;
+            top: 133px!important;
+        }
+
+        /* dev_info (3294, 16) */
+        .tx2_14_6 {
+            left: 73px!important;
+            top: 260px!important;
+        }
+
+        /* dev_info (3300, 16) */
+        .tx2_14_7 {
+            left: 250px!important;
+            top: 389px!important;
+        }
+
+        /* dev_info (3306, 16) */
+        .tx2_14_8 {
+            left: 289px!important;
+            top: 141px!important;
+        }
+
+        /* dev_info (3312, 16) */
+        .tx2_14_9 {
+            left: 198px!important;
+            top: 94px!important;
+        }
+
+        /* dev_info (3318, 17) */
+        .tx2_14_10 {
+            left: 290px!important;
+            top: 300px!important;
+        }
+
+        /* dev_info (3324, 17) */
+        .tx2_14_11 {
+            left: 410px!important;
+            top: 245px!important;
+        }
+
+        /* dev_info (3330, 17) */
+        .tx2_14_12 {
+            left: 231px!important;
+            top: 180px!important;
+        }
+
+        /* dev_info (3336, 17) */
+        .tx2_14_13 {
+            left: 150px!important;
+            top: 300px!important;
+        }
+
+        /* dev_info (3342, 17) */
+        .tx2_14_14 {
+            left: 366px!important;
+            top: 182px!important;
+        }
+
+        /* dev_info (3364, 16) */
+        .tx2_16_1 {
+            left: 408px!important;
+            top: 315px!important;
+        }
+
+        /* dev_info (3370, 16) */
+        .tx2_16_2 {
+            left: 349px!important;
+            top: 238px!important;
+        }
+
+        /* dev_info (3376, 16) */
+        .tx2_16_3 {
+            left: 471px!important;
+            top: 380px!important;
+        }
+
+        /* dev_info (3382, 16) */
+        .tx2_16_4 {
+            left: 373px!important;
+            top: 363px!important;
+        }
+
+        /* dev_info (3388, 16) */
+        .tx2_16_5 {
+            left: 200px!important;
+            top: 83px!important;
+        }
+
+        /* dev_info (3394, 16) */
+        .tx2_16_6 {
+            left: 184px!important;
+            top: 296px!important;
+        }
+
+        /* dev_info (3400, 16) */
+        .tx2_16_7 {
+            left: 263px!important;
+            top: 346px!important;
+        }
+
+        /* dev_info (3406, 16) */
+        .tx2_16_8 {
+            left: 128px!important;
+            top: 136px!important;
+        }
+
+        /* dev_info (3412, 16) */
+        .tx2_16_9 {
+            left: 222px!important;
+            top: 399px!important;
+        }
+
+        /* dev_info (3418, 17) */
+        .tx2_16_10 {
+            left: 300px!important;
+            top: 112px!important;
+        }
+
+        /* dev_info (3424, 17) */
+        .tx2_16_11 {
+            left: 242px!important;
+            top: 165px!important;
+        }
+
+        /* dev_info (3430, 17) */
+        .tx2_16_12 {
+            left: 377px!important;
+            top: 125px!important;
+        }
+
+        /* dev_info (3436, 17) */
+        .tx2_16_13 {
+            left: 263px!important;
+            top: 263px!important;
+        }
+
+        /* dev_info (3442, 17) */
+        .tx2_16_14 {
+            left: 56px!important;
+            top: 134px!important;
+        }
+
+        /* dev_info (3448, 17) */
+        .tx2_16_15 {
+            left: 175px!important;
+            top: 217px!important;
+        }
+
+        /* dev_info (3456, 16) */
+        .tx2_17_1 {
+            left: 230px!important;
+            top: 182px!important;
+        }
+
+        /* dev_info (3462, 16) */
+        .tx2_17_2 {
+            left: 422px!important;
+            top: 104px!important;
+        }
+
+        /* dev_info (3468, 16) */
+        .tx2_17_3 {
+            left: 200px!important;
+            top: 285px!important;
+        }
+
+        /* dev_info (3474, 16) */
+        .tx2_17_4 {
+            left: 240px!important;
+            top: 400px!important;
+        }
+
+        /* dev_info (3480, 16) */
+        .tx2_17_5 {
+            left: 174px!important;
+            top: 350px!important;
+        }
+
+        /* dev_info (3486, 16) */
+        .tx2_17_6 {
+            left: 130px!important;
+            top: 122px!important;
+        }
+
+        /* dev_info (3492, 16) */
+        .tx2_17_7 {
+            left: 346px!important;
+            top: 90px!important;
+        }
+
+        /* dev_info (3498, 16) */
+        .tx2_17_8 {
+            left: 140px!important;
+            top: 183px!important;
+        }
+
+        /* dev_info (3504, 16) */
+        .tx2_17_9 {
+            left: 82px!important;
+            top: 158px!important;
+        }
+
+        /* dev_info (3511, 17) */
+        .tx2_17_10 {
+            left: 95px!important;
+            top: 245px!important;
+        }
+
+        /* dev_info (3517, 17) */
+        .tx2_17_11 {
+            left: 250px!important;
+            top: 100px!important;
+        }
+        /* dev_info (3818, 16) */
+        .tx2_15_1 {
+            left: 310px!important;
+            top: 282px!important;
+        }
+
+        /* dev_info (3824, 16) */
+        .tx2_15_2 {
+            left: 247px!important;
+            top: 183px!important;
         }
 
 
 
+        /*-----------------------------IE용 수정----------------------------------------*/
     }
-
 
     /* CSS Document */
 
@@ -38,7 +1422,6 @@
         text-decoration: none
     }
 
-
     a:hover {
         text-decoration: none
     }
@@ -48,10 +1431,11 @@
         border: 0;
 
     }
+
     .mappedcity img {
         min-width: 365px;
-        width:100%;
-        text-align:center;
+        width: 100%;
+        text-align: center;
     }
 
     /* Space */
@@ -67,8 +1451,8 @@
 
     /*Content*/
     .content1 {
-        top:0;
-        bottom:0;
+        top: 0;
+        bottom: 0;
         display: flex;
         display: -ms-flexbox;
         justify-content: center;
@@ -251,14 +1635,13 @@
     /* 전국시도 */
 
     .mappedcity {
-        left:6vw;
+        left: 6vw;
         position: absolute;
         width: auto;
-        font-size:1vw;
+        font-size: 1vw;
         z-index: 11;
         text-align: center;
     }
-
 
     .mappedcity li {
         position: absolute;
@@ -275,7 +1658,7 @@
         color: #575757;
     }
 
-    .mappedcity li a:hover{
+    .mappedcity li a:hover {
         color: #1857a6;
         font-size: 0.8vw;
 
@@ -1707,7 +3090,7 @@
 
 </style>
 
-<div class="content1" >
+<div class="content1">
     <div class="mappedcity" style="display:block;" id="1">
         <img src="/map/Seoul.png" alt="서울특별시"/>
         <ul>
@@ -1825,7 +3208,8 @@
                                     title="인천광역시 연수구">연수구</a></li>
             <li class="tx2_12_9"><a href="javascript:dev_district('인천광역시','옹진군');" alt="인천광역시 옹진군"
                                     title="인천광역시 옹진군">옹진군</a></li>
-            <li class="tx2_12_10"><a href="javascript:dev_district('인천광역시','중구');" alt="인천광역시 중구" title="인천광역시 중구">중구</a>
+            <li class="tx2_12_10"><a href="javascript:dev_district('인천광역시','중구');" alt="인천광역시 중구"
+                                     title="인천광역시 중구">중구</a>
             </li>
         </ul>
     </div>
@@ -2244,14 +3628,12 @@
             </li>
         </ul>
     </div>
-    <div class="mappedcity" style="display: none;">
+    <div class="mappedcity" style="display: none;" id="15">
         <img src="/map/Jeju.png" alt="제주특별시">
         <ul>
-            <li class="tx2_15_1"><a href="javascript:dev_district('제주특별자치도','서귀포시');" alt="제주특별시 서귀포시"
-                                    title="제주특별시 서귀포시">서귀포시</a>
+            <li class="tx2_15_1"><a href="javascript:dev_district('제주특별자치도','서귀포시');" alt="제주특별시 서귀포시" title="제주특별시 서귀포시">서귀포시</a>
             </li>
-            <li class="tx2_15_2"><a href="javascript:dev_district('제주특별시자치도','제주시');" alt="제주특별시 제주특별시"
-                                    title="제주특별시 제주시">제주시</a></li>
+            <li class="tx2_15_2"><a href="javascript:dev_district('제주특별시자치도','제주시');" alt="제주특별시 제주특별시" title="제주특별시 제주시">제주시</a></li>
         </ul>
     </div>
 </div>

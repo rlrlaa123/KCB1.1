@@ -43,7 +43,7 @@
         padding: 0;
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 4fr 0 4fr;
+        -ms-grid-columns: 6fr 0 4fr;
         grid-template-columns: 60% 40%;
         text-align: center;
         height: 62.5vh;
