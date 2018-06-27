@@ -35,7 +35,7 @@
         border: none;
         border-radius: 0.4vw;
         float: right;
-        margin: 1vw;
+        margin: 4vw 1vw 1vw 1vw;
         cursor: pointer;
     }
 
@@ -43,7 +43,7 @@
         padding: 0;
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 6fr 0 4fr;
+        -ms-grid-columns: 4fr 0 4fr;
         grid-template-columns: 60% 40%;
         text-align: center;
         height: 62.5vh;
@@ -143,12 +143,11 @@
         cursor: pointer;
         padding: 0;
         height:100%;
-        /*display: -ms-grid;*/
-        /*display: grid;*/
-        /*-ms-grid-columns: 1fr 1vw 1fr;*/
-        /*grid-template-columns: 50% 50%;*/
+        text-align:-moz-center;
         text-align: center;
         max-width: 100%;
+        justify-content: center;
+        width:100%;
         margin: 0;
         overflow-y: auto;
 

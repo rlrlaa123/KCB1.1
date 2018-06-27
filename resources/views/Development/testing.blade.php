@@ -23,6 +23,7 @@
         color: #666;
         text-decoration: none
     }
+    
 
     a:hover {
         text-decoration: none
@@ -30,7 +31,13 @@
 
     /* Basic */
     img {
-        border: 0
+        border: 0;
+
+    }
+    .mappedcity img{
+        min-width: 365px;
+        width:100%;
+        text-align:center;
     }
 
     /* Space */
@@ -47,9 +54,11 @@
     /*Content*/
     .content1 {
         display: flex;
+        display: -ms-flexbox;
         justify-content: center;
+        -ms-flex-pack: center;
         position: relative;
-        width: auto;
+        width: 100%;
         height: 100%;
 
     }
@@ -70,7 +79,7 @@
     .map_country li {
         position: absolute;
         height: 2px;
-        font-size: 11px;
+        font-size: 0.6vw;
         letter-spacing: -1px;
         color: #333;
     }
@@ -81,14 +90,14 @@
 
     .map_country li a:hover {
         color: #333;
-        font-size: 11px;
+        font-size: 0.6vw;
         text-decoration: none;
         font-weight: bold
     }
 
     .map_country li a.on {
         color: #333;
-        font-size: 11px;
+        font-size: 0.6vw;
         text-decoration: none;
         font-weight: bold
     }
@@ -221,6 +230,7 @@
     /* 전국시도 */
 
     .mappedcity {
+        left:5vw;
         position: absolute;
         width: auto;
         height: 115px;
@@ -229,9 +239,10 @@
         text-align: center;
     }
 
+
     .mappedcity li {
         position: absolute;
-        font-size: 1vw;
+        font-size: 0.6vw;
         letter-spacing: -1px;
         font-weight: normal;
         color: #575757;
@@ -246,14 +257,14 @@
 
     .mappedcity li a:hover {
         color: #1857a6;
-        font-size: 12px;
+        font-size: 0.6vw;
         text-decoration: none;
         font-weight: bold;
     }
 
     .mappedcity li a.on {
         color: #1857a6;
-        font-size: 12px;
+        font-size: 0.6vw;
         text-decoration: none;
         font-weight: bold;
     }
