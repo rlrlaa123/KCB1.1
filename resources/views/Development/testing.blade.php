@@ -1,5 +1,19 @@
 <style>
 
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+        .mappedcity {
+            top:13%;
+
+        }
+        .mappedcity,.mappedcity li a, .mappedcity li a:hover, .mappedcity li a.on, mappedcity li {
+            font-size:0.6vw!important;
+
+        }
+
+
+
+    }
+
 
     /* CSS Document */
 
@@ -23,7 +37,7 @@
         color: #666;
         text-decoration: none
     }
-    
+
 
     a:hover {
         text-decoration: none
@@ -34,7 +48,7 @@
         border: 0;
 
     }
-    .mappedcity img{
+    .mappedcity img {
         min-width: 365px;
         width:100%;
         text-align:center;
@@ -53,13 +67,17 @@
 
     /*Content*/
     .content1 {
+        top:0;
+        bottom:0;
         display: flex;
         display: -ms-flexbox;
         justify-content: center;
         -ms-flex-pack: center;
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 90%;
+        align-items: center;
+        -webkit-align-items: center;
 
     }
 
@@ -78,8 +96,9 @@
 
     .map_country li {
         position: absolute;
-        height: 2px;
-        font-size: 0.6vw;
+        height: 1px;
+        font-size: 0.8vw;
+
         letter-spacing: -1px;
         color: #333;
     }
@@ -90,14 +109,16 @@
 
     .map_country li a:hover {
         color: #333;
-        font-size: 0.6vw;
+        font-size: 0.8vw;
+
         text-decoration: none;
         font-weight: bold
     }
 
     .map_country li a.on {
         color: #333;
-        font-size: 0.6vw;
+        font-size: 0.8vw;
+
         text-decoration: none;
         font-weight: bold
     }
@@ -230,10 +251,9 @@
     /* 전국시도 */
 
     .mappedcity {
-        left:5vw;
+        left:6vw;
         position: absolute;
         width: auto;
-        height: 115px;
         font-size:1vw;
         z-index: 11;
         text-align: center;
@@ -242,11 +262,11 @@
 
     .mappedcity li {
         position: absolute;
-        font-size: 0.6vw;
+        font-size: 0.8vw;
         letter-spacing: -1px;
         font-weight: normal;
         color: #575757;
-        width: 48px;
+        width: 58px;
         height: 15px;
 
     }
@@ -255,16 +275,18 @@
         color: #575757;
     }
 
-    .mappedcity li a:hover {
+    .mappedcity li a:hover{
         color: #1857a6;
-        font-size: 0.6vw;
+        font-size: 0.8vw;
+
         text-decoration: none;
         font-weight: bold;
     }
 
     .mappedcity li a.on {
         color: #1857a6;
-        font-size: 0.6vw;
+        font-size: 0.8vw;
+
         text-decoration: none;
         font-weight: bold;
     }
@@ -1684,6 +1706,7 @@
 
 
 </style>
+
 <div class="content1" >
     <div class="mappedcity" style="display:block;" id="1">
         <img src="/map/Seoul.png" alt="서울특별시"/>
@@ -2134,7 +2157,7 @@
             <li class="tx2_9_6"><a href="javascript:dev_district('부산광역시','동래구');" alt="부산광역시 동래구"
                                    title="부산광역시 동래구">동래구</a></li>
             <li class="tx2_9_7"><a href="javascript:dev_district('부산광역시','부산진구');" alt="부산광역시 부산광역시진구"
-                                   title="부산광역시 부산광역시진구">부산광역시진구</a>
+                                   title="부산광역시 부산광역시진구">진구</a>
             </li>
             <li class="tx2_9_8"><a href="javascript:dev_district('부산광역시','북구');" alt="부산광역시 북구" title="부산광역시 북구">북구</a>
             </li>
