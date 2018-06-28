@@ -12,6 +12,7 @@
             padding: 5vw;
             background-image: url('/img/navbarbackgroundpicture.png');
             -webkit-background-size: 100%;
+            background-size:100%;
             background-repeat: no-repeat;
         }
 

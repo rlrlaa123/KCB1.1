@@ -168,8 +168,6 @@ return [
          * Package Service Providers...
          */
         'Intervention\Image\ImageServiceProvider',
-
-        'Laracasts\Utilities\JavaScript\JavaScriptServiceProvider',
         /*
          * Application Service Providers...
          */
