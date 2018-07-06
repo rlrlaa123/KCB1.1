@@ -10,7 +10,7 @@ class AdminLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:admin', ['except' => ['logout'] ]);
+        $this->middleware('guest:admin', ['except' => ['logout']]);
     }
 
     public function showLoginForm()
@@ -28,7 +28,7 @@ class AdminLoginController extends Controller
 
         // if(Auth::guard('admin')->attempt($credentials, $remember));
         // Attempt the log the user in
-        if(Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
             // If successful, then redirect to their intended location
             return redirect('/admin');
         };
@@ -39,7 +39,7 @@ class AdminLoginController extends Controller
     /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
@@ -48,7 +48,7 @@ class AdminLoginController extends Controller
 
         $request->session()->flush();
         $request->session()->regenerate();
-        return redirect()->guest(route( 'admin.login' ));
+        return redirect()->guest(route('admin.login'));
 
     }
 }

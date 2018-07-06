@@ -3416,7 +3416,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="14">
-        <img src="/map/Jeonbuk.png" alt="전라북도">
+        <img src="/map/JeonBuk.png" alt="전라북도">
         <ul>
             <li class="tx2_14_1"><a href="javascript:dev_district('전라북도','고창군');" alt="전라북도 고창군"
                                     title="전라북도 고창군">고창군</a></li>
