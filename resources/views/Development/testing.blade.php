@@ -17,7 +17,7 @@
         .mappedcity img{
             min-width:30vw!important;
         }
-         img{
+         .mappedcity img{
             width:16vw!important;
             max-height:23vw;
         }
