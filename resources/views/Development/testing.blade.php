@@ -13,7 +13,7 @@
         }
 
     }
-    @media only screen and (max-width : 2400px) {
+    @media only screen and (max-width : 2560px) {
         .mappedcity img{
             min-width:30vw!important;
         }
