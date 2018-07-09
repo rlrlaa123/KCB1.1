@@ -8,9 +8,21 @@
         .content1>.mappedcity>img{
             overflow-y: scroll!important;
         }
-
+        .content1>.mappedcity>img{
+            overflow-y: scroll!important;
+        }
 
     }
+    @media only screen and (max-width : 2400px) {
+        .mappedcity img{
+            min-width:30vw!important;
+        }
+         img{
+            width:16vw!important;
+            max-height:23vw;
+        }
+    }
+
 
     /* CSS Document */
 
