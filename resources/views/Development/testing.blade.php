@@ -1708,7 +1708,7 @@
 
 <div class="content1">
     <div class="mappedcity" style="display:block;" id="1">
-        <img src="/map/Seoul.png" alt="서울특별시"/>
+        <img src="/map/Seoul1.png" alt="서울특별시"/>
         <ul>
             <li class="tx2_1_1"><a href="javascript:dev_district('서울특별시','강남구');" class="" alt="서울특별시 강남구"
                                    title="서울특별시 강남구">강남구</a></li>
@@ -1763,7 +1763,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display:none;" id="3">
-        <img src="/map/Gangreung.png" alt="강원도"/>
+        <img src="/map/Gangreung1.png" alt="강원도"/>
         <ul>
             <li class="tx2_3_1"><a href="javascript:dev_district('강원도','강릉시');" alt="강원도 강릉시"
                                    title="강원도 강릉시">강릉시</a></li>
@@ -1804,7 +1804,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display:none;" id="12">
-        <img src="/map/Incheon.png" alt="인천광역시"/>
+        <img src="/map/Incheon1.png" alt="인천광역시"/>
         <ul>
             <li class="tx2_12_1"><a href="javascript:dev_district('인천광역시','강화군');" alt="인천광역시 강화군"
                                     title="인천광역시 강화군">강화군</a></li>
@@ -1830,7 +1830,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="2">
-        <img src="/map/GyeongGi.png" alt="경기도">
+        <img src="/map/GyeongGi1.png" alt="경기도">
         <ul>
             <li class="tx2_2_1"><a href="javascript:dev_district('경기도','가평군');" alt="경기도 가평" title="경기도 가평">가평</a>
             </li>
@@ -1897,7 +1897,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="17">
-        <img src="/map/ChoongBuk.png" alt="충청북도">
+        <img src="/map/ChoongBuk1.png" alt="충청북도">
         <ul>
             <li class="tx2_17_1"><a href="javascript:dev_district('충청북도','괴산군');" alt="충청북도 괴산군"
                                     title="충청북도 괴산군">괴산군</a></li>
@@ -1924,7 +1924,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="16">
-        <img src="/map/ChoongNam.png" alt="충청남도">
+        <img src="/map/ChoongNam1.png" alt="충청남도">
         <ul>
             <li class="tx2_16_1"><a href="javascript:dev_district('충청남도','계룡시');" alt="충청남도 계룡시"
                                     title="충청남도 계룡시">계룡시</a></li>
@@ -1959,14 +1959,14 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="10">
-        <img src="/map/Sejong.png" alt="세종">
+        <img src="/map/Sejong1.png" alt="세종">
         <ul>
             <li class="tx2_10_1"><a href="javascript:dev_district('세종특별자치시','세종시');" alt="세종 세종특별자치시"
                                     title="세종특별자치시 세종시">세종시</a></li>
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="8">
-        <img src="/map/Daejeon.png" alt="대전">
+        <img src="/map/Daejeon1.png" alt="대전">
         <ul>
             <li class="tx2_8_1"><a href="javascript:dev_district('대전광역시','대덕구');" alt="대전 대덕구"
                                    title="대전 대덕구">대덕구</a></li>
@@ -1981,7 +1981,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="5">
-        <img src="/map/GyeongBuk.png" alt="경상북도">
+        <img src="/map/GyeongBuk1.png" alt="경상북도">
         <ul>
             <li class="tx2_5_1"><a href="javascript:dev_district('경상북도','경산시');" alt="경상북도 경산시"
                                    title="경상북도 경산시">경산시</a></li>
@@ -2032,7 +2032,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="14">
-        <img src="/map/JeonBuk.png" alt="전라북도">
+        <img src="/map/JeonBuk1.png" alt="전라북도">
         <ul>
             <li class="tx2_14_1"><a href="javascript:dev_district('전라북도','고창군');" alt="전라북도 고창군"
                                     title="전라북도 고창군">고창군</a></li>
@@ -2065,7 +2065,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none; " id="7">
-        <img src="/map/Daegu.png" alt="대구">
+        <img src="/map/Daegu1.png" alt="대구">
         <ul>
             <li class="tx2_7_1"><a href="javascript:dev_district('대구광역시','남구');" alt="대구광역시 남구" title="대구광역시 남구">남구</a>
             </li>
@@ -2086,7 +2086,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="11">
-        <img src="/map/Ulsan.png" alt="울산">
+        <img src="/map/Ulsan1.png" alt="울산">
         <ul>
             <li class="tx2_11_1"><a href="javascript:dev_district('울산광역시','남구');" alt="울산 남구" title="울산 남구">남구</a>
             </li>
@@ -2101,7 +2101,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="4">
-        <img src="/map/GyeongNam.png" alt="경상남도">
+        <img src="/map/GyeongNam1.png" alt="경상남도">
         <ul>
             <li class="tx2_4_1"><a href="javascript:dev_district('경상남도','거제시');" alt="경상남도 거제시"
                                    title="경상남도 거제시">거제시</a></li>
@@ -2142,7 +2142,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="9">
-        <img src="/map/Busan.png" alt="부산광역시">
+        <img src="/map/Busan1.png" alt="부산광역시">
         <ul>
             <li class="tx2_9_1"><a href="javascript:dev_district('부산광역시','강서구');" alt="부산광역시 강서구"
                                    title="부산광역시 강서구">강서구</a></li>
@@ -2181,7 +2181,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display:none;" id="13">
-        <img src="/map/JeonNam.png" alt="전라남도">
+        <img src="/map/JeonNam1.png" alt="전라남도">
         <ul>
             <li class="tx2_13_1"><a href="javascript:dev_district('전라남도','강진군');" alt="전라남도 강진군"
                                     title="전라남도 강진군">강진군</a></li>
@@ -2230,7 +2230,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="6">
-        <img src="/map/Gwangju.png" alt="광주광역시">
+        <img src="/map/Gwangju1.png" alt="광주광역시">
         <ul>
             <li class="tx2_6_1"><a href="javascript:dev_district('광주광역시','광산구');" alt="광주광역시 광산구"
                                    title="광주광역시 광산구">광산구</a></li>
@@ -2245,7 +2245,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="15">
-        <img src="/map/Jeju.png" alt="제주특별시">
+        <img src="/map/Jeju1.png" alt="제주특별시">
         <ul>
             <li class="tx2_15_1"><a href="javascript:dev_district('제주특별자치도','서귀포시');" alt="제주특별시 서귀포시"
                                     title="제주특별시 서귀포시">서귀포시</a>
