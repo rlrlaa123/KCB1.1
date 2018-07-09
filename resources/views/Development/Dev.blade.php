@@ -1,5 +1,12 @@
 @extends('layouts.app')
 <style>
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+
+        .location_class_child{
+            height:90%!important;
+        }
+
+    }
     .letsusegrid {
         display: -ms-grid;
         display: grid;

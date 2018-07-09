@@ -1,5 +1,16 @@
 <style>
 
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+        .content1 {
+            height: 12% !important;
+
+        }
+        .content1>.mappedcity>img{
+            overflow-y: scroll!important;
+        }
+        
+
+    }
 
     /* CSS Document */
 
@@ -35,8 +46,10 @@
     }
 
     .mappedcity img {
-        min-width: 365px;
-        width: 140%;
+        min-width: 400px;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
         text-align: center;
     }
 
@@ -83,7 +96,7 @@
     .map_country li {
         position: absolute;
         height: 1px;
-        font-size: 0.8vw;
+        font-size: 0.7vw;
 
         letter-spacing: -1px;
         color: #333;
@@ -278,700 +291,700 @@
 
     /* 서울특별시 */
     .tx2_1_1 {
-        left: 227px;
-        top: 206px;
+        left: 61%;
+        top: 70%;
     }
 
     /* 강남구 */
     .tx2_1_2 {
-        left: 304px;
-        top: 158px;
+        left: 83%;
+        top: 52%;
     }
 
     /* 강동구 */
     .tx2_1_3 {
-        left: 180px;
-        top: 78px;
+        left: 49%;
+        top: 23%;
     }
 
     /* 강북구 */
     .tx2_1_4 {
-        left: 31px;
-        top: 147px;
+        left: 6%;
+        top: 49%;
     }
 
     /* 강서구*/
     .tx2_1_5 {
-        left: 137px;
-        top: 235px;
+        left: 35%;
+        top: 82%;
     }
 
     /* 관악구 */
     .tx2_1_6 {
-        left: 249px;
-        top: 160px;
+        left: 67%;
+        top: 53%;
     }
 
     /* 광진구 */
     .tx2_1_7 {
-        left: 61px;
-        top: 207px;
+        left: 14%;
+        top: 71%;
     }
 
     /* 구로구 */
     .tx2_1_8 {
-        left: 93px;
-        top: 238px;
+        left: 24%;
+        top: 86%;
     }
 
     /* 금천구 */
     .tx2_1_9 {
-        left: 233px;
-        top: 72px;
+        left: 64%;
+        top: 22%;
     }
 
     /* 노원구 */
     .tx2_1_10 {
-        left: 201px;
-        top: 48px;
+        left: 54%;
+        top: 15%;
     }
 
     /* 도봉구 */
     .tx2_1_11 {
-        left: 217px;
-        top: 131px;
+        left: 58%;
+        top: 43%
     }
 
     /* 동대문구 */
     .tx2_1_12 {
-        left: 132px;
-        top: 198px;
+        left: 35%;
+        top: 68%;
     }
 
     /* 동작구 */
     .tx2_1_13 {
-        left: 102px;
-        top: 152px;
+        left: 26%;
+        top: 51%;
     }
 
     /* 마포구 */
     .tx2_1_14 {
-        left: 124px;
-        top: 133px;
+        left: 31%;
+        top: 44%;
     }
 
     /* 서대문구 */
     .tx2_1_15 {
-        left: 190px;
-        top: 226px;
+        left: 51%;
+        top: 79%;
     }
 
     /* 서초구 */
     .tx2_1_16 {
-        left: 208px;
-        top: 156px;
+        left: 56%;
+        top: 51.5%;
     }
 
     /* 성동구 */
     .tx2_1_17 {
-        left: 192px;
-        top: 111px;
+        left: 50%;
+        top: 35%;
     }
 
     /* 성북구 */
     .tx2_1_18 {
-        left: 274px;
-        top: 192px;
+        left: 74%;
+        top: 67%;
     }
 
     /* 송파구 */
     .tx2_1_19 {
-        left: 49px;
-        top: 181px;
+        left: 13%;
+        top: 61%;
     }
 
     /* 양천구 */
     .tx2_1_20 {
-        left: 96px;
-        top: 183px;
+        left: 24%;
+        top: 64%;
     }
 
     /* 영등포구 */
     .tx2_1_21 {
-        left: 161px;
-        top: 171px;
+        left: 43%;
+        top: 57%;
     }
 
     /* 용산구 */
     .tx2_1_22 {
-        left: 116px;
-        top: 98px;
+        left: 30%;
+        top: 31%;
     }
 
     /* 은평구 */
     .tx2_1_23 {
-        left: 150px;
-        top: 116px;
+        left: 41%;
+        top: 38%;
     }
 
     /* 종로구 */
     .tx2_1_24 {
-        left: 171px;
-        top: 150px;
+        left: 46%;
+        top: 49%;
     }
 
     /* 중구 */
     .tx2_1_25 {
-        left: 249px;
-        top: 110px;
+        left: 67%;
+        top: 37%;
     }
 
     /* 중랑구 */
 
     /* 경기도 */
     .tx2_2_1 {
-        left: 209px;
-        top: 94px;
+        left: 63%;
+        top: 31%;
     }
 
     /* 가평 */
     .tx2_2_2 {
-        left: 107px;
-        top: 131px;
+        left: 23%;
+        top: 44%;
     }
 
     /* 고양 */
     .tx2_2_3 {
-        left: 136px;
-        top: 173px;
+        left: 33%;
+        top: 59%;
     }
 
     /* 과천 */
     .tx2_2_4 {
-        left: 113px;
-        top: 169px;
+        left: 24%;
+        top: 59%;
     }
 
     /* 광명*/
     .tx2_2_5 {
-        left: 184px;
-        top: 186px;
+        left: 53%;
+        top: 61%;
     }
 
-    /* 광주광역시 */
+    /* 광주시 */
     .tx2_2_6 {
-        left: 153px;
-        top: 142px;
+        left: 43%;
+        top: 47%;
     }
 
     /* 구리 */
     .tx2_2_7 {
-        left: 119px;
-        top: 200px;
+        left: 28%;
+        top: 66%;
     }
 
     /* 군포 */
     .tx2_2_8 {
-        left: 65px;
-        top: 129px;
+        left: 6%;
+        top: 42%;
     }
 
     /* 김포 */
     .tx2_2_9 {
-        left: 177px;
-        top: 129px;
+        left: 51%;
+        top: 43%;
     }
 
     /* 남양주 */
     .tx2_2_10 {
-        left: 148px;
-        top: 76px;
+        left: 39%;
+        top: 25%;
     }
 
     /* 동두천 */
     .tx2_2_11 {
-        left: 91px;
-        top: 163px;
+        left: 18%;
+        top: 55%;
     }
 
     /* 부천 */
     .tx2_2_12 {
-        left: 155px;
-        top: 185px;
+        left: 41%;
+        top: 61%;
     }
 
     /* 성남 */
     .tx2_2_13 {
-        left: 133px;
-        top: 216px;
+        left: 33.2%;
+        top: 71%;
     }
 
     /* 수원 */
     .tx2_2_14 {
-        left: 90px;
-        top: 187px;
+        left: 18%;
+        top: 63%;
     }
 
     /* 시흥 */
     .tx2_2_15 {
-        left: 94px;
-        top: 208px;
+        left: 22%;
+        top: 68%;
     }
 
     /* 안산 */
     .tx2_2_16 {
-        left: 185px;
-        top: 267px;
+        left: 52%;
+        top: 88%;
     }
 
     /* 안성 */
     .tx2_2_17 {
-        left: 119px;
-        top: 185px;
+        left: 28%;
+        top: 62%;
     }
 
     /* 안양 */
     .tx2_2_18 {
-        left: 140px;
-        top: 96px;
+        left: 35%;
+        top: 32%;
     }
 
     /* 양주 */
     .tx2_2_19 {
-        left: 232px;
-        top: 163px;
+        left: 74%;
+        top: 54%;
     }
 
     /* 양평 */
     .tx2_2_20 {
-        left: 246px;
-        top: 212px;
+        left: 78%;
+        top: 69%;
     }
 
     /* 여주 */
     .tx2_2_21 {
-        left: 141px;
-        top: 38px;
+        left: 37%;
+        top: 12%;
     }
 
     /* 연천 */
     .tx2_2_22 {
-        left: 141px;
-        top: 240px;
+        left: 36%;
+        top: 78%;
     }
 
     /* 오산 */
     .tx2_2_23 {
-        left: 176px;
-        top: 232px;
+        left: 50%;
+        top: 75%;
     }
 
     /* 용인 */
     .tx2_2_24 {
-        left: 139px;
-        top: 196px;
+        left: 33%;
+        top: 64%;
     }
 
     /* 의왕 */
     .tx2_2_25 {
-        left: 148px;
-        top: 117px;
+        left: 38%;
+        top: 39%;
     }
 
     /* 의정부 */
     .tx2_2_26 {
-        left: 211px;
-        top: 227px;
+        left: 64%;
+        top: 74%;
     }
 
     /* 이천 */
     .tx2_2_27 {
-        left: 104px;
-        top: 93px;
+        left: 21%;
+        top: 33%;
     }
 
     /* 파주 */
     .tx2_2_28 {
-        left: 132px;
-        top: 273px;
+        left: 32%;
+        top: 90%;
     }
 
     /* 평택 */
     .tx2_2_29 {
-        left: 183px;
-        top: 55px;
+        left: 51%;
+        top: 22%;
     }
 
     /* 포천 */
     .tx2_2_30 {
-        left: 167px;
-        top: 162px;
+        left: 48%;
+        top: 53%;
     }
 
     /* 하남 */
     .tx2_2_31 {
-        left: 111px;
-        top: 233px;
+        left: 26%;
+        top: 79%;
     }
 
     /* 화성 */
 
     /* 강원도 */
     .tx2_3_1 {
-        left: 365px;
-        top: 235px;
+        left: 69%;
+        top: 54%;
     }
 
     /* 강릉 */
     .tx2_3_2 {
-        left: 261px;
-        top: 62px;
+        left: 49%;
+        top: 14%;
     }
 
     /* 고성 */
     .tx2_3_3 {
-        left: 411px;
-        top: 296px;
+        left: 80%;
+        top: 68%;
     }
 
     /* 동해 */
     .tx2_3_4 {
-        left: 431px;
-        top: 357px;
+        left: 83%;
+        top: 81%;
     }
 
     /* 삼척*/
     .tx2_3_5 {
-        left: 295px;
-        top: 134px;
+        left: 57%;
+        top: 31%;
     }
 
     /* 속초 */
     .tx2_3_6 {
-        left: 170px;
-        top: 106px;
+        left: 32%;
+        top: 23%;
     }
 
     /* 양구 */
     .tx2_3_7 {
-        left: 313px;
-        top: 171px;
+        left: 60%;
+        top: 39%;;
     }
 
     /* 양양 */
     .tx2_3_8 {
-        left: 274px;
-        top: 372px;
+        left: 54%;
+        top: 87%;
     }
 
     /* 영월 */
     .tx2_3_9 {
-        left: 144px;
-        top: 344px;
+        left: 27%;
+        top: 79%;
     }
 
     /* 원주 */
     .tx2_3_10 {
-        left: 232px;
-        top: 142px;
+        left: 44%;
+        top: 32%;
     }
 
     /* 인제 */
     .tx2_3_11 {
-        left: 334px;
-        top: 331px;
+        left: 63%;
+        top: 76%;
     }
 
     /* 정선 */
     .tx2_3_12 {
-        left: 38px;
-        top: 91px;
+        left: 4%;
+        top: 20%;
     }
 
     /* 철원 */
     .tx2_3_13 {
-        left: 112px;
-        top: 180px;
+        left: 21%;
+        top: 41%;
     }
 
     /* 춘천 */
     .tx2_3_14 {
-        left: 393px;
-        top: 392px;
+        left: 76%;
+        top: 91%;
     }
 
     /* 태백 */
     .tx2_3_15 {
-        left: 273px;
-        top: 278px;
+        left: 52%;
+        top: 64%;
     }
 
     /* 평창 */
     .tx2_3_16 {
-        left: 178px;
-        top: 222px;
+        left: 35%;
+        top: 51%;
     }
 
     /* 홍천 */
     .tx2_3_17 {
-        left: 99px;
-        top: 113px;
+        left: 18%;
+        top: 26%;
     }
 
     /* 화천 */
     .tx2_3_18 {
-        left: 192px;
-        top: 284px;
+        left: 36%;
+        top: 65%;
     }
 
     /* 횡성 */
 
     /* 경상남도 */
     .tx2_4_1 {
-        left: 204px;
-        top: 251px;
+        left: 58%;
+        top: 84%;
     }
 
     /* 거제 */
     .tx2_4_2 {
-        left: 63px;
-        top: 46px;
+        left: 12%;
+        top: 12%;
     }
 
     /* 거창 */
     .tx2_4_3 {
-        left: 134px;
-        top: 218px;
+        left: 35%;
+        top: 73%;
     }
 
     /* 고성 */
     .tx2_4_4 {
-        left: 243px;
-        top: 157px;
+        left: 70%;
+        top: 50%;
     }
 
     /* 김해 */
     .tx2_4_5 {
-        left: 74px;
-        top: 266px;
+        left: 15%;
+        top: 90.5%;
     }
 
     /* 남해 */
     .tx2_4_6 {
-        left: 231px;
-        top: 107px;
+        left: 65%;
+        top: 32%;
     }
 
     /* 밀양 */
     .tx2_4_7 {
-        left: 93px;
-        top: 206px;
+        left: 21%;
+        top: 66%;
     }
 
     /* 사천 */
     .tx2_4_8 {
-        left: 63px;
-        top: 137px;
+        left: 12%;
+        top: 43%;
     }
 
     /* 산청 */
     .tx2_4_9 {
-        left: 279px;
-        top: 126px;
+        left: 81%;
+        top: 39%;
     }
 
     /* 양산 */
     .tx2_4_10 {
-        left: 134px;
-        top: 131px;
+        left: 36%;
+        top: 40%;
     }
 
     /* 의령 */
     .tx2_4_11 {
-        left: 110px;
-        top: 175px;
+        left: 26%;
+        top: 57%;
     }
 
     /* 진주 */
     .tx2_4_12 {
-        left: 173px;
-        top: 96px;
+        left: 47%;
+        top: 28%;
     }
 
     /* 창녕 */
     .tx2_4_13 {
-        left: 194px;
-        top: 174px;
+        left: 55%;
+        top: 54%;
     }
 
     /* 창원 */
     .tx2_4_14 {
-        left: 155px;
-        top: 249px;
+        left: 43%;
+        top: 84%;
     }
 
     /* 통영 */
     .tx2_4_15 {
-        left: 43px;
-        top: 186px;
+        left: 6%;
+        top: 62%;
     }
 
     /* 하동 */
     .tx2_4_16 {
-        left: 165px;
-        top: 152px;
+        left: 44%;
+        top: 49%;
     }
 
     /* 함안 */
     .tx2_4_17 {
-        left: 30px;
-        top: 90px;
+        left: 2%;
+        top: 27%;
     }
 
     /* 함양 */
     .tx2_4_18 {
-        left: 109px;
-        top: 91px;
+        left: 27%;
+        top: 28%;
     }
 
     /* 합천 */
 
     /* 경상북도 */
     .tx2_5_1 {
-        left: 150px;
-        top: 243px;
+        left: 37%;
+        top: 83%;
     }
 
     /* 경산*/
     .tx2_5_2 {
-        left: 206px;
-        top: 245px;
+        left: 54%;
+        top: 83%;
     }
 
     /* 경주 */
     .tx2_5_3 {
-        left: 76px;
-        top: 260px;
+        left: 15%;
+        top: 88%;
     }
 
     /* 고령 */
     .tx2_5_4 {
-        left: 85px;
-        top: 185px;
+        left: 18%;
+        top: 62%;
     }
 
     /* 구미 */
     .tx2_5_5 {
-        left: 129px;
-        top: 193px;
+        left: 31%;
+        top: 64%;
     }
 
     /* 군위 */
     .tx2_5_6 {
-        left: 45px;
-        top: 208px;
+        left: 6%;
+        top: 68%;
     }
 
     /* 김천 */
     .tx2_5_7 {
-        left: 61px;
-        top: 100px;
+        left: 8%;
+        top: 33%;
     }
 
     /* 문경 */
     .tx2_5_8 {
-        left: 157px;
-        top: 66px;
+        left: 38%;
+        top: 18%;
     }
 
     /* 봉화 */
     .tx2_5_9 {
-        left: 46px;
-        top: 148px;
+        left: 5%;
+        top: 48%;
     }
 
     /* 상주 */
     .tx2_5_10 {
-        left: 67px;
-        top: 231px;
+        left: 12%;
+        top: 78%;
     }
 
     /* 성주 */
     .tx2_5_11 {
-        left: 140px;
-        top: 122px;
+        left: 34%;
+        top: 38%;
     }
 
     /* 안동 */
     .tx2_5_12 {
-        left: 217px;
-        top: 136px;
+        left: 57%;
+        top: 44%;
     }
 
     /* 영덕 */
     .tx2_5_13 {
-        left: 192px;
-        top: 104px;
+        left: 49%;
+        top: 32%;
     }
 
     /* 영양 */
     .tx2_5_14 {
-        left: 111px;
-        top: 78px;
+        left: 24%;
+        top: 22%;
     }
 
     /* 영주 */
     .tx2_5_15 {
-        left: 166px;
-        top: 211px;
+        left: 42%;
+        top: 70%;
     }
 
     /* 영천 */
     .tx2_5_16 {
-        left: 90px;
-        top: 115px;
+        left: 20%;
+        top: 35%;
     }
 
     /* 예천 */
     .tx2_5_17 {
-        left: 300px;
-        top: 39px;
+        left: 82%;
+        top: 9%;
     }
 
     /* 울릉 */
     .tx2_5_18 {
-        left: 209px;
-        top: 62px;
+        left: 54%;
+        top: 16%;
     }
 
     /* 울진 */
     .tx2_5_19 {
-        left: 121px;
-        top: 157px;
+        left: 27%;
+        top: 52%;
     }
 
     /* 의성 */
     .tx2_5_20 {
-        left: 144px;
-        top: 269px;
+        left: 35%;
+        top: 92%;
     }
 
     /* 청도 */
     .tx2_5_21 {
-        left: 186px;
-        top: 158px;
+        left: 48%;
+        top: 51%;
     }
 
     /* 청송 */
     .tx2_5_22 {
-        left: 101px;
-        top: 214px;
+        left: 21%;
+        top: 72%;
     }
 
     /* 칠곡 */
     .tx2_5_23 {
-        left: 208px;
-        top: 189px;
+        left: 54%;
+        top: 64%;
     }
 
     /* 포항 */
@@ -984,707 +997,708 @@
 
     /* 광주광역시 */
     .tx2_6_1 {
-        left: 112px;
-        top: 147px;
+        left: 24%;
+        top: 42%;
     }
 
     /* 광산 */
     .tx2_6_2 {
-        left: 251px;
-        top: 269px;
+        left: 50%;
+        top: 77%;
     }
 
     /* 남구 */
     .tx2_6_3 {
-        left: 387px;
-        top: 234px;
+        left: 74%;
+        top: 69%;
     }
 
     /* 동구 */
     .tx2_6_4 {
-        left: 341px;
-        top: 108px;
+        left: 65%;
+        top: 30%;
     }
 
     /* 북구 */
     .tx2_6_5 {
-        left: 251px;
-        top: 196px;
+        left: 48%;
+        top: 56%;
     }
 
     /* 서구 */
 
     /* 대구광역시 */
     .tx2_7_1 {
-        left: 194px;
-        top: 203px;
+        left: 49%;
+        top: 43%;
     }
 
     /* 남구 */
     .tx2_7_2 {
-        left: 147px;
-        top: 214px;
+        left: 36%;
+        top: 44%;
     }
 
     /* 달서 */
     .tx2_7_3 {
-        left: 119px;
-        top: 298px;
+        left: 34%;
+        top: 62%;
     }
 
     /* 달성 */
     .tx2_7_4 {
-        left: 288px;
-        top: 83px;
+        left: 74%;
+        top: 17%;
     }
 
     /* 동구 */
     .tx2_7_5 {
-        left: 190px;
-        top: 85px;
+        left: 48%;
+        top: 17%;
     }
 
     /* 북구 */
     .tx2_7_6 {
-        left: 162px;
-        top: 149px;
+        left: 40%;
+        top: 32%;
     }
 
     /* 서구 */
     .tx2_7_7 {
-        left: 267px;
-        top: 199px;
+        left: 68%;
+        top: 42%;
     }
 
     /* 수성 */
     .tx2_7_8 {
-        left: 202px;
-        top: 165px;
+        left: 51%;
+        top: 35%;
     }
 
     /* 중구 */
 
     /* 대전 */
     .tx2_8_1 {
-        left: 201px;
-        top: 149px;
+        left: 53%;
+        top: 29%;
     }
 
     /* 대덕 */
     .tx2_8_2 {
-        left: 244px;
-        top: 254px;
+        left: 63%;
+        top: 52%;
     }
 
     /* 동구 */
     .tx2_8_3 {
-        left: 73px;
-        top: 366px;
+        left: 20%;
+        top: 75%;
     }
 
     /* 서구 */
     .tx2_8_4 {
-        left: 67px;
-        top: 188px;
+        left: 17%;
+        top: 40%;
     }
 
     /* 유성 */
     .tx2_8_5 {
-        left: 168px;
-        top: 327px;
+        left: 44%;
+        top: 65%;
     }
 
     /* 중구 */
 
     /* 부산광역시 */
     .tx2_9_1 {
-        left: 92px;
-        top: 305px;
+        left: 13%;
+        top: 66%;
     }
 
     /* 강서 */
     .tx2_9_2 {
-        left: 262px;
-        top: 148px;
+        left: 51%;
+        top: 31%
     }
 
     /* 금정 */
     .tx2_9_3 {
-        left: 369px;
-        top: 102px;
+        left: 70%;
+        top: 23%;
     }
 
     /* 기장 */
     .tx2_9_4 {
-        left: 274px;
-        top: 307px;
+        left: 52%;
+        top: 64%;
     }
 
     /* 남구 */
     .tx2_9_5 {
-        left: 228px;
-        top: 303px;
+        left: 43%;
+        top: 62%;
     }
 
     /* 동구 */
     .tx2_9_6 {
-        left: 255px;
-        top: 211px;
+        left: 49%;
+        top: 43%;
     }
 
     /* 동래 */
     .tx2_9_7 {
-        left: 222px;
-        top: 259px;
+        left: 42%;
+        top: 54%;
     }
 
     /* 부산광역시진 */
     .tx2_9_8 {
-        left: 202px;
-        top: 181px;
+        left: 38%;
+        top: 37%;
     }
 
     /* 북구 */
     .tx2_9_9 {
-        left: 171px;
-        top: 262px;
+        left: 31%;
+        top: 55%;
     }
 
     /* 사상*/
     .tx2_9_10 {
-        left: 164px;
-        top: 348px;
+        left: 30%;
+        top: 73%;
     }
 
     /* 사하 */
     .tx2_9_11 {
-        left: 195px;
-        top: 308px;
+        left: 37%;
+        top: 67%;
     }
 
     /* 서구*/
     .tx2_9_12 {
-        left: 296px;
-        top: 258px;
+        left: 56%;
+        top: 53%;
     }
 
     /* 수영*/
     .tx2_9_13 {
-        left: 261px;
-        top: 237px;
+        left: 50%;
+        top: 49%;
     }
 
     /* 연제 */
     .tx2_9_14 {
-        left: 246px;
-        top: 367px;
+        left: 46%;
+        top: 74%;
     }
 
     /* 영도 */
     .tx2_9_15 {
-        left: 218px;
-        top: 334px;
+        left: 41%;
+        top: 69%;
     }
 
     /* 중구 */
     .tx2_9_16 {
-        left: 337px;
-        top: 232px;
+        left: 62%;
+        top: 46%;
     }
 
     /* 해운대 */
 
     /* 세종 */
     .tx2_10_1 {
-        left: 165px;
-        top: 161px;
+        left: 39%;
+        top: 50%;
     }
 
     /* 울산 */
     .tx2_11_1 {
-        left: 225px;
-        top: 155px;
+        left: 64%;
+        top: 49%;
     }
 
     /* 남구 */
     .tx2_11_2 {
-        left: 273px;
-        top: 159px;
+        left: 82%;
+        top: 50%;
     }
 
     /* 동구 */
     .tx2_11_3 {
-        left: 260px;
-        top: 88px;
+        left: 76%;
+        top: 26%;
     }
 
     /* 북구 */
     .tx2_11_4 {
-        left: 115px;
-        top: 133px;
+        left: 31%;
+        top: 41%;
     }
 
     /* 울주 */
     .tx2_11_5 {
-        left: 208px;
-        top: 114px;
+        left: 59%;
+        top: 36%;
     }
 
     /* 중구 */
 
     /* 인천광역시 */
     .tx2_12_1 {
-        left: 173px;
-        top: 85px;
+        left: 44%;
+        top: 25%;
     }
 
     /* 강화 */
     .tx2_12_2 {
-        left: 306px;
-        top: 172px;
+        left: 84%;
+        top: 56%;
     }
 
     /* 계양 */
     .tx2_12_3 {
-        left: 273px;
-        top: 232px;
+        left: 74%;
+        top: 78%;
     }
 
     /* 남구 */
     .tx2_12_4 {
-        left: 303px;
-        top: 245px;
+        left: 84%;
+        top: 82%;
     }
 
     /* 남동 */
     .tx2_12_5 {
-        left: 258px;
-        top: 214px;
+        left: 70%;
+        top: 72%;
     }
 
     /* 동구 */
     .tx2_12_6 {
-        left: 296px;
-        top: 206px;
+        left: 81%;
+        top: 69%;
     }
 
     /* 부평 */
     .tx2_12_7 {
-        left: 260px;
-        top: 160px;
+        left: 70%;
+        top: 53%;
     }
 
     /* 서구 */
     .tx2_12_8 {
-        left: 271px;
-        top: 255px;
+        left: 74%;
+        top: 85%;
     }
 
     /* 연수 */
     .tx2_12_9 {
-        left: 155px;
-        top: 272px;
+        left: 40%;
+        top: 91%;
     }
 
     /* 옹진 */
     .tx2_12_10 {
-        left: 248px;
-        top: 228px;
+        left: 66%;
+        top: 77%;
     }
 
     /* 중구 */
 
     /* 전라남도 */
     .tx2_13_1 {
-        left: 153px;
-        top: 205px;
+        left: 42%;
+        top: 68%;
     }
 
     /* 강진*/
     .tx2_13_2 {
-        left: 253px;
-        top: 211px;
+        left: 71%;
+        top: 70%;
     }
 
     /* 고흥 */
     .tx2_13_3 {
-        left: 240px;
-        top: 74px;
+        left: 65%;
+        top: 18%;
     }
 
     /* 곡성 */
     .tx2_13_4 {
-        left: 312px;
-        top: 117px;
+        left: 86%;
+        top: 36%;
     }
 
     /* 광양 */
     .tx2_13_5 {
-        left: 284px;
-        top: 73px;
+        left: 78%;
+        top: 18%;
     }
 
     /* 구례 */
     .tx2_13_6 {
-        left: 141px;
-        top: 125px;
+        left: 39%;
+        top: 40%;
     }
 
     /* 나주 */
     .tx2_13_7 {
-        left: 189px;
-        top: 60px;
+        left: 52%;
+        top: 15%;
     }
 
     /* 담양 */
     .tx2_13_8 {
-        left: 74px;
-        top: 166px;
+        left: 23%;
+        top: 54%;
     }
 
     /* 목포*/
     .tx2_13_9 {
-        left: 89px;
-        top: 134px;
+        left: 26%;
+        top: 46%;
     }
 
     /* 무안*/
     .tx2_13_10 {
-        left: 227px;
-        top: 163px;
+        left: 62%;
+        top: 53%;
     }
 
     /* 보성 */
     .tx2_13_11 {
-        left: 260px;
-        top: 124px;
+        left: 72%;
+        top: 39%;
     }
 
     /* 순천 */
     .tx2_13_12 {
-        left: 25px;
-        top: 169px;
+        left: 9%;
+        top: 56%;
     }
 
     /* 신안 */
     .tx2_13_13 {
-        left: 312px;
-        top: 171px;
+        left: 86%;
+        top: 55%;
     }
 
     /* 여수*/
     .tx2_13_14 {
-        left: 95px;
-        top: 65px;
+        left: 27%;
+        top: 18%;
     }
 
     /* 영광*/
     .tx2_13_15 {
-        left: 130px;
-        top: 165px;
+        left: 37%;
+        top: 54%;
     }
 
     /* 영암*/
     .tx2_13_16 {
-        left: 152px;
-        top: 267px;
+        left: 38%;
+        top: 93%;
     }
 
     /* 완도*/
     .tx2_13_17 {
-        left: 149px;
-        top: 55px;
+        left: 41%;
+        top: 14%;
     }
 
     /* 장성 */
     .tx2_13_18 {
-        left: 181px;
-        top: 187px;
+        left: 49%;
+        top: 64%;
     }
 
     /* 장흥 */
     .tx2_13_19 {
-        left: 57px;
-        top: 242px;
+        left: 15%;
+        top: 83%;
     }
 
     /* 진도 */
     .tx2_13_20 {
-        left: 112px;
-        top: 98px;
+        left: 30%;
+        top: 28%;
     }
 
     /* 함평 */
     .tx2_13_21 {
-        left: 113px;
-        top: 225px;
+        left: 31%;
+        top: 79%;
     }
 
     /* 해남 */
     .tx2_13_22 {
-        left: 198px;
-        top: 122px;
+
+        left: 55%;
+        top: 38%;
     }
 
     /* 화순 */
 
     /* 전라북도 */
     .tx2_14_1 {
-        left: 28px;
-        top: 235px;
+        left: 5%;
+        top: 82%;
     }
 
     /* 고창 */
     .tx2_14_2 {
-        left: 62px;
-        top: 79px;
+        left: 14%;
+        top: 23%;
     }
 
     /* 군산 */
     .tx2_14_3 {
-        left: 96px;
-        top: 121px;
+        left: 24%;
+        top: 38%;
     }
 
     /* 김제 */
     .tx2_14_4 {
-        left: 226px;
-        top: 237px;
+        left: 61%;
+        top: 83%;
     }
 
     /* 남원*/
     .tx2_14_5 {
-        left: 291px;
-        top: 82px;
+        left: 79%;
+        top: 24%;
     }
 
     /* 무주 */
     .tx2_14_6 {
-        left: 38px;
-        top: 162px;
+        left: 8%;
+        top: 54%;
     }
 
     /* 부안 */
     .tx2_14_7 {
-        left: 138px;
-        top: 233px;
+        left: 38%;
+        top: 83%;
     }
 
     /* 순창*/
     .tx2_14_8 {
-        left: 175px;
-        top: 77px;
+        left: 47%;
+        top: 24%;
     }
 
     /* 완주*/
     .tx2_14_9 {
-        left: 121px;
-        top: 60px;
+        left: 30%;
+        top: 13%;
     }
 
     /* 익산 */
     .tx2_14_10 {
-        left: 175px;
-        top: 190px;
+        left: 46%;
+        top: 65%;
     }
 
     /* 임실 */
     .tx2_14_11 {
-        left: 249px;
-        top: 165px;
+        left: 68%;
+        top: 56%;
     }
 
     /* 장수 */
     .tx2_14_12 {
-        left: 142px;
-        top: 116px;
+        left: 38%;
+        top: 37%;
     }
 
     /* 전주 */
     .tx2_14_13 {
-        left: 97px;
-        top: 184px;
+        left: 25%;
+        top: 62%;
     }
 
     /* 정읍 */
     .tx2_14_14 {
-        left: 221px;
-        top: 118px;
+        left: 60%;
+        top: 36%;
     }
 
     /* 진안 */
 
     /* 제주특별시 */
     .tx2_15_1 {
-        left: 199px;
-        top: 168px;
+        left: 48%;
+        top: 59%;
     }
 
     /* 서귀포 */
     .tx2_15_2 {
-        left: 150px;
-        top: 110px;
+        left: 35%;
+        top: 36%;
     }
 
     /* 제주특별시 */
 
     /* 충청남도 */
     .tx2_16_1 {
-        left: 343px;
-        top: 277px
+        left: 66%;
+        top: 67%;
     }
 
     /* 계룡 */
     .tx2_16_2 {
-        left: 300px;
-        top: 204px;
+        left: 55%;
+        top: 49%;
     }
 
     /* 공주 */
     .tx2_16_3 {
-        left: 425px;
-        top: 341px;
+        left: 81%;
+        top: 83%;
     }
 
     /* 금산 */
     .tx2_16_4 {
-        left: 324px;
-        top: 319px;
+        left: 61%;
+        top: 78%;
     }
 
     /* 논산 */
     .tx2_16_5 {
-        left:156px;
-        top: 59px;
+        left: 28%;
+        top: 14%;
     }
 
     /* 당진 */
     .tx2_16_6 {
-        left: 144px;
-        top: 272px;
+        left: 26%;
+        top: 66%;
     }
 
     /* 보령 */
     .tx2_16_7 {
-        left: 229px;
-        top: 305px;
+        left: 42%;
+        top: 73%;
     }
 
     /* 부여 */
     .tx2_16_8 {
-        left: 87px;
-        top: 101px;
+        left: 16%;
+        top: 24%;
     }
 
     /* 서산*/
     .tx2_16_9 {
-        left: 184px;
-        top: 359px;
+        left: 32.5%;
+        top: 86%;
     }
 
     /* 서천*/
     .tx2_16_10 {
-        left: 252px;
-        top: 87px;
+        left: 47%;
+        top: 21%;
     }
 
     /* 아산 */
     .tx2_16_11 {
-        left: 197px;
-        top: 129px;
+        left: 36%;
+        top: 31%;
     }
 
     /* 예산*/
     .tx2_16_12 {
-        left: 327px;
-        top: 79px;
+        left: 63%;
+        top: 20%;
     }
 
     /* 천안 */
     .tx2_16_13 {
-        left: 219px;
-        top: 230px;
+        left: 40%;
+        top: 56%;
     }
 
     /* 청양 */
     .tx2_16_14 {
-        left: 22px;
-        top: 104px;
+        left: 2%;
+        top: 26%;
     }
 
     /* 태안*/
     .tx2_16_15 {
-        left: 141px;
-        top: 178px;
+        left: 27%;
+        top: 44%;
     }
 
     /* 홍성 */
 
     /* 충청북도 */
     .tx2_17_1 {
-        left: 173px;
-        top: 169px;
+        left: 32%;
+        top: 37%;
     }
 
     /* 괴산 */
     .tx2_17_2 {
-        left: 374px;
-        top: 85px;
+        left: 72%;
+        top: 19%;
     }
 
     /* 단양 */
     .tx2_17_3 {
-        left: 155px;
-        top: 263px;
+        left: 26%;
+        top: 59%;
     }
 
     /* 보은 */
     .tx2_17_4 {
-        left: 188px;
-        top: 387px;
+        left: 34%;
+        top: 87%
     }
 
     /* 영동*/
     .tx2_17_5 {
-        left: 126px;
-        top: 333px;
+        left: 22%;
+        top: 73%;
     }
 
     /* 옥천 */
     .tx2_17_6 {
-        left: 86px;
-        top: 103px;
+        left: 13%;
+        top: 23%;
     }
 
     /* 음성 */
     .tx2_17_7 {
-        left: 295px;
-        top: 70px;
+        left: 56%;
+        top: 19%
     }
 
     /* 제천 */
     .tx2_17_8 {
-        left: 87px;
-        top: 163px;
+        left: 15%;
+        top: 36%;
     }
 
     /* 증평 */
     .tx2_17_9 {
-        left: 29px;
-        top: 138px;
+        left: 4%;
+        top: 30%;
     }
 
     /* 진천 */
 
     .tx2_17_10 {
-        left: 191px;
-        top: 77px;
+        left: 35%;
+        top: 17%;
     }
 
     /* 청주 */
     .tx2_17_11 {
-        left: 49px;
-        top: 231px;
+        left: 9%;
+        top: 51%;
     }
 
     /* 충주 */
@@ -1952,7 +1966,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none;" id="8">
-        <img src="/map/Daejeon.png" style="width:106%;" alt="대전">
+        <img src="/map/Daejeon.png" alt="대전">
         <ul>
             <li class="tx2_8_1"><a href="javascript:dev_district('대전광역시','대덕구');" alt="대전 대덕구"
                                    title="대전 대덕구">대덕구</a></li>
@@ -2051,7 +2065,7 @@
         </ul>
     </div>
     <div class="mappedcity" style="display: none; " id="7">
-        <img src="/map/Daegu.png" style="width:108%;" alt="대구">
+        <img src="/map/Daegu.png" alt="대구">
         <ul>
             <li class="tx2_7_1"><a href="javascript:dev_district('대구광역시','남구');" alt="대구광역시 남구" title="대구광역시 남구">남구</a>
             </li>
