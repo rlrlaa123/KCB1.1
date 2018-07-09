@@ -8,7 +8,7 @@
         .content1>.mappedcity>img{
             overflow-y: scroll!important;
         }
-        
+
 
     }
 
