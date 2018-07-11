@@ -125,7 +125,7 @@
         color: #FFFFFF;
         background-color: #546eb4;
         padding: 0.3vw;
-        font-size: 1.4vw;
+        font-size: 1.1vw;
         text-align: center;
         align-items: center;
         font-weight: bolder;
@@ -171,7 +171,7 @@
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         padding: 0.3vw;
-        font-size: 1.1vw;
+        font-size: 1vw;
         cursor: pointer;
         color: dimgrey;
         font-weight: 600;
