@@ -171,9 +171,16 @@
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         padding: 0.3vw;
-        font-size: 1.3vw;
+        font-size: 1.1vw;
         cursor: pointer;
-        font-weight: lighter;
+        color: dimgrey;
+        font-weight: 600;
+    }
+    @media (max-width: 750px){
+        .listed{
+            font-size:0.5vw;
+        }
+
     }
 
     .listed2 {
