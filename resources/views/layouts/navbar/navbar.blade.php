@@ -1,7 +1,7 @@
 <div class="navigationheader">
     <a href="/"><img src="/img/KCB_logo.png" sizes="200"
                      title="logo" alt="logo" align="left"></a>
-    <span><ul>
+    <span><ul style="margin:0;">
             @guest
                 <li><a href="{{ route('login') }}">로그인</a></li>
                 <li><a href="{{ url('agreement') }}">회원가입</a></li>

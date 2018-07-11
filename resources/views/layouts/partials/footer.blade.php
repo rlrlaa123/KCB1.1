@@ -1,9 +1,9 @@
 <style>
     .mainfooter{
-        font-size:1.1vw;
+        font-size:0.7vw;
     }
     .footerextra{
-        font-size:1vw;
+        font-size:0.5vw;
     }
 
 </style>

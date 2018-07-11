@@ -36,7 +36,7 @@
         font-weight: 600;
         justify-content: left;
         text-align: left;
-        font-size: 1.5vw;
+        font-size: 1vw;
         width: 25%;
         color: black
     }

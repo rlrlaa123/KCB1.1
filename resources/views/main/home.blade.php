@@ -243,7 +243,7 @@
 @endsection
 @section('content')
     <div class="searchbarcontainer">
-        <form class="navbar-form searchform" method="GET" action="{{url('/search/')}}">
+        <form class="navbar-form searchform" style="padding:1vh 1vw;" method="GET" action="{{url('/search/')}}">
             <input type="search" name="search" class="form-control" style="width:40%;" placeholder="검색"
                    size="40">
             <button type="submit" class="lens_button"><img src="/img/searchbarbutton.png"/>
@@ -259,15 +259,15 @@
             <div class="homemenu1">
                 <div class="justify-content">
                     <div class="homemenu1item" id="hotfocus1" onclick="openmenu1('hotfocus'); give_effect('hotfocus1')"
-                         style="font-size: 1.1vw; border-right: 0.8px solid #c4e3f3; border-bottom:2px solid #e85251;">
+                         style="font-size: 0.9vw; border-right: 0.8px solid #c4e3f3; border-bottom:2px solid #e85251;">
                         HOT 포커스
                     </div>
                     <div class="homemenu1item" id="freesample1"
                          onclick="openmenu1('freesample'); give_effect('freesample1')"
-                         style="font-size: 1.1vw;">무료샘플
+                         style="font-size: 0.9vw;">무료샘플
                     </div>
                 </div>
-                <div class="_tothepage" style="font-size:1.1vw;"
+                <div class="_tothepage" style="font-size:0.9vw;"
                      onclick="location.href='{{url('/hotfocus')}}'">+더보기
                 </div>
             </div>
@@ -286,10 +286,10 @@
             </div>
         </div>
         <div class="grid-item">
-            <div class="homemenu2" style="font-size: 1.1vw;">
+            <div class="homemenu2" style="font-size: 0.9vw;">
                 <div class="homemenu2item" style="justify-content: space-between; display:flex; align-items: center ">
                     <div>공지사항</div>
-                    <a href="{{url('fyi')}}" class="_tothepage" style="font-size: 1.1vw;">+더보기</a></div>
+                    <a href="{{url('fyi')}}" class="_tothepage" style="font-size: 0.9vw;">+더보기</a></div>
 
             </div>
             <div>
@@ -313,9 +313,9 @@
                 <button id="library_shortcut_button1" class="homemenu3item"
                         onclick="location.href='{{url('/library')}}'"
                         style="border-bottom: 2px solid #e85251;
-                         font-size:1.1vw; cursor:pointer;">자료실
+                         font-size:0.9vw; cursor:pointer;">자료실
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library" style="margin:8px 16px; font-size:1.1vw;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library" style="margin:8px 16px; font-size:0.9vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
@@ -334,7 +334,7 @@
     </div>
     <div style="  margin: 1vw 15vw 1vw 15vw;">
         <div style="margin: 1vw 0;border-bottom: 1px solid #7888c2; justify-content: space-between; display:flex; align-items: center;">
-            <h2 style="font-weight:700; font-size:1.1vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; cursor:pointer; "
+            <h2 style="font-weight:700; font-size:0.9vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; cursor:pointer; "
                 onclick="location.href='{{url('/useful_website')}}'">
                 유용한 사이트
             </h2></div>

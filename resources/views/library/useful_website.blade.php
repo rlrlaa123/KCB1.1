@@ -26,10 +26,10 @@
                 </thead>
                 @forelse($data as $value)
                     <tr>
-                        <td class="td1" style="width:5%; min-width: 5%;  font-size:1vw;">{{$value->id}}</td>
-                        <td class="library_title" style="width:20%; min-width: 20%; font-size:1vw;">{{$value->organization}}</td>
+                        <td class="td1" style="width:5%; min-width: 5%;  font-size:0.9vw;">{{$value->id}}</td>
+                        <td class="library_title" style="width:20%; min-width: 20%; font-size:0.8vw;">{{$value->organization}}</td>
                         <td style="text-align: center; width:75%; max-width: 75%;">
-                            <a class="tothedetailpage" href="{{$value->website_address}}" style="font-size:1vw;">{{$value->website_address}}</a>
+                            <a class="tothedetailpage" href="{{$value->website_address}}" style="font-size:0.8vw;">{{$value->website_address}}</a>
                         </td>
                     </tr>
                 @empty

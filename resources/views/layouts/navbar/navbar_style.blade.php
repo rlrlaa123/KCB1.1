@@ -96,11 +96,11 @@
         font-weight: 700;
         justify-content: left;
         text-align: left;
-        font-size: 1.3vw;
+        font-size: 1vw;
     }
 
     .judicialpage_list div:hover {
-        font-size: 1.4vw;
+        font-size: 1.1vw;
         color: #e85254;
         font-weight: 800;
     }
@@ -144,7 +144,7 @@
 
     .pagecontents th {
         padding: 0.9vw 0;
-        font-size: 1.1vw;
+        font-size: 0.9vw;
         font-weight: 600;
         border-top: 1px solid lightgrey;
         border-bottom: 1px solid lightgrey;
@@ -154,7 +154,7 @@
 
     .pagecontents td, .pagecontents a, .pagecontents a:hover {
         padding: 0.9vw 0;
-        font-size: 1.1vw;
+        font-size: 0.8vw;
         font-weight: 600;
         color: black;
         text-decoration: none;
@@ -229,7 +229,7 @@
     .menu_btn1 {
         background-color: transparent;
         border: 0.5px solid grey;
-        font-size:1.3vw;
+        font-size:1.1vw;
         font-weight:500;
         -webkit-border-radius: 0.8vw;
         -moz-border-radius: 0.8vw;
@@ -363,17 +363,15 @@
     }
 
     .navigationheader img {
-        width: 100%;
-        max-width: 100px;
-        height: 8vh;
+        width: 60%;
 
     }
 
     .navigationheader li {
         display: -moz-inline-block;
         display: inline-block;
-        margin: 0vw 1.7vw;
-        font-size: 1vw;
+        margin: 0 1.7vw;
+        font-size: 0.9vw;
         font-weight: 700;
     }
 
@@ -407,7 +405,7 @@
         grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
         text-align: center;
         font-weight: 700;
-        font-size: 1.3vw;
+        font-size: 1.1vw;
     }
 
     .onPage {
@@ -433,9 +431,9 @@
         border-radius: 0.4vw;
         opacity: 0.85;
         background: #7888c2;
-        font-size: 0.8vw;
+        font-size: 0.6vw;
         font-weight: 700;
-        padding: 0.5vw 0.5vw 0.5vw 0.5vw;
+        padding: 0.5vh 0.5vw;
         margin: 1vw;
         width: 120px;
         height: 22px;
@@ -445,7 +443,7 @@
         background-color: #000000;
         color: white;
         text-decoration: none;
-        font-size: 0.8vw;
+        
     }
 
     .mainfooter {
