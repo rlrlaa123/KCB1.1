@@ -53,6 +53,7 @@
     }
 
     .table_footer a {
+        font-size:0.8vw;
         border: 1px solid lightgrey;
         color: grey;
         font-weight: 800;
