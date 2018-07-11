@@ -22,14 +22,17 @@
 
         .header {
             background-color: #fdf7f5;
+            font-size:0.9vw;
+            font-weight:600;
         }
 
         .content {
-            font-weight: lighter;
+            font-weight: 600;
+            font-size:0.9vw;
         }
     </style>
     <div class="wrapper">
-        <h3>
+        <h3 style=" color:#696969; font-size:1.1vw; font-weight:700;">
             나의 정보
         </h3>
         <hr>

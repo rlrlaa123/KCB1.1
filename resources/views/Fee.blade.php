@@ -19,9 +19,10 @@
     .Fee_desc li {
         display: block;
         margin: 1vw;
-        font-size: 1.1vw;
-        font-weight: 500;
+        font-size: 0.9vw;
+        font-weight: 600;
         text-align: left;
+        color:dimgrey;
     }
 
     .Fee_table {
@@ -54,9 +55,9 @@
 </style>
 @section('content')
     <div class="body">
-        <h3>유료회원 요금 안내</h3>
+        <h3 style="font-size:1.1vw; font-weight:700;">유료회원 요금 안내</h3>
         <hr/>
-        <h4>입금 계좌 정보</h4>
+        <h4 style="font-size:1vw; font-weight:600;">입금 계좌 정보</h4>
         <div>
             <ul class="Fee_desc">
                 <li>
@@ -106,7 +107,7 @@
                     <strong>한국부동산자산관리연구원 [사업자 등록 번호: 114-87-03307]</strong>
                 </p>
                 <p style="text-align:left; font-size:1vw; padding:1vw; mrgin:1vw;">
-                    <strong style="font-size:1.2vw;">입금계좌 정보: 국민은행 476137-01-017787, 예금주 ㈜한국부동산자산관리연구원</strong><br>
+                    <strong style="font-size:1vw;">입금계좌 정보: 국민은행 476137-01-017787, 예금주 ㈜한국부동산자산관리연구원</strong><br>
                     계좌이체의 경우는 이체 후 <b>master@ream.re.kr</b>로 [한국보상원 유료결제]제목으로 내용 보내주시면 빠르게 처리해 드립니다.
                 </p>
             </div>

@@ -24,7 +24,7 @@
 
     .result_container h3 {
         display: inline;
-        font-size: 1.5vw;
+        font-size: 1.1vw;
         margin: 1vw;
         font-weight: 700;
         color: #636b6f;
@@ -35,14 +35,14 @@
         color: #FFFFFF;
         background-color: #546eb4;
         padding: 0.2vw 0.4vw;
-        font-size: 1.2vw;
+        font-size: 1vw;
         text-align: center;
         align-items: center;
         font-weight: bolder;
         border: none;
         border-radius: 0.4vw;
         float: right;
-        margin: 4vw 1vw 1vw 1vw;
+        margin: 2vw 1vw 1vw 1vw;
         cursor: pointer;
     }
 
@@ -234,6 +234,9 @@
         width: 100%;
         max-width: 100%;
         margin: 1.2vw 0 0 0;
+        font-size:1vw;
+        color:dimgrey;
+        font-weight:600;
         border-top: 0.5px solid;
         border-bottom: 0.5px solid;
 
