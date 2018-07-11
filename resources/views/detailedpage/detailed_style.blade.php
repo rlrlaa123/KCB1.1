@@ -99,6 +99,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -133,6 +136,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -167,6 +173,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -201,6 +210,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -230,12 +242,16 @@
         max-width: 70%;
         max-height: 70vw;
         margin: 1vw;
+
     }
 
     .librarydetailed_table_content p {
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -280,6 +296,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -315,6 +334,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -349,6 +371,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -414,6 +439,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 
@@ -499,6 +527,9 @@
         justify-content: left;
         text-align: left;
         padding: 2vw 3vw;
+        font-size:0.9vw;
+        font-weight:600;
+        color: dimgrey;
 
     }
 

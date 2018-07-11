@@ -6,7 +6,7 @@
         .librarydetailedtable div {
             text-align: left;
             padding: 0.8vw 2vw;
-            font-size: 1vw;
+            font-size: 0.9vw;
         }
 
     </style>
