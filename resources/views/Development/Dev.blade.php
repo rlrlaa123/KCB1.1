@@ -291,7 +291,7 @@
 @section('content')
     <div class="dev_page">
         <div style="display:flex; justify-content: space-between; align-items: center">
-            <b style="font-size: 1.5vw;">개발사업정보 검색</b><b></b>
+            <b style="font-size: 1.1vw;">개발사업정보 검색</b><b></b>
         </div>
         <div class="dev_info_search">
             <div class="search_classes grid-item1">
