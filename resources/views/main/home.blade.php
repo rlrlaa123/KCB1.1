@@ -140,7 +140,7 @@
             text-overflow: ellipsis;
             text-align: left;
             cursor: pointer;
-            font-size: 1vw;
+            font-size: 0.8vw;
             font-weight: 700;
             padding: 5px 10px;
 
@@ -295,7 +295,7 @@
             <div>
                 @forelse($fyi as $value)
                     <div class="fyi_shortcut" onclick="tothedetailpage_fyi({{$value->fyi_id}})"
-                         style="cursor:pointer; padding: 1vh 0.5vw; font-size: 1vw;">
+                         style="cursor:pointer; padding: 1vh 0.5vw; font-size: 0.8vw;">
                         <div>{{$value->fyi_title}}</div>
                     </div>
                 @empty
