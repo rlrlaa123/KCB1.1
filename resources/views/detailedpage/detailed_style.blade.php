@@ -24,7 +24,7 @@
         display: flex;
         align-items: center;
         font-weight: lighter;
-        font-size: 1.3vw;
+        font-size: 1vw;
     }
 
     .content_title strong {
