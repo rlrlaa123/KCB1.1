@@ -31,6 +31,18 @@ class UserController extends Controller
         return view('admin.user.user_info.index', compact('data', 'result'));
     }
 
+    public function search(Request $request)
+    {
+        $search = \App\User::where('username', "{$request->search_user}")->get();
+        if ($search != null) {
+            $result = $search;
+        } else {
+            $result = [];
+        }
+        $data = \App\User::latest()->orderby('id')->paginate(30);
+        return view('admin.user.user_info.index', compact('data', 'result'));
+    }
+
 
     public function user_grade_control(Request $request)
     {

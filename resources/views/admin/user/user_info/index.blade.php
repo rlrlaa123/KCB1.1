@@ -6,12 +6,12 @@
         <div style="text-align: right;">
             <form action="{{url('admin/search_user')}}" method="POST">
                 {!! csrf_field() !!}
-                <input name="search_user" class="search_user" type="text">
-                <button type="submit">회원 검색</button>
+                <input name="search_user" class="search_user" type="search" placeholder="검색">
+                <button type="search">회원 검색</button>
             </form>
         </div>
-        @forelse($result as $value)
-            <h4>회원 검색 결과</h4>
+        <h4 style="text-align: left;">회원 검색 결과</h4>
+        <div style="border:1px solid black; border-radius:1vw; margin-bottom:3vh; padding:1vw">
             <table class="pagecontents">
                 <thead>
                 <tr>
@@ -27,64 +27,67 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="userinfotable">
-                    <td>{{$value->name}}</td>
-                    <td>{{$value->username}}</td>
-                    <td>{{$value->email}}</td>
-                    <td>{{$value->birth}}</td>
-                    <td>{{$value->gender}}</td>
-                    <td>{{$value->phone}}</td>
-                    <td>{{$value->created_at}}</td>
-                    <td>
-                        @if($value->grade=='6premium')
-                            6개월 프리미엄
-                        @elseif($value->grade=='12premium')
-                            12개월 프리미엄
-                        @else
-                            일반회원
-                        @endif
-                    </td>
-                    <td>
-                        <form id="user_grade_control" action="{{url('admin/user_grade_control')}}"
-                              method="POST">
-                            {!! csrf_field() !!}
-                            <select id="grade" name="grade">
-                                <option value="user">일반회원</option>
-                                <option value="6premium">프리미엄(6개월)</option>
-                                <option value="12premium">프리미엄(12개월)</option>
-                            </select>
+                @forelse($result as $value)
+                    <tr class="userinfotable" style="color:black">
+                        <td>{{$value->name}}</td>
+                        <td>{{$value->username}}</td>
+                        <td>{{$value->email}}</td>
+                        <td>{{$value->birth}}</td>
+                        <td>{{$value->gender}}</td>
+                        <td>{{$value->phone}}</td>
+                        <td>{{$value->created_at}}</td>
+                        <td>
+                            @if($value->grade=='6premium')
+                                6개월 프리미엄
+                            @elseif($value->grade=='12premium')
+                                12개월 프리미엄
+                            @else
+                                일반회원
+                            @endif
+                        </td>
+                        <td>
+                            <form id="user_grade_control" action="{{url('admin/user_grade_control')}}"
+                                  method="POST">
+                                {!! csrf_field() !!}
+                                <select id="grade" name="grade">
+                                    <option value="user">일반회원</option>
+                                    <option value="6premium">프리미엄(6개월)</option>
+                                    <option value="12premium">프리미엄(12개월)</option>
+                                </select>
 
-                            <input type="hidden" name="id" value="{{$value->id}}">
-                            <button type="submit">변경</button>
-                        </form>
-                        <div style="justify-content: space-between; display:flex; align-items: center; margin:0; padding:0;">
-                            <div style="font-size: 0.7vw; font-weight:lighter">프리미엄 변경 날짜:</div>
-                            <div style="font-size: 0.7vw; font-weight:700;">
-                                @if($value->grade_updated_at!=null)
-                                    {{$value->grade_updated_at}}
-                                @else
-                                    변경사항 없음.
-                                @endif
+                                <input type="hidden" name="id" value="{{$value->id}}">
+                                <button type="submit">변경</button>
+                            </form>
+                            <div style="justify-content: space-between; display:flex; align-items: center; margin:0; padding:0;">
+                                <div style="font-size: 0.7vw; font-weight:lighter">프리미엄 변경 날짜:</div>
+                                <div style="font-size: 0.7vw; font-weight:700;">
+                                    @if($value->grade_updated_at!=null)
+                                        {{$value->grade_updated_at}}
+                                    @else
+                                        변경사항 없음.
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                        <div style="justify-content: space-between; display:flex; align-items: center; margin:0; padding:0;">
-                            <div style="font-size: 0.7vw; font-weight:lighter">프리미엄 만료일:</div>
-                            <div style="font-size: 0.7vw; font-weight:700;">
-                                @if($value->grade_updated_at!=null)
-                                    {{$value->grade_expiration_date}}
-                                @else
-                                    없음.
-                                @endif
+                            <div style="justify-content: space-between; display:flex; align-items: center; margin:0; padding:0;">
+                                <div style="font-size: 0.7vw; font-weight:lighter">프리미엄 만료일:</div>
+                                <div style="font-size: 0.7vw; font-weight:700;">
+                                    @if($value->grade_updated_at!=null)
+                                        {{$value->grade_expiration_date}}
+                                    @else
+                                        없음.
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                @empty
+                    <div style="border: 1px solid;">검색 결과가 없습니다.</div>
+                @endforelse
                 </tbody>
             </table>
-        @empty
-            <div style="border: 1px solid;">검색 결과가 없습니다.</div>
-        @endforelse
+        </div>
         <hr style=""/>
+        <h4 style="text-align:left;">회원 리스트</h4>
         <div>
             <table class="pagecontents">
                 <thead>

@@ -2,6 +2,15 @@
 
 @section('style')
     <style>
+        .searchbarcontainer {
+            text-align: center;
+            margin: 0;
+            padding: 5vw;
+            background-image: url('/img/navbarbackgroundpicture.png');
+            -webkit-background-size: 100%;
+            background-size:100%;
+            background-repeat: no-repeat;
+        }
         * {
             box-sizing: border-box;
             -webkit-box-sizing: border-box;
@@ -42,7 +51,6 @@
             padding: 0;
             margin: 0;
             border: #e85254;
-            margin-left: 0;
             background-color: #e85254;
             border-radius: 0.4vw;
         }
