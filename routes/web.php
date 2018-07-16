@@ -202,6 +202,16 @@ Route::prefix('admin')->group(function () {
 
     //------------------회원정보 리스트----------------------//
     Route::get('/user/', 'Admin\User\UserController@index');
+    Route::post('search_user', function (\Illuminate\Http\Request $request) {
+        $search = \App\User::where('username', $request->search_user)->get();
+        if ($search != null) {
+            $result = $search;
+        } else {
+            $result = [];
+        }
+        $data = \App\User::latest()->orderby('id')->paginate(30);
+        return view('admin.user.user_info.index', compact('data', 'result'));
+    });
     Route::post('/user_grade_control', 'Admin\User\UserController@user_grade_control');
 
     //----------------보상용역대행 컨설팅--------------------//

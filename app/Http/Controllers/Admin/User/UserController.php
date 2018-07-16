@@ -31,6 +31,7 @@ class UserController extends Controller
         return view('admin.user.user_info.index', compact('data', 'result'));
     }
 
+
     public function user_grade_control(Request $request)
     {
         $role_premium = \App\Role::where('name', 'premium')->first();
