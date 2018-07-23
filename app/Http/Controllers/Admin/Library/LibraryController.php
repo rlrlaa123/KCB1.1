@@ -79,7 +79,7 @@ class LibraryController extends Controller
 
         $date = Carbon::now();
 
-        $data = Library::where('j_id', $id)
+        $data = Library::where('library_id', $id)
             ->update([
                 'library_title' => $request['library_title'],
                 'library_content' => $request['library_content'],
