@@ -12,7 +12,7 @@
             padding: 5vw;
             background-image: url('/img/navbarbackgroundpicture.png');
             -webkit-background-size: 100%;
-            background-size:100%;
+            background-size:100% 100%;
             background-repeat: no-repeat;
         }
 
@@ -194,14 +194,16 @@
         }
 
         .partners {
-            display: -ms-grid;
-            display: grid;
-            -ms-grid-columns: 1fr 1vw 1fr;
-            grid-column-gap: 1vw;
-            grid-template-columns: 35% 65%;
-            margin: 1vw 15vw 1vw 15vw;
+            justify-content: space-between;
+            /*display: -ms-grid;*/
+            display: flex;
+            /*-ms-grid-columns: 1fr 1vw 1fr;*/
+            /* grid-column-gap: 1vw; */
+            /* grid-template-columns: 35% 65%; */
+            padding: 1vw 15vw;
             text-align: center;
-            width: 75%;
+            width: 100%;
+            align-items: center;
         }
 
         .rn_shortcut {
@@ -219,6 +221,8 @@
         }
 
         .lens_button {
+            width: 3vw;
+            height: 5vh;
             padding: 0;
             margin: 0;
             border: #e85254;
@@ -231,8 +235,8 @@
             padding: 6px;
             margin: 0;
             border: none;
-            width: 38px;
-            height: 35px;
+            width: 100%;
+            height: 100%;
             cursor: pointer;
             border-radius: 0.4vw;
             text-align: center;
@@ -244,7 +248,7 @@
 @section('content')
     <div class="searchbarcontainer">
         <form class="navbar-form searchform" style="padding:1vh 1vw;" method="GET" action="{{url('/search/')}}">
-            <input type="search" name="search" class="form-control" style="width:40%;" placeholder="검색"
+            <input type="search" name="search" class="form-control" style="width:35%; font-size:1vw; height:5vh;" placeholder="검색"
                    size="40">
             <button type="submit" class="lens_button"><img src="/img/searchbarbutton.png"/>
             </button>
@@ -267,7 +271,7 @@
                          style="font-size: 0.9vw;">무료샘플
                     </div>
                 </div>
-                <div class="_tothepage" style="font-size:0.9vw;"
+                <div class="_tothepage" style="word-break:keep-all; font-size:0.9vw;"
                      onclick="location.href='{{url('/hotfocus')}}'">+더보기
                 </div>
             </div>
@@ -289,7 +293,7 @@
             <div class="homemenu2" style="font-size: 0.9vw;">
                 <div class="homemenu2item" style="justify-content: space-between; display:flex; align-items: center ">
                     <div>TODAY 보상 고시 / 공고</div>
-                    <a href="{{url('notice')}}" class="_tothepage" style="font-size: 0.9vw;">+더보기</a></div>
+                    <a href="{{url('notice')}}" class="_tothepage" style="word-break:keep-all; font-size: 0.9vw;">+더보기</a></div>
 
             </div>
             <div>
@@ -315,7 +319,7 @@
                         style="border-bottom: 2px solid #e85251;
                          font-size:0.9vw; cursor:pointer;">관련 뉴스
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/relatednews" style="margin:8px 16px; font-size:0.9vw;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/relatednews" style="word-break:keep-all; margin:8px 16px; font-size:0.9vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
@@ -340,12 +344,10 @@
             </h2></div>
         <div class="partners">
             <div class="grid-item" style="display:inline-block">
-                <a href="http://www.moleg.go.kr/main.html" target="__blank"><img src="/img/moleg_logo.png"
-                                                                                 width="100px"></a>
+                <a href="http://www.moleg.go.kr/main.html" target="__blank"><img src="/img/moleg_logo.png" width="100%"></a>
             </div>
             <div class="grid-item" style="display:inline-block;">
-                <a href="http://www.nsdi.go.kr/lxportal/?menuno=2679" target="__blank"><img src="/img/nsdi_logo.png"
-                                                                                            width="100px"></a>
+                <a href="http://www.nsdi.go.kr/lxportal/?menuno=2679" target="__blank"><img src="/img/nsdi_logo.png" width="100%"></a>
             </div>
         </div>
     </div>

@@ -7,6 +7,14 @@
         }
 
     }
+    .dev_page > hr {
+        display: block;
+        visibility: visible;
+        width: 100%;
+        height: 30px !important;
+        font-size: 0;
+        line-height: 0;
+    }
     .letsusegrid {
         display: -ms-grid;
         display: grid;
@@ -296,10 +304,11 @@
         <div style="display:flex; justify-content: space-between; align-items: center">
             <b style="font-size: 1.1vw;">개발사업정보 검색</b><b></b>
         </div>
+        <hr/>
         <div class="dev_info_search">
             <div class="search_classes grid-item1">
                 <div class="class_title">
-                    <div class="dropdown1" style="float: left;">
+                    <div class="dropdown1" style="">
                         <button class="dropbtn1 menu_btn1" type="button">시/도
                             <span class="caret"></span></button>
                         <div class="dropdown1-content">

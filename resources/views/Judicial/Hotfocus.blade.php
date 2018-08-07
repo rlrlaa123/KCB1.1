@@ -13,11 +13,6 @@
         height: 80%;
     }
 
-    .hotfocuspage td {
-        display: inline-flex;
-        justify-content: space-between;
-    }
-
 
 
 </style>
@@ -36,28 +31,22 @@
             </div>
         </div>
         <hr/>
-        <table>
-            <tr class="display_grid">
-                @forelse($data as $value)
-                    <td class="grid-item">
-                        <a onclick="tothedetailpage({{$value->hf_id}})">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="image_text_container"><img
-                                                    src="/{{$value->hf_thumbnails}}">
-                                            <div class="text-block" style="width:100%;"><p>{{$value->hf_title}}</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </a>
-                    </td>
-                @empty
-                @endforelse
-            </tr>
-        </table>
+        <div class="display_content">
+            @forelse($data as $value)
+                <div onclick="tothedetailpage({{$value->hf_id}})" class="grid-item">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="image_text_container"><img
+                                            src="/{{ $value->hf_thumbnails }}">
+                                    <div class="text-block"><p>{{$value->hf_title}}</p></div>
+                                </div>
+                            </td>
+                    </table>
+                </div>
+            @empty
+            @endforelse
+        </div>
         @if($data->count())
             <div class="text-center">
                 {!! $data->render() !!}

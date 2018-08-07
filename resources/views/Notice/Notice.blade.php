@@ -1,46 +1,8 @@
 @extends('layouts.app')
 <style>
-
-    .display_grid {
-        width:100%;
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
-        grid-template-columns: 24% 24% 24% 24%;
-        padding: 0;
-        text-align: center;
-
-    }
-
-    .image_text_container {
-        text-align: left;
-        position: relative;
-        width: 14vw;
-        height: 19vh;
-    }
-
-    /* Bottom right text */
-    .text-block {
-        background-color: black;
-        bottom: 0;
-        color: white;
+    .noticepage img {
         width: 100%;
-        opacity: 0.6;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-    }
-
-    .text-block p {
-        margin: 0;
-        text-align: center;
-        -ms-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 100%;
-        height: 20%;
-
+        height: 80%;
     }
 
     .noticepage {
@@ -48,12 +10,7 @@
     }
 
     .noticepage table {
-        width: auto;
-    }
-
-    .noticepage img {
-        width: 101%;
-        height: 80%;
+        width: 100%;
     }
 
     .notexpired {
@@ -97,48 +54,40 @@
             </div>
         </div>
         <hr/>
-        <table>
-            <tr class="display_grid">
-                @forelse($notexpired as $value)
-                    <td class="notexpired grid-item">
-                        <a onclick="tothedetailpage({{$value->notice_id}})">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="image_text_container"><img
-                                                    src="/{{$value->notice_thumbnails}}">
-                                            <div class="text-block" style="width:101%;"><p>{{$value->notice_title}}</p>
-                                            </div>
+        <div class="display_content">
+            @forelse($data as $value)
+                @if( $value->created_at > $sub_days )
+                    <div onclick="tothedetailpage({{$value->notice_id}})" class="notexpired grid-item">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="image_text_container"><img
+                                                src="/{{$value->notice_thumbnails}}">
+                                        <div class="text-block"><p>{{$value->notice_title}}</p>
                                         </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </a>
-                    </td>
-                @empty
-                @endforelse
-                @foreach($data as $value)
-                    <td class="expired">
-                        <a onclick="tothedetailpage({{$value->notice_id}})">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="image_text_container"><img
-                                                    src="/{{ $value->notice_thumbnails }}">
-                                            <div class="text-block"><p>{{$value->notice_title}}</p></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                @else
+                    <div onclick="tothedetailpage({{$value->notice_id}})" class="expired grid-item">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="image_text_container"><img
+                                                src="/{{$value->notice_thumbnails}}">
+                                        <div class="text-block"><p>{{$value->notice_title}}</p>
                                         </div>
-                                    </td>
-                            </table>
-                        </a>
-                    </td>
-                @endforeach
-            </tr>
-        </table>
-        @if($notexpired->count())
-            <div class="text-center">
-                {!! $notexpired->render() !!}
-            </div>
-        @endif
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                @endif
+            @empty
+            @endforelse
+        </div>
         @if($data->count())
             <div class="text-center">
                 {!! $data->render() !!}

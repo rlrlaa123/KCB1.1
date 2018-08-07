@@ -1,7 +1,73 @@
 <style>
+
+    .display_content {
+        width: 100%;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
+        -ms-grid-rows: 1fr 1vw 1fr 1vw 1fr;
+        grid-template-columns: 24% 24% 24% 24%;
+        grid-row-gap: 3vh;
+        grid-column-gap: 1vw;
+        padding: 0;
+        text-align: center;
+    }
+
+    .display_content .grid-item:nth-child(2) {
+        -ms-grid-column: 3;
+    }
+
+    .display_content .grid-item:nth-child(3) {
+        -ms-grid-column: 5;
+    }
+
+    .display_content .grid-item:nth-child(4) {
+        -ms-grid-column: 7;
+    }
+
+    .display_content .grid-item:nth-child(5) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 1;
+    }
+
+    .display_content .grid-item:nth-child(6) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 3;
+    }
+
+    .display_content .grid-item:nth-child(7) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 5;
+    }
+
+    .display_content .grid-item:nth-child(8) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 7;
+    }
+
+    .display_content .grid-item:nth-child(9) {
+        -ms-grid-row: 5;
+        -ms-grid-column: 1;
+    }
+
+    .display_content .grid-item:nth-child(10) {
+        -ms-grid-row: 5;
+        -ms-grid-column: 3;
+    }
+
+    .display_content .grid-item:nth-child(11) {
+        -ms-grid-row: 5;
+        -ms-grid-column: 5;
+    }
+
+    .display_content .grid-item:nth-child(12) {
+        -ms-grid-row: 5;
+        -ms-grid-column: 7;
+    }
     .judicialpage_list_onpage {
         color: #e85254;
     }
+
     .intro_content {
         display: grid;
         display: -ms-grid;
@@ -75,10 +141,6 @@
         grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
     }
 
-    .image_text_container {
-        position: relative;
-    }
-
     /* Bottom right text */
     .text-block {
         background-color: black;
@@ -91,17 +153,20 @@
         margin: 0;
     }
 
+
     .text-block p {
+        font-size:1.1vw;
+        vertical-align: middle;
         margin: 0;
         text-align: center;
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        bottom: 0;
+        width: 100%;
+        height: 20%;
 
     }
-
     html {
         background-color: white;
     }
@@ -113,34 +178,13 @@
     }
 
     .image_text_container {
+        text-align:left;
         position: relative;
-        width: 14vw;
+        width: 100%;
         height: 19vh;
     }
 
-    /* Bottom right text */
-    .text-block {
-        background-color: black;
-        bottom: 0;
-        color: white;
-        width: 100%;
-        opacity: 0.6;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-    }
 
-    .text-block p {
-        margin: 0;
-        text-align: center;
-        -ms-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 100%;
-        height: 20%;
-
-    }
 
     .pagination > .disabled > a, .pagination > .disabled > a:focus,
     .pagination > .disabled > a:hover, .pagination > .disabled > span,
@@ -272,11 +316,9 @@
     }
 
     hr {
-        margin-top: 16px;
-    !important margin-bottom: 22 px;
-    !important border: 0;
-        border-top: 1px solid;
-    !Important
+        margin:4vh 0 !important;
+        border: 0;
+        border-top: 1px solid !Important;
     }
 
     a:hover {
@@ -305,7 +347,7 @@
     }
 
     .menu_btn1 {
-        background-color: transparent;
+        background-color: #546eb4;
         border: 0.5px solid grey;
         font-size: 1.1vw;
         font-weight: 500;
@@ -471,17 +513,26 @@
     }
 
     .navigationmenu {
+        position: relative;
+    }
+
+    .navigationmenu_sub > div {
+        padding: 1vw 0;
+    }
+
+    .navigationmenu_sub {
+        word-break: keep-all;
         color: black;
         cursor: pointer;
         background-color: #fdf7f5;
-        padding: 1vw 15vw 1vw 15vw;
+        padding: 0 15vw;
         border: 1px solid transparent;
         justify-content: center;
         -webkit-justify-content: center;
         display: grid;
         display: -ms-grid;
-        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
-        column-gap: 1vw;
+        -ms-grid-columns: 1fr 0 1fr 0 1fr 0 1fr 0 1fr 0 1fr;
+        column-gap: 0;
         grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
         text-align: center;
         font-weight: 700;
@@ -509,9 +560,9 @@
         text-align: center;
         justify-content: center;
         border-radius: 0.4vw;
-        opacity: 0.85;
-        background: #7888c2;
-        font-size: 0.6vw;
+        opacity: 0.91;
+        background: #e85254;
+        font-size: 0.7vw;
         font-weight: 700;
         padding: 0.5vh 0.5vw;
         margin: 1vw;
