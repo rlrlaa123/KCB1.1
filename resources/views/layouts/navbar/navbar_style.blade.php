@@ -1,4 +1,80 @@
 <style>
+    .judicialpage_list_onpage {
+        color: #e85254;
+    }
+    .intro_content {
+        display: grid;
+        display: -ms-grid;
+        -ms-grid-columns: 3fr 1vw 7fr;
+        column-gap: 1vw;
+        grid-template-columns: 29.5% 69.5%
+    }
+
+    .intro_desc {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        overflow: auto;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .intro_desc p {
+        font-size: 1vw;
+        line-height: 2vw;
+        color: black;
+        word-break: keep-all;
+    }
+
+    .introbody {
+        width: 100%;
+        padding: 2vw 15vw 1vw 15vw;
+        text-align: center;
+    }
+
+    .CeoName {
+        display: inline-block;
+        overflow: hidden;
+        width: 12vw;
+        height: 5vh;
+        font-size: 1.3vw;
+        font-weight: 600;
+    }
+
+    .business_result {
+        text-align: left;
+        list-style: none;
+    }
+
+    .business_result li {
+        line-height: 2.5vw;
+        font-size: 1.2vw;
+        list-style: none;
+    }
+
+    .intro_button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+        text-align: left;
+        font-size: 0.8vw;
+        font-weight: 600;
+        color: black;
+    }
+
+    .display_grid {
+        width: 100%;
+        display: grid;
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
+        column-gap: 1vw;
+        grid-row-gap: 2vw;
+        grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
+    }
+
     .image_text_container {
         position: relative;
     }
@@ -11,23 +87,25 @@
         width: 100%;
         opacity: 0.6;
         text-align: center;
-        padding:0;
-        margin:0;
+        padding: 0;
+        margin: 0;
     }
-    .text-block p{
-        margin:0;
+
+    .text-block p {
+        margin: 0;
         text-align: center;
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        bottom:0;
-
+        bottom: 0;
 
     }
-    html{
-        background-color:white;
+
+    html {
+        background-color: white;
     }
+
     .body {
         width: 100%;
         height: 100%;
@@ -229,8 +307,8 @@
     .menu_btn1 {
         background-color: transparent;
         border: 0.5px solid grey;
-        font-size:1.1vw;
-        font-weight:500;
+        font-size: 1.1vw;
+        font-weight: 500;
         -webkit-border-radius: 0.8vw;
         -moz-border-radius: 0.8vw;
         border-radius: 0.8vw;
@@ -251,10 +329,11 @@
         min-width: 5vw;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         z-index: 1;
-        font-size:1vw;
-        max-height:57vh;
+        font-size: 1vw;
+        max-height: 57vh;
         overflow-y: scroll;
     }
+
     .dropdown1-content::-webkit-scrollbar-track {
         background-color: transparent;
     }
@@ -270,6 +349,7 @@
     .dropdown1-content::-webkit-scrollbar-corner {
         background-color: grey;
     }
+
     .dropdown1-content::-webkit-scrollbar {
         width: 2px !important;
         -ms-overflow-style: auto;
@@ -449,35 +529,66 @@
     .mainfooter {
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 1fr 0.5vw 1fr 0.5vw 1fr 0.5vw 1fr 0.5vw 1fr;
+        -ms-grid-columns: 1fr 0.5vw 1fr 0.5vw 1fr 0.5vw 1fr;
         grid-column-gap: 0.5vw;
-        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-columns: 25% 25% 25% 25%;
         margin: 1vw 15vw 1vw 15vw;
         text-align: center;
     }
 
     .grid-item:nth-child(2) {
         -ms-grid-column: 3;
+
     }
 
     .grid-item:nth-child(3) {
         -ms-grid-column: 5;
+
     }
 
     .grid-item:nth-child(4) {
         -ms-grid-column: 7;
+
     }
 
     .grid-item:nth-child(5) {
         -ms-grid-column: 9;
+
     }
 
     .grid-item:nth-child(6) {
         -ms-grid-column: 11;
+
     }
 
     .grid-item:nth-child(7) {
         -ms-grid-column: 13;
+
+    }
+
+    .grid-item:nth-child(8) {
+        -ms-grid-column: 15;
+
+    }
+
+    .grid-item:nth-child(9) {
+        -ms-grid-column: 17;
+
+    }
+
+    .grid-item:nth-child(10) {
+        -ms-grid-column: 19;
+
+    }
+
+    .grid-item:nth-child(11) {
+        -ms-grid-column: 21;
+
+    }
+
+    .grid-item:nth-child(12) {
+        -ms-grid-column: 23;
+
     }
 
     .footerextra {
@@ -514,7 +625,7 @@
 
     .lens_button1 img {
         background-color: transparent;
-        padding:3px;
+        padding: 3px;
         margin: 0;
         border: none;
         width: 1.7vw;

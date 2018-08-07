@@ -21,7 +21,7 @@
         <div>
             @include('layouts.partials.communitylist')
             <hr/>
-            <h1 class="infoputheader"><strong>상담하기</strong></h1>
+            <h3 class="infoputheader"><strong>상담 및 설명회 신청</strong></h3>
         </div>
         @if (count($errors) > 0)
             <div class="alert alert-danger">

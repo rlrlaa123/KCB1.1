@@ -5,7 +5,7 @@
     }
 
     .hotfocuspage table {
-        width: auto;
+        width: 100%;
     }
 
     .hotfocuspage img {
@@ -37,21 +37,24 @@
         </div>
         <hr/>
         <table>
-            <tr>
+            <tr class="display_grid">
                 @forelse($data as $value)
-                    <td class="pagecontents_td">
+                    <td class="grid-item">
                         <a onclick="tothedetailpage({{$value->hf_id}})">
                             <table>
                                 <tr>
                                     <td>
-                                    <div class="image_text_container" style="width: 14vw; height: 19vh;"><img src="/{{ $value->hf_thumbnails }}">
-                                        <div class="text-block"><p style="width:100%; height:20%;">{{$value->hf_title}}</p></div></div>
+                                        <div class="image_text_container"><img
+                                                    src="/{{$value->hf_thumbnails}}">
+                                            <div class="text-block" style="width:100%;"><p>{{$value->hf_title}}</p>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
-                        </a></td>
+                        </a>
+                    </td>
                 @empty
-                    <div>등록된 HOT 포커스 게시물이 없습니다.</div>
                 @endforelse
             </tr>
         </table>

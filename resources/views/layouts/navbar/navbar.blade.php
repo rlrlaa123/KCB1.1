@@ -8,20 +8,19 @@
                 <li><a href="{{url('fyi')}}">공지사항</a></li>
                 <li><a href="{{url('fee')}}">요금표 안내</a></li>
                 {{--<li><a href="">고객센터</a></li>--}}
-                <li>
-                    <div class="dropdown">
-                        <button class="dropbtn menu_btn" type="button">전체메뉴
-                            <span class="caret"></span></button>
-                        <div class="dropdown-content">
-                            <a href="{{url('intro')}}">회사소개</a>
-                            <a href="{{url('agreement')}}">회원가입</a>
-                            <a href="{{url('login')}}">로그인</a>
-                            <a href="{{url('fyi')}}">공지사항</a>
-                            <a href="{{url('fee')}}">요금표 안내</a>
-                            {{--<a href="{{url('asking')}}">고객센터</a>--}}
-                        </div>
-                    </div>
-                </li>
+                {{--<li>--}}
+                    {{--<div class="dropdown">--}}
+                        {{--<button class="dropbtn menu_btn" type="button">전체메뉴--}}
+                            {{--<span class="caret"></span></button>--}}
+                        {{--<div class="dropdown-content">--}}
+                            {{--<a href="{{url('intro')}}">회사소개</a>--}}
+                            {{--<a href="{{url('agreement')}}">회원가입</a>--}}
+                            {{--<a href="{{url('login')}}">로그인</a>--}}
+                            {{--<a href="{{url('fyi')}}">공지사항</a>--}}
+                            {{--<a href="{{url('fee')}}">요금표 안내</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
             @else
                 <li>
                   <div class="dropdown">
@@ -44,29 +43,29 @@
                 <li><a href="{{url('fyi')}}">공지사항</a></li>
                 <li><a href="{{url('fee')}}">요금표 안내</a></li>
                 {{--<li><a href="">고객센터</a></li>--}}
-                <li>
-                    <div class="dropdown">
-                        <button class="dropbtn menu_btn" type="button">전체메뉴
-                            <span class="caret"></span></button>
-                        <div class="dropdown-content">
-                            <a href="{{url('intro')}}">회사소개</a>
-                            <a href="{{url('agreement')}}">나의 정보</a>
-                            <a href="{{url('notice')}}">공고/공시</a>
-                            <a href="{{url('fyi')}}">공지사항</a>
-                            <a href="{{url('fee')}}">요금표 안내</a>
-                            <a href="{{url('/consulting')}}">보상 용역 대행 컨설팅</a>
-                            <a href="{{url('dev_info')}}">개발사업정보검색</a>
-                            <a href="{{url('judicial')}}">유권해석&판례</a>
-                            <a href="{{url('hotfocus')}}">HOT 포커스</a>
-                            <a href="{{url('policy')}}">규정지침</a>
-                            <a href="{{url('relatednews')}}">관련 뉴스</a>
-                            <a href="{{url('library')}}">자료실</a>
-                            <a href="{{url('articles')}}">커뮤니티</a>
-                            <a href="{{url('report')}}">신고하기</a>
-                            <a href="{{url('asking')}}">상담하기</a>
-                        </div>
-                    </div>
-                </li>
+                {{--<li>--}}
+                    {{--<div class="dropdown">--}}
+                        {{--<button class="dropbtn menu_btn" type="button">전체메뉴--}}
+                            {{--<span class="caret"></span></button>--}}
+                        {{--<div class="dropdown-content">--}}
+                            {{--<a href="{{url('intro')}}">회사소개</a>--}}
+                            {{--<a href="{{url('agreement')}}">나의 정보</a>--}}
+                            {{--<a href="{{url('notice')}}">공고/공시</a>--}}
+                            {{--<a href="{{url('fyi')}}">공지사항</a>--}}
+                            {{--<a href="{{url('fee')}}">요금표 안내</a>--}}
+                            {{--<a href="{{url('/consulting')}}">보상 용역 대행 컨설팅</a>--}}
+                            {{--<a href="{{url('dev_info')}}">개발사업정보검색</a>--}}
+                            {{--<a href="{{url('judicial')}}">유권해석&판례</a>--}}
+                            {{--<a href="{{url('hotfocus')}}">HOT 포커스</a>--}}
+                            {{--<a href="{{url('policy')}}">규정지침</a>--}}
+                            {{--<a href="{{url('relatednews')}}">관련 뉴스</a>--}}
+                            {{--<a href="{{url('library')}}">자료실</a>--}}
+                            {{--<a href="{{url('articles')}}">커뮤니티</a>--}}
+                            {{--<a href="{{url('report')}}">신고하기</a>--}}
+                            {{--<a href="{{url('asking')}}">상담하기</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
             @endguest
         </ul></span>
 

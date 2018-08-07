@@ -8,7 +8,4 @@
     <div class="dev_info {{ $_SERVER['REQUEST_URI'] === '/policy' ? 'judicialpage_list_onpage' : ''}}"
          onclick="location.href='/policy';">규정지침
     </div>
-    <div class="dev_info {{ $_SERVER['REQUEST_URI'] === '/relatednews' ? 'judicialpage_list_onpage' : ''}}"
-         onclick="location.href='/relatednews';">관련 뉴스
-    </div>
 </div>

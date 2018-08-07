@@ -14,7 +14,7 @@
         <h4>
             관련 뉴스
         </h4>
-        @include('layouts.partials.detailpage_list')
+        @include('layouts.partials.library_list')
         <div>
             <div class="content_title"><strong>{{$data->rn_title}}</strong><span>작성일 : {{$data->rn_date}}</span>
             </div>

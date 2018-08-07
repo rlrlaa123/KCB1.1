@@ -46,7 +46,7 @@
 @section('content')
     <div class="fyipage">
         <div class="justify-content">
-            <div class="fyi-selector" onclick="location.href='/fyi';">공지사항</div>
+            <div>@include('layouts.partials.communitylist')</div>
             <div>
                 <form class="navbar-form searchform" method="GET" action="{{url('/fyisearch/')}}">
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
@@ -57,6 +57,9 @@
                 </form>
             </div>
         </div>
+        <hr/>
+        <h4>공지사항</h4>
+        <small>글 목록</small>
         <hr/>
         <div>
             <table class="pagecontents">

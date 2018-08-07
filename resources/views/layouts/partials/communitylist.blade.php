@@ -1,11 +1,11 @@
 <div class="detailpage_list">
     <div class=" {{ $_SERVER['REQUEST_URI'] === '/articles' ? 'judicialpage_list_onpage' : ''}}"
-         onclick="location.href='/articles';">커뮤니티
-    </div>
-    <div class="notice {{ $_SERVER['REQUEST_URI'] === '/report' ? 'judicialpage_list_onpage' : ''}}"
-         onclick="location.href='/report';">신고하기
+         onclick="location.href='/articles';">자유게시판
     </div>
     <div class="dev_info {{ $_SERVER['REQUEST_URI'] === '/asking' ? 'judicialpage_list_onpage' : ''}}"
-         onclick="location.href='/asking';">상담하기
+         onclick="location.href='/asking';">상담 및 설명회 신청
+    </div>
+    <div class="fyi {{ $_SERVER['REQUEST_URI'] === '/fyi' ? 'judicialpage_list_onpage' : ''}}"
+         onclick="location.href='/fyi';">공지사항
     </div>
 </div>

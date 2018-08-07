@@ -14,7 +14,7 @@
         <h4>
            자료실
         </h4>
-        @include('layouts.partials.detailpage_list')
+        @include('layouts.partials.library_list')
         <div>
             <div class="content_title"><strong>{{$data->library_title}}</strong><span>작성일 : {{$data->library_date}}</span>
             </div>

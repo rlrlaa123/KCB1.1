@@ -28,7 +28,7 @@
     <div class="asking_page">
         <div>@include('layouts.partials.communitylist')</div>
         <hr/>
-        <h4>상담하기</h4>
+        <h4>상담 및 설명회 신청</h4>
         <small>글 목록</small>
         <hr/>
         <div>

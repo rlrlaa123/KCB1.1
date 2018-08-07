@@ -13,7 +13,7 @@
 @section('content')
     <div class="RNpage">
         <div class="justify-content">
-            <div>@include('layouts.partials.judicialpage_list')</div>
+            <div>@include('layouts.partials.library_list')</div>
             <div>
                 <form class="navbar-form searchform" method="GET" action="{{url('/relatednewssearch/')}}">
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."

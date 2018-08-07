@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\RelatedNews;
 use Illuminate\Http\Request;
-use App\Library;
 use App\HotFocus;
-use App\FYI;
+use App\Notice;
 
 class HomeController extends Controller
 {
@@ -29,8 +29,8 @@ class HomeController extends Controller
 //        $request->user()->authorizeRoles('user');
 //        return json_encode($request->user()->hasrole('admin'));
         $hotfocus = HotFocus::latest()->latest()->take(2);
-        $fyi = FYI::latest()->take(5)->get();
-        $library = Library::latest()->take(5)->get();
-        return view('/main/home', compact('library', 'hotfocus', 'fyi'));
+        $notice = Notice::latest()->take(5)->get();
+        $relatednews = RelatedNews::latest()->take(5)->get();
+        return view('/main/home', compact('relatednews', 'hotfocus', 'notice'));
     }
 }

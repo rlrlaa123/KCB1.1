@@ -26,7 +26,7 @@
     <div class="community_page">
         @include('layouts.partials.communitylist')
         <hr/>
-        <h4>커뮤니티</h4>
+        <h4>자유게시판</h4>
         <small>글 목록</small>
         <hr/>
         <div>

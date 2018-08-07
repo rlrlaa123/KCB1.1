@@ -132,7 +132,7 @@
             cursor: pointer;
         }
 
-        .library_shortcut div {
+        .rn_shortcut div {
             width: 100%;
             -ms-text-overflow: ellipsis;
             overflow: hidden;
@@ -146,7 +146,7 @@
 
         }
 
-        .fyi_shortcut div {
+        .notice_shortcut div {
             width: 100%;
             -ms-text-overflow: ellipsis;
             overflow: hidden;
@@ -204,7 +204,7 @@
             width: 75%;
         }
 
-        .library_shortcut {
+        .rn_shortcut {
             display: -ms-grid;
             display: grid;
             -ms-grid-columns: 0.2fr 1vw 2fr 1vw 0.3fr;
@@ -288,15 +288,15 @@
         <div class="grid-item">
             <div class="homemenu2" style="font-size: 0.9vw;">
                 <div class="homemenu2item" style="justify-content: space-between; display:flex; align-items: center ">
-                    <div>공지사항</div>
-                    <a href="{{url('fyi')}}" class="_tothepage" style="font-size: 0.9vw;">+더보기</a></div>
+                    <div>TODAY 보상 고시 / 공고</div>
+                    <a href="{{url('notice')}}" class="_tothepage" style="font-size: 0.9vw;">+더보기</a></div>
 
             </div>
             <div>
-                @forelse($fyi as $value)
-                    <div class="fyi_shortcut" onclick="tothedetailpage_fyi({{$value->fyi_id}})"
+                @forelse($notice as $value)
+                    <div class="notice_shortcut" onclick="tothedetailpage_notice({{$value->notice_id}})"
                          style="cursor:pointer; padding: 1vh 0.5vw; font-size: 0.8vw;">
-                        <div>{{$value->fyi_title}}</div>
+                        <div>{{$value->notice_title}}</div>
                     </div>
                 @empty
                     <div style="text-align:center; font-size:0.8vw;">등록된 공지사항이 없습니다.</div>
@@ -310,20 +310,20 @@
     <div class="body2">
         <div>
             <div style="margin:1vw 0; border-bottom: 1px solid #7888c2; display:flex; justify-content: space-between; align-items: center;">
-                <button id="library_shortcut_button1" class="homemenu3item"
-                        onclick="location.href='{{url('/library')}}'"
+                <button id="rn_shortcut_button1" class="homemenu3item"
+                        onclick="location.href='{{url('/relatednews')}}'"
                         style="border-bottom: 2px solid #e85251;
-                         font-size:0.9vw; cursor:pointer;">자료실
+                         font-size:0.9vw; cursor:pointer;">관련 뉴스
                 </button>
-                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/library" style="margin:8px 16px; font-size:0.9vw;">+더보기</a>
+                <button class="_tothepage" style="background-color: #e7e9f4; cursor:pointer;"><a href="/relatednews" style="margin:8px 16px; font-size:0.9vw;">+더보기</a>
                 </button>
             </div>
             <div id="data1" class="menu2">
-                @forelse($library as $value)
-                    <div class="library_shortcut" onclick="tothedetailpage_library({{$value->library_id}})">
-                        <div class="grid-item">{{ $value->library_id }}</div>
-                        <div class="grid-item">{{ $value->library_title }}</div>
-                        <div class="grid-item">{{ $value->library_date }}</div>
+                @forelse($relatednews as $value)
+                    <div class="rn_shortcut" onclick="tothedetailpage_relatednews({{$value->rn_id}})">
+                        <div class="grid-item">{{ $value->rn_id }}</div>
+                        <div class="grid-item">{{ $value->rn_title }}</div>
+                        <div class="grid-item">{{ $value->rn_date }}</div>
                     </div>
 
                 @empty
@@ -396,18 +396,18 @@
             @endif
         }
 
-        function tothedetailpage_fyi(id) {
+        function tothedetailpage_notice(id) {
 
-            location.href = "/fyi/" + id;
+            location.href = "/notice/" + id;
         }
 
-        function tothedetailpage_library(id) {
+        function tothedetailpage_relatednews(id) {
             @if(\Illuminate\Support\Facades\Auth::guest())
             alert('회원 가입 후에 열람하실 수 있습니다.');
                     @else
             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
             if (role === "1") {
-                location.href = "/library/" + id;
+                location.href = "/relatednews/" + id;
             }
             else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
