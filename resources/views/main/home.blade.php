@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('style')
-
     <style>
         body {
             font-weight: 700;
@@ -33,6 +32,7 @@
         }
 
         .body1 {
+            word-break: keep-all;
             display: -ms-grid;
             display: grid;
             -ms-grid-columns: 1fr 3vw 1fr;

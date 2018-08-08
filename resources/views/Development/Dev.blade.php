@@ -11,7 +11,7 @@
         display: block;
         visibility: visible;
         width: 100%;
-        height: 30px !important;
+        height: 1.5vh !important;
         font-size: 0;
         line-height: 0;
     }
@@ -134,7 +134,7 @@
         background-color: #546eb4;
         padding: 0.3vw;
         font-size: 1.1vw;
-        text-align: center;
+        text-align: left;
         align-items: center;
         font-weight: bolder;
     }
@@ -176,6 +176,7 @@
     }
 
     .listed {
+        word-break: keep-all;
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         padding: 0.3vw;
@@ -356,9 +357,9 @@
             <div class="search_classes grid-item1">
 
                 <div class="letsusegrid">
-                    <div class="class_title grid-item" style="cursor:pointer;" onclick="selectsearch_type('search_type')"><strong>유형</strong>
+                    <div class="class_title grid-item" style="cursor:pointer; text-align:center;" onclick="selectsearch_type('search_type')"><strong>유형</strong>
                     </div>
-                    <div class="class_title grid-item" style="border-left: 0.5px solid white;cursor:pointer;" onclick="selectsearch_type('search_charge')"><strong>주체</strong>
+                    <div class="class_title grid-item" style="border-left: 0.5px solid white;cursor:pointer; text-align:center;" onclick="selectsearch_type('search_charge')"><strong>주체</strong>
                     </div>
                 </div>
                 <div class="dev_table_child" id="search_type" style="display:block;">

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @include('detailedpage.detailed_style')
 <style>
+    .basic_info_div_img{
+        width: 23vw;
+        height: 50vh;
+    }
     .basic_info_div {
         display: flex;
         justify-content: space-between;
@@ -65,7 +69,7 @@
         </div>
         <hr/>
         <div class="basic_info_div">
-            <div style="width:35%; margin:1vw;"><img src="/{{ $data->dev_fileimage }}" style="width: 100%;">
+            <div style="width:35%; margin:1vw;"><img src="/{{ $data->dev_fileimage }}" class="basic_info_div_img">
             </div>
             <div style="width: 65%;">
                 <table>

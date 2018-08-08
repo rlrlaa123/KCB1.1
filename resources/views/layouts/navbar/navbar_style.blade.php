@@ -1,4 +1,45 @@
 <style>
+    html, body, div, a, li, span, b, strong, i, p{
+        word-break:keep-all!important;
+    }
+    @media screen and (orientation:portrait) {
+        .basic_info_div {
+            margin: 0!important;
+        }
+        .basic_info_div_img{
+            width: 23vw;
+            height: 17vh!important;
+        }
+        .dropdown1-content {
+            height:22vh!important;
+        }
+        .dropdown1-content a{
+            padding: 0.5vh 0!important;
+        }
+        .menu_btn1 {
+            margin-right: 8vw!important;
+        }
+
+        .navigationheader img {
+            width: 50%!important;
+        }
+        .dev_info_search {
+            height: 25vh;
+        }
+        .dev_page .content1{
+            height:21vh;
+        }
+        .dev_page .location_class_child{
+            height:21vh;
+        }
+        .search_classes{
+            height:25vh;
+        }
+        .dev_table_child {
+            height:22vh;
+        }
+
+    }
 
     .display_content {
         width: 100%;
@@ -326,8 +367,9 @@
     }
 
     body {
-        font-family: 'NanumSquare', sans-serif;
-    !important
+        font-family: 'NanumSquare', sans-serif!important;
+        font-size:16px;
+
     }
 
     .normal {
@@ -347,6 +389,7 @@
     }
 
     .menu_btn1 {
+        margin-right: 15vw;
         background-color: #546eb4;
         border: 0.5px solid grey;
         font-size: 1.1vw;
@@ -368,7 +411,7 @@
         text-align: center;
         position: absolute;
         background-color: #f1f1f1;
-        min-width: 5vw;
+        min-width: 22%;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         z-index: 1;
         font-size: 1vw;
@@ -400,7 +443,7 @@
     /* Links inside the dropdown */
     .dropdown1-content a {
         color: black;
-        padding: 1vh 0.2vw;
+        padding: 0.5vh 0.2vw;
         text-decoration: none;
         text-align: left;
         display: block;
@@ -644,7 +687,7 @@
 
     .footerextra {
         text-align: left;
-        margin-left: 18.8vw;
+        padding:1vw 20vw;
     }
 
     .active {

@@ -3,7 +3,8 @@
         font-size:0.7vw;
     }
     .footerextra{
-        font-size:0.5vw;
+        word-break: keep-all;
+        font-size:0.7vw;
     }
 
 </style>

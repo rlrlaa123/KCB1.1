@@ -262,7 +262,7 @@
     /* 전국시도 */
 
     .mappedcity {
-        left: 6vw;
+        left: 8.5vw;
         position: absolute;
         width: auto;
         font-size: 1vw;
@@ -276,9 +276,9 @@
         letter-spacing: -1px;
         font-weight: normal;
         color: #575757;
-        width: 58px;
-        height: 15px;
-
+        width: 5vw;
+        height: 1vh;
+        line-height: 100%;
     }
 
     .mappedcity li a {
@@ -286,11 +286,10 @@
     }
 
     .mappedcity li a:hover {
-        color: #1857a6;
+        color: #0938a6;
         font-size: 0.8vw;
-
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 800;
     }
 
     .mappedcity li a.on {

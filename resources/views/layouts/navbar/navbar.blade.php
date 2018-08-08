@@ -135,7 +135,7 @@
              onclick="location.href='/notice';">공고/공시
         </div>
         <div class="dev_info grid-item {{ $_SERVER['REQUEST_URI'] === '/dev_info' ? 'onPage' : ''}}"
-             onclick="location.href='/dev_info';">개발사업정보
+             onclick="location.href='/dev_info';">개발사업 정보
         </div>
         <div class="judicial grid-item {{ $_SERVER['REQUEST_URI'] === '/judicial' ? 'onPage' : ''}}"
              onclick="location.href='/judicial';">유권해석/ 판례
