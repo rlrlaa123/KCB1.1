@@ -38,7 +38,7 @@ class HotFocusController extends Controller
     {
         $this->validate($request, [
             'hf_title' => 'required',
-            'hf_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'hf_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'hf_content' => 'required',
             'dash_id' => 'integer'
         ]);
@@ -112,7 +112,7 @@ class HotFocusController extends Controller
     {
         $this->validate($request, [
             'hf_title' => 'required',
-            'hf_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'hf_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'hf_content' => 'required',
             'dash_id' => 'integer'
         ]);

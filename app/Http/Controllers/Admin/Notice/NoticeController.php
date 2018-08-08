@@ -40,7 +40,7 @@ class NoticeController extends Controller
     {
         $this->validate($request, [
             'notice_title' => 'required',
-            'notice_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'notice_fileimage' => 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip|max:5120',
             'notice_content' => 'required',
         ]);
         if ($request->hasFile('notice_fileimage')) {
@@ -104,7 +104,7 @@ class NoticeController extends Controller
     {
         $this->validate($request, [
             'notice_title' => 'required',
-            'notice_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'notice_fileimage' => 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip|max:5120',
             'notice_content' => 'required',
         ]);
 

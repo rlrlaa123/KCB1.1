@@ -219,6 +219,7 @@
     }
 
     .image_text_container {
+        cursor:pointer;
         text-align:left;
         position: relative;
         width: 100%;

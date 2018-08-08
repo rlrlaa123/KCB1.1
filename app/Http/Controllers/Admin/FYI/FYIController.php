@@ -54,7 +54,7 @@ class FYIController extends Controller
 
         $this->validate($request, [
             'fyi_title' => 'required',
-            'fyi_fileimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'fyi_fileimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'fyi_content' => 'required',
         ]);
         if ($request->hasFile('fyi_fileimage')) {

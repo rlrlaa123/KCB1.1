@@ -94,7 +94,7 @@ class RelatedNewsController extends Controller
     {
         $this->validate($request, [
             'rn_title' => 'required',
-            'rn_fileimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'rn_fileimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
             'rn_content' => 'required',
             'rn_link' => 'string|nullable',
             'dash_id' => 'integer'

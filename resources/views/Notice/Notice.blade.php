@@ -41,14 +41,13 @@
     <div class="noticepage">
         <div class="justify-content">
             <div class="notice-selector {{ $_SERVER['REQUEST_URI'] === '/notice' ? 'judicialpage_list_onpage' : ''}}"
-                 onclick="location.href='/notice';">TODAY 공고/공시
+                 onclick="location.href='/notice';">TODAY 보상 공고/공시
             </div>
             <div>
                 <form class="navbar-form searchform" method="GET" action="{{url('/noticesearch/')}}">
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
                            style="height: 3vh; width: 15vw; padding:0;">
-                    <button type="submit" class="lens_button1"><img
-                                src="/img/searchbarbutton1.png"/>
+                    <button type="submit" class="lens_button1"><img src="/img/searchbarbutton1.png"/>
                     </button>
                 </form>
             </div>
@@ -61,7 +60,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <div class="image_text_container"><img src="/{{$value->notice_thumbnails}}">
+                                    <div class="image_text_container"><img src="/{{$value->notice_fileimage}}" alt="{{$value->notice_title}}">
                                         <div class="text-block"><p>{{$value->notice_title}}</p>
                                         </div>
                                     </div>

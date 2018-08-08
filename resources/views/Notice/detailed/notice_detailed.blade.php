@@ -37,7 +37,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img style="width:100%; max-height:1100px; overflow: scroll" src="/{{$data->notice_fileimage}}">
+                                    <img style="width:100%; height:100%; overflow: scroll" src="/{{$data->notice_fileimage}}">
                                 </td>
                             </tr>
                             <tr>

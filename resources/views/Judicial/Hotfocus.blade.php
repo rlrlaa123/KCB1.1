@@ -61,7 +61,7 @@
             @forelse($data as $value)
                 <div onclick="tothedetailpage({{$value->hf_id}})" class="grid-item" style="margin:1vw; border:1px solid #cccccc;">
                     <div class="image_text_container">
-                        <img src="/{{$value->hf_thumbnails}}">
+                        <img src="/{{$value->hf_fileimage}}">
                         <div class="text-block">
                             <p>{{$value->hf_title}}</p>
                         </div>
