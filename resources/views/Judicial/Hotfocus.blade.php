@@ -1,10 +1,6 @@
 @extends('layouts.app')
 <style>
-    .hotfocuspage {
-        margin: 1vw 15vw 1vw 15vw;
-    }
-
-    .hotfocuspage table {
+    .image_text_container {
         width: 100%;
     }
 
@@ -13,19 +9,49 @@
         height: 80%;
     }
 
+    .hotfocuspage {
+        margin: 1vw 15vw 1vw 15vw;
+    }
 
+    .hotfocuspage table {
+        width: 100%;
+    }
 
+    .notexpired {
+        text-align: center;
+        border: solid 2px #e85254;
+        margin: 1vw;
+    }
+
+    .expired {
+        text-align: center;
+        border: solid 1px #3b5493;
+        margin: 1vw;
+
+    }
+
+    .hotfocus-selector {
+        cursor: pointer;
+        padding: 0.7vw;
+        font-weight: 600;
+        justify-content: left;
+        text-align: left;
+        font-size: 1vw;
+        width: 25%;
+        color: black
+    }
 </style>
 @section('content')
     <div class="hotfocuspage">
         <div class="justify-content">
-            <div>@include('layouts.partials.judicialpage_list')</div>
+            <div>
+                @include('layouts.partials.judicialpage_list')
+            </div>
             <div>
                 <form class="navbar-form searchform" method="GET" action="{{url('/hotfocussearch/')}}">
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
                            style="height: 3vh; width: 15vw; padding:0;">
-                    <button type="submit" class="lens_button1"><img
-                                src="/img/searchbarbutton1.png"/>
+                    <button type="submit" class="lens_button1"><img src="/img/searchbarbutton1.png"/>
                     </button>
                 </form>
             </div>
@@ -33,16 +59,13 @@
         <hr/>
         <div class="display_content">
             @forelse($data as $value)
-                <div onclick="tothedetailpage({{$value->hf_id}})" class="grid-item">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="image_text_container"><img
-                                            src="/{{ $value->hf_thumbnails }}">
-                                    <div class="text-block"><p>{{$value->hf_title}}</p></div>
-                                </div>
-                            </td>
-                    </table>
+                <div onclick="tothedetailpage({{$value->hf_id}})" class="grid-item" style="margin:1vw;">
+                    <div class="image_text_container">
+                        <img src="/{{$value->hf_thumbnails}}">
+                        <div class="text-block">
+                            <p>{{$value->hf_title}}</p>
+                        </div>
+                    </div>
                 </div>
             @empty
             @endforelse
@@ -53,13 +76,13 @@
             </div>
         @endif
     </div>
-
     <script>
         function tothedetailpage(id) {
             @if(\Illuminate\Support\Facades\Auth::guest())
             alert('회원 가입 후에 열람하실 수 있습니다.');
             @else
             // Premium 회원일 때만 접근 가능!
+            console.log();
             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
             if (role === "1") {
                 location.href = "/hotfocus/" + id;
@@ -71,20 +94,3 @@
         }
     </script>
 @endsection
-
-{{--<div>--}}
-{{--<table>--}}
-{{--<thead><tr>--}}
-{{--<th>번호</th><th>구분</th><th>제목</th><th>날짜</th>--}}
-{{--</tr></thead>--}}
-{{--@foreach($data as $value)--}}
-{{--<tr>--}}
-{{--<td>{{$value['id']}}</td>--}}
-{{--<td>{{$value['sort']}}</td>--}}
-{{--<td>{{$value['title']}}</td>--}}
-{{--<td>{{$value['date']}}</td>--}}
-{{--</tr>--}}
-{{--@endforeach--}}
-
-{{--</table>--}}
-{{--</div>--}}

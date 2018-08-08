@@ -61,8 +61,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <div class="image_text_container"><img
-                                                src="/{{$value->notice_thumbnails}}">
+                                    <div class="image_text_container"><img src="/{{$value->notice_thumbnails}}">
                                         <div class="text-block"><p>{{$value->notice_title}}</p>
                                         </div>
                                     </div>
