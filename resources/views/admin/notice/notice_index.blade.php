@@ -34,8 +34,8 @@
                 <tbody>
                 @forelse($data as $value)
                     <tr class="tothedetailpage"
-                        onclick="location.href='{{ url('admin/notice/'.$value->notice_id.'/edit') }}'">
-                        <td class="td1">{{$value->notice_id}}</td>
+                        onclick="location.href='{{ url('admin/notice/'.$value->id.'/edit') }}'">
+                        <td class="td1">{{$value->id}}</td>
                         @if($value->notice_thumbnails != null)
                         <td class="td1"><img src="/{{$value->notice_thumbnails}}"></td>
                         @else
@@ -44,8 +44,7 @@
                         <td class="td1">{{$value->notice_title}}</td>
                         <td class="td1">{{$value->notice_content}}</td>
                         <td class="td1">{{ $value->created_at }}</td>
-                        <td class="td1">{{ $value->notice_date }}</td>
-                        <td class="td1" onclick="deleting({{ $value->notice_id }})">
+                        <td class="td1" onclick="deleting({{ $value->id }})">
                             <button class="btn btn-delete">삭제하기</button>
                         </td>
                     </tr>
@@ -65,12 +64,12 @@
             }
         });
 
-        function deleting(notice_id) {
-            $('div.notice_id');
+        function deleting(id) {
+            $('div.id');
             if (confirm('글을 삭제합니다.')) {
                 $.ajax({
                     type: 'DELETE',
-                    url: '/admin/notice/' + notice_id
+                    url: '/admin/notice/' + id
                 }).then(function () {
                     window.location.href = '/admin/notice/';
                 })

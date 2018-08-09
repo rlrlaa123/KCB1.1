@@ -29,7 +29,7 @@
     <div id="notice" class="infoput">
         <div class="container" style="margin: 0 5%;">
             <h1 class="infoputheader"><strong>※ 공고 공시 수정</strong></h1>
-            <form id="notice-form" method="POST" action="{{ route('admin.notice.update', $data->notice_id) }}"
+            <form id="notice-form" method="POST" action="{{ route('admin.notice.update', $data->id) }}"
                   enctype="multipart/form-data">
                 {!! method_field('PUT') !!}
                 {!! csrf_field() !!}
@@ -59,13 +59,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="notice_fileimage">파일 첨부</label></td>
+                            <td class="datainput"><label for="fileimage">파일 첨부</label></td>
                             <td>
-                                <input type="file" id="notice_fileimage" name="notice_fileimage" class="image"
-                                       value="{{ old('notice_fileimage', $data->notice_fileimage) }}">
-                                @if ($errors->has('notice_fileimage'))
+                                <input type="file" id="fileimage" name="fileimage[]" class="image"
+                                       value="{{ old('fileimage[]', $data->fileimage) }}" multiple>
+                                @if ($errors->has('fileimage'))
                                     <div class="help-block">
-                                        {{ $errors->first('notice_fileimage') }}
+                                        {{ $errors->first('fileimage') }}
                                     </div>
                                 @endif
                             </td>

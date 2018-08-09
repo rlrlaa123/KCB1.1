@@ -33,13 +33,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="notice_fileimage">파일 첨부</label></td>
+                            <td class="datainput"><label for="fileimage">파일 첨부</label></td>
                             <td>
-                                <input type="file" id="notice_fileimage" name="notice_fileimage" class="image"
-                                       value="{{ old('notice_fileimage') }}">
-                                @if ($errors->has('notice_fileimage'))
+                                <input type="file" id="fileimage" name="fileimage[]" class="image" multiple>
+                                @if ($errors->has('fileimage'))
                                     <div class="help-block">
-                                        {{ $errors->first('notice_fileimage') }}
+                                        {{ $errors->first('fileimage') }}
                                     </div>
                                 @endif
                             </td>

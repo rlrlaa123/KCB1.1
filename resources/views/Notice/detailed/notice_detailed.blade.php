@@ -19,8 +19,8 @@
             <table class="noticedetailedtable">
                 <tr>
                     <td>
-                        <div class="writer_and_filedownload">작성자 : 관리자 <span><a
-                                        href="{{url('notice_filedownload/'.$data->notice_id)}}">파일 다운로드 Date:{{$data->notice_date}}</a></span>
+                        <div class="writer_and_filedownload">작성자 : 관리자 <span>
+                                <a href="{{url('notice_filedownload/'.$data->notice_id)}}">파일 다운로드 Date:{{$data->notice_date}}</a></span>
                         </div>
                     </td>
                 </tr>
@@ -31,13 +31,15 @@
                                 <td>
                                     <div>
                                         <p style="overflow: auto;">{{$data->notice_content}}</p>
-                                        <p>[이미지 원본 파일을 보시려면 우측 상단의 파일 다운로드를 이용해주시기 바랍니다.]</p>
+                                        <p>[원본 파일을 보시려면 우측 상단의 파일 다운로드를 이용해주시기 바랍니다.]</p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
+                                    @if (@is_array(getimagesize($data['notice_fileimage'])))
                                     <img style="width:100%; height:100%; overflow: scroll" src="/{{$data->notice_fileimage}}">
+                                        @endif
                                 </td>
                             </tr>
                             <tr>

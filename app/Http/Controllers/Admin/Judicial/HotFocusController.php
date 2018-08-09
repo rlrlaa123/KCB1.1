@@ -42,42 +42,43 @@ class HotFocusController extends Controller
             'hf_content' => 'required',
             'dash_id' => 'integer'
         ]);
+        $delete = HotFocus::where('hf_id', $id)->get()[0];
+        if ($delete['hf_fileimage'] != null) {
+            File::delete($delete['hf_fileimage']);
+            File::delete($delete['hf_thumbnails']);
+        }
         if ($request->hasFile('hf_fileimage')) {
             if (!file_exists('fileuploaded')) {
                 File::makeDirectory('fileuploaded');
                 if (!file_exists('fileuploaded/hotfocus')) {
                     File::makeDirectory('fileuploaded/hotfocus');
+                    if (@is_array(getimagesize($request['hf_fileimage']))) {
+                        if (!file_exists('fileuploaded/hotfocus/thumbnails')) {
+                            File::makeDirectory('fileuploaded/hotfocus/thumbnails');
+                        }
+                    }
                     if (!file_exists('fileuploaded/hotfocus/images')) {
                         File::makeDirectory('fileuploaded/hotfocus/images');
                     }
-                    if (!file_exists('fileuploaded/hotfocus/thumbnails')) {
-                        File::makeDirectory('fileuploaded/hotfocus/thumbnails');
-                    }
                 }
             }
-            $delete= HotFocus::where('hf_id', $id)->get()[0];
-            if($delete['hf_fileimage'] !=null) {
-                File::delete($delete['hf_fileimage']);
-                File::delete($delete['hf_thumbnails']);
-            }
-
             $image = $request->file('hf_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
-
-            $destinationPath = public_path('fileuploaded/hotfocus/thumbnails');
-            $thumbnails = Image::make($image->getRealPath());
-            $thumbnails->resize(100, 100, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath . '/' . $imagename);
-
+            if (@is_array(getimagesize($request['hf_fileimage']))) {
+                $destinationPath = public_path('fileuploaded/hotfocus/thumbnails');
+                $thumbnails = Image::make($image->getRealPath());
+                $thumbnails->resize(100, 100, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . '/' . $imagename);
+            }
             $destinationPath = public_path('fileuploaded/hotfocus/images');
             $image->move($destinationPath, $imagename);
 
             $file = 'fileuploaded/hotfocus/images/' . $imagename;
-            $file_1 = 'fileuploaded/hotfocus/thumbnails/'.$imagename;
+            $file_1 = 'fileuploaded/hotfocus/thumbnails/' . $imagename;
         } else {
             $file = null;
-            $file_1=null;
+            $file_1 = null;
         }
         $date = Carbon::now();
 
@@ -94,13 +95,13 @@ class HotFocusController extends Controller
 
         return redirect('admin/hotfocus');
     }
+
     public function delete($id)
     {
         $data = HotFocus::where('hf_id', $id)->delete();
 
         return response()->json([], 204);
     }
-
 
 
     /**
@@ -112,15 +113,19 @@ class HotFocusController extends Controller
     {
         $this->validate($request, [
             'hf_title' => 'required',
-            'hf_fileimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'hf_fileimage' => 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip|max:5120',
             'hf_content' => 'required',
             'dash_id' => 'integer'
         ]);
-
         if (!file_exists('fileuploaded')) {
             File::makeDirectory('fileuploaded');
             if (!file_exists('fileuploaded/hotfocus')) {
                 File::makeDirectory('fileuploaded/hotfocus');
+                if (@is_array(getimagesize($request['hf_fileimage']))) {
+                    if (!file_exists('fileuploaded/hotfocus/thumbnails')) {
+                        File::makeDirectory('fileuploaded/hotfocus/thumbnails');
+                    }
+                }
                 if (!file_exists('fileuploaded/hotfocus/images')) {
                     File::makeDirectory('fileuploaded/hotfocus/images');
                 }
@@ -131,13 +136,13 @@ class HotFocusController extends Controller
         $imagename = time() . '.' . $image->getClientOriginalExtension();
 
         $date = Carbon::now();
-
-        $destinationPath = public_path('fileuploaded/hotfocus/thumbnails');
-        $thumbnails = Image::make($image->getRealPath());
-        $thumbnails->resize(100, 100, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath . '/' . $imagename);
-
+        if (@is_array(getimagesize($request['hf_fileimage']))) {
+            $destinationPath = public_path('fileuploaded/hotfocus/thumbnails');
+            $thumbnails = Image::make($image->getRealPath());
+            $thumbnails->resize(100, 100, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $imagename);
+        }
         $destinationPath = public_path('fileuploaded/hotfocus/images');
         $image->move($destinationPath, $imagename);
 

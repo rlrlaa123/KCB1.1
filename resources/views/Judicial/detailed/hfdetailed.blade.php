@@ -37,7 +37,9 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p><img src="/{{$data->hf_fileimage}}"></p>
+                                    @if (@is_array(getimagesize($data['hf_fileimage'])))
+                                        <img style="width:100%; height:100%; overflow: scroll" src="/{{$data->hf_fileimage}}">
+                                    @endif
                                 </td>
                             </tr>
                             <tr>

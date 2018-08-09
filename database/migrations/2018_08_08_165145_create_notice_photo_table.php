@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNoticesTable extends Migration
+class CreateNoticePhotoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateNoticesTable extends Migration
      */
     public function up()
     {
-        Schema::create('notices', function (Blueprint $table) {
+        Schema::create('notice_photo', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('notice_title');
-            $table->text('notice_content');
-            $table->date('notice_date');
+            $table->integer('notice_id')->unsigned();
+            $table->foreign('notice_id')->references('id')->on('notices');
+            $table->string('fileimage');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateNoticesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notices');
+        Schema::dropIfExists('notice_photo');
     }
 }
