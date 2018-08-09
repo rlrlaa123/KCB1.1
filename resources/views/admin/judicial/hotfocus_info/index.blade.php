@@ -33,8 +33,7 @@
                 </thead>
                 <tbody>
                 @forelse($data as $value)
-                    <tr class="tothedetailpage"
-                        onclick="location.href='{{ url('admin/hotfocus/'.$value->hf_id.'/edit') }}'">
+                    <tr class="tothedetailpage" onclick="location.href='{{ url('admin/hotfocus/'.$value->hf_id.'/edit') }}'">
                         <td class="td1">{{$value->hf_id}}</td>
                         @if($value->hf_thumbnails != null)
                         <td class="td1"><img src="/{{$value->hf_thumbnails}}"></td>
