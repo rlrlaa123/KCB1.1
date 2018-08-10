@@ -36,7 +36,7 @@ class NoticeViewController extends Controller
     {
         $data = Notice::latest()->paginate(12);
         $sub_days = Carbon::now()->subDays(30);
-        return view('Notice.Notice', compact('data', 'sub_days'));
+        return view('Notice.Notice_all', compact('data', 'sub_days'));
     }
 
     public function notice_filedownload(Request $request, $id)

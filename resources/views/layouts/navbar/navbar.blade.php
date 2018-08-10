@@ -131,7 +131,7 @@
         <div class="intro grid-item {{ preg_match('/\/intro/', $_SERVER['REQUEST_URI'])||preg_match('/\/history/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/intro';">회사소개
         </div>
-        <div class="notice grid-item {{preg_match('/\/notice/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+        <div class="notice grid-item {{preg_match('/\/notice/', $_SERVER['REQUEST_URI'])||preg_match('/\/notice_all/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/notice';">공고/공시
         </div>
         <div class="dev_info grid-item {{preg_match('/\/dev_info/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
@@ -162,8 +162,11 @@
                 </div>
             </div>
             <div class="grid-item submenu">
+                <div onclick="location.href='{{url('/notice_all')}}'">
+                   전체 보상 공고/공시
+                </div>
                 <div onclick="location.href='{{url('/notice')}}'">
-                    공고/공시
+                    TODAY 보상 공고/공시
                 </div>
             </div>
             <div class="grid-item submenu">
