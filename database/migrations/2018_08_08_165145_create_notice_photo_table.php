@@ -16,9 +16,11 @@ class CreateNoticePhotoTable extends Migration
         Schema::create('notice_photo', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('notice_id')->unsigned();
-            $table->foreign('notice_id')->references('id')->on('notices')->onDelete('cascade');
             $table->string('fileimage');
             $table->timestamps();
+        });
+        Schema::table('notice_photo', function($table){
+            $table->foreign('notice_id')->references('id')->on('notices')->onDelete('cascade');
         });
     }
 

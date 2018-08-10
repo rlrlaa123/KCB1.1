@@ -16,9 +16,11 @@ class CreateDevFilesTable extends Migration
         Schema::create('dev_files', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('dev_id')->unsigned();
-            $table->foreign('dev_id')->references('id')->on('development')->onDelete('cascade');
             $table->string('fileimage');
             $table->timestamps();
+        });
+        Schema::table('dev_files', function($table){
+            $table->foreign('dev_id')->references('id')->on('development')->onDelete('cascade');
         });
     }
 
