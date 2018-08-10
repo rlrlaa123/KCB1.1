@@ -60,7 +60,6 @@
                         <table>
                             <tr>
                                 <td>
-
                                     <div class="image_text_container"><img src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}"
                                                                            alt="{{$value->notice_title}}">
                                         <div class="text-block"><p>{{$value->notice_title}}</p>

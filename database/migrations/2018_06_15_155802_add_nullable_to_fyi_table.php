@@ -13,7 +13,7 @@ class AddNullableToFyiTable extends Migration
      */
     public function up()
     {
-        Schema::table('fyi', function (Blueprint $table) {
+        Schema::table('FYI', function (Blueprint $table) {
            $table->string('fyi_fileimage')->nullable()->change();
         });
     }
@@ -25,7 +25,7 @@ class AddNullableToFyiTable extends Migration
      */
     public function down()
     {
-        Schema::table('fyi', function (Blueprint $table) {
+        Schema::table('FYI', function (Blueprint $table) {
             $table->dropColumn('fyi_fileimage');
         });
     }
