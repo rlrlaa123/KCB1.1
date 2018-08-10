@@ -56,11 +56,13 @@
         <div class="display_content">
             @forelse($data as $value)
                 @if( $value->created_at > $sub_days )
-                    <div onclick="tothedetailpage({{$value->notice_id}})" class="notexpired grid-item">
+                    <div onclick="tothedetailpage({{$value->id}})" class="notexpired grid-item">
                         <table>
                             <tr>
                                 <td>
-                                    <div class="image_text_container"><img src="/{{$value->notice_fileimage}}" alt="{{$value->notice_title}}">
+
+                                    <div class="image_text_container"><img src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}"
+                                                                           alt="{{$value->notice_title}}">
                                         <div class="text-block"><p>{{$value->notice_title}}</p>
                                         </div>
                                     </div>
@@ -69,7 +71,7 @@
                         </table>
                     </div>
                 @else
-                    <div onclick="tothedetailpage({{$value->notice_id}})" class="expired grid-item">
+                    <div onclick="tothedetailpage({{$value->id}})" class="expired grid-item">
                         <table>
                             <tr>
                                 <td>

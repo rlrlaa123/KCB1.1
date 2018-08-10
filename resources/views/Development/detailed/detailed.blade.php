@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @include('detailedpage.detailed_style')
 <style>
-    .basic_info_div_img{
+    .basic_info_div_img {
         width: 23vw;
         height: 50vh;
     }
+
     .basic_info_div {
         display: flex;
         justify-content: space-between;
@@ -64,8 +65,6 @@
     <div class="content">
         <div style="display:flex; justify-content: space-between; align-items: center">
             <b style="font-size: 1.5vw;">{{$data->dev_title}}</b>
-            <a style="font-size: 1.2vw; font-weight:lighter; text-decoration: none; color:black;"
-               href="{{url('dev_info/'.$next)}}"><b>다음 > </b></a>
         </div>
         <hr/>
         <div class="basic_info_div">
@@ -138,16 +137,19 @@
                 <pre><p>{{$data->dev_comment}}</p></pre>
             </div>
         </div>
-        @if($data->dev_reference !=null)
         <div class="dev_content">
             <b style="font-size:1.5vw; color:black;">참고자료</b>
             <hr/>
             <div>
-                <a href="{{url('development_reference_filedownload/'.$data->dev_id)}}" style="font-size:1.3vw;">{{$data->dev_reference}}</a>
+                @forelse($data1 as $download)
+                    <div style="padding:0; margin:0;">
+                        <a href="{{url('development_reference_filedownload/'.$download->id)}}"
+                           style="font-size:1.3vw;">참고자료{{$download->id}}</a>
+                    </div>
+                    @empty
+                @endforelse
             </div>
         </div>
-            @else
-        @endif
     </div>
 
 

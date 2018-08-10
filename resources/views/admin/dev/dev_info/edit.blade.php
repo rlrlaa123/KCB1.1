@@ -29,7 +29,7 @@
     <div id="development" class="infoput">
         <div class="container" style="margin: 0 5%;">
             <h1 class="infoputheader"><strong>※ {{ $data->dev_title }} 사업 수정</strong></h1>
-            <form id="development-form" method="POST" action="{{ route('admin.dev.update', $data->dev_id) }}"
+            <form id="development-form" method="POST" action="{{ route('admin.dev.update', $data->id) }}"
                   enctype="multipart/form-data">
                 {!! method_field('PUT') !!}
                 {!! csrf_field() !!}
@@ -89,7 +89,7 @@
                         </tr>
                         <tr>
                             <td class="datainput"><label for="dev_city">시/도</label><label
-                                        for="dev_district">군/구 {{ old('dev_district', $data->dev_district) }}</label>
+                                        for="dev_district">군/구</label>
                             </td>
                             <td>
                                 <select id="dev_city" name="dev_city" form="development-form"
@@ -123,7 +123,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_type">유형 {{old('dev_type',$data->dev_type)}}</label>
+                            <td class="datainput"><label for="dev_type">유형</label>
                             </td>
                             <td>
                                 <select id="dev_type" name="dev_type" form="development-form">
@@ -236,13 +236,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_reference">참고 자료</label></td>
+                            <td class="datainput"><label for="fileimage">참고 자료</label></td>
                             <td>
-                                <input type="file" id="dev_reference" name="dev_reference" class="image"
-                                       value="">
-                                @if ($errors->has('dev_reference'))
+                                <input type="file" id="fileimage" name="fileimage[]" class="image" multiple>
+                                @if ($errors->has('fileimage'))
                                     <div class="help-block">
-                                        {{ $errors->first('dev_reference') }}
+                                        {{ $errors->first('fileimage') }}
                                     </div>
                                 @endif
                             </td>

@@ -9,6 +9,8 @@ use App\Location;
 use App\SearchCharge;
 use App\SearchType;
 use App\Dev;
+use App\Dev_Files;
+use App\Http\Requests\UploadRequest;
 use Illuminate\Http\Request;
 use Image;
 
@@ -45,9 +47,8 @@ class DevController extends Controller
         return view('admin.dev.dev_info.create', compact('locations', 'searchtype', 'searchcharge', 'cities'));
     }
 
-    public function developmentfileupload(Request $request)
+    public function developmentfileupload(UploadRequest $request)
     {
-
         $this->validate($request, [
             'dev_title' => 'required|string',
             'dev_initiated_log' => 'required',
@@ -64,7 +65,6 @@ class DevController extends Controller
             'dev_applied_law' => 'nullable|string',
             'dev_publicly_starting_date' => 'required|string',
             'dev_future_plan' => 'nullable',
-            'dev_reference' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,svg,txt,xlsx,xls,ppt,pptx,doc,docx,pdf',
         ]);
 
         if (!file_exists('fileuploaded')) {
@@ -73,9 +73,6 @@ class DevController extends Controller
                 File::makeDirectory('fileuploaded/Development_information');
                 if (!file_exists('fileuploaded/Development_information/images')) {
                     File::makeDirectory('fileuploaded/Development_information/images');
-                }
-                if (!file_exists('fileuploaded/Development_information/thumbnails')) {
-                    File::makeDirectory('fileuploaded/Development_information/thumbnails');
                 }
                 if (!file_exists('fileuploaded/Development_information/references')) {
                     File::makeDirectory('fileuploaded/Development_information/references');
@@ -86,33 +83,14 @@ class DevController extends Controller
 
         // Image 파일 업로드
         $image = $request->file('dev_fileimage');
-        $imagename = 'dev_info'.time(). '.' . $image->getClientOriginalExtension();
-        // Reference 파일 업로드
-        if ($request->hasFile('dev_reference')) {
-            $reference = $request->file('dev_reference');
-            $reference_name = 'dev_info'.time(). '.' . $reference->getClientOriginalExtension();
-
-            $destinationPath_reference = public_path('fileuploaded/Development_information/references');
-            $reference->move($destinationPath_reference, $reference_name);
-
-            $dev->dev_reference = 'fileuploaded/Development_information/references/' . $reference_name;
-        }
-
-        $destinationPath_thumb = public_path('fileuploaded/Development_information/thumbnails');
-        $thumbnails = Image::make($image->getRealPath());
-        $thumbnails->resize(100, 100, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath_thumb . '/' . $imagename);
-
+        $imagename = 'dev_info' . time() . '.' . $image->getClientOriginalExtension();
         $destinationPath_image = public_path('fileuploaded/Development_information/images');
         $image->move($destinationPath_image, $imagename);
-
 
         $dev->dev_title = $request['dev_title'];
         $dev->dev_initiated_log = $request['dev_initiated_log'];
         $dev->dev_initiated_date = $request['dev_initiated_date'];
         $dev->dev_fileimage = 'fileuploaded/Development_information/images/' . $imagename;
-        $dev->dev_thumbnails = 'fileuploaded/Development_information/thumbnails/' . $imagename;
         $dev->dev_comment = $request['dev_comment'];
         $dev->dev_city = $request['dev_city'];
         $dev->dev_district = $request['dev_district'];
@@ -126,13 +104,28 @@ class DevController extends Controller
         $dev->dev_future_plan = $request['dev_future_plan'];
 
         $dev->save();
+        // Reference 파일 업로드
+        if ($request->file('fileimage')) {
+            $order = 0;
+            $destinationPath_reference = public_path('fileuploaded/Development_information/references');
+            $files = $request->file('fileimage');
+            foreach ($files as $fileimage) {
+                $dev_files = New Dev_Files;
+                $dev_files->dev_id = $dev->id;
+                $filename = 'dev_info' . $dev->id . '_' . $order . '.' . $fileimage->getClientOriginalExtension();
+                $fileimage->move($destinationPath_reference, $filename);
+                $dev_files->fileimage = 'fileuploaded/Development_information/references/' . $filename;
+                ++$order;
+                $dev_files->save();
+            }
+        }
 
         return redirect('admin/dev');
     }
 
     public function edit($id)
     {
-        $data = Dev::where('dev_id', $id)->get()[0];
+        $data = Dev::where('id', $id)->get()[0];
         $locations = Location::all();
         $cities = Location::distinct()->get(['dev_city']);
         $searchtype = SearchType::all();
@@ -144,7 +137,7 @@ class DevController extends Controller
     // 수정사항 -> dev_fileimage를 nullable로 바꿈, why? 유저가 단순 텍스트만 수정하고 싶을 때에도 이미지를 추가해야하는 것이 번거롭기 때문,
     // 수정사항으로 발생한 이슈 -> 데이터를 update 할 때, dev_fileimage, dev_reference, dev_thumbnails 데이터가 없어서 에러가 발생함,
     // 이슈 해결 -> 이미지를 업로딩 할 때, 따로 데이터를 update 해주도록 코드를 바꿈.
-    public function update(Request $request, $id)
+    public function update(UploadRequest $request, $id)
     {
         $this->validate($request, [
             'dev_title' => 'required|string',
@@ -162,30 +155,15 @@ class DevController extends Controller
             'dev_applied_law' => 'nullable|string',
             'dev_publicly_starting_date' => 'required|string',
             'dev_future_plan' => 'nullable',
-            'dev_reference' => 'nullable|max:10000|mimes:gif,jpeg,jpg,png,svg,txt,xlsx,xls,ppt,pptx,doc,docx,pdf',
         ]);
-        if($request->hasFile('dev_reference')){
-            if (!file_exists('fileuploaded/Development_information/references')) {
-                File::makeDirectory('fileuploaded/Development_information/references');
-            }
-            $delete= Dev::where('dev_id', $id)->get()[0];
-            if($delete['dev_reference'] !=null) {
-                File::delete($delete['dev_reference']);
-            }
-            $image = $request->file('dev_reference');
-            $imagename = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('fileuploaded/Development_information/references');
-            $image->move($destinationPath, $imagename);
 
-            $file0 = 'fileuploaded/Development_information/references/' . $imagename;
-            $dev = Dev::where('dev_id', $id)->update([
-                'dev_reference' => $file0,
-            ]);
-        } else {
-            $file0 = null;
+        $delete = Dev_Files::where('dev_id', $id)->get();
+        foreach ($delete as $deleting) {
+            if ($deleting['fileimage'] != null) {
+                File::delete($deleting['fileimage']);
+            }
         }
-
-        if ($request->hasFile('dev_fileimage')) {
+        if ($request->file('dev_fileimage')) {
             if (!file_exists('fileuploaded')) {
                 File::makeDirectory('fileuploaded');
                 if (!file_exists('fileuploaded/Development_information')) {
@@ -193,40 +171,30 @@ class DevController extends Controller
                     if (!file_exists('fileuploaded/Development_information/images')) {
                         File::makeDirectory('fileuploaded/Development_information/images');
                     }
-                    if (!file_exists('fileuploaded/Development_information/thumbnails')) {
-                        File::makeDirectory('fileuploaded/Development_information/thumbnails');
-                    }
                 }
             }
-            $delete= Dev::where('dev_id', $id)->get()[0];
-            if($delete['dev_fileimage'] !=null) {
+            $delete = Dev::where('id', $id)->get()[0];
+            if ($delete['dev_fileimage'] != null) {
                 File::delete($delete['dev_fileimage']);
-                File::delete($delete['dev_thumbnails']);
             }
             $image = $request->file('dev_fileimage');
             $imagename = time() . '.' . $image->getClientOriginalExtension();
-
-            $destinationPath = public_path('fileuploaded/Development_information/thumbnails');
-            $thumbnails = Image::make($image->getRealPath());
-            $thumbnails->resize(100, 100, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath . '/' . $imagename);
 
             $destinationPath = public_path('fileuploaded/Development_information/images');
             $image->move($destinationPath, $imagename);
 
             $file = 'fileuploaded/Development_information/images/' . $imagename;
-            $file_1 = 'fileuploaded/Development_information/thumbnails/'.$imagename;
-            $dev = Dev::where('dev_id', $id)->update([
-                'dev_thumbnails' => $file_1,
+            $dev = Dev::where('id', $id)->update([
                 'dev_fileimage' => $file,
             ]);
         } else {
             $file = null;
-            $file_1=null;
+            $dev = Dev::where('id', $id)->update([
+                'dev_fileimage' => $file,
+            ]);
         }
 
-        $dev = Dev::where('dev_id', $id)
+        $dev = Dev::where('id', $id)
             ->update([
                 'dev_title' => $request['dev_title'],
                 'dev_initiated_log' => $request['dev_initiated_log'],
@@ -243,13 +211,38 @@ class DevController extends Controller
                 'dev_publicly_starting_date' => $request['dev_publicly_starting_date'],
                 'dev_future_plan' => $request['dev_future_plan'],
             ]);
+        $data1 = Dev_Files::where('dev_id', $id)->delete();
+        $data = Dev::where('id', $id)->get()[0];
+
+        if ($request->file('fileimage')) {
+            if (!file_exists('fileuploaded/Development_information/references')) {
+                File::makeDirectory('fileuploaded/Development_information/references');
+                if (!file_exists('fileuploaded/Development_information')) {
+                    File::makeDirectory('fileuploaded/Development_information');
+                }
+            }
+
+            $order = 0;
+            $destinationPath_reference = public_path('fileuploaded/Development_information/references');
+            $files = $request->file('fileimage');
+            foreach ($files as $fileimage) {
+                $dev_files = New Dev_Files;
+                $dev_files-> dev_id = $data->id;
+                $filename = 'dev_info' . $data->id . '_' . $order . '.' . $fileimage->getClientOriginalExtension();
+                $fileimage->move($destinationPath_reference, $filename);
+                $dev_files->fileimage = 'fileuploaded/Development_information/references/' . $filename;
+                ++$order;
+                $dev_files->save();
+            }
+
+        }
 
         return redirect('admin/dev');
     }
 
     public function delete($id)
     {
-        $dev = Dev::where('dev_id', $id)->delete();
+        $dev = Dev::where('id', $id)->delete();
 
         return response()->json([], 204);
     }

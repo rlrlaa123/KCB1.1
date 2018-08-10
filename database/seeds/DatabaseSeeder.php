@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         // Development seeder will be genereated.
 //        $this->call(Dev_LocationSeeder::class);
         // Dev_location seeder will be genereated.
-//        $this->call(DevelopmentTableSeeder::class);
+        $this->call(DevelopmentTableSeeder::class);
         // Articles seeder will be genereated.
 //        App\Article::truncate();
 //        $this->call(ArticlesTableSeeder::class);

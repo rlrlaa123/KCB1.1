@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Userview\Dev;
 
 use App\Dev;
+use App\Dev_Files;
 use App\Http\Controllers\Controller;
 use App\Location;
 use App\SearchCharge;
@@ -32,27 +33,26 @@ class DevViewController extends Controller
     public function show(Request $request, $id)
     {
         $request->user()->authorizeRoles(['premium']);
-
-        $data = Dev::where('dev_id', $id)->first();
-        $previous = Dev::where('dev_id', '<', $data->dev_id)->max('dev_id');
-        $next = Dev::where('dev_id', '>', $data->dev_id)->min('dev_id');
-        return view('Development.detailed.detailed', compact('data', 'previous', 'next'));
+        $data = Dev::where('id', $id)->first();
+        $data1 = Dev_Files::where('dev_id', $id)->get();
+        return view('Development.detailed.detailed', compact('data', 'data1'));
     }
 
     public function development_filedownload(Request $request, $id)
     {
         $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
-        $data = Dev::where('dev_id', $id)->first();
+        $data = Dev::where('id', $id)->first();
         $download_path = (public_path() . '/' . $data->dev_fileimage);
         return response()->download($download_path);
     }
 
     public function development_reference_filedownload($id)
     {
-        $data = Dev::where('dev_id', $id)->first();
-        $download_path = (public_path() . '/' . $data->dev_reference);
+        $data1 = Dev_Files::where('id', $id)->first();
+        $download_path = (public_path() . '/' . $data1->fileimage);
         return response()->download($download_path);
     }
+
     public function test_map(Request $request){
         return view('Development.testing');
     }

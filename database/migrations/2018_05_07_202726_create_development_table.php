@@ -14,11 +14,10 @@ class CreateDevelopmentTable extends Migration
     public function up()
     {
         Schema::create('development', function (Blueprint $table) {
-            $table->increments('dev_id');
+            $table->increments('id');
             $table->string('dev_title');
             $table->text('dev_initiated_log');
             $table->date('dev_initiated_date');
-            $table->string('dev_thumbnails');
             $table->string('dev_fileimage');
             $table->text('dev_comment');
             $table->string('dev_city');

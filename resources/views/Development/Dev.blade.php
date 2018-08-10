@@ -491,7 +491,7 @@
                                     @else
                             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
                             if (role === "1") {
-                                window.open("{{url('dev_info')}}" + "/" + ele.dev_id);
+                                window.open("{{url('dev_info')}}" + "/" + ele.id);
                             } else if (role === "0") {
                                 alert('프리미엄 회원만 열람이 가능합니다.');
                             }

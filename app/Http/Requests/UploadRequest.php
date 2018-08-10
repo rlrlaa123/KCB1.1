@@ -23,13 +23,9 @@ class UploadRequest extends FormRequest
      */
     public function rules()
     {
-
-            $rules = [
-                'notice_title' => 'required'
-            ];
         $fileimage = count($this->input('fileimage'));
         foreach (range(0, $fileimage) as $index) {
-            $rules['fileimage.' . $index] = 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip|max:5120';
+            $rules['fileimage.' . $index] = 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip|max:20000';
         }
 
         return $rules;

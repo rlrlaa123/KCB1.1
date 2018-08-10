@@ -31,7 +31,6 @@ $factory->define(\App\Dev::class, function (Faker $faker) {
         'dev_title' => $faker->word,
         'dev_initiated_log' => $faker->word,
         'dev_initiated_date' => $faker->date(),
-        'dev_thumbnails' => $faker->word,
         'dev_fileimage' => $faker->word,
         'dev_comment' => $faker->word,
         'dev_city' => $city,
@@ -43,7 +42,6 @@ $factory->define(\App\Dev::class, function (Faker $faker) {
         'dev_applied_law' => $faker->word,
         'dev_publicly_starting_date' => $faker->date(),
         'dev_future_plan' => $faker->word,
-        'dev_reference' => $faker->word,
         'created_at' => \Carbon\Carbon::now(),
         'dev_status' => $faker->word,
     ];

@@ -31,17 +31,16 @@
                     <th class="th2 table_content">공고 공시 내용</th>
                     <th class="th2 table_created_at">공고 공시 생성일</th>
                     <th class="th2"></th>
-                    <th class="th2"></th>
                 </tr>
                 </thead>
                 <tbody>
                 @forelse($data as $value)
-                    <tr class="tothedetailpage">
+                    <tr class="tothedetailpage" onclick="location.href='{{ url('admin/notice/'.$value->id.'/edit') }}'">
                         <td class="td1">{{$value->id}}</td>
                         {{--@if($value->notice_thumbnails != null)--}}
                         {{--<td class="td1"><img src="/{{$value->notice_thumbnails}}"></td>--}}
                         {{--@else--}}
-                        <td class="td1"><img src="/img/no_image.jpg"></td>
+                        <td class="td1" style="width:20%"><img src="/img/no_image.jpg" style="width:100%;"></td>
                         {{--@endif--}}
                         <td class="td1">{{$value->notice_title}}</td>
                         <td class="td1">{{$value->notice_content}}</td>
@@ -49,12 +48,9 @@
                         <td class="td1" onclick="deleting({{$value->id}})">
                             <button class="btn btn-delete">삭제하기</button>
                         </td>
-                        <td>
-                            <b onclick="location.href='{{ url('admin/notice/'.$value->id.'/edit') }}'">수정하기</b>
-                        </td>
                     </tr>
                 @empty
-                    <td colspan="7">해당 글이 없습니다.</td>
+                    <td colspan="6">해당 글이 없습니다.</td>
                 @endforelse
                 </tbody>
             </table>

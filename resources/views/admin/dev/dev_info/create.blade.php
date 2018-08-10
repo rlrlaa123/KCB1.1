@@ -223,12 +223,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="dev_reference">참고 자료</label></td>
+                            <td class="datainput"><label for="fileimage">참고 자료</label></td>
                             <td>
-                                <input type="file" id="dev_reference" name="dev_reference" class="image" multiple value=1>
-                                @if ($errors->has('dev_reference'))
+                                <input type="file" id="fileimage" name="fileimage[]" class="image" multiple>
+                                @if ($errors->has('fileimage'))
                                     <div class="help-block">
-                                        {{ $errors->first('dev_reference') }}
+                                        {{ $errors->first('fileimage') }}
                                     </div>
                                 @endif
                             </td>

@@ -308,7 +308,7 @@
             </div>
         </div>
     </div>
-    <div>
+    <div style="margin:1vw 15vw 1vw 15vw;">
         @include('layouts.partials.advbanner')
     </div>
     <div class="body2">
@@ -336,7 +336,7 @@
             </div>
         </div>
     </div>
-    <div style="  margin: 1vw 15vw 1vw 15vw;">
+    <div style="  margin: 1vw 12vw;">
         <div style="margin: 1vw 0;border-bottom: 1px solid #7888c2; justify-content: space-between; display:flex; align-items: center;">
             <h2 style="font-weight:700; font-size:0.9vw; padding: 8px 16px; margin:0; border-bottom: 2px solid #e85251; cursor:pointer; "
                 onclick="location.href='{{url('/useful_website')}}'">

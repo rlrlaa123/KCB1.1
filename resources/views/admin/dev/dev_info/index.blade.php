@@ -32,10 +32,10 @@
                 <tbody>
                 @forelse($dev as $value)
                     <tr class="tothedetailpage"
-                        onclick="location.href='{{ url('admin/dev/'.$value->dev_id.'/edit') }}'">
-                        <td class="td1">
-                            @if($value->dev_thumbnails!=null)
-                                <img src="/{{  $value->dev_thumbnails }}">
+                        onclick="location.href='{{ url('admin/dev/'.$value->id.'/edit') }}'">
+                        <td class="td1" style="width:10%;">
+                            @if($value->dev_fileimage!=null)
+                                <img src="/{{  $value->dev_fileimage }}" style="width:100%;">
                             @else
                                 <img src="/img/no_image.jpg">
                             @endif
@@ -48,7 +48,7 @@
                         <td class="td1">{{ $value->dev_area_size }}</td>
                         <td class="td1">{{ $value->dev_charge }}</td>
                         <td class="td1">{{ $value->dev_method }}</td>
-                        <td class="td1" onclick="deleteDev({{ $value->dev_id }})">
+                        <td class="td1" onclick="deleteDev({{ $value->id }})">
                             <button class="btn btn-delete">삭제하기</button>
                         </td>
                     </tr>
@@ -73,12 +73,12 @@
             }
         });
 
-        function deleteDev(dev_id) {
-            $('div.dev_id');
+        function deleteDev(id) {
+            $('div.id');
             if (confirm('글을 삭제합니다.')) {
                 $.ajax({
                     type: 'DELETE',
-                    url: '/admin/dev/' + dev_id
+                    url: '/admin/dev/' + id
                 }).then(function () {
                     window.location.href = '/admin/dev/';
                 })
