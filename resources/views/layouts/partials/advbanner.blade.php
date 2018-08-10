@@ -3,6 +3,7 @@
         display: -ms-grid;
         display: grid;
         height:5vh;
+        text-align:center;
         width:100%;
         -ms-grid-columns: 1fr 0 1fr 0 1fr;
         grid-template-columns: 33.3% 33.3% 33.3%;
@@ -32,7 +33,7 @@
 
     .advbanner img {
         vertical-align: middle;
-        width: 100%;
+        width: 60%;
         height: 5vh;
     }
 
@@ -82,27 +83,30 @@
 </style>
 <div class="bannercontainer">
     <div class="grid-item">
-        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://www.bosangwon.com')}}'"><img src="/img/bosangwon_logo.png" style="width:100%; height:5vh;"></div>
+        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://www.bosangwon.com')}}'"><img src="/img/bosangwon_logo.png" style="width:60%; height:5vh;"></div>
     </div>
     <div class="grid-item">
         <div style="cursor:pointer;" onclick="location.href='{{url('http://blog.naver.com/bosangwon')}}'">한국보상원 네이버 블로그</div>
     </div>
-    <div class="advbanner grid-item">
-        <div class="mySlides fade">
-            <div class="advbannernumbertext">1 / 3</div>
-            <img src="/img/no_image.jpg" style="width:100%; height:5vh;">
-        </div>
-
-        <div class="mySlides fade">
-            <div class="advbannernumbertext">2 / 3</div>
-            <img src="/img/no_image.jpg" style="width:100%; height:5vh;">
-        </div>
-
-        <div class="mySlides fade">
-            <div class="advbannernumbertext">3 / 3</div>
-            <img src="/img/no_image.jpg" style="width:100%; height:5vh;">
-        </div>
+    <div class="grid-item">
+        <div>광고 배너</div>
     </div>
+    {{--<div class="advbanner grid-item">--}}
+        {{--<div class="mySlides fade">--}}
+            {{--<div class="advbannernumbertext">1 / 3</div>--}}
+            {{--<img src="/img/no_image.jpg" style="width:100%; height:5vh;">--}}
+        {{--</div>--}}
+
+        {{--<div class="mySlides fade">--}}
+            {{--<div class="advbannernumbertext">2 / 3</div>--}}
+            {{--<img src="/img/no_image.jpg" style="width:100%; height:5vh;">--}}
+        {{--</div>--}}
+
+        {{--<div class="mySlides fade">--}}
+            {{--<div class="advbannernumbertext">3 / 3</div>--}}
+            {{--<img src="/img/no_image.jpg" style="width:100%; height:5vh;">--}}
+        {{--</div>--}}
+    {{--</div>--}}
 </div>
 {{--<div style="text-align:center">--}}
     {{--<span class="advbannerdot"></span>--}}
