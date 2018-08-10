@@ -32,6 +32,12 @@ class NoticeViewController extends Controller
         $next = Notice::where('id', '>', $data->id)->min('id');
         return view('Notice.detailed.notice_detailed', compact('data', 'previous', 'next', 'data1'));
     }
+    public function index_all(Request $request)
+    {
+        $data = Notice::latest()->paginate(12);
+        $sub_days = Carbon::now()->subDays(30);
+        return view('Notice.Notice', compact('data', 'sub_days'));
+    }
 
     public function notice_filedownload(Request $request, $id)
     {

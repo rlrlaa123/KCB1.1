@@ -169,6 +169,7 @@ Route::get('/librarysearch/', 'SearchController@library_search');
 //---------------------------------------------------------------------------------------------------------
 //공고 공시
 Route::get('/notice', 'UserView\Notice\NoticeViewController@index');
+Route::get('/notice_all', 'UserView\Notice\NoticeViewController@index_all');
 Route::get('/notice/{id}', 'UserView\Notice\NoticeViewController@show');
 Route::get('/notice_filedownload/{id}', 'UserView\Notice\NoticeViewController@notice_filedownload');
 Route::get('/noticesearch', 'SearchController@notice_search');

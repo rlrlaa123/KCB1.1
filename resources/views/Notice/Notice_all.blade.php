@@ -40,9 +40,9 @@
 @section('content')
     <div class="noticepage">
         <div class="justify-content">
-       <div>
-           @include('layouts.partials.noticelist')
-       </div>
+            <div>
+                @include('layouts.partials.noticelist')
+            </div>
             <div>
                 <form class="navbar-form searchform" method="GET" action="{{url('/noticesearch/')}}">
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
@@ -71,6 +71,19 @@
                         </table>
                     </div>
                 @else
+                    <div onclick="tothedetailpage({{$value->id}})" class="expired grid-item">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="image_text_container"><img
+                                                src="/{{$value->notice_thumbnails}}">
+                                        <div class="text-block"><p>{{$value->notice_title}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 @endif
             @empty
             @endforelse
