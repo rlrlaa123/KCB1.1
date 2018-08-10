@@ -128,22 +128,22 @@
 </div>
 <div class="navigationmenu">
     <div class="navigationmenu_sub">
-        <div class="intro grid-item {{ $_SERVER['REQUEST_URI'] === '/intro' ? 'onPage' : ''}}"
+        <div class="intro grid-item {{ preg_match('/\/intro/', $_SERVER['REQUEST_URI'])||preg_match('/\/history/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/intro';">회사소개
         </div>
-        <div class="notice grid-item {{ $_SERVER['REQUEST_URI'] === '/notice' ? 'onPage' : ''}}"
+        <div class="notice grid-item {{preg_match('/\/notice/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/notice';">공고/공시
         </div>
-        <div class="dev_info grid-item {{ $_SERVER['REQUEST_URI'] === '/dev_info' ? 'onPage' : ''}}"
+        <div class="dev_info grid-item {{preg_match('/\/dev_info/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/dev_info';">개발사업 정보
         </div>
-        <div class="judicial grid-item {{ $_SERVER['REQUEST_URI'] === '/judicial' ? 'onPage' : ''}}"
+        <div class="judicial grid-item {{preg_match('/\/judicial/', $_SERVER['REQUEST_URI'])||preg_match('/\/hotfocus/', $_SERVER['REQUEST_URI'])||preg_match('/\/policy/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/judicial';">유권해석/ 판례
         </div>
-        <div class="library grid-item {{ $_SERVER['REQUEST_URI'] === '/library' ? 'onPage' : ''}}"
+        <div class="library grid-item {{ preg_match('/\/library/', $_SERVER['REQUEST_URI'])||preg_match('/\/useful_website/', $_SERVER['REQUEST_URI'])||preg_match('/\/relatednews/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/library';">자료실
         </div>
-        <div class="community grid-item {{ $_SERVER['REQUEST_URI'] === '/articles' ? 'onPage' : ''}}"
+        <div class="community grid-item {{ preg_match('/\/articles/', $_SERVER['REQUEST_URI'])||preg_match('/\/fyi/', $_SERVER['REQUEST_URI'])||preg_match('/\/asking/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/articles';">커뮤니티
         </div>
     </div>
