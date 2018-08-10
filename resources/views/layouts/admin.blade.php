@@ -39,7 +39,7 @@
         ||$_SERVER['REQUEST_URI'] === '/admin/policy' ? 'active' : ''}}"
              onclick="location.href='/admin/judicial';" style="-ms-grid-column: 7">유권해석&판례
         </div>
-        <div class="grid-item  noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice'||$_SERVER['REQUEST_URI']==='admin/fyi'|| $_SERVER['REQUEST_URI']==='admin/consulting' ? 'active' : ''}}"
+        <div class="grid-item  noticeinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/notice'|| $_SERVER['REQUEST_URI']==='admin/consulting' ? 'active' : ''}}"
              onclick="location.href='/admin/notice';" style="-ms-grid-column: 9">공고/공시
         </div>
         <div class="grid-item  libraryinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/library'||$_SERVER['REQUEST_URI'] === '/admin/relatednews' ? 'active' : ''}}"
