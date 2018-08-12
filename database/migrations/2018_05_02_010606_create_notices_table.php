@@ -17,6 +17,8 @@ class CreateNoticesTable extends Migration
             $table->increments('id');
             $table->string('notice_title');
             $table->text('notice_content');
+            $table->string('classification');
+            $table->string('location');
             $table->date('notice_date');
             $table->timestamps();
         });

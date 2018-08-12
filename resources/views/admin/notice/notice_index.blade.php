@@ -14,9 +14,9 @@
         }
     </style>
     <div class="askingpage">
-        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>공고 공시 목록</h3>
+        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>공고 고시 목록</h3>
             <div style="cursor:pointer; border:2px solid #e85254; background-color: #e85254; color:white; padding:0.5vw; font-size:1vw; -webkit-border-radius: 1vw;-moz-border-radius: 1vw;border-radius: 1vw;"
-                 onclick="location.href='{{url('/admin/notice/create')}}'">공고 공시 추가
+                 onclick="location.href='{{url('/admin/notice/create')}}'">공고 고시 추가
             </div>
         </div>
 
@@ -28,8 +28,10 @@
                     <th class="th1 table_id">번호</th>
                     <th class="th1"></th>
                     <th class="th1 table_title">제목</th>
-                    <th class="th2 table_content">공고 공시 내용</th>
-                    <th class="th2 table_created_at">공고 공시 생성일</th>
+                    <th class="th2 table_content">공고 고시 내용</th>
+                    <th class="th1 classification">분류</th>
+                    <th class="th1 classification">지역</th>
+                    <th class="th2 table_created_at">공고 고시 생성일</th>
                     <th class="th2"></th>
                 </tr>
                 </thead>
@@ -44,6 +46,8 @@
                         {{--@endif--}}
                         <td class="td1">{{$value->notice_title}}</td>
                         <td class="td1">{{$value->notice_content}}</td>
+                        <td class="td1">{{$value->classification}}</td>
+                        <td class="td1">{{$value->location}}</td>
                         <td class="td1">{{ $value->created_at }}</td>
                         <td class="td1" onclick="deleting({{$value->id}})">
                             <button class="btn btn-delete">삭제하기</button>

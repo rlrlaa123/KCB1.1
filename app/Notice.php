@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Notice extends Model
 {
     protected $table='notices';
-    protected $fillable=['notice_title', 'notice_content', 'notice_date'];
+    protected $fillable=['notice_title', 'notice_content', 'classification', 'location', 'notice_date'];
     public function admin(){
         return $this->belongsTo(Admin::class);
     }

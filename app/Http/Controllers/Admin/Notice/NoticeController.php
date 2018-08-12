@@ -10,6 +10,7 @@ use App\Notice;
 use Illuminate\Http\Request;
 use App\Http\Requests\UploadRequest;
 use App\Notice_photo;
+use App\Location;
 use Image;
 
 class NoticeController extends Controller
@@ -28,14 +29,17 @@ class NoticeController extends Controller
 
     public function create()
     {
+        $cities = Location::distinct()->get(['dev_city']);
         $data = Notice::all();
-        return view('admin.notice.create', compact('data'));
+        return view('admin.notice.create', compact('data','cities'));
     }
 
     public function noticefileupload(UploadRequest $request)
     {
         $this->validate($request, [
             'notice_content' => 'required',
+            'classification' => 'required',
+            'location' => 'required',
         ]);
         if ($request->file('fileimage')) {
             if (!file_exists('fileuploaded')) {
@@ -55,6 +59,8 @@ class NoticeController extends Controller
 
         $notices->notice_title = $request['notice_title'];
         $notices->notice_content = $request['notice_content'];
+        $notices->classification = $request['classification'];
+        $notices->location = $request['location'];
         $notices->notice_date = $date;
         $notices->save();
 
@@ -75,8 +81,9 @@ class NoticeController extends Controller
 
     public function edit($id)
     {
+        $cities = Location::distinct()->get(['dev_city']);
         $data = Notice::where('id', $id)->get()[0];
-        return view('admin.notice.edit', compact('data'));
+        return view('admin.notice.edit', compact('data','cities'));
     }
 
     public function update(UploadRequest $request, $id)
@@ -111,6 +118,8 @@ class NoticeController extends Controller
             ->update([
                 'notice_title' => $request['notice_title'],
                 'notice_content' => $request['notice_content'],
+                'classification' => $request['classification'],
+                'location' => $request['location'],
                 'notice_date' => $date
             ]);
         $data1 = Notice_photo::where('notice_id', $id)->delete();
@@ -128,17 +137,6 @@ class NoticeController extends Controller
             ++$order;
             $notice_photo->save();
         }
-//        foreach($file as $fileimage) {
-//            $filename = 'notice' . $data->id . '_' . $x . '.' . $fileimage->getClientOriginalExtension();
-//
-//            $fileimage->move($destinationPath, $filename);
-//            $data1[$x]->update([
-//                'notice_fileimage' => 'fileuploaded/notice/images/' . $filename,
-//                ]);
-//            $x++;
-//        }
-
-
         return redirect('admin/notice');
     }
 
