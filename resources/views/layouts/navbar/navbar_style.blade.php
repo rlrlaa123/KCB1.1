@@ -320,7 +320,7 @@
         border-top: 1px solid lightgrey;
         border-bottom: 1px solid lightgrey;
         color: black;
-
+        text-align: center;
     }
 
     .pagecontents td, .pagecontents a, .pagecontents a:hover {

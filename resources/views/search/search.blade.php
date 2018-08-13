@@ -121,7 +121,8 @@
                     @if( $value->created_at > $sub_days )
                         <div onclick="tothedetailpage({{$value->id}})" class="notexpired grid-item">
                             <div class="image_text_container"><img
-                                        src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}" width="100%" height="85%">
+                                        src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}"
+                                        width="100%" height="85%">
                                 <div class="text-block" style="width:100.3%;"><p>[{{$value->location}}
                                         ] {{$value->notice_title}}</p>
                                 </div>
@@ -131,7 +132,8 @@
                         <div onclick="tothedetailpage({{$value->id}})" class="expired grid-item">
                             <div class="image_text_container"><img
                                         src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}">
-                                <div class="text-block" style="width:100.3%;"><p>[{{$value->location}}] {{$value->notice_title}}</p>
+                                <div class="text-block" style="width:100.3%;"><p>[{{$value->location}}
+                                        ] {{$value->notice_title}}</p>
                                 </div>
                             </div>
                         </div>
@@ -144,34 +146,52 @@
             <h3>유권해석/판례</h3>
             <hr/>
             <div>
-                @forelse($judicial as $value)
-                    <div class="tothedetailpage" onclick="location.href='{{url('judicial/'.$value->j_id)}}'">
-                        <div class="title">{{$value->j_title}}</div>
-                        <div>{{$value->j_date}}</div>
-                    </div>
-                    <div>
-                        {{$value->j_content}}
-                    </div>
-                @empty
-                    <div>검색하신 결과가 없습니다.</div>
-                @endforelse
+                <table class="pagecontents">
+                    <thead>
+                    <tr>
+                        <th class="th1 table_id">번호</th>
+                        <th class="th2 table_dash_id">구분</th>
+                        <th class="th1 table_title">제목</th>
+                        <th class="th2 table_date">날짜</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($judicial as $value)
+                        <tr class="tothedetailpage" onclick="tothedetailpage({{$value->j_id}})">
+                            <td class="td1">{{$value->j_id}}</td>
+                            <td class="td2">보상판례</td>
+                            <td>{{$value->j_title}}</td>
+                            <td class="td1">{{$value->j_date}}</td>
+                        </tr>
+                    @empty
+                        <td colspan="4">해당 글이 없습니다.</td>
+                    @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="libraryresult">
             <h3>자료실</h3>
             <hr/>
             <div>
-                @forelse($library as $value)
-                    <div class="tothedetailpage" onclick="location.href='{{url('library/'.$value->library_id)}}'">
-                        <div class="title">{{$value->library_title}}</div>
-                        <div>{{$value->library_date}}</div>
-                    </div>
-                    <div>
-                        {{$value->library_content}}
-                    </div>
-                @empty
-                    <div>검색하신 결과가 없습니다.</div>
-                @endforelse
+                <table class="pagecontents">
+                    <thead>
+                    <tr>
+                        <th class="th2 table_id">번호</th>
+                        <th class="th1">제목</th>
+                        <th class="th2 table_date">날짜</th>
+                    </tr>
+                    </thead>
+                    @forelse($library as $value)
+                        <tr class="tothedetailpage" onclick="tothedetailpage({{$value->library_id}})">
+                            <td class="td1">{{$value->library_id}}</td>
+                            <td class="library_title">{{$value->library_title}}</td>
+                            <td class="td1">{{$value->library_date}}</td>
+                        </tr>
+                    @empty
+                        <td colspan="3">해당 글이 없습니다.</td>
+                    @endforelse
+                </table>
             </div>
         </div>
     </div>
