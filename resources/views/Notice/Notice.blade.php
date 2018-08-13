@@ -42,9 +42,9 @@
 @section('content')
     <div class="noticepage">
         <div class="justify-content">
-       <div>
-           @include('layouts.partials.noticelist')
-       </div>
+            <div>
+                @include('layouts.partials.noticelist')
+            </div>
             <div>
                 <form class="navbar-form searchform" method="GET" action="{{url('/noticesearch/')}}">
                     <input type="search" name="search" class="form-control" placeholder="검색어를 입력하세요."
@@ -59,17 +59,12 @@
             @forelse($data as $value)
                 @if( $value->created_at > $sub_days )
                     <div onclick="tothedetailpage({{$value->id}})" class="notexpired grid-item">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div class="image_text_container"><img src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}"
-                                                                           alt="{{$value->notice_title}}">
-                                        <div class="text-block" style="width:100.3%;"><p>{{$value->notice_title}}</p>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="image_text_container"><img
+                                    src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}">
+                            <div class="text-block" style="width:100.3%;">
+                                <p>{{$value->notice_title}}</p>
+                            </div>
+                        </div>
                     </div>
                 @else
                 @endif

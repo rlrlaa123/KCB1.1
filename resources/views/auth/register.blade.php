@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -9,12 +8,16 @@
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}" style="padding: 5vw 10vw">
-                           {!! csrf_field() !!}
+                            {!! csrf_field() !!}
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('이름') }}</label>
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-                                    <input type="hidden" name="grade" class="form-control{{$errors->has('grade') ? ' is-invalid':''}}" value='user'>
+                                    <input id="name" type="text"
+                                           class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                           name="name" value="{{ old('name') }}" required autofocus>
+                                    <input type="hidden" name="grade"
+                                           class="form-control{{$errors->has('grade') ? ' is-invalid':''}}"
+                                           value='user'>
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -26,7 +29,9 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('아이디') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required>
+                                    <input id="username" type="text"
+                                           class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                           name="username" value="{{ old('username') }}" required>
 
                                     @if ($errors->has('username'))
                                         <span class="invalid-feedback">
@@ -37,10 +42,14 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('전화번호') }}</label>
+                                <label for="phone"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('전화번호') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone" type="tel" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required  maxlength="11" pattern="[0-9]{10}[0-9]?" title="'-'를 뺀 휴대전화 번호 10~11자리를 입력해주세요.">
+                                    <input id="phone" type="tel"
+                                           class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                           name="phone" value="{{ old('phone') }}" required maxlength="11"
+                                           pattern="[0-9]{10}[0-9]?" title="'-'를 뺀 휴대전화 번호 10~11자리를 입력해주세요.">
 
                                     @if ($errors->has('phone'))
                                         <span class="invalid-feedback">
@@ -50,10 +59,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail 주소') }}</label>
+                                <label for="email"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail 주소') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <input id="email" type="email"
+                                           class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                           name="email" value="{{ old('email') }}" required>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
@@ -63,10 +75,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="birth" class="col-md-4 col-form-label text-md-right">{{ __('생년월일') }}</label>
+                                <label for="birth"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('생년월일') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="birth" type="date" class="form-control{{ $errors->has('birth') ? ' is-invalid' : '' }}" name="birth" value="{{ old('birth') }}" required>
+                                    <input id="birth" type="date"
+                                           class="form-control{{ $errors->has('birth') ? ' is-invalid' : '' }}"
+                                           name="birth" value="{{ old('birth') }}" required>
 
                                     @if ($errors->has('birth'))
                                         <span class="invalid-feedback">
@@ -85,10 +100,13 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('비밀번호') }}</label>
+                                <label for="password"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('비밀번호') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required style="font-family: sans-serif">
+                                    <input id="password" type="password"
+                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                           name="password" required style="font-family: sans-serif">
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback">
@@ -99,10 +117,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('비밀번호 확인') }}</label>
+                                <label for="password-confirm"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('비밀번호 확인') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required style="font-family: sans-serif">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                           name="password_confirmation" required style="font-family: sans-serif">
                                 </div>
                             </div>
 
@@ -121,7 +141,27 @@
     </div>
 
     <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <!-- iamport.payment.js -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <script>
+        var IMP = window.IMP; // 생략해도 괜찮습니다.
+        IMP.init("imp68959380"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
+
+        IMP.certification({ // param
+            merchant_uid: "ORD20180131-0000011"
+        }, function (rsp) { // callback
+            if (rsp.success) { // 인증 성공 시
+                // jQuery로 HTTP 요청
+                jQuery.ajax({
+                    url: "https://www.myservice.com/certifications", // 서비스 웹서버
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    data: { imp_uid: rsp.imp_uid }
+                })
+            } else {
+                alert("인증에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+            }
+        });
+    </script>
 @endsection

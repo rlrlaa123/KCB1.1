@@ -30,14 +30,15 @@ class SearchController extends Controller
         $library = Library::where('library_title', 'LIKE', "%{$request->search}%")->orWhere('library_content', 'LIKE', "%{$request->search}%")
             ->orderBy('library_title')
             ->take(4)->get();
-        return view('search.search', compact('requests', 'judicial', 'policy', 'notice', 'library'));
+        $sub_days = Carbon::now()->subDays(30);
+        return view('search.search', compact('requests', 'judicial', 'policy', 'notice', 'library','sub_days'));
     }
 
     public function j_search(Request $request)
     {
         $requests = $request;
         $judicial = Judicial::where('j_title', 'LIKE', "%{$request->search}%")->orWhere('j_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('j_title')->get();
+            ->orderBy('j_title')->paginate(12);
         return view('Judicial.search.Judicial', compact('requests', 'judicial'));
     }
 
@@ -45,7 +46,7 @@ class SearchController extends Controller
     {
         $requests = $request;
         $policy = Policy::where('p_title', 'LIKE', "%{$request->search}%")->orWhere('p_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('p_title')->get();
+            ->orderBy('p_title')->paginate(12);
         return view('Judicial.search.Policy', compact('requests', 'policy'));
     }
 
@@ -53,7 +54,7 @@ class SearchController extends Controller
     {
         $requests = $request;
         $hotfocus = HotFocus::where('hf_title', 'LIKE', "%{$request->search}%")->orWhere('hf_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('hf_title')->get();
+            ->orderBy('hf_title')->paginate(12);
         return view('Judicial.search.Hotfocus', compact('requests', 'hotfocus'));
     }
 
@@ -61,7 +62,7 @@ class SearchController extends Controller
     {
         $requests = $request;
         $relatednews = RelatedNews::where('rn_title', 'LIKE', "%{$request->search}%")->orWhere('rn_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('rn_title')->get();
+            ->orderBy('rn_title')->paginate(12);
         return view('Judicial.search.RelatedNews', compact('requests', 'relatednews'));
     }
 
@@ -69,25 +70,34 @@ class SearchController extends Controller
     {
         $requests = $request;
         $fyi = FYI::where('fyi_title', 'LIKE', "%{$request->search}%")->orWhere('fyi_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('fyi_title')->get();
+            ->orderBy('fyi_title')->paginate(12);
         return view('FYI.search.fyi', compact('requests', 'fyi'));
     }
 
     public function notice_search(Request $request)
     {
-        $requests = $request;
-        $data = Notice::latest()->where('created_at', '<', Carbon::now()->subDays(30))->where('notice_title', 'LIKE', "%{$request->search}%")->orWhere('notice_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('notice_title')->get();
-        $notice_notexpired = Notice::latest()->where('created_at', '>', Carbon::now()->subDays(30))->where('notice_title', 'LIKE', "%{$request->search}%")->orWhere('notice_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('notice_title')->get();
-        return view('Notice.search.Notice', compact('requests', 'notice_notexpired', 'data'));
+        $data=Notice::latest()->where('notice_title', 'LIKE', "%{$request->search}%")
+            ->orWhere('notice_content', 'LIKE', "%{$request->search}%")
+            ->orWhere('location', 'LIKE', "%{$request->search}%")
+            ->orderBy('notice_title')->paginate(12);
+        $sub_days = Carbon::now()->subDays(30);
+        return view('Notice.search.Notice', compact('data','sub_days'));
+    }
+    public function notice_all_search(Request $request)
+    {
+        $data=Notice::latest()->where('notice_title', 'LIKE', "%{$request->search}%")
+            ->orWhere('notice_content', 'LIKE', "%{$request->search}%")
+            ->orWhere('location', 'LIKE', "%{$request->search}%")
+            ->orderBy('notice_title')->paginate(12);
+        $sub_days = Carbon::now()->subDays(30);
+        return view('Notice.search.Notice_all', compact('data','sub_days'));
     }
 
     public function library_search(Request $request)
     {
         $requests = $request;
         $library = Library::where('library_title', 'LIKE', "%{$request->search}%")->orWhere('library_content', 'LIKE', "%{$request->search}%")
-            ->orderBy('library_title')->get();
+            ->orderBy('library_title')->paginate(12);
         return view('library.search.library', compact('requests', 'library'));
     }
 }

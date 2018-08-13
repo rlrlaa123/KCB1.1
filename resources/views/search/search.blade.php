@@ -1,16 +1,34 @@
 @extends('layouts.app')
-
 @section('style')
     <style>
+
+        .display_content table {
+            width: 100%;
+        }
+
+        .notexpired {
+            text-align: center;
+            border: solid 2px #e85254;
+            margin: 1vw;
+        }
+
+        .expired {
+            text-align: center;
+            border: solid 1px #3b5493;
+            margin: 1vw;
+
+        }
+
         .searchbarcontainer {
             text-align: center;
             margin: 0;
             padding: 5vw;
             background-image: url('/img/navbarbackgroundpicture.png');
             -webkit-background-size: 100%;
-            background-size:100%;
+            background-size: 100%;
             background-repeat: no-repeat;
         }
+
         * {
             box-sizing: border-box;
             -webkit-box-sizing: border-box;
@@ -77,14 +95,7 @@
             color: #98644f;
         }
 
-        .image_text_container {
-            margin: 0 5px;
-        }
 
-        .image_text_container img {
-            width: 100%;
-            height: 66px;
-        }
     </style>
 @endsection
 
@@ -105,27 +116,29 @@
     <div class="wrapper">
         <div class="noticeresult">
             <h3>공고/고시</h3>
-            <table>
-                <tr>
-                    @forelse($notice as $value)
-                        <td class="expired">
-                            <a href="{{ url('notice/'.$value->notice_id) }}">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <div class="image_text_container">
-                                                <img src="/{{ $value->notice_thumbnails }}">
-                                                <div class="text-block"><p>{{$value->notice_title}}</p></div>
-                                            </div>
-                                        </td>
-                                </table>
-                            </a>
-                        </td>
-                    @empty
-                        <div>검색하신 결과가 없습니다.</div>
-                    @endforelse
-                </tr>
-            </table>
+            <div class="display_content">
+                @forelse($notice as $value)
+                    @if( $value->created_at > $sub_days )
+                        <div onclick="tothedetailpage({{$value->id}})" class="notexpired grid-item">
+                            <div class="image_text_container"><img
+                                        src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}" width="100%" height="85%">
+                                <div class="text-block" style="width:100.3%;"><p>[{{$value->location}}
+                                        ] {{$value->notice_title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div onclick="tothedetailpage({{$value->id}})" class="expired grid-item">
+                            <div class="image_text_container"><img
+                                        src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}">
+                                <div class="text-block" style="width:100.3%;"><p>[{{$value->location}}] {{$value->notice_title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @empty
+                @endforelse
+            </div>
         </div>
         <div class="judicialresult">
             <h3>유권해석/판례</h3>

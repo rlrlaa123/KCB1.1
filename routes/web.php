@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Route::use(bodyParser.json());
+//Route::post("/certifications", async (request, response) => {
+//    const { imp_uid } = request.body; // request의 body에서 imp_uid 추출
+//});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
@@ -173,6 +178,7 @@ Route::get('/notice_all', 'UserView\Notice\NoticeViewController@index_all');
 Route::get('/notice/{id}', 'UserView\Notice\NoticeViewController@show');
 Route::get('/notice_filedownload/{id}', 'UserView\Notice\NoticeViewController@notice_filedownload');
 Route::get('/noticesearch', 'SearchController@notice_search');
+Route::get('/notice_all_search', 'SearchController@notice_all_search');
 //---------------------------------------------------------------------------------------------------------
 //커뮤니티
 Route::get('/asking', 'UserView\Community\UserAskingController@index');
