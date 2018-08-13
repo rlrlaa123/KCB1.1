@@ -1,6 +1,6 @@
 <style>
     html, body, div, a, li, span, b, strong, i, p{
-        word-break:keep-all!important;
+        word-break:keep-all
     }
     @media screen and (orientation:portrait) {
         .basic_info_div {

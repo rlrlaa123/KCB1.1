@@ -136,12 +136,12 @@
         </table>
         @if($notice_notexpired->count())
             <div class="text-center">
-                {!! $notice_notexpired->render() !!}
+                {!! $notice_notexpired->links() !!}
             </div>
         @endif
         @if($data->count())
             <div class="text-center">
-                {!! $data->render() !!}
+                {!! $data->links() !!}
             </div>
         @endif
     </div>

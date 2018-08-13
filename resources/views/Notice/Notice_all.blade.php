@@ -3,6 +3,8 @@
     .noticepage img {
         width: 100%;
         height: 85%;
+        -ms-word-break: break-all;
+        word-break: break-all;
     }
 
     .noticepage {
