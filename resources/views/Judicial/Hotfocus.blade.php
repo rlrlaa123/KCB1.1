@@ -6,7 +6,7 @@
 
     .hotfocuspage img {
         width: 100%;
-        height: 80%;
+        height: 85%;
     }
 
     .hotfocuspage {

@@ -18,7 +18,7 @@ class NoticeViewController extends Controller
 
     public function index(Request $request)
     {
-        $data = Notice::latest()->paginate(12);
+        $data = Notice::where('classification', "today")->latest()->paginate(12);
         $sub_days = Carbon::now()->subDays(30);
         return view('Notice.Notice', compact('data', 'sub_days'));
     }
@@ -34,7 +34,7 @@ class NoticeViewController extends Controller
     }
     public function index_all(Request $request)
     {
-        $data = Notice::latest()->paginate(12);
+        $data = Notice::where('classification', "all")->orderBy('location')->paginate(12);
         $sub_days = Carbon::now()->subDays(30);
         return view('Notice.Notice_all', compact('data', 'sub_days'));
     }

@@ -116,10 +116,10 @@ class NoticeController extends Controller
 
         $data = Notice::where('id', $id)
             ->update([
+                'location' => $request['location'],
                 'notice_title' => $request['notice_title'],
                 'notice_content' => $request['notice_content'],
                 'classification' => $request['classification'],
-                'location' => $request['location'],
                 'notice_date' => $date
             ]);
         $data1 = Notice_photo::where('notice_id', $id)->delete();

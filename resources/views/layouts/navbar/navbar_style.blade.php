@@ -196,7 +196,7 @@
 
 
     .text-block p {
-        font-size:1.1vw;
+        font-size:0.9vw;
         vertical-align: middle;
         margin: 0;
         text-align: center;
@@ -204,8 +204,8 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        width: 100%;
-        height: 20%;
+        width: 13.6vw;
+        height: 15%;
 
     }
     html {

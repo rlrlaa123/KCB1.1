@@ -2,7 +2,7 @@
 <style>
     .noticepage img {
         width: 100%;
-        height: 80%;
+        height: 85%;
     }
 
     .noticepage {
@@ -62,7 +62,7 @@
                                 <td>
                                     <div class="image_text_container"><img src="/{{$image = \App\Notice_photo::where('notice_id',$value->id)->first()->fileimage}}"
                                                                            alt="{{$value->notice_title}}">
-                                        <div class="text-block"><p>{{$value->notice_title}}</p>
+                                        <div class="text-block" style="width:100.3%;"><p>{{$value->notice_title}}</p>
                                         </div>
                                     </div>
                                 </td>

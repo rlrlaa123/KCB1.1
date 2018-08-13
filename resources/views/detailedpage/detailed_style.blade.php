@@ -1,4 +1,7 @@
 <style>
+    html, body, div, p, a, span, table, td, th, tr, ul, li, strong, b, i{
+        word-break: keep-all!important;
+    }
     .content {
         margin: 1vw 15vw 1vw 15vw;
     }

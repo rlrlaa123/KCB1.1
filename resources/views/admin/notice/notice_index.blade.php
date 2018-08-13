@@ -46,7 +46,12 @@
                         {{--@endif--}}
                         <td class="td1">{{$value->notice_title}}</td>
                         <td class="td1">{{$value->notice_content}}</td>
-                        <td class="td1">{{$value->classification}}</td>
+                        <td class="td1">
+                            @if($value->classification=='all')
+                                전체 보상
+                            @else
+                                TODAY 보상
+                            @endif</td>
                         <td class="td1">{{$value->location}}</td>
                         <td class="td1">{{ $value->created_at }}</td>
                         <td class="td1" onclick="deleting({{$value->id}})">
