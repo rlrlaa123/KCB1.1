@@ -17,10 +17,33 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::use(bodyParser.json());
-//Route::post("/certifications", async (request, response) => {
-//    const { imp_uid } = request.body; // request의 body에서 imp_uid 추출
-//});
+
+Route::POST('/certifications/', function (\Illuminate\Http\Request $request) {
+
+    $client = new \GuzzleHttp\Client();
+
+    $res = $client->request('post', 'https://api.iamport.kr/users/getToken/',
+        [
+            'form_params' => [
+                "imp_key" => "7301962637899377",
+                "imp_secret" => "XQP8RPxrsVvabUTG4RhbCrNcDCHSjMmhDbqu1XVtTrE5mxMqp3C2upf82W0mJmDmy3Qz1M3UeI0AfN0F",
+            ]
+        ]);
+
+    $access_token = json_decode($res->getBody(), true)['response']['access_token'];
+
+    $getCertification = $client->request('get', 'https://api.iamport.kr/certifications/' . $request->imp_uid,
+        ['headers' => ['Authorization' => $access_token]]
+    );
+    $unique_in_stie = json_decode($getCertification->getBody(), true)['response']['unique_in_site'];
+    $unique_key = json_decode($getCertification->getBody(), true)['response']['unique_key'];
+
+//        $user = User::find($request->user_id);
+//        $user->self_auth = $unique_in_stie;
+//        $user->save();
+
+    return $getCertification->getStatusCode();
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -113,7 +136,7 @@ Route::post('chosen', function (\Illuminate\Http\Request $request) {
             $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_district' => $request->dev_district])->get();
 
         elseif ($request->dev_type != '전체' && $request->dev_charge == '전체' && $request->dev_district != '전체')
-            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_type'=>$request->dev_type ,'dev_district' => $request->dev_district])->get();
+            $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_type' => $request->dev_type, 'dev_district' => $request->dev_district])->get();
 
         elseif ($request->dev_type == '전체' && $request->dev_charge != '전체' && $request->dev_district != '전체')
             $data = \App\Dev::where(['dev_city' => $request->dev_city, 'dev_charge' => $request->dev_charge, 'dev_district' => $request->dev_district])->get();
