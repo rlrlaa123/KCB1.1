@@ -84,6 +84,10 @@ class RelatedNewsController extends Controller
     }
     public function delete($id)
     {
+        $delete = RelatedNews::where('rn_id', $id)->first();
+        if ($delete['rn_fileimage'] != null) {
+            File::delete($delete['rn_fileimage']);
+        }
         $data = RelatedNews::where('rn_id', $id)->delete();
 
         return response()->json([], 204);

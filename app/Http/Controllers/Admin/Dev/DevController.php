@@ -242,6 +242,12 @@ class DevController extends Controller
 
     public function delete($id)
     {
+        $delete = Dev_Files::where('dev_id', $id)->get();
+        foreach ($delete as $deleting) {
+            if ($deleting['fileimage'] != null) {
+                unlink($deleting['fileimage']);
+            }
+        }
         $dev = Dev::where('id', $id)->delete();
 
         return response()->json([], 204);

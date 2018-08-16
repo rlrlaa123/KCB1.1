@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\HotFocus;
 use Illuminate\Http\Request;
+
 use Image;
 
 class HotFocusController extends Controller
@@ -98,6 +99,11 @@ class HotFocusController extends Controller
 
     public function delete($id)
     {
+        $delete = HotFocus::where('hf_id', $id)->first();
+        if ($delete['hf_fileimage'] != null) {
+            File::delete($delete['hf_fileimage']);
+            File::delete($delete['hf_thumbnails']);
+        }
         $data = HotFocus::where('hf_id', $id)->delete();
 
         return response()->json([], 204);

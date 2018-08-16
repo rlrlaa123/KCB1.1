@@ -87,6 +87,10 @@ class PolicyController extends Controller
 
     public function delete($id)
     {
+        $delete = Policy::where('p_id', $id)->first();
+        if ($delete['p_fileimage'] != null) {
+            File::delete($delete['p_fileimage']);
+        }
         $data = Policy::where('p_id', $id)->delete();
 
         return response()->json([], 204);

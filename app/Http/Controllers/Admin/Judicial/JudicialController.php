@@ -95,6 +95,10 @@ class JudicialController extends Controller
     }
     public function delete($id)
     {
+        $delete = Judicial::where('j_id', $id)->first();
+        if ($delete['j_fileimage'] != null) {
+            File::delete($delete['j_fileimage']);
+        }
         $data = Judicial::where('j_id', $id)->delete();
 
         return response()->json([], 204);

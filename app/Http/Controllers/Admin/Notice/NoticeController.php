@@ -142,13 +142,13 @@ class NoticeController extends Controller
 
     public function delete($id)
     {
-        $data = Notice::where('id', $id)->delete();
         $delete = Notice_photo::where('notice_id', $id)->get();
         foreach ($delete as $deleting) {
             if ($deleting['fileimage'] != null) {
                 unlink($deleting['fileimage']);
             }
         }
+        $data = Notice::where('id', $id)->delete();
         $data1 = Notice_photo::where('notice_id', $id)->delete();
 
         return response()->json([], 204);

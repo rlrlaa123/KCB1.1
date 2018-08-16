@@ -92,6 +92,11 @@ class LibraryController extends Controller
     }
     public function delete($id)
     {
+        $delete = Library::where('library_id', $id)->first();
+        if ($delete['library_fileimage'] != null) {
+            File::delete($delete['library_fileimage']);
+            File::delete($delete['library_thumbnails']);
+        }
         $data = Library::where('library_id', $id)->delete();
 
         return response()->json([], 204);
