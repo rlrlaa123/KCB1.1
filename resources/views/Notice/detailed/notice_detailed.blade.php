@@ -46,7 +46,7 @@
                                         <td>
 
                                             <img style="width:100%; height:100%; overflow: scroll"
-                                                 src="/{{$image->fileimage}}">
+                                                 src="/{{$image->fileimage}}" width="100%">
 
                                         </td>
                                     </tr>
