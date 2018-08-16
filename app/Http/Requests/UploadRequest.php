@@ -25,9 +25,21 @@ class UploadRequest extends FormRequest
     {
         $fileimage = count($this->input('fileimage'));
         foreach (range(0, $fileimage) as $index) {
-            $rules['fileimage.' . $index] = 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip|max:20000';
+            $rules['fileimage.' . $index] = 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip,hwp,ppt,pptx,hwp,application/unknown,xls,xlm,xla,xlc,xlt,xlw,ppt,pot,pps,ppa,pptx,txt|max:20000';
         }
 
         return $rules;
+    }
+    public function messages(){
+        return[
+            'required'=> ':attribute은(는) 필수 입력 항목입니다.',
+            'min'=>':attribute은(는) 최소 :min 글자 이상 입력해야 합니다.'
+        ];
+    }
+    public function attributes()
+    {
+        return[
+            'fileimage'=>'첨부 파일',
+        ];
     }
 }
