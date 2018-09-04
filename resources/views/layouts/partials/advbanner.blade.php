@@ -2,7 +2,6 @@
     .bannercontainer{
         display: -ms-grid;
         display: grid;
-        height:5vh;
         text-align:center;
         width:100%;
         -ms-grid-columns: 1fr 0 1fr 0 1fr;
@@ -83,12 +82,12 @@
 </style>
 <div class="bannercontainer">
     <div class="grid-item">
-        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://www.bosangwon.com')}}'"><img src="/img/bosangwon_logo.png" style="width:60%; height:5vh;"></div>
+        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://www.bosangwon.com')}}'"><img src="/img/bosangwon_logo.png" style="width:60%; height:100%;"></div>
     </div>
     <div class="grid-item">
-        <div style="cursor:pointer;" onclick="location.href='{{url('http://blog.naver.com/bosangwon')}}'">한국보상원 네이버 블로그</div>
+        <div style="cursor:pointer; padding:1vw;" onclick="location.href='{{url('http://blog.naver.com/bosangwon')}}'">한국보상원 네이버 블로그</div>
     </div>
-    <div class="grid-item">
+    <div class="grid-item" style="padding:1vw;">
         <div>광고 배너</div>
     </div>
     {{--<div class="advbanner grid-item">--}}
