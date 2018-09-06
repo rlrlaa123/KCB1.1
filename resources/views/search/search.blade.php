@@ -75,7 +75,6 @@
 
         .lens_button img {
             background-color: #e85254;
-            padding: 6px;
             margin: 0;
             border: none;
             width: 38px;
@@ -108,7 +107,7 @@
             </button>
         </form>
         <div>
-            <a href="{{url('notice')}}" class="navbarotherpage">TODAY 보상 공고/공시</a>
+            <a href="{{url('notice')}}" class="navbarotherpage">TODAY 보상 공고/고시</a>
             <a href="{{url('asking')}}" class="navbarotherpage">보상/용역 대행 컨설팅</a>
         </div>
     </div>

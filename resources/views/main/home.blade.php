@@ -221,7 +221,7 @@
         }
 
         .lens_button {
-            width: 3vw;
+            width: 5vh;
             height: 5vh;
             padding: 0;
             margin: 0;
@@ -232,13 +232,13 @@
 
         .lens_button img {
             background-color: #e85254;
-            padding: 6px;
+            padding: 0.1vw;
             margin: 0;
             border: none;
             width: 100%;
             height: 100%;
             cursor: pointer;
-            border-radius: 0.4vw;
+            border-radius: 50%;
             text-align: center;
             align-items: center;
             justify-content: center;
@@ -254,7 +254,7 @@
             </button>
         </form>
         <div style="text-align:center;">
-            <a href="{{url('notice')}}" class="navbarotherpage">TODAY 보상 공고/공시</a>
+            <a href="{{url('notice')}}" class="navbarotherpage">TODAY 보상 공고/고시</a>
             <a href="{{url('/consulting')}}" class="navbarotherpage">보상 용역 대행 컨설팅</a>
         </div>
     </div>
@@ -292,7 +292,7 @@
         <div class="grid-item">
             <div class="homemenu2" style="font-size: 0.9vw;">
                 <div class="homemenu2item" style="justify-content: space-between; display:flex; align-items: center ">
-                    <div>TODAY 보상 고시 / 공고</div>
+                    <div>TODAY 보상 공고/고시</div>
                     <a href="{{url('notice')}}" class="_tothepage" style="word-break:keep-all; font-size: 0.9vw;">+더보기</a></div>
 
             </div>

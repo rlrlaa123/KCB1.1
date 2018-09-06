@@ -12,7 +12,7 @@
     </style>
     <div class="content">
         <h4>
-            공고/공시
+            공고/고시
         </h4>
         <div>
             <div class="content_title"><strong>{{$data->notice_title}}</strong><span>작성일 : {{$data->notice_date}}</span>

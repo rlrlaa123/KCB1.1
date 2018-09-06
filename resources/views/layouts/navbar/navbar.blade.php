@@ -14,12 +14,18 @@
         border-bottom: 1px solid #cccccc;
     }
 
+
     .sub_grid{
         width:100%;
         display: grid;
         display: -ms-grid;
         -ms-grid-columns: 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr 1vw 1fr;
         grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    }
+
+
+    .navigationmenu_sub > div:hover{
+        color: #556fb4!important;
     }
     .navbarheader_sub > div > div {
         width: 100%;
@@ -106,7 +112,7 @@
                 {{--<div class="dropdown-content">--}}
                 {{--<a href="{{url('intro')}}">회사소개</a>--}}
                 {{--<a href="{{url('agreement')}}">나의 정보</a>--}}
-                {{--<a href="{{url('notice')}}">공고/공시</a>--}}
+                {{--<a href="{{url('notice')}}">공고/고시</a>--}}
                 {{--<a href="{{url('fyi')}}">공지사항</a>--}}
                 {{--<a href="{{url('fee')}}">요금표 안내</a>--}}
                 {{--<a href="{{url('/consulting')}}">보상 용역 대행 컨설팅</a>--}}
@@ -128,29 +134,23 @@
 </div>
 <div class="navigationmenu">
     <div class="navigationmenu_sub">
-        <div class="intro grid-item {{ preg_match('/\/intro/', $_SERVER['REQUEST_URI'])||preg_match('/\/history/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
-             onclick="location.href='/intro';">회사소개
-        </div>
-        <div class="notice grid-item {{preg_match('/\/notice/', $_SERVER['REQUEST_URI'])||preg_match('/\/notice_all/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
-             onclick="location.href='/notice';">공고/공시
-        </div>
-        <div class="dev_info grid-item {{preg_match('/\/dev_info/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
-             onclick="location.href='/dev_info';">개발사업 정보
-        </div>
-        <div class="judicial grid-item {{preg_match('/\/judicial/', $_SERVER['REQUEST_URI'])||preg_match('/\/hotfocus/', $_SERVER['REQUEST_URI'])||preg_match('/\/policy/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
-             onclick="location.href='/judicial';">유권해석/ 판례
-        </div>
-        <div class="library grid-item {{ preg_match('/\/library/', $_SERVER['REQUEST_URI'])||preg_match('/\/useful_website/', $_SERVER['REQUEST_URI'])||preg_match('/\/relatednews/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
-             onclick="location.href='/library';">자료실
-        </div>
-        <div class="community grid-item {{ preg_match('/\/articles/', $_SERVER['REQUEST_URI'])||preg_match('/\/fyi/', $_SERVER['REQUEST_URI'])||preg_match('/\/asking/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
-             onclick="location.href='/articles';">커뮤니티
-        </div>
+        <div id="intro" class="intro grid-item {{ preg_match('/\/intro/', $_SERVER['REQUEST_URI'])||preg_match('/\/history/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+             onclick="location.href='/intro';">회사소개</div>
+        <div id="notice" class="notice grid-item {{preg_match('/\/notice/', $_SERVER['REQUEST_URI'])||preg_match('/\/notice_all/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+             onclick="location.href='/notice';">공고/고시</div>
+        <div id="dev_info" class="dev_info grid-item {{preg_match('/\/dev_info/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+             onclick="location.href='/dev_info';">개발사업 정보</div>
+        <div id="judicial" class="judicial grid-item {{preg_match('/\/jvudicial/', $_SERVER['REQUEST_URI'])||preg_match('/\/hotfocus/', $_SERVER['REQUEST_URI'])||preg_match('/\/policy/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+             onclick="location.href='/judicial';">유권해석/판례</div>
+        <div id="library" class="library grid-item {{ preg_match('/\/library/', $_SERVER['REQUEST_URI'])||preg_match('/\/useful_website/', $_SERVER['REQUEST_URI'])||preg_match('/\/relatednews/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+             onclick="location.href='/library';">자료실</div>
+        <div id="community" class="community grid-item {{ preg_match('/\/articles/', $_SERVER['REQUEST_URI'])||preg_match('/\/fyi/', $_SERVER['REQUEST_URI'])||preg_match('/\/asking/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+             onclick="location.href='/articles';">커뮤니티</div>
     </div>
 
     <div id="navbarheader_sub" class="navbarheader_sub">
         <div class="sub_grid">
-            <div class="grid-item submenu">
+            <div class="grid-item submenu" onmouseover="highlight('intro')" onmouseout="no_highlight('intro')">
                 <div onclick="location.href='{{url('/intro')}}'">
                     회사소개 및 대표인사말
                 </div>
@@ -161,20 +161,20 @@
                     회사 위치
                 </div>
             </div>
-            <div class="grid-item submenu">
+            <div class="grid-item submenu" onmouseover="highlight('notice')" onmouseout="no_highlight('notice')">
                 <div onclick="location.href='{{url('/notice_all')}}'">
-                   전체 보상 공고/공시
+                   전체 보상 공고/고시
                 </div>
                 <div onclick="location.href='{{url('/notice')}}'">
-                    TODAY 보상 공고/공시
+                    TODAY 보상 공고/고시
                 </div>
             </div>
-            <div class="grid-item submenu">
+            <div class="grid-item submenu" onmouseover="highlight('dev_info')" onmouseout="no_highlight('dev_info')">
                 <div onclick="location.href='{{url('/dev_info')}}'">
                     개발사업정보
                 </div>
             </div>
-            <div class="grid-item submenu">
+            <div class="grid-item submenu" onmouseover="highlight('judicial')" onmouseout="no_highlight('judicial')">
                 <div onclick="location.href='{{url('/judicial')}}'">
                     유권해석/판례
                 </div>
@@ -185,7 +185,7 @@
                     규정지침
                 </div>
             </div>
-            <div class="grid-item submenu">
+            <div class="grid-item submenu" onmouseover="highlight('library')" onmouseout="no_highlight('library')">
                 <div onclick="location.href='{{url('/library')}}'">
                     자료실
                 </div>
@@ -196,7 +196,7 @@
                     관련 뉴스
                 </div>
             </div>
-            <div class="grid-item submenu">
+            <div class="grid-item submenu" onmouseover="highlight('community')" onmouseout="no_highlight('community')">
                 <div onclick="location.href='{{url('/articles')}}'">
                     자유게시판
                 </div>
@@ -210,3 +210,11 @@
         </div>
     </div>
 </div>
+<script>
+    function highlight(x){
+        document.getElementById(x).style.color="#556fb4";
+    }
+    function no_highlight(x){
+        document.getElementById(x).style.color="black";
+    }
+</script>

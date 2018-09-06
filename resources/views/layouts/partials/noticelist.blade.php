@@ -15,10 +15,10 @@
 </style>
 <div class="detailpage_list">
     <div class="notice-selector {{ $_SERVER['REQUEST_URI'] === '/notice_all' ? 'judicialpage_list_onpage' : ''}}"
-         onclick="location.href='/notice_all';">전체 보상 공고/공시
+         onclick="location.href='/notice_all';">전체 보상 공고/고시
     </div>
     <div class="notice-selector {{ $_SERVER['REQUEST_URI'] === '/notice' ? 'judicialpage_list_onpage' : ''}}"
-         onclick="location.href='/notice';">TODAY 보상 공고/공시
+         onclick="location.href='/notice';">TODAY 보상 공고/고시
     </div>
     <div><a href='http://www.courtauction.go.kr/' target="_blank">경매물건 검색하기</a></div>
     <div><a href='http://www.onbid.co.kr/' target="_blank">공매물건 검색하기</a></div>
