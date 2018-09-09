@@ -29,8 +29,7 @@
             <table class="pagecontents">
                 <thead>
                 <tr>
-                    <th class="th1 table_id">번호</th>
-                    <th class="th2 table_dash_id">구분</th>
+                    <th class="th2 table_id">번호</th>
                     <th class="th1 table_title">제목</th>
                     <th class="th2 table_date">날짜</th>
                 </tr>
@@ -39,7 +38,6 @@
                 @forelse($data as $value)
                     <tr class="tothedetailpage" onclick="tothedetailpage({{$value->rn_id}})">
                         <td class="td1">{{$value->rn_id}}</td>
-                        <td class="td2">관련 뉴스</td>
                         <td>{{$value->rn_title}}</td>
                         <td class="td1">{{$value->rn_date}}</td>
                     </tr>
@@ -64,7 +62,7 @@
             // Premium 회원일 때만 접근 가능!
             var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
             if (role === "1") {
-                location.href = "/library/" + id;
+                location.href = "/relatednews/" + id;
             }
             else {
                 alert('프리미엄 회원만 열람이 가능합니다.');
