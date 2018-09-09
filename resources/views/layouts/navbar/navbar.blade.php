@@ -134,7 +134,7 @@
 </div>
 <div class="navigationmenu">
     <div class="navigationmenu_sub">
-        <div id="intro" class="intro grid-item {{ preg_match('/\/intro/', $_SERVER['REQUEST_URI'])||preg_match('/\/history/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
+        <div id="intro" class="intro grid-item {{  preg_match('/\/location/', $_SERVER['REQUEST_URI'])||preg_match('/\/intro/', $_SERVER['REQUEST_URI'])||preg_match('/\/history/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/intro';">회사소개</div>
         <div id="notice" class="notice grid-item {{preg_match('/\/notice/', $_SERVER['REQUEST_URI'])||preg_match('/\/notice_all/', $_SERVER['REQUEST_URI']) ? 'onPage' : ''}}"
              onclick="location.href='/notice';">공고/고시</div>
@@ -157,7 +157,7 @@
                 <div onclick="location.href='{{url('/history')}}'">
                     보상원 연혁
                 </div>
-                <div onclick="location.href='{{url('/company_location')}}'">
+                <div onclick="location.href='{{url('/location')}}'">
                     회사 위치
                 </div>
             </div>

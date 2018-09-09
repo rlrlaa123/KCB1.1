@@ -591,7 +591,7 @@
     }
 
     .onPage {
-        color: #556fb4;
+        color: #556fb4!important;
         font-weight: 900;
 
     }
@@ -631,9 +631,8 @@
     .mainfooter {
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: 1fr 0.5vw 1fr 0.5vw 1fr 0.5vw 1fr;
-        grid-column-gap: 0.5vw;
-        grid-template-columns: 25% 25% 25% 25%;
+        -ms-grid-columns: 1fr 0.5vw 1fr 0.5vw 1fr;
+        grid-template-columns: 33.3% 33.3% 33.3%;
         margin: 1vw 15vw 1vw 15vw;
         text-align: center;
     }

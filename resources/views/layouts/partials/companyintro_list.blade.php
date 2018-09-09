@@ -21,7 +21,10 @@
     <div class=" {{ $_SERVER['REQUEST_URI'] === '/intro' ? 'companyintro_list_onpage' : ''}}"
          onclick="location.href='/intro';">회사소개 및 대표 인사말
     </div>
-    <div class="notice {{ $_SERVER['REQUEST_URI'] === '/history' ? 'companyintro_list_onpage' : ''}}"
+    <div class="{{ $_SERVER['REQUEST_URI'] === '/history' ? 'companyintro_list_onpage' : ''}}"
          onclick="location.href='/history';">보상원 연혁
+    </div>
+    <div class="{{ $_SERVER['REQUEST_URI'] === '/location' ? 'companyintro_list_onpage' : ''}}"
+         onclick="location.href='/location';">회사 위치
     </div>
 </div>

@@ -200,7 +200,7 @@
             /*-ms-grid-columns: 1fr 1vw 1fr;*/
             /* grid-column-gap: 1vw; */
             /* grid-template-columns: 35% 65%; */
-            padding: 1vw 15vw;
+            padding: 1vw;
             text-align: center;
             width: 100%;
             align-items: center;
@@ -294,12 +294,10 @@
                 <div class="homemenu2item" style="justify-content: space-between; display:flex; align-items: center ">
                     <div>TODAY 보상 공고/고시</div>
                     <a href="{{url('notice')}}" class="_tothepage" style="word-break:keep-all; font-size: 0.9vw;">+더보기</a></div>
-
             </div>
             <div>
                 @forelse($notice as $value)
-                    <div class="notice_shortcut" onclick="tothedetailpage_notice({{$value->notice_id}})"
-                         style="cursor:pointer; padding: 1vh 0.5vw; font-size: 0.8vw;">
+                    <div class="notice_shortcut" onclick="tothedetailpage_notice({{$value->id}})" style="cursor:pointer; padding: 1vh 0.5vw; font-size: 0.8vw;">
                         <div>{{$value->notice_title}}</div>
                     </div>
                 @empty
@@ -344,10 +342,19 @@
             </h2></div>
         <div class="partners">
             <div class="grid-item" style="display:inline-block">
+                <a href="http://klis.seoul.go.kr/sis/main.do" target="__blank"><img src="/img/klis.png" width="100%"></a>
+            </div>
+            <div class="grid-item" style="display:inline-block">
+                <a href="http://www.law.go.kr/" target="__blank"><img src="/img/infocenter.png" width="100%"></a>
+            </div>
+            <div class="grid-item" style="display:inline-block">
                 <a href="http://www.moleg.go.kr/main.html" target="__blank"><img src="/img/moleg_logo.png" width="100%"></a>
             </div>
             <div class="grid-item" style="display:inline-block;">
                 <a href="http://www.nsdi.go.kr/lxportal/?menuno=2679" target="__blank"><img src="/img/nsdi_logo.png" width="100%"></a>
+            </div>
+            <div class="grid-item" style="display:inline-block">
+                <a href="http://www.onbid.co.kr/" target="__blank"><img src="/img/onbid.png" width="100%"></a>
             </div>
         </div>
     </div>

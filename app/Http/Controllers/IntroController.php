@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 class IntroController extends Controller
 {
     public function intro(){
-        return view('Company_intro');
+        return view('Intro.Company_intro');
     }
     public function history(){
-        return view('Company_history');
+        return view('Intro.Company_history');
+    }
+    public function location(){
+        return view('Intro.Company_location');
     }
 
 }

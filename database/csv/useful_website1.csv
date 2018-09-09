@@ -1,0 +1,12 @@
+id,organization,website_address,note
+1,대법원경매,http://www.courtauction.go.kr/,법원 경매물건 검색
+2,대법원 인터넷등기소,http://www.iros.go.kr/,등기사항전부증명서 발급
+3,대법원 법률정보,http://www.scourt.go.kr/,법원 종합 판례 검색
+4,온비드 공매,http://www.onbid.co.kr/,공매물건 검색
+5,국토교통부,http://www.law.go.kr/,"유권해석, 판례 검색"
+6,부동산 공시지가 알리미,https://www.realtyprice.kr:447/notice/loginCheck.login,공시지가 열람
+7,토지이용규제서비스,http://luris.molit.go.kr,"토지이용계획, 지형도면 열람"
+8,온나라 부동산정보 통합포털,http://www.onnara.go.kr/,"분양정보, 실거래가 조회"
+9,한국토지정보시스템,http://klis.seoul.go.kr/sis/main.do,"지적 조회 및 부동산 중개업, 개발업 조회"
+10,민원24,http://www.minwon.go.kr/main?a=AA020InfoMainApp,행정서류 발급
+11,대한민국 전자관보,http://gwanbo.korea.go.kr/main.gz,공고/고시 열람

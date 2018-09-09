@@ -14,7 +14,8 @@
                             <li>한국자산관리공사 주최 공매투자 아카데미 대구 / 울산 / 부산
                                 <br><b style="font-size:1vw; font-weight:inherit; padding-left: 1vw;">주제 : 공익사업에 의한 투자와
                                     재테크 전략</b></li>
-                            <li>영산대학교 부동산 포럼 _ 주제 : 영남권 유망 개발지역 분석과 투자(보상)전략</li>
+                            <li>영산대학교 부동산 포럼<br>
+                                <b style="font-size:1vw; font-weight:inherit; padding-left:1vw;">주제 : 영남권 유망 개발지역 분석과 투자(보상)전략</b></li>
                             <li>대구 평리5구역 주택재개발 정비사업(보상대행)</li>
                             <li>대구 평리7구역 주택재개발 정비사업(보상대행)</li>
                             <li>죽곡일반산업단지(보상대행)</li>
@@ -60,7 +61,8 @@
                     <li>
                         <b>2014</b>
                         <ul>
-                            <li>제1기 토지보상 컨설턴트과정</li>
+                            <li>제1기 토지보상 컨설턴트과정
+                                <br><b style="font-size:1vw; font-weight:inherit; padding-left: 1vw;"> 주제 : 공익사업과 보상투자 전략</b></li>
                             <li>김해 송현일반산업단지(보상대행, 분묘보상)</li>
                             <li>재송2구역 주택재개발 사업(용역대행)</li>
                             <li>충북 제천 도시계획시설사업(보상대행)</li>

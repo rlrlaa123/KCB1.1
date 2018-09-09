@@ -50,6 +50,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
 Route::get('/myinfo', 'UserView\MyInfoController@index');
 Route::get('/intro', 'IntroController@intro');
+Route::get('/location', 'IntroController@location');
 Route::get('/history', 'IntroController@history');
 
 Route::get('/agreement', 'Auth\AgreementController@index');

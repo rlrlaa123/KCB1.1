@@ -13,7 +13,6 @@
     <div class="grid-item">개인정보처리방침</div>
     <div class="grid-item">이용약관</div>
     <div class="grid-item">사이트맵</div>
-    <div class="grid-item">회사 위치</div>
 </div>
 <div class="footerextra">
     <p>copyright ⓒ 보상원 2018 All Right Reserved</p>
