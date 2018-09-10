@@ -58,9 +58,6 @@
             </div>
         </div>
         <hr/>
-        <h4>공지사항</h4>
-        <small>글 목록</small>
-        <hr/>
         <div>
             <table class="pagecontents">
                 <thead>

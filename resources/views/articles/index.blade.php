@@ -26,9 +26,6 @@
     <div class="community_page">
         @include('layouts.partials.communitylist')
         <hr/>
-        <h4>자유게시판</h4>
-        <small>글 목록</small>
-        <hr/>
         <div>
             <table class="pagecontents">
                 <thead>
@@ -55,9 +52,24 @@
                     {!! $articles->render() !!}
                 </div>
             @endif
-
             <div class="text-right">
-                <a href="{{route('articles.create')}}" class="write_new_article">새 글 쓰기</a></div>
+                <a onclick="create()" class="write_new_article">새 글 쓰기</a></div>
         </div>
     </div>
+    <script>
+        function create() {
+            @if(\Illuminate\Support\Facades\Auth::guest())
+            alert('회원 가입 후에 작성하실 수 있습니다.');
+            @else
+            // Premium 회원일 때만 접근 가능!
+            var role = "{{ Auth::user()->checkPremium(Auth::user()->grade) }}";
+            if (role === "1") {
+                location.href = "{{route('articles.create')}}";
+            }
+            else {
+                alert('프리미엄 회원만 작성이 가능합니다.');
+            }
+            @endif
+        }
+    </script>
 @endsection
