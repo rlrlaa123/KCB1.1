@@ -32,7 +32,7 @@
                             <tr>
                                 <td>
                                     <div>
-                                        <p>{{$data->j_content}}</p>
+                                        <pre class="pre_tag">{{$data->j_content}}</pre>
                                     </div>
                                 </td>
                             </tr>

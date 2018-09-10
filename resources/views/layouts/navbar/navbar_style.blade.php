@@ -182,6 +182,11 @@
         grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
     }
 
+    .pre_tag{
+        background-color:white;
+        border:none;
+    }
+
     /* Bottom right text */
     .text-block {
         background-color: black;
@@ -400,7 +405,7 @@
         margin-right: 15vw;
         background-color: #546eb4;
         border: 0.5px solid grey;
-        font-size: 1.1vw;
+        font-size: 0.9vw;
         font-weight: 500;
         -webkit-border-radius: 0.8vw;
         -moz-border-radius: 0.8vw;
