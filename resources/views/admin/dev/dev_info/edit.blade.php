@@ -94,7 +94,7 @@
                             <td>
                                 <select id="dev_city" name="dev_city" form="development-form"
                                         onchange="showDistrictList(value, '{{  $data->dev_city }}')">
-                                    <option value={{ $data->dev_city }} selected>선택해주세요</option>
+                                    <option value={{ $data->dev_city }} selected>{{$data->dev_city}}</option>
                                     @foreach($cities as $city)
                                         <option class="listed"
                                                 value={{ $city->dev_city }} @if($data->dev_city == $city->dev_city) selected @endif>{{ $city->dev_city }}</option>
@@ -106,6 +106,7 @@
                                     </div>
                                 @endif
                                 <select id="dev_district" name="dev_district" form="development-form">
+                                    <option value="{{$data->dev_district}}" selected>{{$data->dev_district}}</option>
                                     @foreach($locations as $loc)
                                         <option class="listed2"
                                                 value={{ $loc->dev_district  }} @if($data->dev_district == $loc->dev_district) selected

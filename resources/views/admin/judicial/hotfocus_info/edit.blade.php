@@ -28,7 +28,7 @@
     </style>
     <div id="hf" class="infoput">
         <div class="container" style="margin: 0 5%;">
-            <h1 class="infoputheader"><strong>※ 공지 수정</strong></h1>
+            <h1 class="infoputheader"><strong>※ HOT 포커스 수정</strong></h1>
             <form id="hotfocus-form" method="POST" action="{{ route('admin.hotfocus.update', $data->hf_id) }}"
                   enctype="multipart/form-data">
                 {!! method_field('PUT') !!}
@@ -39,7 +39,7 @@
                             <td class="datainput"><label for="hf_title">제목</label></td>
                             <td>
                                 <input type="text" id="hf_title" name="hf_title" class="form-control"
-                                       placeholder="제목을 입력해주세요." size="68" value="{{old('hf_title',$data->hf_title)}}">
+                                       placeholder="제목을 입력해주세요." size="80%" value="{{old('hf_title',$data->hf_title)}}">
                                 @if ($errors->has('hf_title'))
                                     <div class="help-block">
                                         {{ $errors->first('hf_title') }}
@@ -48,9 +48,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="hf_content">공지 내용</label></td>
+                            <td class="datainput"><label for="hf_content">HOT 포커스 내용</label></td>
                             <td>
-                                <textarea id="hf_content" class="form-control" name="hf_content" cols="70" placeholder="공지 내용을 입력해주세요.">{{ old('hf_content',$data->hf_content)}}</textarea>
+                                <textarea id="hf_content" class="form-control" name="hf_content" cols="90%" rows="20%" placeholder="HOT 포커스 내용을 입력해주세요.">{{ old('hf_content',$data->hf_content)}}</textarea>
                                 @if ($errors->has('hf_content'))
                                     <div class="help-block">
                                         {{ $errors->first('hf_content') }}

@@ -39,7 +39,7 @@
                             <td class="datainput"><label for="j_title">제목</label></td>
                             <td>
                                 <input type="text" id="j_title" name="j_title" class="form-control"
-                                       placeholder="제목을 입력해주세요." size="68" value="{{old('j_title', $data->j_title)}}">
+                                       placeholder="제목을 입력해주세요." size="80%" value="{{old('j_title', $data->j_title)}}">
                                 @if ($errors->has('j_title'))
                                     <div class="help-block">
                                         {{ $errors->first('j_title') }}
@@ -50,7 +50,7 @@
                         <tr>
                             <td class="datainput"><label for="j_content">유권해석&판례 내용</label></td>
                             <td>
-                                <textarea id="j_content" class="form-control" name="j_content" cols="70" placeholder="유권해석&판례 내용을 입력해주세요.">{{ old('j_content', $data->j_content)}}</textarea>
+                                <textarea id="j_content" class="form-control" name="j_content"  cols="90%" rows="20%" placeholder="유권해석&판례 내용을 입력해주세요.">{{ old('j_content', $data->j_content)}}</textarea>
                                 @if ($errors->has('j_content'))
                                     <div class="help-block">
                                         {{ $errors->first('j_content') }}

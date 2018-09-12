@@ -22,12 +22,11 @@
             <table class="pagecontents">
                 <thead>
                 <tr>
-                    <th class="th1 table_id">번호</th>
-                    <th class="th1 table_title">제목</th>
-                    <th class="th2 table_content">자료실 내용</th>
-                    <th class="th2 table_created_at">자료실 생성일</th>
-                    <th class="th2 table_updated_at">자료실 수정일</th>
-                    <th class="th2"></th>
+                    <th class="th1 table_id" style="width:15%;">번호</th>
+                    <th class="th1 table_title" style="width:40%;">제목</th>
+                    <th class="th2 table_created_at" style="width:15%;">자료실 생성일</th>
+                    <th class="th2 table_updated_at" style="width:15%;">자료실 수정일</th>
+                    <th class="th2" style="width:15%;"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,7 +35,6 @@
                         onclick="location.href='{{ url('admin/library/'.$value->library_id.'/edit') }}'">
                         <td class="td1">{{$value->library_id}}</td>
                         <td class="td1">{{$value->library_title}}</td>
-                        <td class="td1">{{$value->library_content}}</td>
                         <td class="td1">{{ $value->created_at }}</td>
                         <td class="td1">{{ $value->library_date }}</td>
                         <td class="td1" onclick="deleting({{ $value->library_id }})">

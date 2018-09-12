@@ -14,8 +14,8 @@
         }
     </style>
     <div class="askingpage">
-        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>HOT포커스 목록</h3>
-            <div style="cursor:pointer; border:2px solid #e85254; background-color: #e85254; color:white; padding:0.5vw; font-size:1vw; -webkit-border-radius: 1vw;-moz-border-radius: 1vw;border-radius: 1vw;"onclick="location.href='{{url('/admin/hotfocus/create')}}'">HOT포커스 추가</div></div>
+        <div style="display:flex; justify-content: space-between; align-items: center;"><h3>HOT 포커스 목록</h3>
+            <div style="cursor:pointer; border:2px solid #e85254; background-color: #e85254; color:white; padding:0.5vw; font-size:1vw; -webkit-border-radius: 1vw;-moz-border-radius: 1vw;border-radius: 1vw;"onclick="location.href='{{url('/admin/hotfocus/create')}}'">HOT 포커스 추가</div></div>
 
         <hr/>
         <div>
@@ -25,9 +25,9 @@
                     <th class="th1 table_id">번호</th>
                     <th class="th1 table_thumbnails"></th>
                     <th class="th1 table_title">제목</th>
-                    <th class="th2 table_content">HOT포커스 내용</th>
-                    <th class="th2 table_created_at">HOT포커스 생성일</th>
-                    <th class="th2 table_updated_at">HOT포커스 수정일</th>
+                    <th class="th2 table_content">HOT 포커스 내용</th>
+                    <th class="th2 table_created_at">HOT 포커스 생성일</th>
+                    <th class="th2 table_updated_at">HOT 포커스 수정일</th>
                     <th class="th2"></th>
                 </tr>
                 </thead>

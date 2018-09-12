@@ -11,7 +11,7 @@
                         <td class="datainput"><label for="p_title">제목</label></td>
                         <td>
                             <input type="text" id="p_title" name="p_title" class="form-control"
-                                   placeholder="제목을 입력해주세요." size="68" value="{{old('p_title')}}">
+                                   placeholder="제목을 입력해주세요." size="80%" value="{{old('p_title')}}">
                             @if ($errors->has('p_title'))
                                 <div class="help-block">
                                     {{ $errors->first('p_title') }}
@@ -22,7 +22,7 @@
                         <tr>
                             <td class="datainput"><label for="p_content">규정&지침 내용</label></td>
                             <td>
-                                <textarea id="p_content" class="form-control" name="p_content" cols="70" placeholder="규정&지침 내용을 입력해주세요.">
+                                <textarea id="p_content" class="form-control" name="p_content"  cols="90%" rows="20%" placeholder="규정&지침 내용을 입력해주세요.">
                                 {{ old('p_content')}}
                                 </textarea>
                                 @if ($errors->has('p_content'))

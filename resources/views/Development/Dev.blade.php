@@ -1,12 +1,34 @@
 @extends('layouts.app')
+{{--@if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {--}}
+{{--<style>--}}
+    {{--@media screen and (orientation: portrait) {--}}
+        {{--.dev_info_search {--}}
+            {{--height: 38vh !important;--}}
+        {{--}--}}
+    {{--}--}}
+{{--</style>--}}
+{{--}--}}
+{{--@endif--}}
+
+{{--<script>--}}
+    {{--window.onresize = function () {--}}
+        {{--var w = window.innerWidth;--}}
+        {{--var h = window.innerHeight;--}}
+        {{--if (1.29 >= (w / h) >= 1.001) {--}}
+            {{--document.getElementById('dev_info_search').style.setProperty("height", "38vh", "important");--}}
+        {{--}--}}
+    {{--}--}}
+{{--</script>--}}
 <style>
+
     @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
 
-        .location_class_child{
-            height:90%!important;
+        .location_class_child {
+            height: 90% !important;
         }
 
     }
+
     .dev_page > hr {
         display: block;
         visibility: visible;
@@ -15,6 +37,7 @@
         font-size: 0;
         line-height: 0;
     }
+
     .letsusegrid {
         display: -ms-grid;
         display: grid;
@@ -61,7 +84,7 @@
         -ms-grid-columns: 6fr 0 4fr;
         grid-template-columns: 60% 40%;
         text-align: center;
-        height: 62.5vh;
+        height: 60vh;
         width: 100%;
         max-width: 100%;
         margin: 0;
@@ -123,7 +146,6 @@
 
     .search_classes {
         border: 1px solid #546eb4;
-        height: 100%;
         width: 100%;
         padding: 0;
         margin: 0;
@@ -157,19 +179,19 @@
     .location_class_child {
         cursor: pointer;
         padding: 0;
-        height:100%;
-        text-align:-moz-center;
+        height: 90%;
+        text-align: -moz-center;
         text-align: center;
         max-width: 100%;
         justify-content: center;
-        width:100%;
+        width: 100%;
         margin: 0;
         overflow-y: auto;
 
     }
 
     .dev_table_child {
-        height: 57vh;
+        height: 90%;
         overflow-y: scroll;
         width: 100%;
         overflow-x: hidden;
@@ -185,9 +207,10 @@
         color: dimgrey;
         font-weight: 600;
     }
-    @media (max-width: 750px){
-        .listed{
-            font-size:0.5vw;
+
+    @media (max-width: 750px) {
+        .listed {
+            font-size: 0.5vw;
         }
 
     }
@@ -243,9 +266,9 @@
         width: 100%;
         max-width: 100%;
         margin: 1.2vw 0 0 0;
-        font-size:1vw;
-        color:dimgrey;
-        font-weight:600;
+        font-size: 1vw;
+        color: dimgrey;
+        font-weight: 600;
         border-top: 0.5px solid;
         border-bottom: 0.5px solid;
 
@@ -306,7 +329,7 @@
             <b style="font-size: 1.1vw;">개발사업정보 검색</b><b></b>
         </div>
         <hr/>
-        <div class="dev_info_search">
+        <div class="dev_info_search" id="dev_info_search">
             <div class="search_classes grid-item1">
                 <div class="class_title">
                     <div class="dropdown1" style="">
@@ -355,11 +378,13 @@
                 </div>
             </div>
             <div class="search_classes grid-item1">
-
                 <div class="letsusegrid">
-                    <div class="class_title grid-item" style="cursor:pointer; text-align:center;" onclick="selectsearch_type('search_type')"><strong>유형</strong>
+                    <div class="class_title grid-item" style="cursor:pointer; text-align:center;"
+                         onclick="selectsearch_type('search_type')"><strong>유형</strong>
                     </div>
-                    <div class="class_title grid-item" style="border-left: 0.5px solid white;cursor:pointer; text-align:center;" onclick="selectsearch_type('search_charge')"><strong>주체</strong>
+                    <div class="class_title grid-item"
+                         style="border-left: 0.5px solid white;cursor:pointer; text-align:center;"
+                         onclick="selectsearch_type('search_charge')"><strong>주체</strong>
                     </div>
                 </div>
                 <div class="dev_table_child" id="search_type" style="display:block;">

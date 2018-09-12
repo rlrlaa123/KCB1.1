@@ -101,6 +101,7 @@
                                     </div>
                                 @endif
                                 <select id="dev_district" name="dev_district" form="development-form">
+                                    <option value="null" selected disabled>선택해주세요</option>
                                     @foreach($locations as $loc)
                                         <option class="listed2" value="{{$loc->dev_district}}"
                                                 id="{{ $loc->num_id }}"
