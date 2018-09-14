@@ -269,6 +269,21 @@ Route::prefix('admin')->group(function () {
 
         return $locations;
     });
+    //-------------개발정보검색 유형&주체 추가-----------------//
+    Route::get('/adding_type/', 'Admin\Dev\TypeAdderController@index');
+    Route::get('/adding_type/create', 'Admin\Dev\TypeAdderController@create');
+    Route::get('/adding_type/{id}/edit', 'Admin\Dev\TypeAdderController@edit');
+    Route::put('/adding_type/{id}/update', 'Admin\Dev\TypeAdderController@update')->name('admin.adding_type.update');
+    Route::delete('/adding_type/{id}', 'Admin\Dev\TypeAdderController@delete')->name('admin.adding_type.delete');
+    Route::post('/adding_type/store', 'Admin\Dev\TypeAdderController@store')->name('admin.adding_type.store');
+
+    Route::get('/adding_charge/', 'Admin\Dev\ChargeAdderController@index');
+    Route::get('/adding_charge/create', 'Admin\Dev\ChargeAdderController@create');
+    Route::get('/adding_charge/{id}/edit', 'Admin\Dev\ChargeAdderController@edit');
+    Route::put('/adding_charge/{id}/update', 'Admin\Dev\ChargeAdderController@update')->name('admin.adding_charge.update');
+    Route::delete('/adding_charge/{id}', 'Admin\Dev\ChargeAdderController@delete')->name('admin.adding_charge.delete');
+    Route::post('/adding_charge/store', 'Admin\Dev\ChargeAdderController@store')->name('admin.adding_charge.store');
+
 
     //---------------공고/공시-----------------//
     Route::get('/notice/', 'Admin\Notice\NoticeController@index');

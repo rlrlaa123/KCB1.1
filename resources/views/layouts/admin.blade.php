@@ -33,7 +33,7 @@
         <div class="grid-item  userinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/user' ? 'active' : ''}}" style="-ms-grid-column: 3"
              onclick="location.href='/admin/user';">회원정보
         </div>
-        <div class="grid-item developmentinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/dev' ? 'active' : ''}}"
+        <div class="grid-item developmentinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/dev'||$_SERVER['REQUEST_URI'] === '/admin/adding_charge'||$_SERVER['REQUEST_URI'] === '/admin/adding_type' ? 'active' : ''}}"
              onclick="location.href='/admin/dev';" style="-ms-grid-column: 5">개발사업정보
         </div>
         <div class="grid-item  judicialinfo-selector {{ $_SERVER['REQUEST_URI'] === '/admin/judicial' || $_SERVER['REQUEST_URI'] === '/admin/hotfocus'
