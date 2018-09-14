@@ -82,10 +82,10 @@
 </style>
 <div class="bannercontainer">
     <div class="grid-item">
-        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://www.bosangwon.com')}}'"><img src="/img/bosangwon_logo.png" style="width:60%; height:100%;"></div>
+        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://www.bosangwon.com')}}'"><img src="/img/bosangwon_logo.png" style="width:12vw;"></div>
     </div>
     <div class="grid-item">
-        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://blog.naver.com/bosangwon')}}'"><img src="/img/naver_blog.png" style="width:60%; height:100%;"></div>
+        <div style="cursor:pointer; width:100%;" onclick="location.href='{{url('http://blog.naver.com/bosangwon')}}'"><img src="/img/naver_blog.png" style="width:12vw;"></div>
     </div>
     <div class="grid-item" style="padding:1vw;">
         <div>광고 배너</div>

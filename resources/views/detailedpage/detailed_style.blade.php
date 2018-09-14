@@ -93,7 +93,6 @@
 
     .jdetailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
     }
 
@@ -128,7 +127,6 @@
 
     .hfdetailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
     }
 
@@ -163,7 +161,6 @@
 
     .pdetailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
     }
 
@@ -198,7 +195,6 @@
 
     .rndetailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
     }
 
@@ -234,7 +230,6 @@
 
     .librarydetailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
 
     }
@@ -279,7 +274,7 @@
     }
 
     .noticedetailed_table_content img {
-
+        width:100%;
         margin: 1vw;
     }
 
@@ -315,7 +310,6 @@
 
     .fyidetailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
     }
 
@@ -350,7 +344,6 @@
 
     .askingdetailed_table_content img {
         width:100%;
-        height:100%;
         margin: 1vw;
     }
 
@@ -416,7 +409,6 @@
 
     .reportdetailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
     }
 
@@ -502,7 +494,6 @@
 
     .asking_detailed_table_content img {
         width: 100%;
-        height: 100%;
         margin: 1vw;
     }
 

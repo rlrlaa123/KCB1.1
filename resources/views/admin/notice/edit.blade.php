@@ -49,18 +49,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="notice_content">공고 고시 내용</label></td>
-                            <td>
-                                <textarea id="notice_content" class="form-control" name="notice_content" cols="70"
-                                          placeholder="공고 고시 내용을 입력해주세요.">{{ old('notice_content', $data->notice_content)}}</textarea>
-                                @if ($errors->has('notice_content'))
-                                    <div class="help-block">
-                                        {{ $errors->first('notice_content') }}
-                                    </div>
-                                @endif
-                            </td>
-                        </tr>
-                        <tr>
                             <td class="datainput"><label for="classification">전체 / TODAY 분류</label></td>
                             <td>
                                 <select id="classification" name="classification" form="notice-form">
@@ -100,12 +88,23 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="datainput"><label for="fileimage">파일 첨부</label></td>
+                            <td class="datainput"><label for="fileimage">이미지 첨부</label></td>
                             <td>
                                 <input type="file" id="fileimage" name="fileimage[]" class="image" multiple>
                                 @if ($errors->has('fileimage'))
                                     <div class="help-block">
                                         {{ $errors->first('fileimage') }}
+                                    </div>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="datainput"><label for="file">파일 첨부</label></td>
+                            <td>
+                                <input type="file" id="file" name="file[]" class="image" multiple>
+                                @if ($errors->has('file'))
+                                    <div class="help-block">
+                                        {{ $errors->first('file') }}
                                     </div>
                                 @endif
                             </td>

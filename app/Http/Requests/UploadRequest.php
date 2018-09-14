@@ -24,8 +24,12 @@ class UploadRequest extends FormRequest
     public function rules()
     {
         $fileimage = count($this->input('fileimage'));
+        $file = count($this->input('file'));
         foreach (range(0, $fileimage) as $index) {
-            $rules['fileimage.' . $index] = 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip,hwp,ppt,pptx,hwp,application/unknown,xls,xlm,xla,xlc,xlt,xlw,ppt,pot,pps,ppa,pptx,txt|max:20000';
+            $rules['fileimage.' . $index] = 'required|mimes:jpeg,png,jpg,gif,svg|max:20000';
+        }
+        foreach (range(0, $file) as $index) {
+            $rules['file.' . $index] = 'required|mimes:jpeg,png,jpg,gif,svg,doc,docx,pdf,zip,hwp,ppt,pptx,hwp,application/unknown,xls,xlm,xla,xlc,xlt,xlw,ppt,pot,pps,ppa,pptx,txt|max:20000';
         }
 
         return $rules;
@@ -40,6 +44,7 @@ class UploadRequest extends FormRequest
     {
         return[
             'fileimage'=>'첨부 파일',
+            'file'=>'이미지',
         ];
     }
 }

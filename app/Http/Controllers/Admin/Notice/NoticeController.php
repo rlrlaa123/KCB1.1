@@ -10,6 +10,7 @@ use App\Notice;
 use Illuminate\Http\Request;
 use App\Http\Requests\UploadRequest;
 use App\Notice_photo;
+use App\Notice_file;
 use App\Location;
 use Image;
 
@@ -37,7 +38,6 @@ class NoticeController extends Controller
     public function noticefileupload(UploadRequest $request)
     {
         $this->validate($request, [
-            'notice_content' => 'required',
             'classification' => 'required',
             'location' => 'required',
         ]);
@@ -46,9 +46,13 @@ class NoticeController extends Controller
                 File::makeDirectory('fileuploaded');
                 if (!file_exists('fileuploaded/notice')) {
                     File::makeDirectory('fileuploaded/notice');
+                    if (!file_exists('fileuploaded/notice/files')) {
+                        File::makeDirectory('fileuploaded/notice/files');
+                    }
                     if (!file_exists('fileuploaded/notice/images')) {
                         File::makeDirectory('fileuploaded/notice/images');
                     }
+
                 }
             }
         }
@@ -58,7 +62,6 @@ class NoticeController extends Controller
         $notices = new Notice;
 
         $notices->notice_title = $request['notice_title'];
-        $notices->notice_content = $request['notice_content'];
         $notices->classification = $request['classification'];
         $notices->location = $request['location'];
         $notices->notice_date = $date;
@@ -75,6 +78,18 @@ class NoticeController extends Controller
             $notice_photo->fileimage = 'fileuploaded/notice/images/' . $filename;
             ++$order;
             $notice_photo->save();
+        }
+        $destinationPath = public_path('fileuploaded/notice/files');
+        $order = 0;
+        $files = $request->file('file');
+        foreach ($files as $file) {
+            $notice_file = new Notice_file;
+            $filename = 'notice' . $notices->id . '_' . $order . '.' . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+            $notice_file->notice_id = $notices->id;
+            $notice_file->file = 'fileuploaded/notice/files/' . $filename;
+            ++$order;
+            $notice_file->save();
         }
         return back();
     }
@@ -98,6 +113,12 @@ class NoticeController extends Controller
                 File::delete($deleting['fileimage']);
             }
         }
+        $delete1 = Notice_file::where('notice_id', $id)->get();
+        foreach ($delete1 as $deleting) {
+            if ($deleting['file'] != null) {
+                File::delete($deleting['file']);
+            }
+        }
 
         if ($request->file('fileimage')) {
             if (!file_exists('fileuploaded')) {
@@ -107,10 +128,12 @@ class NoticeController extends Controller
                     if (!file_exists('fileuploaded/notice/images')) {
                         File::makeDirectory('fileuploaded/notice/images');
                     }
+                    if (!file_exists('fileuploaded/notice/files')) {
+                        File::makeDirectory('fileuploaded/notice/files');
+                    }
                 }
             }
         }
-        $destinationPath = public_path('fileuploaded/notice/images');
 
         $date = Carbon::now();
 
@@ -118,11 +141,11 @@ class NoticeController extends Controller
             ->update([
                 'location' => $request['location'],
                 'notice_title' => $request['notice_title'],
-                'notice_content' => $request['notice_content'],
                 'classification' => $request['classification'],
                 'notice_date' => $date
             ]);
         $data1 = Notice_photo::where('notice_id', $id)->delete();
+        $data2 = Notice_file::where('notice_id', $id)->delete();
         $data = Notice::where('id', $id)->get()[0];
 
         $destinationPath = public_path('fileuploaded/notice/images');
@@ -137,6 +160,18 @@ class NoticeController extends Controller
             ++$order;
             $notice_photo->save();
         }
+        $destinationPath = public_path('fileuploaded/notice/files');
+        $order = 0;
+        $files = $request->file('file');
+        foreach ($files as $file) {
+            $notice_file = new Notice_file;
+            $filename = 'notice' . $data->id . '_' . $order . '.' . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+            $notice_file->notice_id = $data->id;
+            $notice_file->file = 'fileuploaded/notice/files/' . $filename;
+            ++$order;
+            $notice_file->save();
+        }
         return redirect('admin/notice');
     }
 
@@ -148,8 +183,15 @@ class NoticeController extends Controller
                 unlink($deleting['fileimage']);
             }
         }
+        $delete1 = Notice_file::where('notice_id', $id)->get();
+        foreach ($delete1 as $deleting) {
+            if ($deleting['file'] != null) {
+                unlink($deleting['file']);
+            }
+        }
         $data = Notice::where('id', $id)->delete();
         $data1 = Notice_photo::where('notice_id', $id)->delete();
+        $data2 = Notice_file::where('notice_id', $id)->delete();
 
         return response()->json([], 204);
     }

@@ -22,7 +22,7 @@
                     <td>
                         <div class="writer_and_filedownload"><div>작성자 : 관리자</div>
                             <div>
-                                @foreach($data1 as $download)
+                                @foreach($file as $download)
                                     <div style="padding:0; margin:0;">
                                     <a href="{{url('notice_filedownload/'.$download->id)}}">{{$download->notice_id}}.{{$download->id}} 파일 다운받기</a></div>
                                 @endforeach</div>
@@ -32,14 +32,6 @@
                 <tr>
                     <td>
                         <table class="noticedetailed_table_content">
-                            <tr>
-                                <td>
-                                    <div>
-                                        <p style="overflow: auto;">{!! $data->notice_content!!}</p>
-                                        <p>[원본 파일을 보시려면 우측 상단의 파일 다운로드를 이용해주시기 바랍니다.]</p>
-                                    </div>
-                                </td>
-                            </tr>
                             @foreach($data1 as $image)
                                 @if (@is_array(getimagesize($image['fileimage'])))
                                     <tr>

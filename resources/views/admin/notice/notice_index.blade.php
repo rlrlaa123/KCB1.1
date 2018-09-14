@@ -26,9 +26,7 @@
                 <thead>
                 <tr>
                     <th class="th1 table_id">번호</th>
-                    <th class="th1"></th>
                     <th class="th1 table_title">제목</th>
-                    <th class="th2 table_content">공고 고시 내용</th>
                     <th class="th1 classification">분류</th>
                     <th class="th1 classification">지역</th>
                     <th class="th2 table_created_at">공고 고시 생성일</th>
@@ -39,13 +37,7 @@
                 @forelse($data as $value)
                     <tr class="tothedetailpage" onclick="location.href='{{ url('admin/notice/'.$value->id.'/edit') }}'">
                         <td class="td1">{{$value->id}}</td>
-                        {{--@if($value->notice_thumbnails != null)--}}
-                        {{--<td class="td1"><img src="/{{$value->notice_thumbnails}}"></td>--}}
-                        {{--@else--}}
-                        <td class="td1" style="width:20%"><img src="/img/no_image.jpg" style="width:100%;"></td>
-                        {{--@endif--}}
                         <td class="td1">{{$value->notice_title}}</td>
-                        <td class="td1">{!! $value->notice_content !!}</td>
                         <td class="td1">
                             @if($value->classification=='all')
                                 전체 보상

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Userview\Notice;
 use App\Http\Controllers\Controller;
 use App\Notice;
 use App\Notice_photo;
+use App\Notice_file;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -28,9 +29,10 @@ class NoticeViewController extends Controller
         $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
         $data = Notice::where('id', $id)->first();
         $data1 = Notice_photo::where('notice_id', $id)->get();
+        $file = Notice_file::where('notice_id', $id)->get();
         $previous = Notice::where('id', '<', $data->id)->max('id');
         $next = Notice::where('id', '>', $data->id)->min('id');
-        return view('Notice.detailed.notice_detailed', compact('data', 'previous', 'next', 'data1'));
+        return view('Notice.detailed.notice_detailed', compact('data', 'previous', 'next', 'data1','file'));
     }
     public function index_all(Request $request)
     {
@@ -42,9 +44,9 @@ class NoticeViewController extends Controller
     public function notice_filedownload(Request $request, $id)
     {
         $request->user()->authorizeRoles(['premium']);//premium을 파라미터로 던져서 프리미엄이 해당 사용자의 객체에 있는지 조회한 후 return.
-        $data1 = Notice_photo::where('id', $id)->first();
+        $file = Notice_file::where('id', $id)->first();
 
-        $download_path = (public_path() . '/' . $data1->fileimage);
+        $download_path = (public_path() . '/' . $file->file);
         return response()->download($download_path);
 
     }
