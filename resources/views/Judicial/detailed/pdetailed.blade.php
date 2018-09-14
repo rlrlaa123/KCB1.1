@@ -93,7 +93,7 @@
                 </tr>
                 <tr>
                     <td class="content_name">내용</td>
-                    <td colspan="5"><p>{{$data->p_content}}</p></td>
+                    <td colspan="5">{!! $data->p_content !!}</td>
                 </tr>
             </table>
         </div>

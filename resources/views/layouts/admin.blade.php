@@ -4,6 +4,7 @@
     @yield('style')
     @include('layouts.partials.header_admin')
     @include('layouts.partials.admin_style')
+    @include ('tinymce')
     {{--<link href="{{ asset('css/NanumSquare-master/nanumsquare.css') }}" rel="Stylesheet">--}}
 </head>
 <body>

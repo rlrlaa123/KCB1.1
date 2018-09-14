@@ -5,9 +5,9 @@
     @yield('style')
     @include('layouts.partials.header')
     @include('layouts.navbar.navbar_style')
+    @include ('tinymce')
     {{--<link href="{{ asset('css/NanumSquare-master/nanumsquare.css') }}" rel="Stylesheet">--}}
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="js/d3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js">
     </script>
 </head>

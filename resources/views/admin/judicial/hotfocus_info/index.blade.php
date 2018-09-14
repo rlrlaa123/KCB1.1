@@ -41,7 +41,7 @@
                             <td class="td1"><img src="/img/no_image.jpg"/></td>
                         @endif
                         <td class="td1">{{$value->hf_title}}</td>
-                        <td class="td1">{{$value->hf_content}}</td>
+                        <td class="td1">{!! $value->hf_content !!}</td>
                         <td class="td1">{{ $value->created_at }}</td>
                         <td class="td1">{{ $value->hf_date }}</td>
                         <td class="td1" onclick="deleting({{ $value->hf_id }})">

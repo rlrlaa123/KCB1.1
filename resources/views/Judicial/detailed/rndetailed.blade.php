@@ -30,7 +30,7 @@
                             <tr>
                                 <td>
                                     <div>
-                                        <p>{{$data->rn_content}}</p>
+                                        <p>{!! $data->rn_content !!}</p>
                                         <p>{{$data->rn_link}}</p>
                                     </div>
                                 </td>

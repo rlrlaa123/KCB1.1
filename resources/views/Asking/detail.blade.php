@@ -55,7 +55,7 @@
                             <tr>
                                 <td>
                                     <div>
-                                        <p>{{$data->asking_content}}</p>
+                                        <p>{!! $data->asking_content!!}</p>
                                     </div>
                                 </td>
                             </tr>

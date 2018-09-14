@@ -45,7 +45,7 @@
                         <td class="td1" style="width:20%"><img src="/img/no_image.jpg" style="width:100%;"></td>
                         {{--@endif--}}
                         <td class="td1">{{$value->notice_title}}</td>
-                        <td class="td1">{{$value->notice_content}}</td>
+                        <td class="td1">{!! $value->notice_content !!}</td>
                         <td class="td1">
                             @if($value->classification=='all')
                                 전체 보상

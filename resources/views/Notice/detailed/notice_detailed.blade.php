@@ -35,7 +35,7 @@
                             <tr>
                                 <td>
                                     <div>
-                                        <p style="overflow: auto;">{{$data->notice_content}}</p>
+                                        <p style="overflow: auto;">{!! $data->notice_content!!}</p>
                                         <p>[원본 파일을 보시려면 우측 상단의 파일 다운로드를 이용해주시기 바랍니다.]</p>
                                     </div>
                                 </td>

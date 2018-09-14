@@ -55,7 +55,7 @@
                             <tr>
                                 <td>
                                     <div style="border-bottom: 0;">
-                                        <p>{{$article->content}}</p>
+                                        <p>{!!$article->content!!}</p>
                                         <div class="article-btn-wrapper">
                                             @if($article->user->id==\Illuminate\Support\Facades\Auth::user()->id)
                                                 <a href="{{route('articles.edit', $article->id)}}" class="">

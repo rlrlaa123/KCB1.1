@@ -22,9 +22,7 @@
                         <tr>
                             <td class="datainput"><label for="hf_content">HOT 포커스 내용</label></td>
                             <td>
-                                <textarea id="hf_content" class="form-control" name="hf_content"  cols="90%" rows="20%" placeholder="HOT 포커스 내용을 입력해주세요.">
-                                {{ old('hf_content')}}
-                                </textarea>
+                                <textarea id="hf_content" class="form-control" name="hf_content"  cols="90%" rows="20%" placeholder="HOT 포커스 내용을 입력해주세요."></textarea>
                                 @if ($errors->has('hf_content'))
                                     <div class="help-block">
                                         {{ $errors->first('hf_content') }}

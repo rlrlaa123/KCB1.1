@@ -32,7 +32,7 @@
                             <tr>
                                 <td>
                                     <div>
-                                        <p>{{$data->report_content}}</p>
+                                        <p>{!! $data->report_content !!}</p>
                                     </div>
                                 </td>
                             </tr>

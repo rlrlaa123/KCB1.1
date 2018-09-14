@@ -35,7 +35,7 @@
                         onclick="location.href='{{ url('admin/fyi/'.$value->fyi_id.'/edit') }}'">
                         <td class="td1">{{$value->fyi_id}}</td>
                         <td class="td1">{{$value->fyi_title}}</td>
-                        <td class="td1">{{$value->fyi_content}}</td>
+                        <td class="td1">{!! $value->fyi_content !!}</td>
                         <td class="td1">{{ $value->created_at }}</td>
                         <td class="td1">{{ $value->fyi_date }}</td>
                         <td class="td1" onclick="deleting({{ $value->fyi_id }})">
