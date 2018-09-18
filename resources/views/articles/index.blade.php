@@ -14,7 +14,7 @@
         -moz-border-radius: 4vw;
         border-radius: 4vw;
         background-color: #e85254;
-        padding: 1vw;
+        padding: 1vh 1vw;
         text-align: center;
         color: white;
         font-size: 1vw;

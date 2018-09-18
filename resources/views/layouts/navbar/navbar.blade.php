@@ -50,16 +50,6 @@
         display: block;
     }
 </style>
-{{--<script>--}}
-{{--function showsubmenu(id) {--}}
-{{--var i;--}}
-{{--var x = document.getElementsByClassName('submenu');--}}
-{{--for (i = 0; i < x.length; i++) {--}}
-{{--x[i].style.display = "none";--}}
-{{--document.getElementById(id).style.display = 'block';--}}
-{{--}--}}
-{{--}--}}
-{{--</script>--}}
 <div class="navigationheader">
     <a href="/"><img src="/img/KCB_logo.png" sizes="200"
                      title="logo" alt="logo" align="left"></a>

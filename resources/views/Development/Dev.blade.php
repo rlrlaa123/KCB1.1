@@ -1,32 +1,19 @@
 @extends('layouts.app')
-{{--@if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {--}}
-{{--<style>--}}
-    {{--@media screen and (orientation: portrait) {--}}
-        {{--.dev_info_search {--}}
-            {{--height: 38vh !important;--}}
-        {{--}--}}
-    {{--}--}}
-{{--</style>--}}
-{{--}--}}
-{{--@endif--}}
-
-{{--<script>--}}
-    {{--window.onresize = function () {--}}
-        {{--var w = window.innerWidth;--}}
-        {{--var h = window.innerHeight;--}}
-        {{--if (1.29 >= (w / h) >= 1.001) {--}}
-            {{--document.getElementById('dev_info_search').style.setProperty("height", "38vh", "important");--}}
-        {{--}--}}
-    {{--}--}}
-{{--</script>--}}
 <style>
-
-    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-
-        .location_class_child {
-            height: 90% !important;
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .padding_control{
+            padding:25% 0;
         }
-
+    }
+    @supports (-ms-accelerator:true) {
+        .padding_control{
+            padding:25% 0;
+        }
+    }
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+        .padding_control{
+            padding:25% 0;
+        }
     }
 
     .dev_page > hr {
@@ -38,19 +25,9 @@
         line-height: 0;
     }
 
-    .letsusegrid {
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: 1fr 0 1fr;
-        grid-template-columns: 50% 50%;
-        text-align: center;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-
     .dev_page {
-        margin: 1vw 15vw 1vw 15vw;
+        width: 100%;
+        padding: 1vw 15vw 1vw 15vw;
     }
 
     .result_container h3 {
@@ -79,15 +56,11 @@
 
     .dev_info_search {
         padding: 0;
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: 6fr 0 4fr;
-        grid-template-columns: 60% 40%;
         text-align: center;
-        height: 60vh;
         width: 100%;
         max-width: 100%;
         margin: 0;
+        height: 65vh;
     }
 
     .grid-item1:nth-child(2) {
@@ -144,18 +117,29 @@
 
     }
 
+    .displaying_content {
+        display: grid;
+        display: -ms-grid;
+        grid-template-columns: 60% 40%;
+        -ms-grid-columns: 6fr 0px 4fr;
+        height: 90%;
+    }
+
     .search_classes {
-        border: 1px solid #546eb4;
         width: 100%;
         padding: 0;
         margin: 0;
     }
 
     .class_title {
+        display: grid;
+        display: -ms-grid;
+        grid-template-columns: 10% 50% 20% 20%;
+        -ms-grid-columns: 1fr 0px 5fr 0px 2fr 0px 2fr;
+        height: 10%;
         color: #FFFFFF;
         background-color: #546eb4;
-        padding: 0.3vw;
-        font-size: 1.1vw;
+        font-size: 1vw;
         text-align: left;
         align-items: center;
         font-weight: bolder;
@@ -179,7 +163,6 @@
     .location_class_child {
         cursor: pointer;
         padding: 0;
-        height: 90%;
         text-align: -moz-center;
         text-align: center;
         max-width: 100%;
@@ -191,9 +174,9 @@
     }
 
     .dev_table_child {
-        height: 90%;
         overflow-y: scroll;
         width: 100%;
+        height: 100%;
         overflow-x: hidden;
     }
 
@@ -211,6 +194,18 @@
     @media (max-width: 750px) {
         .listed {
             font-size: 0.5vw;
+        }
+
+    }
+    @media (min-width: 1440px) {
+        .dev_info_search {
+            height:70vh;
+        }
+
+    }
+    @media (max-width: 750px) {
+        .dev_info_search {
+            height:30vh;
         }
 
     }
@@ -323,18 +318,28 @@
     }
 
 </style>
+<script>
+    function citylist() {
+        document.getElementById('dropdown1-content').style.display = "block";
+    }
+
+    function nocitylist() {
+        document.getElementById('dropdown1-content').style.display = "none";
+
+    }
+</script>
 @section('content')
     <div class="dev_page">
         <div style="display:flex; justify-content: space-between; align-items: center">
             <b style="font-size: 1.1vw;">개발사업정보 검색</b><b></b>
         </div>
         <hr/>
-        <div class="dev_info_search" id="dev_info_search">
-            <div class="search_classes grid-item1">
+        <div>
+            <div class="dev_info_search scaleable-wrapper" id="scaleable-wrapper">
                 <div class="class_title">
-                    <div class="dropdown1" style="">
-                        <button class="dropbtn1 menu_btn1" type="button">시/도
-                            <span class="caret"></span></button>
+                    <div class="dropdown1 grid-item">
+                        <button class="dropbtn1 menu_btn1" type="button">시/도 선택
+                        </button>
                         <div class="dropdown1-content">
                             <a href="javascript:FindDistrict(1);" class="on">서울</a>
                             <a href="javascript:FindDistrict(2);" class="">경기도</a>
@@ -355,51 +360,37 @@
                             <a href="javascript:FindDistrict(17);" class="">충청북도</a>
                         </div>
                     </div>
-                    <strong>지역</strong>
-                </div>
-                <div class="location_class_child">
-
-                    @include ('Development.testing')
-                    {{--<div class="dev_table_child grid-item">--}}
-                    {{--@foreach($cities as $city)--}}
-                    {{--<div class="listed city_switch" onclick="showDistrictList('{{$city->dev_city}}')">--}}
-                    {{--{{$city->dev_city}}--}}
-                    {{--</div>--}}
-                    {{--@endforeach--}}
-                    {{--</div>--}}
-                    {{--<div class="dev_table_child grid-item" id="district">--}}
-                    {{--@forelse($location as $loc)--}}
-                    {{--<div onclick="dev_district('{{$loc->dev_district}}','{{ $loc->dev_city }}')"--}}
-                    {{--class="listed2 district_switch" id="{{ $loc->num_id }}"--}}
-                    {{--style="display: none;">{{$loc->dev_district}}</div>--}}
-                    {{--@empty--}}
-                    {{--@endforelse--}}
-                    {{--</div>--}}
-                </div>
-            </div>
-            <div class="search_classes grid-item1">
-                <div class="letsusegrid">
-                    <div class="class_title grid-item" style="cursor:pointer; text-align:center;"
+                    <div class="grid-item padding_control" style="text-align: center;"><strong>지역</strong></div>
+                    <div class="grid-item padding_control" style="cursor:pointer; text-align:center;"
                          onclick="selectsearch_type('search_type')"><strong>유형</strong>
                     </div>
-                    <div class="class_title grid-item"
-                         style="border-left: 0.5px solid white;cursor:pointer; text-align:center;"
+                    <div class="grid-item padding_control" style="border-left: 0.5px solid white;cursor:pointer; text-align:center;"
                          onclick="selectsearch_type('search_charge')"><strong>주체</strong>
                     </div>
                 </div>
-                <div class="dev_table_child" id="search_type" style="display:block;">
-                    @foreach($search_type as $type)
-                        <div class="listed type_switch" onclick="dev_type('{{$type->search_type}}')">
-                            {{$type->search_type}}
+                <div>
+                    <div class="displaying_content">
+                        <div class="location_class_child grid-item" style="border: 1px solid #546eb4;">
+                            @include ('Development.testing')
                         </div>
-                    @endforeach
-                </div>
-                <div class="dev_table_child" id="search_charge" style="display:none;">
-                    @foreach($search_charge as $charge)
-                        <div class="listed charge_switch" onclick="dev_charge('{{$charge->search_charge}}')">
-                            {{$charge->search_charge}}
+                        <div class="location_class_child grid-item" style="border: 1px solid #546eb4;">
+                            <div class="dev_table_child" id="search_type" style="display:block;">
+                                @foreach($search_type as $type)
+                                    <div class="listed type_switch" onclick="dev_type('{{$type->search_type}}')">
+                                        {{$type->search_type}}
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="dev_table_child" id="search_charge" style="display:none;">
+                                @foreach($search_charge as $charge)
+                                    <div class="listed charge_switch"
+                                         onclick="dev_charge('{{$charge->search_charge}}')">
+                                        {{$charge->search_charge}}
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>

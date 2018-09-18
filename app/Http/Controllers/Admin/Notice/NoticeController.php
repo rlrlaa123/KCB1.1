@@ -37,6 +37,7 @@ class NoticeController extends Controller
 
     public function noticefileupload(UploadRequest $request)
     {
+
         $this->validate($request, [
             'classification' => 'required',
             'location' => 'required',

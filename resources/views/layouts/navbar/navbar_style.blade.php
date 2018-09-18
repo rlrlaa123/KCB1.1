@@ -2,44 +2,38 @@
     html, body, div, a, li, span, b, strong, i, p{
         word-break:keep-all
     }
-    @media screen and (orientation:portrait) {
-        .basic_info_div {
-            margin: 0!important;
-        }
-        .basic_info_div_img{
-            width: 23vw;
-            height: 17vh!important;
-        }
-        .dropdown1-content {
-            height:22vh!important;
-        }
-        .dropdown1-content a{
-            padding: 0.5vh 0!important;
-        }
-        .menu_btn1 {
-            margin-right: 8vw!important;
-        }
+    /*@media screen and (orientation:portrait) {*/
+        /*.basic_info_div {*/
+            /*margin: 0!important;*/
+        /*}*/
+        /*.basic_info_div_img{*/
+            /*width: 23vw;*/
+            /*height: 17vh!important;*/
+        /*}*/
+        /*.dropdown1-content {*/
+            /*height:22vh!important;*/
+        /*}*/
+        /*.dropdown1-content a{*/
+            /*padding: 0.5vh 0!important;*/
+        /*}*/
 
-        .navigationheader img {
-            width: 50%!important;
-        }
-        .dev_info_search {
-            height: 25vh;
-        }
-        .dev_page .content1{
-            height:21vh;
-        }
-        .dev_page .location_class_child{
-            height:21vh;
-        }
-        .search_classes{
-            height:25vh;
-        }
-        .dev_table_child {
-            height:22vh;
-        }
+        /*.navigationheader img {*/
+            /*width: 50%!important;*/
+        /*}*/
+        /*.dev_info_search {*/
+            /*!*height: 25vh;*!*/
+        /*}*/
+        /*.dev_page .content1{*/
+            /*height:21vh;*/
+        /*}*/
+        /*.dev_page .location_class_child{*/
+            /*height:21vh;*/
+        /*}*/
+        /*.search_classes{*/
+            /*height:25vh;*/
+        /*}*/
 
-    }
+    /*}*/
 
     .display_content {
         width: 100%;
@@ -208,7 +202,7 @@
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         overflow: hidden;
-        white-space: nowrap;
+        white-space: nowrvap;
         width: 13.6vw;
         height: 15%;
 
@@ -402,10 +396,11 @@
     }
 
     .menu_btn1 {
-        margin-right: 15vw;
+        height:95%;
         background-color: #546eb4;
-        border: 0.5px solid grey;
-        font-size: 0.9vw;
+        border: 0.1vw solid grey;
+        padding:0;
+        font-size: 0.7vw;
         font-weight: 500;
         -webkit-border-radius: 0.8vw;
         -moz-border-radius: 0.8vw;
@@ -414,6 +409,7 @@
 
     /* The container <div> - needed to position the dropdown content */
     .dropdown1 {
+        height:100%;
         position: relative;
         display: inline-block;
     }
@@ -424,11 +420,11 @@
         text-align: center;
         position: absolute;
         background-color: #f1f1f1;
-        min-width: 22%;
+        width: 80%;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         z-index: 1;
         font-size: 1vw;
-        max-height: 57vh;
+        height:40vh;
         overflow-y: scroll;
     }
 
@@ -535,13 +531,12 @@
         justify-content: space-between;
         align-items: center;
         color: black;
-        width: 75%;
-        margin: 1vw 15vw 1vw 15vw;
-        height: 7%;
+        width: 100%;
+        padding: 0 15vw;
     }
 
     .navigationheader img {
-        width: 60%;
+        width: 80%;
 
     }
 

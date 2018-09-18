@@ -12,39 +12,39 @@
 </script>
 <style>
 
-    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-        .content1 {
-            height: 12% !important;
+    /*@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {*/
+        /*.content1 {*/
+            /*height: 12% !important;*/
 
-        }
+        /*}*/
 
-        .content1 > .mappedcity > img {
-            overflow-y: scroll !important;
-        }
+        /*.content1 > .mappedcity > img {*/
+            /*overflow-y: scroll !important;*/
+        /*}*/
 
-        .content1 > .mappedcity > img {
-            overflow-y: scroll !important;
-        }
+        /*.content1 > .mappedcity > img {*/
+            /*overflow-y: scroll !important;*/
+        /*}*/
 
-    }
+    /*}*/
 
-    @media only screen and (max-width: 2560px) {
-        .mappedcity img {
-            min-width: 30vw !important;
-        }
+    /*@media only screen and (max-width: 2560px) {*/
+        /*.mappedcity img {*/
+            /*min-width: 30vw !important;*/
+        /*}*/
 
-        .mappedcity img {
-            width: 16vw !important;
-            height: 65%!important;
-        }
-    }
+        /*.mappedcity img {*/
+            /*width: 16vw !important;*/
+            /*height: 65%!important;*/
+        /*}*/
+    /*}*/
 
-    @media only screen and (min-width: 2560px) {
-        .mappedcity img {
-            min-width: 31vw !important;
-            height: 70% !important;
-        }
-    }
+    /*@media only screen and (min-width: 2560px) {*/
+        /*.mappedcity img {*/
+            /*min-width: 31vw !important;*/
+            /*height: 70% !important;*/
+        /*}*/
+    /*}*/
 
     /* CSS Document */
 
@@ -80,7 +80,6 @@
     }
 
     .mappedcity img {
-        min-width: 400px;
         width: 100%;
         max-width: 100%;
         height: 100%;
@@ -100,6 +99,7 @@
 
     /*Content*/
     .content1 {
+        left:5%;
         top: 0;
         bottom: 0;
         display: flex;
@@ -107,8 +107,8 @@
         justify-content: center;
         -ms-flex-pack: center;
         position: relative;
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height:80%;
         align-items: center;
         -webkit-align-items: center;
 
@@ -150,7 +150,6 @@
     .map_country li a.on {
         color: #333;
         font-size: 0.8vw;
-
         text-decoration: none;
         font-weight: bold
     }
@@ -283,9 +282,11 @@
     /* 전국시도 */
 
     .mappedcity {
-        left: 8.5vw;
+        top: 12%;
+        left: 12%;
         position: absolute;
-        width: auto;
+        width: 100%;
+        height: 90%;
         font-size: 1vw;
         z-index: 11;
         text-align: center;
