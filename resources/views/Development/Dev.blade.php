@@ -197,6 +197,12 @@
         }
 
     }
+    @media (max-width: 1440px) {
+        .dev_info_search {
+            height:52vh!important;
+        }
+
+    }
     @media (min-width: 1440px) {
         .dev_info_search {
             height:70vh;
@@ -205,7 +211,7 @@
     }
     @media (max-width: 750px) {
         .dev_info_search {
-            height:30vh;
+            height:30vh!important;
         }
 
     }
